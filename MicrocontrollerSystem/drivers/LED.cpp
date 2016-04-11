@@ -10,11 +10,13 @@
 #include <avr/io.h>
 
 // default constructor
-LED::LED()
+LED::LED(int port, int pin)
 {
+	this->port = port;
+	this->pin = pin;
 	this->status = false;
-	DDRB = 0xFF;
-	PORTB = 0x00;
+	DDRB |= 1 << this->pin;
+	PORTB &= ~(1 << this->pin);
 } //LED
 
 // default destructor
@@ -24,13 +26,27 @@ LED::~LED()
 
 void LED::on()
 {
-	PORTB=0xFF;
+	if (this->port == IOPORTA)
+		PORTA |= 1 << this->pin;
+	if (this->port == IOPORTB)
+		PORTB |= 1 << this->pin;
+	if (this->port == IOPORTC)
+		PORTC |= 1 << this->pin;
+	if (this->port == IOPORTD)
+		PORTD |= 1 << this->pin;
 	this->status = true;
 }
 
 void LED::off()
 {
-	PORTB=0x00;
+	if (this->port == IOPORTA)
+		PORTA &= ~(1 << this->pin);
+	if (this->port == IOPORTB)
+		PORTB &= ~(1 << this->pin);
+	if (this->port == IOPORTC)
+		PORTC &= ~(1 << this->pin);
+	if (this->port == IOPORTD)
+		PORTD &= ~(1 << this->pin);
 	this->status = false;
 }
 

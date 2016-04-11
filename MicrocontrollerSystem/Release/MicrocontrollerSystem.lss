@@ -3,13 +3,13 @@ MicrocontrollerSystem.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000be  00000000  00000000  00000054  2**1
+  0 .text         000001fe  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  00000112  2**0
+  1 .data         00000000  00800060  00800060  00000252  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  00000112  2**0
+  2 .comment      00000030  00000000  00000000  00000252  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000144  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000284  2**2
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -44,57 +44,219 @@ Disassembly of section .text:
   5a:	d8 e0       	ldi	r29, 0x08	; 8
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
-  60:	0e 94 49 00 	call	0x92	; 0x92 <main>
-  64:	0c 94 5d 00 	jmp	0xba	; 0xba <_exit>
+  60:	0e 94 e3 00 	call	0x1c6	; 0x1c6 <main>
+  64:	0c 94 fd 00 	jmp	0x1fa	; 0x1fa <_exit>
 
 00000068 <__bad_interrupt>:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-0000006c <_ZN3LEDC1Ev>:
+0000006c <_ZN3LEDC1Eii>:
   6c:	fc 01       	movw	r30, r24
-  6e:	10 82       	st	Z, r1
-  70:	8f ef       	ldi	r24, 0xFF	; 255
-  72:	87 bb       	out	0x17, r24	; 23
-  74:	18 ba       	out	0x18, r1	; 24
-  76:	08 95       	ret
+  6e:	72 83       	std	Z+2, r23	; 0x02
+  70:	61 83       	std	Z+1, r22	; 0x01
+  72:	43 83       	std	Z+3, r20	; 0x03
+  74:	54 83       	std	Z+4, r21	; 0x04
+  76:	10 82       	st	Z, r1
+  78:	57 b3       	in	r21, 0x17	; 23
+  7a:	21 e0       	ldi	r18, 0x01	; 1
+  7c:	30 e0       	ldi	r19, 0x00	; 0
+  7e:	c9 01       	movw	r24, r18
+  80:	01 c0       	rjmp	.+2      	; 0x84 <_ZN3LEDC1Eii+0x18>
+  82:	88 0f       	add	r24, r24
+  84:	4a 95       	dec	r20
+  86:	ea f7       	brpl	.-6      	; 0x82 <_ZN3LEDC1Eii+0x16>
+  88:	85 2b       	or	r24, r21
+  8a:	87 bb       	out	0x17, r24	; 23
+  8c:	88 b3       	in	r24, 0x18	; 24
+  8e:	03 80       	ldd	r0, Z+3	; 0x03
+  90:	02 c0       	rjmp	.+4      	; 0x96 <_ZN3LEDC1Eii+0x2a>
+  92:	22 0f       	add	r18, r18
+  94:	33 1f       	adc	r19, r19
+  96:	0a 94       	dec	r0
+  98:	e2 f7       	brpl	.-8      	; 0x92 <_ZN3LEDC1Eii+0x26>
+  9a:	20 95       	com	r18
+  9c:	28 23       	and	r18, r24
+  9e:	28 bb       	out	0x18, r18	; 24
+  a0:	08 95       	ret
 
-00000078 <_ZN3LED6toggleEv>:
-  78:	fc 01       	movw	r30, r24
-  7a:	80 81       	ld	r24, Z
-  7c:	81 11       	cpse	r24, r1
-  7e:	05 c0       	rjmp	.+10     	; 0x8a <_ZN3LED6toggleEv+0x12>
-  80:	8f ef       	ldi	r24, 0xFF	; 255
-  82:	88 bb       	out	0x18, r24	; 24
-  84:	81 e0       	ldi	r24, 0x01	; 1
-  86:	80 83       	st	Z, r24
-  88:	02 c0       	rjmp	.+4      	; 0x8e <_ZN3LED6toggleEv+0x16>
-  8a:	18 ba       	out	0x18, r1	; 24
-  8c:	10 82       	st	Z, r1
-  8e:	80 81       	ld	r24, Z
-  90:	08 95       	ret
+000000a2 <_ZN3LED2onEv>:
+  a2:	fc 01       	movw	r30, r24
+  a4:	81 81       	ldd	r24, Z+1	; 0x01
+  a6:	92 81       	ldd	r25, Z+2	; 0x02
+  a8:	89 2b       	or	r24, r25
+  aa:	59 f4       	brne	.+22     	; 0xc2 <_ZN3LED2onEv+0x20>
+  ac:	2b b3       	in	r18, 0x1b	; 27
+  ae:	81 e0       	ldi	r24, 0x01	; 1
+  b0:	90 e0       	ldi	r25, 0x00	; 0
+  b2:	03 80       	ldd	r0, Z+3	; 0x03
+  b4:	02 c0       	rjmp	.+4      	; 0xba <_ZN3LED2onEv+0x18>
+  b6:	88 0f       	add	r24, r24
+  b8:	99 1f       	adc	r25, r25
+  ba:	0a 94       	dec	r0
+  bc:	e2 f7       	brpl	.-8      	; 0xb6 <_ZN3LED2onEv+0x14>
+  be:	82 2b       	or	r24, r18
+  c0:	8b bb       	out	0x1b, r24	; 27
+  c2:	81 81       	ldd	r24, Z+1	; 0x01
+  c4:	92 81       	ldd	r25, Z+2	; 0x02
+  c6:	81 30       	cpi	r24, 0x01	; 1
+  c8:	91 05       	cpc	r25, r1
+  ca:	49 f4       	brne	.+18     	; 0xde <_ZN3LED2onEv+0x3c>
+  cc:	28 b3       	in	r18, 0x18	; 24
+  ce:	03 80       	ldd	r0, Z+3	; 0x03
+  d0:	02 c0       	rjmp	.+4      	; 0xd6 <_ZN3LED2onEv+0x34>
+  d2:	88 0f       	add	r24, r24
+  d4:	99 1f       	adc	r25, r25
+  d6:	0a 94       	dec	r0
+  d8:	e2 f7       	brpl	.-8      	; 0xd2 <_ZN3LED2onEv+0x30>
+  da:	82 2b       	or	r24, r18
+  dc:	88 bb       	out	0x18, r24	; 24
+  de:	81 81       	ldd	r24, Z+1	; 0x01
+  e0:	92 81       	ldd	r25, Z+2	; 0x02
+  e2:	02 97       	sbiw	r24, 0x02	; 2
+  e4:	59 f4       	brne	.+22     	; 0xfc <_ZN3LED2onEv+0x5a>
+  e6:	25 b3       	in	r18, 0x15	; 21
+  e8:	81 e0       	ldi	r24, 0x01	; 1
+  ea:	90 e0       	ldi	r25, 0x00	; 0
+  ec:	03 80       	ldd	r0, Z+3	; 0x03
+  ee:	02 c0       	rjmp	.+4      	; 0xf4 <_ZN3LED2onEv+0x52>
+  f0:	88 0f       	add	r24, r24
+  f2:	99 1f       	adc	r25, r25
+  f4:	0a 94       	dec	r0
+  f6:	e2 f7       	brpl	.-8      	; 0xf0 <_ZN3LED2onEv+0x4e>
+  f8:	82 2b       	or	r24, r18
+  fa:	85 bb       	out	0x15, r24	; 21
+  fc:	81 81       	ldd	r24, Z+1	; 0x01
+  fe:	92 81       	ldd	r25, Z+2	; 0x02
+ 100:	03 97       	sbiw	r24, 0x03	; 3
+ 102:	59 f4       	brne	.+22     	; 0x11a <_ZN3LED2onEv+0x78>
+ 104:	22 b3       	in	r18, 0x12	; 18
+ 106:	81 e0       	ldi	r24, 0x01	; 1
+ 108:	90 e0       	ldi	r25, 0x00	; 0
+ 10a:	03 80       	ldd	r0, Z+3	; 0x03
+ 10c:	02 c0       	rjmp	.+4      	; 0x112 <_ZN3LED2onEv+0x70>
+ 10e:	88 0f       	add	r24, r24
+ 110:	99 1f       	adc	r25, r25
+ 112:	0a 94       	dec	r0
+ 114:	e2 f7       	brpl	.-8      	; 0x10e <_ZN3LED2onEv+0x6c>
+ 116:	82 2b       	or	r24, r18
+ 118:	82 bb       	out	0x12, r24	; 18
+ 11a:	81 e0       	ldi	r24, 0x01	; 1
+ 11c:	80 83       	st	Z, r24
+ 11e:	08 95       	ret
 
-00000092 <main>:
-  92:	cf 93       	push	r28
-  94:	df 93       	push	r29
-  96:	1f 92       	push	r1
-  98:	cd b7       	in	r28, 0x3d	; 61
-  9a:	de b7       	in	r29, 0x3e	; 62
-  9c:	ce 01       	movw	r24, r28
-  9e:	01 96       	adiw	r24, 0x01	; 1
-  a0:	0e 94 36 00 	call	0x6c	; 0x6c <_ZN3LEDC1Ev>
-  a4:	ce 01       	movw	r24, r28
-  a6:	01 96       	adiw	r24, 0x01	; 1
-  a8:	0e 94 3c 00 	call	0x78	; 0x78 <_ZN3LED6toggleEv>
-  ac:	8f e4       	ldi	r24, 0x4F	; 79
-  ae:	93 ec       	ldi	r25, 0xC3	; 195
-  b0:	01 97       	sbiw	r24, 0x01	; 1
-  b2:	f1 f7       	brne	.-4      	; 0xb0 <main+0x1e>
-  b4:	00 c0       	rjmp	.+0      	; 0xb6 <main+0x24>
-  b6:	00 00       	nop
-  b8:	f5 cf       	rjmp	.-22     	; 0xa4 <main+0x12>
+00000120 <_ZN3LED3offEv>:
+ 120:	fc 01       	movw	r30, r24
+ 122:	81 81       	ldd	r24, Z+1	; 0x01
+ 124:	92 81       	ldd	r25, Z+2	; 0x02
+ 126:	89 2b       	or	r24, r25
+ 128:	61 f4       	brne	.+24     	; 0x142 <_ZN3LED3offEv+0x22>
+ 12a:	2b b3       	in	r18, 0x1b	; 27
+ 12c:	81 e0       	ldi	r24, 0x01	; 1
+ 12e:	90 e0       	ldi	r25, 0x00	; 0
+ 130:	03 80       	ldd	r0, Z+3	; 0x03
+ 132:	02 c0       	rjmp	.+4      	; 0x138 <_ZN3LED3offEv+0x18>
+ 134:	88 0f       	add	r24, r24
+ 136:	99 1f       	adc	r25, r25
+ 138:	0a 94       	dec	r0
+ 13a:	e2 f7       	brpl	.-8      	; 0x134 <_ZN3LED3offEv+0x14>
+ 13c:	80 95       	com	r24
+ 13e:	82 23       	and	r24, r18
+ 140:	8b bb       	out	0x1b, r24	; 27
+ 142:	81 81       	ldd	r24, Z+1	; 0x01
+ 144:	92 81       	ldd	r25, Z+2	; 0x02
+ 146:	81 30       	cpi	r24, 0x01	; 1
+ 148:	91 05       	cpc	r25, r1
+ 14a:	51 f4       	brne	.+20     	; 0x160 <_ZN3LED3offEv+0x40>
+ 14c:	28 b3       	in	r18, 0x18	; 24
+ 14e:	03 80       	ldd	r0, Z+3	; 0x03
+ 150:	02 c0       	rjmp	.+4      	; 0x156 <_ZN3LED3offEv+0x36>
+ 152:	88 0f       	add	r24, r24
+ 154:	99 1f       	adc	r25, r25
+ 156:	0a 94       	dec	r0
+ 158:	e2 f7       	brpl	.-8      	; 0x152 <_ZN3LED3offEv+0x32>
+ 15a:	80 95       	com	r24
+ 15c:	82 23       	and	r24, r18
+ 15e:	88 bb       	out	0x18, r24	; 24
+ 160:	81 81       	ldd	r24, Z+1	; 0x01
+ 162:	92 81       	ldd	r25, Z+2	; 0x02
+ 164:	02 97       	sbiw	r24, 0x02	; 2
+ 166:	61 f4       	brne	.+24     	; 0x180 <_ZN3LED3offEv+0x60>
+ 168:	25 b3       	in	r18, 0x15	; 21
+ 16a:	81 e0       	ldi	r24, 0x01	; 1
+ 16c:	90 e0       	ldi	r25, 0x00	; 0
+ 16e:	03 80       	ldd	r0, Z+3	; 0x03
+ 170:	02 c0       	rjmp	.+4      	; 0x176 <_ZN3LED3offEv+0x56>
+ 172:	88 0f       	add	r24, r24
+ 174:	99 1f       	adc	r25, r25
+ 176:	0a 94       	dec	r0
+ 178:	e2 f7       	brpl	.-8      	; 0x172 <_ZN3LED3offEv+0x52>
+ 17a:	80 95       	com	r24
+ 17c:	82 23       	and	r24, r18
+ 17e:	85 bb       	out	0x15, r24	; 21
+ 180:	81 81       	ldd	r24, Z+1	; 0x01
+ 182:	92 81       	ldd	r25, Z+2	; 0x02
+ 184:	03 97       	sbiw	r24, 0x03	; 3
+ 186:	61 f4       	brne	.+24     	; 0x1a0 <_ZN3LED3offEv+0x80>
+ 188:	22 b3       	in	r18, 0x12	; 18
+ 18a:	81 e0       	ldi	r24, 0x01	; 1
+ 18c:	90 e0       	ldi	r25, 0x00	; 0
+ 18e:	03 80       	ldd	r0, Z+3	; 0x03
+ 190:	02 c0       	rjmp	.+4      	; 0x196 <_ZN3LED3offEv+0x76>
+ 192:	88 0f       	add	r24, r24
+ 194:	99 1f       	adc	r25, r25
+ 196:	0a 94       	dec	r0
+ 198:	e2 f7       	brpl	.-8      	; 0x192 <_ZN3LED3offEv+0x72>
+ 19a:	80 95       	com	r24
+ 19c:	82 23       	and	r24, r18
+ 19e:	82 bb       	out	0x12, r24	; 18
+ 1a0:	10 82       	st	Z, r1
+ 1a2:	08 95       	ret
 
-000000ba <_exit>:
-  ba:	f8 94       	cli
+000001a4 <_ZN3LED6toggleEv>:
+ 1a4:	cf 93       	push	r28
+ 1a6:	df 93       	push	r29
+ 1a8:	ec 01       	movw	r28, r24
+ 1aa:	88 81       	ld	r24, Y
+ 1ac:	81 11       	cpse	r24, r1
+ 1ae:	04 c0       	rjmp	.+8      	; 0x1b8 <_ZN3LED6toggleEv+0x14>
+ 1b0:	ce 01       	movw	r24, r28
+ 1b2:	0e 94 51 00 	call	0xa2	; 0xa2 <_ZN3LED2onEv>
+ 1b6:	03 c0       	rjmp	.+6      	; 0x1be <_ZN3LED6toggleEv+0x1a>
+ 1b8:	ce 01       	movw	r24, r28
+ 1ba:	0e 94 90 00 	call	0x120	; 0x120 <_ZN3LED3offEv>
+ 1be:	88 81       	ld	r24, Y
+ 1c0:	df 91       	pop	r29
+ 1c2:	cf 91       	pop	r28
+ 1c4:	08 95       	ret
 
-000000bc <__stop_program>:
-  bc:	ff cf       	rjmp	.-2      	; 0xbc <__stop_program>
+000001c6 <main>:
+ 1c6:	cf 93       	push	r28
+ 1c8:	df 93       	push	r29
+ 1ca:	00 d0       	rcall	.+0      	; 0x1cc <main+0x6>
+ 1cc:	00 d0       	rcall	.+0      	; 0x1ce <main+0x8>
+ 1ce:	1f 92       	push	r1
+ 1d0:	cd b7       	in	r28, 0x3d	; 61
+ 1d2:	de b7       	in	r29, 0x3e	; 62
+ 1d4:	41 e0       	ldi	r20, 0x01	; 1
+ 1d6:	50 e0       	ldi	r21, 0x00	; 0
+ 1d8:	61 e0       	ldi	r22, 0x01	; 1
+ 1da:	70 e0       	ldi	r23, 0x00	; 0
+ 1dc:	ce 01       	movw	r24, r28
+ 1de:	01 96       	adiw	r24, 0x01	; 1
+ 1e0:	0e 94 36 00 	call	0x6c	; 0x6c <_ZN3LEDC1Eii>
+ 1e4:	ce 01       	movw	r24, r28
+ 1e6:	01 96       	adiw	r24, 0x01	; 1
+ 1e8:	0e 94 d2 00 	call	0x1a4	; 0x1a4 <_ZN3LED6toggleEv>
+ 1ec:	8f e4       	ldi	r24, 0x4F	; 79
+ 1ee:	93 ec       	ldi	r25, 0xC3	; 195
+ 1f0:	01 97       	sbiw	r24, 0x01	; 1
+ 1f2:	f1 f7       	brne	.-4      	; 0x1f0 <main+0x2a>
+ 1f4:	00 c0       	rjmp	.+0      	; 0x1f6 <main+0x30>
+ 1f6:	00 00       	nop
+ 1f8:	f5 cf       	rjmp	.-22     	; 0x1e4 <main+0x1e>
+
+000001fa <_exit>:
+ 1fa:	f8 94       	cli
+
+000001fc <__stop_program>:
+ 1fc:	ff cf       	rjmp	.-2      	; 0x1fc <__stop_program>

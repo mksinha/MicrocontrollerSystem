@@ -9,18 +9,23 @@
 #ifndef __LED_H__
 #define __LED_H__
 
+#define IOPORTA 0
+#define IOPORTB 1
+#define IOPORTC 2
+#define IOPORTD 3
 
 class LED
 {
 //variables
 public:
 protected:
-	bool status;
+	bool status; 
+	int port, pin;
 private:
 
 //functions
 public:
-	LED();
+	LED(int port, int pin);
 	~LED();
 	void on();
 	void off();

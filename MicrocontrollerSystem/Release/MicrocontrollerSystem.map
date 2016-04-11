@@ -1,42 +1,36 @@
 Archive member included to satisfy reference by file (symbol)
 
-c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                              C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
+e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                              E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
 
 Discarded input sections
 
- .data          0x00000000        0x0 C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
- .bss           0x00000000        0x0 C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .data          0x00000000        0x0 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .bss           0x00000000        0x0 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
  .text          0x00000000        0x0 drivers/LED.o
  .data          0x00000000        0x0 drivers/LED.o
  .bss           0x00000000        0x0 drivers/LED.o
  .text._ZN3LEDD2Ev
                 0x00000000        0x2 drivers/LED.o
- .text._ZN3LED4initEv
-                0x00000000        0xc drivers/LED.o
- .text._ZN3LED2onEv
-                0x00000000        0xc drivers/LED.o
- .text._ZN3LED3offEv
-                0x00000000        0x8 drivers/LED.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text          0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
- .data          0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
- .bss           0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  .text.libgcc.div
-                0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
 
 Memory Configuration
 
@@ -52,19 +46,19 @@ user_signatures  0x00850000         0x00000400         rw !x
 
 Linker script and memory map
 
-LOAD C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+LOAD E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
 LOAD drivers/LED.o
 LOAD main.o
 START GROUP
-LOAD c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a
+LOAD e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a
 END GROUP
-LOAD c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a
-LOAD c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a
+LOAD e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a
+LOAD e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a
 START GROUP
-LOAD c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a
-LOAD c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a
-LOAD c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a
-LOAD C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5\libatmega32.a
+LOAD e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a
+LOAD e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a
+LOAD e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a
+LOAD E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5\libatmega32.a
 END GROUP
 
 .hash
@@ -157,9 +151,9 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000       0xbe
+.text           0x00000000      0x1fe
  *(.vectors)
- .vectors       0x00000000       0x54 C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .vectors       0x00000000       0x54 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
@@ -185,13 +179,13 @@ END GROUP
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000054        0x0 C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .init0         0x00000054        0x0 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000054                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000054        0xc C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .init2         0x00000054        0xc E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
  *(.init2)
  *(.init3)
  *(.init3)
@@ -206,10 +200,10 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000060        0x8 C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .init9         0x00000060        0x8 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
  *(.init9)
  *(.text)
- .text          0x00000068        0x4 C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .text          0x00000068        0x4 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000068                __vector_1
                 0x00000068                __vector_12
                 0x00000068                __bad_interrupt
@@ -233,21 +227,27 @@ END GROUP
                 0x00000068                __vector_20
                 0x0000006c                . = ALIGN (0x2)
  *(.text.*)
- .text._ZN3LEDC2Ev
-                0x0000006c        0xc drivers/LED.o
-                0x0000006c                _ZN3LEDC2Ev
-                0x0000006c                _ZN3LEDC1Ev
+ .text._ZN3LEDC2Eii
+                0x0000006c       0x36 drivers/LED.o
+                0x0000006c                _ZN3LEDC1Eii
+                0x0000006c                _ZN3LEDC2Eii
+ .text._ZN3LED2onEv
+                0x000000a2       0x7e drivers/LED.o
+                0x000000a2                _ZN3LED2onEv
+ .text._ZN3LED3offEv
+                0x00000120       0x84 drivers/LED.o
+                0x00000120                _ZN3LED3offEv
  .text._ZN3LED6toggleEv
-                0x00000078       0x1a drivers/LED.o
-                0x00000078                _ZN3LED6toggleEv
+                0x000001a4       0x22 drivers/LED.o
+                0x000001a4                _ZN3LED6toggleEv
  .text.startup.main
-                0x00000092       0x28 main.o
-                0x00000092                main
-                0x000000ba                . = ALIGN (0x2)
+                0x000001c6       0x34 main.o
+                0x000001c6                main
+                0x000001fa                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000000ba        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x000000ba                _exit
-                0x000000ba                exit
+ .fini9         0x000001fa        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x000001fa                _exit
+                0x000001fa                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -266,11 +266,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000000ba        0x4 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x000001fa        0x4 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000000be                _etext = .
+                0x000001fe                _etext = .
 
-.data           0x00800060        0x0 load address 0x000000be
+.data           0x00800060        0x0 load address 0x000001fe
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -287,8 +287,8 @@ END GROUP
  *(.bss*)
  *(COMMON)
                 0x00800060                PROVIDE (__bss_end, .)
-                0x000000be                __data_load_start = LOADADDR (.data)
-                0x000000be                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000001fe                __data_load_start = LOADADDR (.data)
+                0x000001fe                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800060        0x0
                 0x00800060                PROVIDE (__noinit_start, .)
@@ -343,7 +343,7 @@ END GROUP
 .note.gnu.avr.deviceinfo
                 0x00000000       0x3c
  .note.gnu.avr.deviceinfo
-                0x00000000       0x3c C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+                0x00000000       0x3c E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
 
 .note.gnu.build-id
  *(.note.gnu.build-id)

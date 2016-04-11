@@ -11,7 +11,7 @@
 
 int main(void)
 {
-	LED redled;
+	LED redled(IOPORTB, PIN1);
     while (1) 
     {
 		redled.toggle();
