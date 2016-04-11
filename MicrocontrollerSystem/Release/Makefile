@@ -39,6 +39,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../drivers/LED.cpp \
+../drivers/Outputs.cpp \
 ../main.cpp
 
 
@@ -50,18 +51,22 @@ ASM_SRCS +=
 
 OBJS +=  \
 drivers/LED.o \
+drivers/Outputs.o \
 main.o
 
 OBJS_AS_ARGS +=  \
 drivers/LED.o \
+drivers/Outputs.o \
 main.o
 
 C_DEPS +=  \
 drivers/LED.d \
+drivers/Outputs.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
 drivers/LED.d \
+drivers/Outputs.d \
 main.d
 
 OUTPUT_FILE_PATH +=MicrocontrollerSystem.elf
@@ -78,6 +83,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

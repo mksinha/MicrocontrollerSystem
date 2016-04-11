@@ -5,16 +5,12 @@
 * Author: Manish Sinha
 */
 
+#include "Outputs.h"
 
 #ifndef __LED_H__
 #define __LED_H__
 
-#define IOPORTA 0
-#define IOPORTB 1
-#define IOPORTC 2
-#define IOPORTD 3
-
-class LED
+class LED : public Outputs
 {
 //variables
 public:
@@ -30,6 +26,7 @@ public:
 	void on();
 	void off();
 	bool toggle();
+	bool test();
 protected:
 private:
 	LED( const LED &c );

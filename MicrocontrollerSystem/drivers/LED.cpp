@@ -8,6 +8,7 @@
 
 #include "LED.h"
 #include <avr/io.h>
+#include <util/delay.h>
 
 // default constructor
 LED::LED(int port, int pin)
@@ -15,8 +16,8 @@ LED::LED(int port, int pin)
 	this->port = port;
 	this->pin = pin;
 	this->status = false;
-	DDRB |= 1 << this->pin;
-	PORTB &= ~(1 << this->pin);
+	Outputs::pinDirection(this->port, this->pin, true);
+	Outputs::pinStatus(this->port, this->pin, false);
 } //LED
 
 // default destructor
@@ -26,27 +27,13 @@ LED::~LED()
 
 void LED::on()
 {
-	if (this->port == IOPORTA)
-		PORTA |= 1 << this->pin;
-	if (this->port == IOPORTB)
-		PORTB |= 1 << this->pin;
-	if (this->port == IOPORTC)
-		PORTC |= 1 << this->pin;
-	if (this->port == IOPORTD)
-		PORTD |= 1 << this->pin;
+	Outputs::pinStatus(this->port, this->pin, true);
 	this->status = true;
 }
 
 void LED::off()
 {
-	if (this->port == IOPORTA)
-		PORTA &= ~(1 << this->pin);
-	if (this->port == IOPORTB)
-		PORTB &= ~(1 << this->pin);
-	if (this->port == IOPORTC)
-		PORTC &= ~(1 << this->pin);
-	if (this->port == IOPORTD)
-		PORTD &= ~(1 << this->pin);
+	Outputs::pinStatus(this->port, this->pin, false);
 	this->status = false;
 }
 
@@ -57,4 +44,19 @@ bool LED::toggle()
 	else if(this->status == true)
 		this->off();
 	return this->status;
+}
+
+bool LED::test()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		this->toggle();
+		_delay_ms(500);
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		this->toggle();
+		_delay_ms(150);
+	}
+	return true;
 }
