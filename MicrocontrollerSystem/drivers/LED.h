@@ -26,7 +26,7 @@ public:
 	void on();
 	void off();
 	bool toggle();
-	bool test();
+	void initialize();
 protected:
 private:
 	LED( const LED &c );

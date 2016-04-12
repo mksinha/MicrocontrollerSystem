@@ -20,12 +20,12 @@
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
     <ProgFlashFromRam>true</ProgFlashFromRam>
-    <RamSnippetAddress />
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
     <UncachedRange />
     <preserveEEPROM>true</preserveEEPROM>
-    <OverrideVtorValue />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
-    <eraseonlaunchrule>1</eraseonlaunchrule>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
     <AsfFrameworkConfig>
       <framework-data xmlns="">
         <options />
@@ -38,6 +38,7 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
+    <ExternalProgrammingToolCommand>avrdude.exe</ExternalProgrammingToolCommand>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -151,6 +152,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="drivers\Outputs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\ParallelTextLCD.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\ParallelTextLCD.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.cpp">

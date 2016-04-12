@@ -16,8 +16,7 @@ LED::LED(int port, int pin)
 	this->port = port;
 	this->pin = pin;
 	this->status = false;
-	Outputs::pinDirection(this->port, this->pin, true);
-	Outputs::pinStatus(this->port, this->pin, false);
+	initialize();
 } //LED
 
 // default destructor
@@ -27,36 +26,27 @@ LED::~LED()
 
 void LED::on()
 {
-	Outputs::pinStatus(this->port, this->pin, true);
-	this->status = true;
+	Outputs::pinStatus(port, pin, true);
+	status = true;
 }
 
 void LED::off()
 {
-	Outputs::pinStatus(this->port, this->pin, false);
-	this->status = false;
+	Outputs::pinStatus(port, pin, false);
+	status = false;
 }
 
 bool LED::toggle()
 {
-	if (this->status == false)
-		this->on();
-	else if(this->status == true)
-		this->off();
-	return this->status;
+	if (status == false)
+		on();
+	else if(status == true)
+		off();
+	return status;
 }
 
-bool LED::test()
+void LED::initialize()
 {
-	for (int i = 0; i < 10; i++)
-	{
-		this->toggle();
-		_delay_ms(500);
-	}
-	for (int i = 0; i < 10; i++)
-	{
-		this->toggle();
-		_delay_ms(150);
-	}
-	return true;
+	Outputs::pinDirection(port, pin, true);
+	Outputs::pinStatus(port, pin, false);
 }

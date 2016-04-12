@@ -100,14 +100,14 @@ LINKER_SCRIPT_DEP+=
 drivers/%.o: ../drivers/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
-	$(QUOTE)E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\Packs\atmel\ATmega_DFP\1.0.90\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\Packs\atmel\ATmega_DFP\1.0.90\gcc\dev\atmega32" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -I"E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\Packs\atmel\ATmega_DFP\1.0.90\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\Packs\atmel\ATmega_DFP\1.0.90\gcc\dev\atmega32" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 ./%.o: .././%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
-	$(QUOTE)E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\Packs\atmel\ATmega_DFP\1.0.90\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\Packs\atmel\ATmega_DFP\1.0.90\gcc\dev\atmega32" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -I"E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\Packs\atmel\ATmega_DFP\1.0.90\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\Packs\atmel\ATmega_DFP\1.0.90\gcc\dev\atmega32" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 

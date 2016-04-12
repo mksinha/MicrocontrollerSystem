@@ -8,13 +8,17 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include "drivers/LED.h"
+#include "drivers/ParallelTextLCD.h"
 
 int main(void)
 {
-	LED redled(IOPORTB, PIN1);
-    while (1) 
+	LED led(IOPORTC, IOPIN6);
+	ParallelTextLCD lcd(IOPORTB, IOPORTD, IOPIN2, IOPIN7, IOPIN5);
+	lcd.string(0, 0, "Test Z");
+	lcd.integer(0, 1, 865, 5);
+    while (1)
     {
-		redled.toggle();
+		led.toggle();
 		_delay_ms(200);
     }
 	return 0;
