@@ -38,9 +38,13 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../drivers/Communications.cpp \
+../drivers/Inputs.cpp \
 ../drivers/LED.cpp \
 ../drivers/Outputs.cpp \
 ../drivers/ParallelTextLCD.cpp \
+../drivers/Storage.cpp \
+../drivers/Timer.cpp \
 ../main.cpp
 
 
@@ -51,27 +55,43 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+drivers/Communications.o \
+drivers/Inputs.o \
 drivers/LED.o \
 drivers/Outputs.o \
 drivers/ParallelTextLCD.o \
+drivers/Storage.o \
+drivers/Timer.o \
 main.o
 
 OBJS_AS_ARGS +=  \
+drivers/Communications.o \
+drivers/Inputs.o \
 drivers/LED.o \
 drivers/Outputs.o \
 drivers/ParallelTextLCD.o \
+drivers/Storage.o \
+drivers/Timer.o \
 main.o
 
 C_DEPS +=  \
+drivers/Communications.d \
+drivers/Inputs.d \
 drivers/LED.d \
 drivers/Outputs.d \
 drivers/ParallelTextLCD.d \
+drivers/Storage.d \
+drivers/Timer.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
+drivers/Communications.d \
+drivers/Inputs.d \
 drivers/LED.d \
 drivers/Outputs.d \
 drivers/ParallelTextLCD.d \
+drivers/Storage.d \
+drivers/Timer.d \
 main.d
 
 OUTPUT_FILE_PATH +=MicrocontrollerSystem.elf
@@ -88,6 +108,14 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
+
+
 
 
 

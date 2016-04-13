@@ -66,6 +66,11 @@ void ParallelTextLCD::position(int x, int y)
 	command(0x80 + this->rowPositions[y] + x);
 }
 
+void ParallelTextLCD::clear()
+{
+	command(0x01);
+}
+
 void ParallelTextLCD::command(unsigned char cmd)
 {
 	wait_busy();

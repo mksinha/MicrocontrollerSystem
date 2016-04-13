@@ -1,5 +1,5 @@
 drivers/Outputs.d drivers/Outputs.o: ../drivers/Outputs.cpp \
- ../drivers/Outputs.h \
+ ../drivers/Outputs.h ../drivers/Devices.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -13,6 +13,8 @@ drivers/Outputs.d drivers/Outputs.o: ../drivers/Outputs.cpp \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h
 
 ../drivers/Outputs.h:
+
+../drivers/Devices.h:
 
 e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 

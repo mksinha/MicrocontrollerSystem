@@ -30,6 +30,7 @@ public:
 	void string(int x, int y, char* str);
 	void string(char* str);
 	void position(int x, int y);
+	void clear();
 protected:
 	void command(unsigned char cmd);
 	void character(unsigned char chr);

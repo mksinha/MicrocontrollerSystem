@@ -3,13 +3,13 @@ MicrocontrollerSystem.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000071a  00000000  00000000  00000074  2**1
+  0 .text         00000720  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000001e  00800060  0000071a  0000078e  2**0
+  1 .data         00000028  00800060  00000720  00000794  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  000007ac  2**0
+  2 .comment      00000030  00000000  00000000  000007bc  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000007dc  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000007ec  2**2
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -49,16 +49,16 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	ea e1       	ldi	r30, 0x1A	; 26
+  66:	e0 e2       	ldi	r30, 0x20	; 32
   68:	f7 e0       	ldi	r31, 0x07	; 7
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
   6e:	0d 92       	st	X+, r0
-  70:	ae 37       	cpi	r26, 0x7E	; 126
+  70:	a8 38       	cpi	r26, 0x88	; 136
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
   76:	0e 94 14 03 	call	0x628	; 0x628 <main>
-  7a:	0c 94 8b 03 	jmp	0x716	; 0x716 <_exit>
+  7a:	0c 94 8e 03 	jmp	0x71c	; 0x71c <_exit>
 
 0000007e <__bad_interrupt>:
   7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -743,7 +743,7 @@ Disassembly of section .text:
  5ca:	69 01       	movw	r12, r18
  5cc:	4a e0       	ldi	r20, 0x0A	; 10
  5ce:	b9 01       	movw	r22, r18
- 5d0:	0e 94 56 03 	call	0x6ac	; 0x6ac <__itoa_ncheck>
+ 5d0:	0e 94 59 03 	call	0x6b2	; 0x6b2 <__itoa_ncheck>
  5d4:	41 2c       	mov	r4, r1
  5d6:	51 2c       	mov	r5, r1
  5d8:	40 16       	cp	r4, r16
@@ -828,11 +828,11 @@ Disassembly of section .text:
  67a:	0e 94 b2 02 	call	0x564	; 0x564 <_ZN15ParallelTextLCD6stringEiiPc>
  67e:	05 e0       	ldi	r16, 0x05	; 5
  680:	10 e0       	ldi	r17, 0x00	; 0
- 682:	21 e6       	ldi	r18, 0x61	; 97
- 684:	33 e0       	ldi	r19, 0x03	; 3
+ 682:	2d e1       	ldi	r18, 0x1D	; 29
+ 684:	35 e0       	ldi	r19, 0x05	; 5
  686:	41 e0       	ldi	r20, 0x01	; 1
  688:	50 e0       	ldi	r21, 0x00	; 0
- 68a:	60 e0       	ldi	r22, 0x00	; 0
+ 68a:	65 e0       	ldi	r22, 0x05	; 5
  68c:	70 e0       	ldi	r23, 0x00	; 0
  68e:	ce 01       	movw	r24, r28
  690:	01 96       	adiw	r24, 0x01	; 1
@@ -840,75 +840,78 @@ Disassembly of section .text:
  696:	ce 01       	movw	r24, r28
  698:	45 96       	adiw	r24, 0x15	; 21
  69a:	0e 94 7d 00 	call	0xfa	; 0xfa <_ZN3LED6toggleEv>
- 69e:	8f e4       	ldi	r24, 0x4F	; 79
- 6a0:	93 ec       	ldi	r25, 0xC3	; 195
- 6a2:	01 97       	sbiw	r24, 0x01	; 1
- 6a4:	f1 f7       	brne	.-4      	; 0x6a2 <main+0x7a>
- 6a6:	00 c0       	rjmp	.+0      	; 0x6a8 <main+0x80>
- 6a8:	00 00       	nop
- 6aa:	f5 cf       	rjmp	.-22     	; 0x696 <main+0x6e>
+ 69e:	2f e9       	ldi	r18, 0x9F	; 159
+ 6a0:	86 e8       	ldi	r24, 0x86	; 134
+ 6a2:	91 e0       	ldi	r25, 0x01	; 1
+ 6a4:	21 50       	subi	r18, 0x01	; 1
+ 6a6:	80 40       	sbci	r24, 0x00	; 0
+ 6a8:	90 40       	sbci	r25, 0x00	; 0
+ 6aa:	e1 f7       	brne	.-8      	; 0x6a4 <main+0x7c>
+ 6ac:	00 c0       	rjmp	.+0      	; 0x6ae <main+0x86>
+ 6ae:	00 00       	nop
+ 6b0:	f2 cf       	rjmp	.-28     	; 0x696 <main+0x6e>
 
-000006ac <__itoa_ncheck>:
- 6ac:	bb 27       	eor	r27, r27
- 6ae:	4a 30       	cpi	r20, 0x0A	; 10
- 6b0:	31 f4       	brne	.+12     	; 0x6be <__itoa_ncheck+0x12>
- 6b2:	99 23       	and	r25, r25
- 6b4:	22 f4       	brpl	.+8      	; 0x6be <__itoa_ncheck+0x12>
- 6b6:	bd e2       	ldi	r27, 0x2D	; 45
- 6b8:	90 95       	com	r25
- 6ba:	81 95       	neg	r24
- 6bc:	9f 4f       	sbci	r25, 0xFF	; 255
- 6be:	0c 94 62 03 	jmp	0x6c4	; 0x6c4 <__utoa_common>
+000006b2 <__itoa_ncheck>:
+ 6b2:	bb 27       	eor	r27, r27
+ 6b4:	4a 30       	cpi	r20, 0x0A	; 10
+ 6b6:	31 f4       	brne	.+12     	; 0x6c4 <__itoa_ncheck+0x12>
+ 6b8:	99 23       	and	r25, r25
+ 6ba:	22 f4       	brpl	.+8      	; 0x6c4 <__itoa_ncheck+0x12>
+ 6bc:	bd e2       	ldi	r27, 0x2D	; 45
+ 6be:	90 95       	com	r25
+ 6c0:	81 95       	neg	r24
+ 6c2:	9f 4f       	sbci	r25, 0xFF	; 255
+ 6c4:	0c 94 65 03 	jmp	0x6ca	; 0x6ca <__utoa_common>
 
-000006c2 <__utoa_ncheck>:
- 6c2:	bb 27       	eor	r27, r27
+000006c8 <__utoa_ncheck>:
+ 6c8:	bb 27       	eor	r27, r27
 
-000006c4 <__utoa_common>:
- 6c4:	fb 01       	movw	r30, r22
- 6c6:	55 27       	eor	r21, r21
- 6c8:	aa 27       	eor	r26, r26
- 6ca:	88 0f       	add	r24, r24
- 6cc:	99 1f       	adc	r25, r25
- 6ce:	aa 1f       	adc	r26, r26
- 6d0:	a4 17       	cp	r26, r20
- 6d2:	10 f0       	brcs	.+4      	; 0x6d8 <__utoa_common+0x14>
- 6d4:	a4 1b       	sub	r26, r20
- 6d6:	83 95       	inc	r24
- 6d8:	50 51       	subi	r21, 0x10	; 16
- 6da:	b9 f7       	brne	.-18     	; 0x6ca <__utoa_common+0x6>
- 6dc:	a0 5d       	subi	r26, 0xD0	; 208
- 6de:	aa 33       	cpi	r26, 0x3A	; 58
- 6e0:	08 f0       	brcs	.+2      	; 0x6e4 <__utoa_common+0x20>
- 6e2:	a9 5d       	subi	r26, 0xD9	; 217
- 6e4:	a1 93       	st	Z+, r26
- 6e6:	00 97       	sbiw	r24, 0x00	; 0
- 6e8:	79 f7       	brne	.-34     	; 0x6c8 <__utoa_common+0x4>
- 6ea:	b1 11       	cpse	r27, r1
- 6ec:	b1 93       	st	Z+, r27
- 6ee:	11 92       	st	Z+, r1
- 6f0:	cb 01       	movw	r24, r22
- 6f2:	0c 94 7b 03 	jmp	0x6f6	; 0x6f6 <strrev>
+000006ca <__utoa_common>:
+ 6ca:	fb 01       	movw	r30, r22
+ 6cc:	55 27       	eor	r21, r21
+ 6ce:	aa 27       	eor	r26, r26
+ 6d0:	88 0f       	add	r24, r24
+ 6d2:	99 1f       	adc	r25, r25
+ 6d4:	aa 1f       	adc	r26, r26
+ 6d6:	a4 17       	cp	r26, r20
+ 6d8:	10 f0       	brcs	.+4      	; 0x6de <__utoa_common+0x14>
+ 6da:	a4 1b       	sub	r26, r20
+ 6dc:	83 95       	inc	r24
+ 6de:	50 51       	subi	r21, 0x10	; 16
+ 6e0:	b9 f7       	brne	.-18     	; 0x6d0 <__utoa_common+0x6>
+ 6e2:	a0 5d       	subi	r26, 0xD0	; 208
+ 6e4:	aa 33       	cpi	r26, 0x3A	; 58
+ 6e6:	08 f0       	brcs	.+2      	; 0x6ea <__utoa_common+0x20>
+ 6e8:	a9 5d       	subi	r26, 0xD9	; 217
+ 6ea:	a1 93       	st	Z+, r26
+ 6ec:	00 97       	sbiw	r24, 0x00	; 0
+ 6ee:	79 f7       	brne	.-34     	; 0x6ce <__utoa_common+0x4>
+ 6f0:	b1 11       	cpse	r27, r1
+ 6f2:	b1 93       	st	Z+, r27
+ 6f4:	11 92       	st	Z+, r1
+ 6f6:	cb 01       	movw	r24, r22
+ 6f8:	0c 94 7e 03 	jmp	0x6fc	; 0x6fc <strrev>
 
-000006f6 <strrev>:
- 6f6:	dc 01       	movw	r26, r24
- 6f8:	fc 01       	movw	r30, r24
- 6fa:	67 2f       	mov	r22, r23
- 6fc:	71 91       	ld	r23, Z+
- 6fe:	77 23       	and	r23, r23
- 700:	e1 f7       	brne	.-8      	; 0x6fa <strrev+0x4>
- 702:	32 97       	sbiw	r30, 0x02	; 2
- 704:	04 c0       	rjmp	.+8      	; 0x70e <strrev+0x18>
- 706:	7c 91       	ld	r23, X
- 708:	6d 93       	st	X+, r22
- 70a:	70 83       	st	Z, r23
- 70c:	62 91       	ld	r22, -Z
- 70e:	ae 17       	cp	r26, r30
- 710:	bf 07       	cpc	r27, r31
- 712:	c8 f3       	brcs	.-14     	; 0x706 <strrev+0x10>
- 714:	08 95       	ret
+000006fc <strrev>:
+ 6fc:	dc 01       	movw	r26, r24
+ 6fe:	fc 01       	movw	r30, r24
+ 700:	67 2f       	mov	r22, r23
+ 702:	71 91       	ld	r23, Z+
+ 704:	77 23       	and	r23, r23
+ 706:	e1 f7       	brne	.-8      	; 0x700 <strrev+0x4>
+ 708:	32 97       	sbiw	r30, 0x02	; 2
+ 70a:	04 c0       	rjmp	.+8      	; 0x714 <strrev+0x18>
+ 70c:	7c 91       	ld	r23, X
+ 70e:	6d 93       	st	X+, r22
+ 710:	70 83       	st	Z, r23
+ 712:	62 91       	ld	r22, -Z
+ 714:	ae 17       	cp	r26, r30
+ 716:	bf 07       	cpc	r27, r31
+ 718:	c8 f3       	brcs	.-14     	; 0x70c <strrev+0x10>
+ 71a:	08 95       	ret
 
-00000716 <_exit>:
- 716:	f8 94       	cli
+0000071c <_exit>:
+ 71c:	f8 94       	cli
 
-00000718 <__stop_program>:
- 718:	ff cf       	rjmp	.-2      	; 0x718 <__stop_program>
+0000071e <__stop_program>:
+ 71e:	ff cf       	rjmp	.-2      	; 0x71e <__stop_program>

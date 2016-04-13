@@ -142,6 +142,21 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="drivers\Communications.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\Communications.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\Devices.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\Inputs.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\Inputs.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\LED.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -160,12 +175,29 @@
     <Compile Include="drivers\ParallelTextLCD.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="drivers\Storage.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\Storage.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\Timer.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\Timer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="drivers" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassStructure.xml">
+      <SubType>compile</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

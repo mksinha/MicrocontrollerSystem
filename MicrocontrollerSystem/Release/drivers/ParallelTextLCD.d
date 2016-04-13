@@ -1,6 +1,6 @@
 drivers/ParallelTextLCD.d drivers/ParallelTextLCD.o: \
  ../drivers/ParallelTextLCD.cpp ../drivers/ParallelTextLCD.h \
- ../drivers/Outputs.h \
+ ../drivers/Outputs.h ../drivers/Devices.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -21,6 +21,8 @@ drivers/ParallelTextLCD.d drivers/ParallelTextLCD.o: \
 ../drivers/ParallelTextLCD.h:
 
 ../drivers/Outputs.h:
+
+../drivers/Devices.h:
 
 e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 

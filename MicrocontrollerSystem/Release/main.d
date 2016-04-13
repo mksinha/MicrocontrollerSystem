@@ -13,7 +13,8 @@ main.d main.o: .././main.cpp \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././drivers/LED.h .././drivers/Outputs.h .././drivers/ParallelTextLCD.h
+ .././drivers/LED.h .././drivers/Outputs.h .././drivers/Devices.h \
+ .././drivers/ParallelTextLCD.h
 
 e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -46,5 +47,7 @@ e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-tool
 .././drivers/LED.h:
 
 .././drivers/Outputs.h:
+
+.././drivers/Devices.h:
 
 .././drivers/ParallelTextLCD.h:

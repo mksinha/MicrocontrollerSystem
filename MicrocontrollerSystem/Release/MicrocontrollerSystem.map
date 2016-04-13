@@ -3,7 +3,7 @@ Archive member included to satisfy reference by file (symbol)
 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
                               E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
-                              drivers/LED.o (__do_copy_data)
+                              drivers/Communications.o (__do_copy_data)
 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
                               drivers/ParallelTextLCD.o (__itoa_ncheck)
 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
@@ -15,6 +15,36 @@ Discarded input sections
 
  .data          0x00000000        0x0 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
  .bss           0x00000000        0x0 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .group         0x00000000        0x8 drivers/Communications.o
+ .text          0x00000000        0x0 drivers/Communications.o
+ .data          0x00000000        0x0 drivers/Communications.o
+ .bss           0x00000000        0x0 drivers/Communications.o
+ .text._ZN14Communications7Method2Ev
+                0x00000000        0x2 drivers/Communications.o
+ .text._ZN14Communications7Method3Ev
+                0x00000000        0x2 drivers/Communications.o
+ .text._ZN14CommunicationsD2Ev
+                0x00000000        0x2 drivers/Communications.o
+ .text._ZN14CommunicationsD0Ev
+                0x00000000        0x4 drivers/Communications.o
+ .rodata._ZTV14Communications
+                0x00000000        0xc drivers/Communications.o
+ .comment       0x00000000       0x31 drivers/Communications.o
+ .group         0x00000000        0x8 drivers/Inputs.o
+ .text          0x00000000        0x0 drivers/Inputs.o
+ .data          0x00000000        0x0 drivers/Inputs.o
+ .bss           0x00000000        0x0 drivers/Inputs.o
+ .text._ZN6Inputs7Method2Ev
+                0x00000000        0x2 drivers/Inputs.o
+ .text._ZN6Inputs7Method3Ev
+                0x00000000        0x2 drivers/Inputs.o
+ .text._ZN6InputsD2Ev
+                0x00000000        0x2 drivers/Inputs.o
+ .text._ZN6InputsD0Ev
+                0x00000000        0x4 drivers/Inputs.o
+ .rodata._ZTV6Inputs
+                0x00000000        0xc drivers/Inputs.o
+ .comment       0x00000000       0x31 drivers/Inputs.o
  .group         0x00000000        0x8 drivers/LED.o
  .text          0x00000000        0x0 drivers/LED.o
  .data          0x00000000        0x0 drivers/LED.o
@@ -32,6 +62,38 @@ Discarded input sections
  .bss           0x00000000        0x0 drivers/ParallelTextLCD.o
  .text._ZN15ParallelTextLCDD2Ev
                 0x00000000        0x2 drivers/ParallelTextLCD.o
+ .text._ZN15ParallelTextLCD5clearEv
+                0x00000000        0x6 drivers/ParallelTextLCD.o
+ .group         0x00000000        0x8 drivers/Storage.o
+ .text          0x00000000        0x0 drivers/Storage.o
+ .data          0x00000000        0x0 drivers/Storage.o
+ .bss           0x00000000        0x0 drivers/Storage.o
+ .text._ZN7Storage7Method2Ev
+                0x00000000        0x2 drivers/Storage.o
+ .text._ZN7Storage7Method3Ev
+                0x00000000        0x2 drivers/Storage.o
+ .text._ZN7StorageD2Ev
+                0x00000000        0x2 drivers/Storage.o
+ .text._ZN7StorageD0Ev
+                0x00000000        0x4 drivers/Storage.o
+ .rodata._ZTV7Storage
+                0x00000000        0xc drivers/Storage.o
+ .comment       0x00000000       0x31 drivers/Storage.o
+ .group         0x00000000        0x8 drivers/Timer.o
+ .text          0x00000000        0x0 drivers/Timer.o
+ .data          0x00000000        0x0 drivers/Timer.o
+ .bss           0x00000000        0x0 drivers/Timer.o
+ .text._ZN5Timer7Method2Ev
+                0x00000000        0x2 drivers/Timer.o
+ .text._ZN5Timer7Method3Ev
+                0x00000000        0x2 drivers/Timer.o
+ .text._ZN5TimerD2Ev
+                0x00000000        0x2 drivers/Timer.o
+ .text._ZN5TimerD0Ev
+                0x00000000        0x4 drivers/Timer.o
+ .rodata._ZTV5Timer
+                0x00000000        0xc drivers/Timer.o
+ .comment       0x00000000       0x31 drivers/Timer.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -92,9 +154,13 @@ user_signatures  0x00850000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+LOAD drivers/Communications.o
+LOAD drivers/Inputs.o
 LOAD drivers/LED.o
 LOAD drivers/Outputs.o
 LOAD drivers/ParallelTextLCD.o
+LOAD drivers/Storage.o
+LOAD drivers/Timer.o
 LOAD main.o
 START GROUP
 LOAD e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a
@@ -198,7 +264,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x71a
+.text           0x00000000      0x720
  *(.vectors)
  .vectors       0x00000000       0x54 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -339,23 +405,23 @@ END GROUP
                 0x00000584       0xa4 drivers/ParallelTextLCD.o
                 0x00000584                _ZN15ParallelTextLCD7integerEiiii
  .text.startup.main
-                0x00000628       0x84 main.o
+                0x00000628       0x8a main.o
                 0x00000628                main
  .text.avr-libc
-                0x000006ac       0x16 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
-                0x000006ac                __itoa_ncheck
+                0x000006b2       0x16 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
+                0x000006b2                __itoa_ncheck
  .text.avr-libc
-                0x000006c2       0x34 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
-                0x000006c2                __utoa_ncheck
-                0x000006c4                __utoa_common
+                0x000006c8       0x34 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
+                0x000006c8                __utoa_ncheck
+                0x000006ca                __utoa_common
  .text.avr-libc
-                0x000006f6       0x20 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x000006f6                strrev
-                0x00000716                . = ALIGN (0x2)
+                0x000006fc       0x20 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x000006fc                strrev
+                0x0000071c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000716        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x00000716                _exit
-                0x00000716                exit
+ .fini9         0x0000071c        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x0000071c                _exit
+                0x0000071c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -374,11 +440,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000716        0x4 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000071c        0x4 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000071a                _etext = .
+                0x00000720                _etext = .
 
-.data           0x00800060       0x1e load address 0x0000071a
+.data           0x00800060       0x28 load address 0x00000720
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -394,28 +460,28 @@ END GROUP
                 0x00800070        0x6 drivers/ParallelTextLCD.o
                 0x00800070                _ZTV15ParallelTextLCD
  .rodata.str1.1
-                0x00800076        0x7 main.o
+                0x00800076       0x11 main.o
  *(.gnu.linkonce.d*)
-                0x0080007e                . = ALIGN (0x2)
- *fill*         0x0080007d        0x1 
-                0x0080007e                _edata = .
-                0x0080007e                PROVIDE (__data_end, .)
+                0x00800088                . = ALIGN (0x2)
+ *fill*         0x00800087        0x1 
+                0x00800088                _edata = .
+                0x00800088                PROVIDE (__data_end, .)
 
-.bss            0x0080007e        0x0
-                0x0080007e                PROVIDE (__bss_start, .)
+.bss            0x00800088        0x0
+                0x00800088                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
-                0x0080007e                PROVIDE (__bss_end, .)
-                0x0000071a                __data_load_start = LOADADDR (.data)
-                0x00000738                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800088                PROVIDE (__bss_end, .)
+                0x00000720                __data_load_start = LOADADDR (.data)
+                0x00000748                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080007e        0x0
-                0x0080007e                PROVIDE (__noinit_start, .)
+.noinit         0x00800088        0x0
+                0x00800088                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080007e                PROVIDE (__noinit_end, .)
-                0x0080007e                _end = .
-                0x0080007e                PROVIDE (__heap_start, .)
+                0x00800088                PROVIDE (__noinit_end, .)
+                0x00800088                _end = .
+                0x00800088                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
