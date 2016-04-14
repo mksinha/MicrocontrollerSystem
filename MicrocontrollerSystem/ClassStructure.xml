@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<library name="Drivers">
+	<interface name="Devices">
+		<abstract name="Outputs">
+			<class name="LED"></class>
+			<class name="ParallelTextLCD"></class>
+		</abstract>
+		<abstract name="Inputs">
+		</abstract>
+		<abstract name="Storage">
+		</abstract>
+		<abstract name="Timer">
+		</abstract>
+		<abstract name="Communications">
+		</abstract>
+	</interface>
+</library>

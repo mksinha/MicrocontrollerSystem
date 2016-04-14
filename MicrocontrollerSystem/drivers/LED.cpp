@@ -8,13 +8,15 @@
 
 #include "LED.h"
 #include <avr/io.h>
+#include <util/delay.h>
 
 // default constructor
-LED::LED()
+LED::LED(int port, int pin)
 {
+	this->port = port;
+	this->pin = pin;
 	this->status = false;
-	DDRB = 0xFF;
-	PORTB = 0x00;
+	initialize();
 } //LED
 
 // default destructor
@@ -24,21 +26,27 @@ LED::~LED()
 
 void LED::on()
 {
-	PORTB=0xFF;
-	this->status = true;
+	Output::pinStatus(port, pin, true);
+	status = true;
 }
 
 void LED::off()
 {
-	PORTB=0x00;
-	this->status = false;
+	Output::pinStatus(port, pin, false);
+	status = false;
 }
 
 bool LED::toggle()
 {
-	if (this->status == false)
-		this->on();
-	else if(this->status == true)
-		this->off();
-	return this->status;
+	if (status == false)
+		on();
+	else if(status == true)
+		off();
+	return status;
+}
+
+void LED::initialize()
+{
+	Output::pinDirection(port, pin, true);
+	Output::pinStatus(port, pin, false);
 }

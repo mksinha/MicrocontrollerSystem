@@ -5,26 +5,28 @@
 * Author: Manish Sinha
 */
 
+#include "Output.h"
 
 #ifndef __LED_H__
 #define __LED_H__
 
-
-class LED
+class LED : public Output
 {
 //variables
 public:
 protected:
-	bool status;
+	bool status; 
+	int port, pin;
 private:
 
 //functions
 public:
-	LED();
+	LED(int port, int pin);
 	~LED();
 	void on();
 	void off();
 	bool toggle();
+	void initialize();
 protected:
 private:
 	LED( const LED &c );

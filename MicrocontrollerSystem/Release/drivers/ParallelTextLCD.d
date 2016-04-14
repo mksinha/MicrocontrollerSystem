@@ -1,4 +1,5 @@
-drivers/LED.d drivers/LED.o: ../drivers/LED.cpp ../drivers/LED.h \
+drivers/ParallelTextLCD.d drivers/ParallelTextLCD.o: \
+ ../drivers/ParallelTextLCD.cpp ../drivers/ParallelTextLCD.h \
  ../drivers/Output.h ../drivers/Device.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -11,11 +12,13 @@ drivers/LED.d drivers/LED.o: ../drivers/LED.cpp ../drivers/LED.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
+ e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
+ e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
 
-../drivers/LED.h:
+../drivers/ParallelTextLCD.h:
 
 ../drivers/Output.h:
 
@@ -42,6 +45,10 @@ e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-tool
 e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h:
 
 e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
+
+e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
+
+e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
 
 e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
