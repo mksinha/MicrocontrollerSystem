@@ -16,12 +16,13 @@ class LED : public Output
 public:
 protected:
 	bool status; 
-	int port, pin;
+	PORT port;
+	PIN pin;
 private:
 
 //functions
 public:
-	LED(int port, int pin);
+	LED(PORT port, PIN pin);
 	~LED();
 	void on();
 	void off();

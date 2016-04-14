@@ -11,7 +11,7 @@
 
 // functions
 
-void Output::pinStatus(int port, int pin, bool state)
+void Output::pinStatus(PORT port, PIN pin, bool state)
 {
 	if (state == true)
 	{
@@ -37,7 +37,7 @@ void Output::pinStatus(int port, int pin, bool state)
 	}
 }
 
-void Output::pinDirection(int port, int pin, bool state)
+void Output::pinDirection(PORT port, PIN pin, bool state)
 {
 	if (state == true)
 	{
@@ -63,7 +63,7 @@ void Output::pinDirection(int port, int pin, bool state)
 	}
 }
 
-void Output::portStatus(int port, int state)
+void Output::portStatus(PORT port, int state)
 {
 	if (port == IOPORTA)
 		PORTA = state;
@@ -75,7 +75,7 @@ void Output::portStatus(int port, int state)
 		PORTD = state;
 }
 
-void Output::portDirection(int port, int state)
+void Output::portDirection(PORT port, int state)
 {
 	if (port == IOPORTA)
 		DDRA = state;
@@ -87,7 +87,7 @@ void Output::portDirection(int port, int state)
 		DDRD = state;
 }
 
-bool Output::pinStatus(int port, int pin)
+bool Output::pinStatus(PORT port, PIN pin)
 {
 	if (port == IOPORTA)
 		return (DDRA & (1 << pin)) != 0;
@@ -101,7 +101,7 @@ bool Output::pinStatus(int port, int pin)
 		return false;
 }
 
-bool Output::pinDirection(int port, int pin)
+bool Output::pinDirection(PORT port, PIN pin)
 {
 	if (port == IOPORTA)
 		return (PORTA & (1 << pin)) != 0;

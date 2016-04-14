@@ -16,14 +16,14 @@ class ParallelTextLCD : public Output
 //variables
 public:
 protected:
-	int dataPort, controlPort;
-	int pinEN, pinRW, pinRS;
+	PORT dataPort, controlPort;
+	PIN pinEN, pinRW, pinRS;
 	int rowPositions[4] = {0, 64, 20, 84};
 private:
 
 //functions
 public:
-	ParallelTextLCD(int portData, int portControl, int pinRS, int pinRW, int pinEN);
+	ParallelTextLCD(PORT portData, PORT portControl, PIN pinRS, PIN pinRW, PIN pinEN);
 	~ParallelTextLCD();
 	void initialize();
 	void integer(int x, int y, int num, int digits);

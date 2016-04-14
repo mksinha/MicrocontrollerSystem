@@ -1,5 +1,6 @@
 drivers/LED.d drivers/LED.o: ../drivers/LED.cpp ../drivers/LED.h \
  ../drivers/Output.h ../drivers/Device.h \
+ ../drivers/../controller/registry.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -20,6 +21,8 @@ drivers/LED.d drivers/LED.o: ../drivers/LED.cpp ../drivers/LED.h \
 ../drivers/Output.h:
 
 ../drivers/Device.h:
+
+../drivers/../controller/registry.h:
 
 e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 

@@ -152,6 +152,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="controller\registry.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\Communication.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -203,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="drivers" />
+    <Folder Include="controller" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassStructure.xml">

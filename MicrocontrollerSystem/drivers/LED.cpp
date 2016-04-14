@@ -11,7 +11,7 @@
 #include <util/delay.h>
 
 // default constructor
-LED::LED(int port, int pin)
+LED::LED(PORT port, PIN pin)
 {
 	this->port = port;
 	this->pin = pin;

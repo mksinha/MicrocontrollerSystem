@@ -12,7 +12,7 @@
 #include <util/delay.h>
 
 // default constructor
-ParallelTextLCD::ParallelTextLCD(int portData, int portControl, int pinRS, int pinRW, int pinEN)
+ParallelTextLCD::ParallelTextLCD(PORT portData, PORT portControl, PIN pinRS, PIN pinRW, PIN pinEN)
 {
 	this->dataPort = portData;
 	this->controlPort = portControl;
