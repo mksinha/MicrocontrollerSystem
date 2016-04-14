@@ -5,13 +5,13 @@
 * Author: Animesh Sinha
 */
 
-#include "Outputs.h"
+#include "Output.h"
 
 #ifndef __TEXTLCD_H__
 #define __TEXTLCD_H__
 
 
-class ParallelTextLCD : public Outputs
+class ParallelTextLCD : public Output
 {
 //variables
 public:
@@ -27,10 +27,12 @@ public:
 	~ParallelTextLCD();
 	void initialize();
 	void integer(int x, int y, int num, int digits);
+	void integer(int num, int digits);
 	void string(int x, int y, char* str);
 	void string(char* str);
 	void position(int x, int y);
 	void clear();
+	void cursor(bool visible, bool blink);
 protected:
 	void command(unsigned char cmd);
 	void character(unsigned char chr);

@@ -9,9 +9,9 @@
 #ifndef __STORAGE_H__
 #define __STORAGE_H__
 
-#include "Devices.h"
+#include "Device.h"
 
-class Storage : public Devices
+class Storage : public Device
 {
 //functions
 public:

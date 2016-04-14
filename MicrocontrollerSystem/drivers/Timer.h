@@ -9,9 +9,9 @@
 #ifndef __TIMER_H__
 #define __TIMER_H__
 
-#include "Devices.h"
+#include "Device.h"
 
-class Timer : public Devices
+class Timer : public Device
 {
 //functions
 public:

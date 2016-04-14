@@ -1,13 +1,13 @@
 /* 
-* Devices.h
+* Device.h
 *
 * Created: 4/13/2016 1:09:56 AM
 * Author: Animesh Sinha
 */
 
 
-#ifndef __DEVICES_H__
-#define __DEVICES_H__
+#ifndef __DEVICE_H__
+#define __DEVICE_H__
 
 #define IOPORTA 0
 #define IOPORTB 1
@@ -23,15 +23,14 @@
 #define IOPIN6 6
 #define IOPIN7 7
 
-
-class Devices
+class Device
 {
 //functions
 public:
-	//virtual ~Devices(){}
+	//virtual ~Device(){}
 	//virtual void Method1() = 0;
 	//virtual void Method2() = 0;
 
-}; //Devices
+}; //Device
 
-#endif //__DEVICES_H__
+#endif //__DEVICE_H__

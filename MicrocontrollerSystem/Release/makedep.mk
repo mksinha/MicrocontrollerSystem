@@ -2,13 +2,13 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-drivers\Communications.cpp
+drivers\Communication.cpp
 
-drivers\Inputs.cpp
+drivers\Input.cpp
 
 drivers\LED.cpp
 
-drivers\Outputs.cpp
+drivers\Output.cpp
 
 drivers\ParallelTextLCD.cpp
 

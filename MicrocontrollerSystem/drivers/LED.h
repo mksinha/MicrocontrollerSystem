@@ -5,12 +5,12 @@
 * Author: Manish Sinha
 */
 
-#include "Outputs.h"
+#include "Output.h"
 
 #ifndef __LED_H__
 #define __LED_H__
 
-class LED : public Outputs
+class LED : public Output
 {
 //variables
 public:

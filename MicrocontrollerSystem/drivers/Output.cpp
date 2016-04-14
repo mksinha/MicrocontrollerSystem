@@ -1,17 +1,17 @@
 /* 
-* Outputs.cpp
+* Output.cpp
 *
 * Created: 4/11/2016 9:06:39 PM
 * Author: Animesh Sinha
 */
 
 
-#include "Outputs.h"
+#include "Output.h"
 #include <avr/io.h>
 
 // functions
 
-void Outputs::pinStatus(int port, int pin, bool state)
+void Output::pinStatus(int port, int pin, bool state)
 {
 	if (state == true)
 	{
@@ -37,7 +37,7 @@ void Outputs::pinStatus(int port, int pin, bool state)
 	}
 }
 
-void Outputs::pinDirection(int port, int pin, bool state)
+void Output::pinDirection(int port, int pin, bool state)
 {
 	if (state == true)
 	{
@@ -63,7 +63,7 @@ void Outputs::pinDirection(int port, int pin, bool state)
 	}
 }
 
-void Outputs::portStatus(int port, int state)
+void Output::portStatus(int port, int state)
 {
 	if (port == IOPORTA)
 		PORTA = state;
@@ -75,7 +75,7 @@ void Outputs::portStatus(int port, int state)
 		PORTD = state;
 }
 
-void Outputs::portDirection(int port, int state)
+void Output::portDirection(int port, int state)
 {
 	if (port == IOPORTA)
 		DDRA = state;
@@ -87,7 +87,7 @@ void Outputs::portDirection(int port, int state)
 		DDRD = state;
 }
 
-bool Outputs::pinStatus(int port, int pin)
+bool Output::pinStatus(int port, int pin)
 {
 	if (port == IOPORTA)
 		return (DDRA & (1 << pin)) != 0;
@@ -101,7 +101,7 @@ bool Outputs::pinStatus(int port, int pin)
 		return false;
 }
 
-bool Outputs::pinDirection(int port, int pin)
+bool Output::pinDirection(int port, int pin)
 {
 	if (port == IOPORTA)
 		return (PORTA & (1 << pin)) != 0;

@@ -26,13 +26,13 @@ LED::~LED()
 
 void LED::on()
 {
-	Outputs::pinStatus(port, pin, true);
+	Output::pinStatus(port, pin, true);
 	status = true;
 }
 
 void LED::off()
 {
-	Outputs::pinStatus(port, pin, false);
+	Output::pinStatus(port, pin, false);
 	status = false;
 }
 
@@ -47,6 +47,6 @@ bool LED::toggle()
 
 void LED::initialize()
 {
-	Outputs::pinDirection(port, pin, true);
-	Outputs::pinStatus(port, pin, false);
+	Output::pinDirection(port, pin, true);
+	Output::pinStatus(port, pin, false);
 }

@@ -16,7 +16,8 @@ int main(void)
 	ParallelTextLCD lcd(IOPORTB, IOPORTD, IOPIN2, IOPIN7, IOPIN5);
 	lcd.string(0, 0, "Hello Controller");
 	lcd.integer(5, 1, 1309, 5);
-    while (1)
+    lcd.cursor(true, false);
+		while (1)
     {
 		led.toggle();
 		_delay_ms(500);
