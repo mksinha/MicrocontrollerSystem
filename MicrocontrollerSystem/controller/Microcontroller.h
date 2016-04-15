@@ -1,8 +1,12 @@
 /* 
 * Microcontroller.h
 *
-* Created: 4/15/2016 1:10:43 AM
+* Created: 4/16/2016 12:30:01 AM
 * Author: Animesh Sinha
+*
+*	NOTE: Use tasks only for functions with no parameters
+*	or returns, for parameterized functions, use data-bind,
+*	callback or other mechanisms.
 */
 
 
@@ -12,12 +16,22 @@
 
 class Microcontroller
 {
+//variables
+public:
+	void (*threadInit)(void);
+protected:
+private:
+
 //functions
 public:
-	virtual ~Microcontroller();
-	virtual void Method1()=0;//make Microcontroller not instantiable
-	virtual void Method2();
-	void Method3();
+	Microcontroller();
+	~Microcontroller();
+	void createTask(void (*func)(void));
+	void execute();
+protected:
+private:
+	Microcontroller( const Microcontroller &c );
+	Microcontroller& operator=( const Microcontroller &c );
 
 }; //Microcontroller
 

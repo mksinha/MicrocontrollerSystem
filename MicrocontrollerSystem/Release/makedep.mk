@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+controller\Microcontroller.cpp
+
 drivers\Communication.cpp
 
 drivers\Input.cpp

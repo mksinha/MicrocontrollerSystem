@@ -1,23 +1,29 @@
 /* 
 * Microcontroller.cpp
 *
-* Created: 4/15/2016 1:10:41 AM
+* Created: 4/16/2016 12:29:58 AM
 * Author: Animesh Sinha
 */
 
 
 #include "Microcontroller.h"
 
-// functions
-void Microcontroller::Method2()//virtual
+// default constructor
+Microcontroller::Microcontroller()
 {
-}
+} //Microcontroller
 
-void Microcontroller::Method3()
-{
-}
-
-// virtual destructor
+// default destructor
 Microcontroller::~Microcontroller()
 {
 } //~Microcontroller
+
+void Microcontroller::createTask(void (*func)(void))
+{
+	this->threadInit = func;
+}
+
+void Microcontroller::execute()
+{
+	this->threadInit();
+}

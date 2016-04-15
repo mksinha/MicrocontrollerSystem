@@ -39,6 +39,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../controller/Microcontroller.cpp \
 ../drivers/Communication.cpp \
 ../drivers/Input.cpp \
 ../drivers/LED.cpp \
@@ -56,6 +57,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+controller/Microcontroller.o \
 drivers/Communication.o \
 drivers/Input.o \
 drivers/LED.o \
@@ -66,6 +68,7 @@ drivers/Timer.o \
 main.o
 
 OBJS_AS_ARGS +=  \
+controller/Microcontroller.o \
 drivers/Communication.o \
 drivers/Input.o \
 drivers/LED.o \
@@ -76,6 +79,7 @@ drivers/Timer.o \
 main.o
 
 C_DEPS +=  \
+controller/Microcontroller.d \
 drivers/Communication.d \
 drivers/Input.d \
 drivers/LED.d \
@@ -86,6 +90,7 @@ drivers/Timer.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
+controller/Microcontroller.d \
 drivers/Communication.d \
 drivers/Input.d \
 drivers/LED.d \
@@ -125,6 +130,15 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+
+controller/%.o: ../controller/%.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
+	$(QUOTE)E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\Packs\atmel\ATmega_DFP\1.0.98\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "E:\Microsoft Visual Studio\Atmel Studio 7.0\7.0\Packs\atmel\ATmega_DFP\1.0.98\gcc\dev\atmega32" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
 
 drivers/%.o: ../drivers/%.cpp
 	@echo Building file: $<
