@@ -44,30 +44,25 @@ Discarded input sections
  .debug_str     0x00000000      0x243 drivers/Communication.o
  .comment       0x00000000       0x31 drivers/Communication.o
  .debug_frame   0x00000000       0x54 drivers/Communication.o
- .group         0x00000000        0x8 drivers/Input.o
  .text          0x00000000        0x0 drivers/Input.o
  .data          0x00000000        0x0 drivers/Input.o
  .bss           0x00000000        0x0 drivers/Input.o
- .text._ZN5Input7Method2Ev
-                0x00000000        0x2 drivers/Input.o
- .text._ZN5Input7Method3Ev
-                0x00000000        0x2 drivers/Input.o
- .text._ZN5InputD2Ev
-                0x00000000        0x2 drivers/Input.o
- .text._ZN5InputD0Ev
-                0x00000000        0x6 drivers/Input.o
- .rodata._ZTV5Input
-                0x00000000        0xc drivers/Input.o
- .debug_info    0x00000000      0x20a drivers/Input.o
- .debug_abbrev  0x00000000      0x169 drivers/Input.o
- .debug_loc     0x00000000       0x26 drivers/Input.o
+ .text._ZN5Input9pinStatusE4PORT3PINb
+                0x00000000       0xe0 drivers/Input.o
+ .text._ZN5Input12pinDirectionE4PORT3PINb
+                0x00000000       0xe0 drivers/Input.o
+ .text._ZN5Input9pinStatusE4PORT3PIN
+                0x00000000       0x5c drivers/Input.o
+ .debug_info    0x00000000      0x1ff drivers/Input.o
+ .debug_abbrev  0x00000000      0x104 drivers/Input.o
+ .debug_loc     0x00000000      0x1f3 drivers/Input.o
  .debug_aranges
-                0x00000000       0x38 drivers/Input.o
- .debug_ranges  0x00000000       0x28 drivers/Input.o
- .debug_line    0x00000000       0x86 drivers/Input.o
- .debug_str     0x00000000      0x1f6 drivers/Input.o
+                0x00000000       0x30 drivers/Input.o
+ .debug_ranges  0x00000000       0x20 drivers/Input.o
+ .debug_line    0x00000000       0xca drivers/Input.o
+ .debug_str     0x00000000      0x288 drivers/Input.o
  .comment       0x00000000       0x31 drivers/Input.o
- .debug_frame   0x00000000       0x54 drivers/Input.o
+ .debug_frame   0x00000000       0x44 drivers/Input.o
  .group         0x00000000        0x8 drivers/LED.o
  .text          0x00000000        0x0 drivers/LED.o
  .data          0x00000000        0x0 drivers/LED.o
@@ -89,6 +84,29 @@ Discarded input sections
                 0x00000000       0x14 drivers/ParallelTextLCD.o
  .text._ZN15ParallelTextLCD7integerEii
                 0x00000000       0x90 drivers/ParallelTextLCD.o
+ .text          0x00000000        0x0 drivers/PushButtonSwitch.o
+ .data          0x00000000        0x0 drivers/PushButtonSwitch.o
+ .bss           0x00000000        0x0 drivers/PushButtonSwitch.o
+ .text._ZN16PushButtonSwitchD2Ev
+                0x00000000        0x2 drivers/PushButtonSwitch.o
+ .text._ZN16PushButtonSwitch10initializeEv
+                0x00000000       0x20 drivers/PushButtonSwitch.o
+ .text._ZN16PushButtonSwitchC2E4PORT3PINbbi
+                0x00000000       0x20 drivers/PushButtonSwitch.o
+ .text._ZN16PushButtonSwitch10checkStateEv
+                0x00000000        0xc drivers/PushButtonSwitch.o
+ .text._ZN16PushButtonSwitch5stateEv
+                0x00000000       0x22 drivers/PushButtonSwitch.o
+ .debug_info    0x00000000      0x4ee drivers/PushButtonSwitch.o
+ .debug_abbrev  0x00000000      0x275 drivers/PushButtonSwitch.o
+ .debug_loc     0x00000000      0x20c drivers/PushButtonSwitch.o
+ .debug_aranges
+                0x00000000       0x40 drivers/PushButtonSwitch.o
+ .debug_ranges  0x00000000       0x30 drivers/PushButtonSwitch.o
+ .debug_line    0x00000000       0xec drivers/PushButtonSwitch.o
+ .debug_str     0x00000000      0x365 drivers/PushButtonSwitch.o
+ .comment       0x00000000       0x31 drivers/PushButtonSwitch.o
+ .debug_frame   0x00000000       0x8c drivers/PushButtonSwitch.o
  .group         0x00000000        0x8 drivers/Storage.o
  .text          0x00000000        0x0 drivers/Storage.o
  .data          0x00000000        0x0 drivers/Storage.o
@@ -203,6 +221,7 @@ LOAD drivers/Input.o
 LOAD drivers/LED.o
 LOAD drivers/Output.o
 LOAD drivers/ParallelTextLCD.o
+LOAD drivers/PushButtonSwitch.o
 LOAD drivers/Storage.o
 LOAD drivers/Timer.o
 LOAD main.o

@@ -45,6 +45,7 @@ C_SRCS +=  \
 ../drivers/LED.cpp \
 ../drivers/Output.cpp \
 ../drivers/ParallelTextLCD.cpp \
+../drivers/PushButtonSwitch.cpp \
 ../drivers/Storage.cpp \
 ../drivers/Timer.cpp \
 ../main.cpp
@@ -63,6 +64,7 @@ drivers/Input.o \
 drivers/LED.o \
 drivers/Output.o \
 drivers/ParallelTextLCD.o \
+drivers/PushButtonSwitch.o \
 drivers/Storage.o \
 drivers/Timer.o \
 main.o
@@ -74,6 +76,7 @@ drivers/Input.o \
 drivers/LED.o \
 drivers/Output.o \
 drivers/ParallelTextLCD.o \
+drivers/PushButtonSwitch.o \
 drivers/Storage.o \
 drivers/Timer.o \
 main.o
@@ -85,6 +88,7 @@ drivers/Input.d \
 drivers/LED.d \
 drivers/Output.d \
 drivers/ParallelTextLCD.d \
+drivers/PushButtonSwitch.d \
 drivers/Storage.d \
 drivers/Timer.d \
 main.d
@@ -96,6 +100,7 @@ drivers/Input.d \
 drivers/LED.d \
 drivers/Output.d \
 drivers/ParallelTextLCD.d \
+drivers/PushButtonSwitch.d \
 drivers/Storage.d \
 drivers/Timer.d \
 main.d
@@ -114,6 +119,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

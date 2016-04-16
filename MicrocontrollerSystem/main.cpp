@@ -9,27 +9,21 @@
 #include <util/delay.h>
 #include "drivers/LED.h"
 #include "drivers/ParallelTextLCD.h"
-#include "controller/Microcontroller.h"
-
-void initSystem();
+#include "drivers/PushButtonSwitch.h"
 
 int main(void)
 {
-	Microcontroller atmega32;
-	atmega32.createTask(initSystem);
-	atmega32.execute();
+	LED led(IOPORTC, IOPIN6);
+	PushButtonSwitch pbswitch(IOPORTA, IOPIN0, true, true, 100);
+	ParallelTextLCD lcd(IOPORTB, IOPORTD, IOPIN2, IOPIN7, IOPIN5);
+	lcd.string(0, 0, "Hello Debugger");
+	lcd.integer(6, 1, 1309, 5);
+	led.on();
 	while (1)
     {
-    }
+		led.toggle();
+		if (pbswitch.state()) _delay_ms(100);
+		else _delay_ms(1000);
+	}
 	return 0;
-}
-
-void initSystem()
-{
-	LED led(IOPORTC, IOPIN6);
-	ParallelTextLCD lcd(IOPORTB, IOPORTD, IOPIN2, IOPIN7, IOPIN5);
-	led.on();
-	lcd.string(0, 0, "Hello Controller");
-	lcd.integer(5, 1, 1309, 5);
-	lcd.cursor(true, true);
 }

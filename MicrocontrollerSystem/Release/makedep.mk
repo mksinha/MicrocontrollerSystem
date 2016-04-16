@@ -14,6 +14,8 @@ drivers\Output.cpp
 
 drivers\ParallelTextLCD.cpp
 
+drivers\PushButtonSwitch.cpp
+
 drivers\Storage.cpp
 
 drivers\Timer.cpp

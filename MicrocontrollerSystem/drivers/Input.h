@@ -15,11 +15,10 @@ class Input : public Device
 {
 //functions
 public:
-	virtual ~Input();
-	virtual void Method1()=0;//make Input not instantiable
-	virtual void Method2();
-	void Method3();
-
+protected:
+	static void pinStatus(PORT port, PIN pin, bool state);
+	static void pinDirection(PORT port, PIN pin, bool state);
+	static bool pinStatus(PORT port, PIN pin);
 }; //Input
 
 #endif //__INPUT_H__
