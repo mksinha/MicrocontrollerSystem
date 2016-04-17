@@ -5,34 +5,29 @@
 * Author: Manish Sinha
 */
 
-#include "Output.h"
 
 #ifndef __LED_H__
 #define __LED_H__
 
+#include "Output.h"
+
+
 class LED : public Output
 {
 //variables
-public:
 protected:
 	bool status; 
 	PORT port;
 	PIN pin;
-private:
 
 //functions
 public:
 	LED(PORT port, PIN pin);
 	~LED();
-	void on();
-	void off();
-	bool toggle();
-	void initialize();
-protected:
-private:
-	LED( const LED &c );
-	LED& operator=( const LED &c );
-
+	void on(); // Switches the LED on
+	void off(); // Switches the LED off
+	bool toggle(); // Changes the state of LED from on to off or back
+	void initialize(); // Initializes the LED port
 }; //LED
 
 #endif //__LED_H__

@@ -167,6 +167,9 @@
     <Compile Include="drivers\Communication.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="drivers\Device.cpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\Device.h">
       <SubType>compile</SubType>
     </Compile>

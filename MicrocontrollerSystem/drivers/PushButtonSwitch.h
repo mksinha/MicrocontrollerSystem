@@ -5,22 +5,22 @@
 * Author: Manish Sinha
 */
 
+
 #ifndef __PUSHBUTTONSWITCH_H__
 #define __PUSHBUTTONSWITCH_H__
 
 #include "Input.h"
 
+
 class PushButtonSwitch : public Input
 {
 //variables
-public:
 protected:
 	bool status;
 	int debounceLimit;
 	PORT port;
 	PIN pin;
 	bool no_nc, pullState;
-private:
 
 //functions
 public:

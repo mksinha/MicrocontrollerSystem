@@ -15,7 +15,7 @@ main.d main.o: .././main.cpp \
  e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././drivers/LED.h .././drivers/Output.h .././drivers/Device.h \
  .././drivers/../controller/registry.h .././drivers/ParallelTextLCD.h \
- .././controller/Microcontroller.h
+ .././drivers/PushButtonSwitch.h .././drivers/Input.h
 
 e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -55,4 +55,6 @@ e:\microsoft\ visual\ studio\atmel\ studio\ 7.0\7.0\toolchain\avr8\avr8-gnu-tool
 
 .././drivers/ParallelTextLCD.h:
 
-.././controller/Microcontroller.h:
+.././drivers/PushButtonSwitch.h:
+
+.././drivers/Input.h:

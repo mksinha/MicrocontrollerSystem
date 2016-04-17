@@ -11,14 +11,12 @@
 
 #include "Device.h"
 
+
 class Input : public Device
 {
 //functions
 public:
-protected:
-	static void pinStatus(PORT port, PIN pin, bool state);
-	static void pinDirection(PORT port, PIN pin, bool state);
-	static bool pinStatus(PORT port, PIN pin);
+	virtual void initialize()=0;//make Output not instantiable
 }; //Input
 
 #endif //__INPUT_H__

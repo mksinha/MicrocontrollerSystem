@@ -1,18 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<library name="Drivers">
-	<interface name="Devices">
-		<abstract name="Outputs">
-			<class name="LED"></class>
-			<class name="ParallelTextLCD"></class>
+<library>
+	<module name="Drivers">
+		<abstract name="Devices">
+			<abstract name="Outputs">
+				<class name="LED">
+					<function name="LED"></function>
+					<function name="~LED"></function>
+					<function name="initialize"></function>
+					<function name="on"></function>
+					<function name="off"></function>
+					<function name="toggle"></function>
+				</class>
+				<class name="ParallelTextLCD">
+					<function name="ParallelTextLCD"></function>
+					<function name="~ParallelTextLCD"></function>
+					<function name="initialize"></function>
+					<function name="string"></function>
+					<function name="integer"></function>
+					<function name="position"></function>
+					<function name="clear"></function>
+					<function name="cursor"></function>
+				</class>
+			</abstract>
+			<abstract name="Inputs">
+				<class name="PushButtonSwitch">
+					<function name="PushButtonSwitch"></function>
+					<function name="~PushButtonSwitch"></function>
+					<function name="initialize"></function>
+					<function name="state"></function>
+				</class>
+			</abstract>
+			<abstract name="Storage">
+			</abstract>
+			<abstract name="Timer">
+			</abstract>
+			<abstract name="Communications">
+			</abstract>
 		</abstract>
-		<abstract name="Inputs">
-		</abstract>
-		<abstract name="Storage">
-		</abstract>
-		<abstract name="Timer">
-		</abstract>
-		<abstract name="Communications">
-		</abstract>
-	</interface>
+	</module>
+	<module name="controller">
+		<class name="Microcontroller"></class>
+		<helper name="registry">
+			<enum name="PORT"></enum>
+			<enum name="PIN"></enum>
+		</helper>
+	</module>
 </library>

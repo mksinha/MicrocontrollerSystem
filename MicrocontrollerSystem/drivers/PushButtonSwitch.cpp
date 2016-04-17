@@ -7,7 +7,6 @@
 
 
 #include "PushButtonSwitch.h"
-#include "../controller/registry.h"
 
 // default constructor
 PushButtonSwitch::PushButtonSwitch(PORT port, PIN pin, bool no_nc, bool pullState, int debounceLimit)
@@ -40,15 +39,15 @@ bool PushButtonSwitch::state()
 
 void PushButtonSwitch::initialize()
 {
-	Input::pinDirection(port, pin, false);
-	Input::pinStatus(port, pin, pullState);
+	setDirection(port, pin, false);
+	setStatus(port, pin, pullState);
 	this->status = false;
 }
 
 bool PushButtonSwitch::checkState()
 {
 	if (pullState == true)
-		return !Input::pinStatus(port, pin);
+		return !getStatus(port, pin);
 	else
-		return Input::pinStatus(port, pin);
+		return getStatus(port, pin);
 }

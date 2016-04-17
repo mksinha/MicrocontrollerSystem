@@ -3,29 +3,29 @@ MicrocontrollerSystem.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000750  00000000  00000000  00000074  2**1
+  0 .text         000007c4  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000028  00800060  00000750  000007c4  2**0
+  1 .data         0000002c  00800060  000007c4  00000838  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  000007ec  2**0
+  2 .comment      00000030  00000000  00000000  00000864  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000081c  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000894  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000178  00000000  00000000  00000858  2**0
+  4 .debug_aranges 00000170  00000000  00000000  000008d0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00002085  00000000  00000000  000009d0  2**0
+  5 .debug_info   00002584  00000000  00000000  00000a40  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000ae6  00000000  00000000  00002a55  2**0
+  6 .debug_abbrev 00000be3  00000000  00000000  00002fc4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000636  00000000  00000000  0000353b  2**0
+  7 .debug_line   000007a8  00000000  00000000  00003ba7  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000003d8  00000000  00000000  00003b74  2**2
+  8 .debug_frame  000003dc  00000000  00000000  00004350  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000083c  00000000  00000000  00003f4c  2**0
+  9 .debug_str    0000087c  00000000  00000000  0000472c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00001148  00000000  00000000  00004788  2**0
+ 10 .debug_loc    00001315  00000000  00000000  00004fa8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000128  00000000  00000000  000058d0  2**0
+ 11 .debug_ranges 00000120  00000000  00000000  000062bd  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -65,1243 +65,1310 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	e0 e5       	ldi	r30, 0x50	; 80
+  66:	e4 ec       	ldi	r30, 0xC4	; 196
   68:	f7 e0       	ldi	r31, 0x07	; 7
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
   6e:	0d 92       	st	X+, r0
-  70:	a8 38       	cpi	r26, 0x88	; 136
+  70:	ac 38       	cpi	r26, 0x8C	; 140
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
-  76:	0e 94 5d 03 	call	0x6ba	; 0x6ba <main>
-  7a:	0c 94 a6 03 	jmp	0x74c	; 0x74c <_exit>
+  76:	0e 94 4d 03 	call	0x69a	; 0x69a <main>
+  7a:	0c 94 e0 03 	jmp	0x7c0	; 0x7c0 <_exit>
 
 0000007e <__bad_interrupt>:
   7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-00000082 <_ZN15MicrocontrollerC1Ev>:
+00000082 <_ZN6Device9setStatusE4PORT3PINb>:
 
+// functions
 
-#include "Microcontroller.h"
-
-// default constructor
-Microcontroller::Microcontroller()
-  82:	08 95       	ret
-
-00000084 <_ZN15Microcontroller10createTaskEPFvvE>:
+void Device::setStatus(PORT port, PIN pin, bool state)
 {
-} //~Microcontroller
+	if (state == true)
+  82:	44 23       	and	r20, r20
+  84:	a9 f1       	breq	.+106    	; 0xf0 <_ZN6Device9setStatusE4PORT3PINb+0x6e>
+	{
+		if (port == IOPORTA)
+  86:	81 11       	cpse	r24, r1
+  88:	0b c0       	rjmp	.+22     	; 0xa0 <_ZN6Device9setStatusE4PORT3PINb+0x1e>
+			PORTA |= 1 << pin;
+  8a:	2b b3       	in	r18, 0x1b	; 27
+  8c:	81 e0       	ldi	r24, 0x01	; 1
+  8e:	90 e0       	ldi	r25, 0x00	; 0
+  90:	02 c0       	rjmp	.+4      	; 0x96 <_ZN6Device9setStatusE4PORT3PINb+0x14>
+  92:	88 0f       	add	r24, r24
+  94:	99 1f       	adc	r25, r25
+  96:	6a 95       	dec	r22
+  98:	e2 f7       	brpl	.-8      	; 0x92 <_ZN6Device9setStatusE4PORT3PINb+0x10>
+  9a:	82 2b       	or	r24, r18
+  9c:	8b bb       	out	0x1b, r24	; 27
+  9e:	08 95       	ret
+		else if (port == IOPORTB)
+  a0:	81 30       	cpi	r24, 0x01	; 1
+  a2:	59 f4       	brne	.+22     	; 0xba <_ZN6Device9setStatusE4PORT3PINb+0x38>
+			PORTB |= 1 << pin;
+  a4:	28 b3       	in	r18, 0x18	; 24
+  a6:	81 e0       	ldi	r24, 0x01	; 1
+  a8:	90 e0       	ldi	r25, 0x00	; 0
+  aa:	02 c0       	rjmp	.+4      	; 0xb0 <_ZN6Device9setStatusE4PORT3PINb+0x2e>
+  ac:	88 0f       	add	r24, r24
+  ae:	99 1f       	adc	r25, r25
+  b0:	6a 95       	dec	r22
+  b2:	e2 f7       	brpl	.-8      	; 0xac <_ZN6Device9setStatusE4PORT3PINb+0x2a>
+  b4:	82 2b       	or	r24, r18
+  b6:	88 bb       	out	0x18, r24	; 24
+  b8:	08 95       	ret
+		else if (port == IOPORTC)
+  ba:	82 30       	cpi	r24, 0x02	; 2
+  bc:	59 f4       	brne	.+22     	; 0xd4 <_ZN6Device9setStatusE4PORT3PINb+0x52>
+			PORTC |= 1 << pin;
+  be:	25 b3       	in	r18, 0x15	; 21
+  c0:	81 e0       	ldi	r24, 0x01	; 1
+  c2:	90 e0       	ldi	r25, 0x00	; 0
+  c4:	02 c0       	rjmp	.+4      	; 0xca <_ZN6Device9setStatusE4PORT3PINb+0x48>
+  c6:	88 0f       	add	r24, r24
+  c8:	99 1f       	adc	r25, r25
+  ca:	6a 95       	dec	r22
+  cc:	e2 f7       	brpl	.-8      	; 0xc6 <_ZN6Device9setStatusE4PORT3PINb+0x44>
+  ce:	82 2b       	or	r24, r18
+  d0:	85 bb       	out	0x15, r24	; 21
+  d2:	08 95       	ret
+		else if (port == IOPORTD)
+  d4:	83 30       	cpi	r24, 0x03	; 3
+  d6:	09 f0       	breq	.+2      	; 0xda <_ZN6Device9setStatusE4PORT3PINb+0x58>
+  d8:	43 c0       	rjmp	.+134    	; 0x160 <_ZN6Device9setStatusE4PORT3PINb+0xde>
+			PORTD |= 1 << pin;
+  da:	22 b3       	in	r18, 0x12	; 18
+  dc:	81 e0       	ldi	r24, 0x01	; 1
+  de:	90 e0       	ldi	r25, 0x00	; 0
+  e0:	02 c0       	rjmp	.+4      	; 0xe6 <_ZN6Device9setStatusE4PORT3PINb+0x64>
+  e2:	88 0f       	add	r24, r24
+  e4:	99 1f       	adc	r25, r25
+  e6:	6a 95       	dec	r22
+  e8:	e2 f7       	brpl	.-8      	; 0xe2 <_ZN6Device9setStatusE4PORT3PINb+0x60>
+  ea:	82 2b       	or	r24, r18
+  ec:	82 bb       	out	0x12, r24	; 18
+  ee:	08 95       	ret
+	}
+	else if (state == false)
+	{
+		if (port == IOPORTA)
+  f0:	81 11       	cpse	r24, r1
+  f2:	0d c0       	rjmp	.+26     	; 0x10e <_ZN6Device9setStatusE4PORT3PINb+0x8c>
+			PORTA &= ~(1 << pin);
+  f4:	9b b3       	in	r25, 0x1b	; 27
+  f6:	21 e0       	ldi	r18, 0x01	; 1
+  f8:	30 e0       	ldi	r19, 0x00	; 0
+  fa:	06 2e       	mov	r0, r22
+  fc:	02 c0       	rjmp	.+4      	; 0x102 <_ZN6Device9setStatusE4PORT3PINb+0x80>
+  fe:	22 0f       	add	r18, r18
+ 100:	33 1f       	adc	r19, r19
+ 102:	0a 94       	dec	r0
+ 104:	e2 f7       	brpl	.-8      	; 0xfe <_ZN6Device9setStatusE4PORT3PINb+0x7c>
+ 106:	20 95       	com	r18
+ 108:	29 23       	and	r18, r25
+ 10a:	2b bb       	out	0x1b, r18	; 27
+ 10c:	1c c0       	rjmp	.+56     	; 0x146 <_ZN6Device9setStatusE4PORT3PINb+0xc4>
+		if (port == IOPORTB)
+ 10e:	81 30       	cpi	r24, 0x01	; 1
+ 110:	61 f4       	brne	.+24     	; 0x12a <_ZN6Device9setStatusE4PORT3PINb+0xa8>
+			PORTB &= ~(1 << pin);
+ 112:	28 b3       	in	r18, 0x18	; 24
+ 114:	81 e0       	ldi	r24, 0x01	; 1
+ 116:	90 e0       	ldi	r25, 0x00	; 0
+ 118:	02 c0       	rjmp	.+4      	; 0x11e <_ZN6Device9setStatusE4PORT3PINb+0x9c>
+ 11a:	88 0f       	add	r24, r24
+ 11c:	99 1f       	adc	r25, r25
+ 11e:	6a 95       	dec	r22
+ 120:	e2 f7       	brpl	.-8      	; 0x11a <_ZN6Device9setStatusE4PORT3PINb+0x98>
+ 122:	80 95       	com	r24
+ 124:	82 23       	and	r24, r18
+ 126:	88 bb       	out	0x18, r24	; 24
+ 128:	08 95       	ret
+		if (port == IOPORTC)
+ 12a:	82 30       	cpi	r24, 0x02	; 2
+ 12c:	61 f4       	brne	.+24     	; 0x146 <_ZN6Device9setStatusE4PORT3PINb+0xc4>
+			PORTC &= ~(1 << pin);
+ 12e:	25 b3       	in	r18, 0x15	; 21
+ 130:	81 e0       	ldi	r24, 0x01	; 1
+ 132:	90 e0       	ldi	r25, 0x00	; 0
+ 134:	02 c0       	rjmp	.+4      	; 0x13a <_ZN6Device9setStatusE4PORT3PINb+0xb8>
+ 136:	88 0f       	add	r24, r24
+ 138:	99 1f       	adc	r25, r25
+ 13a:	6a 95       	dec	r22
+ 13c:	e2 f7       	brpl	.-8      	; 0x136 <_ZN6Device9setStatusE4PORT3PINb+0xb4>
+ 13e:	80 95       	com	r24
+ 140:	82 23       	and	r24, r18
+ 142:	85 bb       	out	0x15, r24	; 21
+ 144:	08 95       	ret
+		if (port == IOPORTD)
+ 146:	83 30       	cpi	r24, 0x03	; 3
+ 148:	59 f4       	brne	.+22     	; 0x160 <_ZN6Device9setStatusE4PORT3PINb+0xde>
+			PORTD &= ~(1 << pin);
+ 14a:	22 b3       	in	r18, 0x12	; 18
+ 14c:	81 e0       	ldi	r24, 0x01	; 1
+ 14e:	90 e0       	ldi	r25, 0x00	; 0
+ 150:	02 c0       	rjmp	.+4      	; 0x156 <_ZN6Device9setStatusE4PORT3PINb+0xd4>
+ 152:	88 0f       	add	r24, r24
+ 154:	99 1f       	adc	r25, r25
+ 156:	6a 95       	dec	r22
+ 158:	e2 f7       	brpl	.-8      	; 0x152 <_ZN6Device9setStatusE4PORT3PINb+0xd0>
+ 15a:	80 95       	com	r24
+ 15c:	82 23       	and	r24, r18
+ 15e:	82 bb       	out	0x12, r24	; 18
+ 160:	08 95       	ret
 
-void Microcontroller::createTask(void (*func)(void))
-{
-	this->threadInit = func;
-  84:	fc 01       	movw	r30, r24
-  86:	71 83       	std	Z+1, r23	; 0x01
-  88:	60 83       	st	Z, r22
-  8a:	08 95       	ret
-
-0000008c <_ZN15Microcontroller7executeEv>:
+00000162 <_ZN6Device12setDirectionE4PORT3PINb>:
+	}
 }
 
-void Microcontroller::execute()
+void Device::setDirection(PORT port, PIN pin, bool state)
 {
-	this->threadInit();
-  8c:	dc 01       	movw	r26, r24
-  8e:	ed 91       	ld	r30, X+
-  90:	fc 91       	ld	r31, X
-  92:	09 95       	icall
-  94:	08 95       	ret
+	if (state == true)
+ 162:	44 23       	and	r20, r20
+ 164:	a9 f1       	breq	.+106    	; 0x1d0 <_ZN6Device12setDirectionE4PORT3PINb+0x6e>
+	{
+		if (port == IOPORTA)
+ 166:	81 11       	cpse	r24, r1
+ 168:	0b c0       	rjmp	.+22     	; 0x180 <_ZN6Device12setDirectionE4PORT3PINb+0x1e>
+			DDRA |= 1 << pin;
+ 16a:	2a b3       	in	r18, 0x1a	; 26
+ 16c:	81 e0       	ldi	r24, 0x01	; 1
+ 16e:	90 e0       	ldi	r25, 0x00	; 0
+ 170:	02 c0       	rjmp	.+4      	; 0x176 <_ZN6Device12setDirectionE4PORT3PINb+0x14>
+ 172:	88 0f       	add	r24, r24
+ 174:	99 1f       	adc	r25, r25
+ 176:	6a 95       	dec	r22
+ 178:	e2 f7       	brpl	.-8      	; 0x172 <_ZN6Device12setDirectionE4PORT3PINb+0x10>
+ 17a:	82 2b       	or	r24, r18
+ 17c:	8a bb       	out	0x1a, r24	; 26
+ 17e:	08 95       	ret
+		else if (port == IOPORTB)
+ 180:	81 30       	cpi	r24, 0x01	; 1
+ 182:	59 f4       	brne	.+22     	; 0x19a <_ZN6Device12setDirectionE4PORT3PINb+0x38>
+			DDRB |= 1 << pin;
+ 184:	27 b3       	in	r18, 0x17	; 23
+ 186:	81 e0       	ldi	r24, 0x01	; 1
+ 188:	90 e0       	ldi	r25, 0x00	; 0
+ 18a:	02 c0       	rjmp	.+4      	; 0x190 <_ZN6Device12setDirectionE4PORT3PINb+0x2e>
+ 18c:	88 0f       	add	r24, r24
+ 18e:	99 1f       	adc	r25, r25
+ 190:	6a 95       	dec	r22
+ 192:	e2 f7       	brpl	.-8      	; 0x18c <_ZN6Device12setDirectionE4PORT3PINb+0x2a>
+ 194:	82 2b       	or	r24, r18
+ 196:	87 bb       	out	0x17, r24	; 23
+ 198:	08 95       	ret
+		else if (port == IOPORTC)
+ 19a:	82 30       	cpi	r24, 0x02	; 2
+ 19c:	59 f4       	brne	.+22     	; 0x1b4 <_ZN6Device12setDirectionE4PORT3PINb+0x52>
+			DDRC |= 1 << pin;
+ 19e:	24 b3       	in	r18, 0x14	; 20
+ 1a0:	81 e0       	ldi	r24, 0x01	; 1
+ 1a2:	90 e0       	ldi	r25, 0x00	; 0
+ 1a4:	02 c0       	rjmp	.+4      	; 0x1aa <_ZN6Device12setDirectionE4PORT3PINb+0x48>
+ 1a6:	88 0f       	add	r24, r24
+ 1a8:	99 1f       	adc	r25, r25
+ 1aa:	6a 95       	dec	r22
+ 1ac:	e2 f7       	brpl	.-8      	; 0x1a6 <_ZN6Device12setDirectionE4PORT3PINb+0x44>
+ 1ae:	82 2b       	or	r24, r18
+ 1b0:	84 bb       	out	0x14, r24	; 20
+ 1b2:	08 95       	ret
+		else if (port == IOPORTD)
+ 1b4:	83 30       	cpi	r24, 0x03	; 3
+ 1b6:	09 f0       	breq	.+2      	; 0x1ba <_ZN6Device12setDirectionE4PORT3PINb+0x58>
+ 1b8:	43 c0       	rjmp	.+134    	; 0x240 <_ZN6Device12setDirectionE4PORT3PINb+0xde>
+			DDRD |= 1 << pin;
+ 1ba:	21 b3       	in	r18, 0x11	; 17
+ 1bc:	81 e0       	ldi	r24, 0x01	; 1
+ 1be:	90 e0       	ldi	r25, 0x00	; 0
+ 1c0:	02 c0       	rjmp	.+4      	; 0x1c6 <_ZN6Device12setDirectionE4PORT3PINb+0x64>
+ 1c2:	88 0f       	add	r24, r24
+ 1c4:	99 1f       	adc	r25, r25
+ 1c6:	6a 95       	dec	r22
+ 1c8:	e2 f7       	brpl	.-8      	; 0x1c2 <_ZN6Device12setDirectionE4PORT3PINb+0x60>
+ 1ca:	82 2b       	or	r24, r18
+ 1cc:	81 bb       	out	0x11, r24	; 17
+ 1ce:	08 95       	ret
+	}
+	else if (state == false)
+	{
+		if (port == IOPORTA)
+ 1d0:	81 11       	cpse	r24, r1
+ 1d2:	0d c0       	rjmp	.+26     	; 0x1ee <_ZN6Device12setDirectionE4PORT3PINb+0x8c>
+			DDRA &= ~(1 << pin);
+ 1d4:	9a b3       	in	r25, 0x1a	; 26
+ 1d6:	21 e0       	ldi	r18, 0x01	; 1
+ 1d8:	30 e0       	ldi	r19, 0x00	; 0
+ 1da:	06 2e       	mov	r0, r22
+ 1dc:	02 c0       	rjmp	.+4      	; 0x1e2 <_ZN6Device12setDirectionE4PORT3PINb+0x80>
+ 1de:	22 0f       	add	r18, r18
+ 1e0:	33 1f       	adc	r19, r19
+ 1e2:	0a 94       	dec	r0
+ 1e4:	e2 f7       	brpl	.-8      	; 0x1de <_ZN6Device12setDirectionE4PORT3PINb+0x7c>
+ 1e6:	20 95       	com	r18
+ 1e8:	29 23       	and	r18, r25
+ 1ea:	2a bb       	out	0x1a, r18	; 26
+ 1ec:	1c c0       	rjmp	.+56     	; 0x226 <_ZN6Device12setDirectionE4PORT3PINb+0xc4>
+		if (port == IOPORTB)
+ 1ee:	81 30       	cpi	r24, 0x01	; 1
+ 1f0:	61 f4       	brne	.+24     	; 0x20a <_ZN6Device12setDirectionE4PORT3PINb+0xa8>
+			DDRB &= ~(1 << pin);
+ 1f2:	27 b3       	in	r18, 0x17	; 23
+ 1f4:	81 e0       	ldi	r24, 0x01	; 1
+ 1f6:	90 e0       	ldi	r25, 0x00	; 0
+ 1f8:	02 c0       	rjmp	.+4      	; 0x1fe <_ZN6Device12setDirectionE4PORT3PINb+0x9c>
+ 1fa:	88 0f       	add	r24, r24
+ 1fc:	99 1f       	adc	r25, r25
+ 1fe:	6a 95       	dec	r22
+ 200:	e2 f7       	brpl	.-8      	; 0x1fa <_ZN6Device12setDirectionE4PORT3PINb+0x98>
+ 202:	80 95       	com	r24
+ 204:	82 23       	and	r24, r18
+ 206:	87 bb       	out	0x17, r24	; 23
+ 208:	08 95       	ret
+		if (port == IOPORTC)
+ 20a:	82 30       	cpi	r24, 0x02	; 2
+ 20c:	61 f4       	brne	.+24     	; 0x226 <_ZN6Device12setDirectionE4PORT3PINb+0xc4>
+			DDRC &= ~(1 << pin);
+ 20e:	24 b3       	in	r18, 0x14	; 20
+ 210:	81 e0       	ldi	r24, 0x01	; 1
+ 212:	90 e0       	ldi	r25, 0x00	; 0
+ 214:	02 c0       	rjmp	.+4      	; 0x21a <_ZN6Device12setDirectionE4PORT3PINb+0xb8>
+ 216:	88 0f       	add	r24, r24
+ 218:	99 1f       	adc	r25, r25
+ 21a:	6a 95       	dec	r22
+ 21c:	e2 f7       	brpl	.-8      	; 0x216 <_ZN6Device12setDirectionE4PORT3PINb+0xb4>
+ 21e:	80 95       	com	r24
+ 220:	82 23       	and	r24, r18
+ 222:	84 bb       	out	0x14, r24	; 20
+ 224:	08 95       	ret
+		if (port == IOPORTD)
+ 226:	83 30       	cpi	r24, 0x03	; 3
+ 228:	59 f4       	brne	.+22     	; 0x240 <_ZN6Device12setDirectionE4PORT3PINb+0xde>
+			DDRD &= ~(1 << pin);
+ 22a:	21 b3       	in	r18, 0x11	; 17
+ 22c:	81 e0       	ldi	r24, 0x01	; 1
+ 22e:	90 e0       	ldi	r25, 0x00	; 0
+ 230:	02 c0       	rjmp	.+4      	; 0x236 <_ZN6Device12setDirectionE4PORT3PINb+0xd4>
+ 232:	88 0f       	add	r24, r24
+ 234:	99 1f       	adc	r25, r25
+ 236:	6a 95       	dec	r22
+ 238:	e2 f7       	brpl	.-8      	; 0x232 <_ZN6Device12setDirectionE4PORT3PINb+0xd0>
+ 23a:	80 95       	com	r24
+ 23c:	82 23       	and	r24, r18
+ 23e:	81 bb       	out	0x11, r24	; 17
+ 240:	08 95       	ret
 
-00000096 <_ZN3LED10initializeEv>:
+00000242 <_ZN6Device9setStatusE4PORTi>:
+	}
+}
+
+void Device::setStatus(PORT port, int state)
+{
+	if (port == IOPORTA)
+ 242:	81 11       	cpse	r24, r1
+ 244:	02 c0       	rjmp	.+4      	; 0x24a <_ZN6Device9setStatusE4PORTi+0x8>
+		PORTA = state;
+ 246:	6b bb       	out	0x1b, r22	; 27
+ 248:	08 95       	ret
+	else if (port == IOPORTB)
+ 24a:	81 30       	cpi	r24, 0x01	; 1
+ 24c:	11 f4       	brne	.+4      	; 0x252 <_ZN6Device9setStatusE4PORTi+0x10>
+		PORTB = state;
+ 24e:	68 bb       	out	0x18, r22	; 24
+ 250:	08 95       	ret
+	else if (port == IOPORTC)
+ 252:	82 30       	cpi	r24, 0x02	; 2
+ 254:	11 f4       	brne	.+4      	; 0x25a <_ZN6Device9setStatusE4PORTi+0x18>
+		PORTC = state;
+ 256:	65 bb       	out	0x15, r22	; 21
+ 258:	08 95       	ret
+	else if (port == IOPORTD)
+ 25a:	83 30       	cpi	r24, 0x03	; 3
+ 25c:	09 f4       	brne	.+2      	; 0x260 <_ZN6Device9setStatusE4PORTi+0x1e>
+		PORTD = state;
+ 25e:	62 bb       	out	0x12, r22	; 18
+ 260:	08 95       	ret
+
+00000262 <_ZN6Device12setDirectionE4PORTi>:
+}
+
+void Device::setDirection(PORT port, int state)
+{
+	if (port == IOPORTA)
+ 262:	81 11       	cpse	r24, r1
+ 264:	02 c0       	rjmp	.+4      	; 0x26a <_ZN6Device12setDirectionE4PORTi+0x8>
+		DDRA = state;
+ 266:	6a bb       	out	0x1a, r22	; 26
+ 268:	08 95       	ret
+	else if (port == IOPORTB)
+ 26a:	81 30       	cpi	r24, 0x01	; 1
+ 26c:	11 f4       	brne	.+4      	; 0x272 <_ZN6Device12setDirectionE4PORTi+0x10>
+		DDRB = state;
+ 26e:	67 bb       	out	0x17, r22	; 23
+ 270:	08 95       	ret
+	else if (port == IOPORTC)
+ 272:	82 30       	cpi	r24, 0x02	; 2
+ 274:	11 f4       	brne	.+4      	; 0x27a <_ZN6Device12setDirectionE4PORTi+0x18>
+		DDRC = state;
+ 276:	64 bb       	out	0x14, r22	; 20
+ 278:	08 95       	ret
+	else if (port == IOPORTD)
+ 27a:	83 30       	cpi	r24, 0x03	; 3
+ 27c:	09 f4       	brne	.+2      	; 0x280 <_ZN6Device12setDirectionE4PORTi+0x1e>
+		DDRD = state;
+ 27e:	61 bb       	out	0x11, r22	; 17
+ 280:	08 95       	ret
+
+00000282 <_ZN6Device9getStatusE4PORT3PIN>:
+}
+
+bool Device::getStatus(PORT port, PIN pin)
+{
+	if (port == IOPORTA)
+ 282:	81 11       	cpse	r24, r1
+ 284:	09 c0       	rjmp	.+18     	; 0x298 <_ZN6Device9getStatusE4PORT3PIN+0x16>
+		return bit_is_set(PINA, pin);
+ 286:	89 b3       	in	r24, 0x19	; 25
+ 288:	90 e0       	ldi	r25, 0x00	; 0
+ 28a:	02 c0       	rjmp	.+4      	; 0x290 <_ZN6Device9getStatusE4PORT3PIN+0xe>
+ 28c:	95 95       	asr	r25
+ 28e:	87 95       	ror	r24
+ 290:	6a 95       	dec	r22
+ 292:	e2 f7       	brpl	.-8      	; 0x28c <_ZN6Device9getStatusE4PORT3PIN+0xa>
+ 294:	81 70       	andi	r24, 0x01	; 1
+ 296:	08 95       	ret
+	else if (port == IOPORTB)
+ 298:	81 30       	cpi	r24, 0x01	; 1
+ 29a:	49 f4       	brne	.+18     	; 0x2ae <_ZN6Device9getStatusE4PORT3PIN+0x2c>
+		return bit_is_set(PINB, pin);
+ 29c:	86 b3       	in	r24, 0x16	; 22
+ 29e:	90 e0       	ldi	r25, 0x00	; 0
+ 2a0:	02 c0       	rjmp	.+4      	; 0x2a6 <_ZN6Device9getStatusE4PORT3PIN+0x24>
+ 2a2:	95 95       	asr	r25
+ 2a4:	87 95       	ror	r24
+ 2a6:	6a 95       	dec	r22
+ 2a8:	e2 f7       	brpl	.-8      	; 0x2a2 <_ZN6Device9getStatusE4PORT3PIN+0x20>
+ 2aa:	81 70       	andi	r24, 0x01	; 1
+ 2ac:	08 95       	ret
+	else if (port == IOPORTC)
+ 2ae:	82 30       	cpi	r24, 0x02	; 2
+ 2b0:	49 f4       	brne	.+18     	; 0x2c4 <_ZN6Device9getStatusE4PORT3PIN+0x42>
+		return bit_is_set(PINC, pin);
+ 2b2:	83 b3       	in	r24, 0x13	; 19
+ 2b4:	90 e0       	ldi	r25, 0x00	; 0
+ 2b6:	02 c0       	rjmp	.+4      	; 0x2bc <_ZN6Device9getStatusE4PORT3PIN+0x3a>
+ 2b8:	95 95       	asr	r25
+ 2ba:	87 95       	ror	r24
+ 2bc:	6a 95       	dec	r22
+ 2be:	e2 f7       	brpl	.-8      	; 0x2b8 <_ZN6Device9getStatusE4PORT3PIN+0x36>
+ 2c0:	81 70       	andi	r24, 0x01	; 1
+ 2c2:	08 95       	ret
+	else if (port == IOPORTD)
+ 2c4:	83 30       	cpi	r24, 0x03	; 3
+ 2c6:	49 f4       	brne	.+18     	; 0x2da <_ZN6Device9getStatusE4PORT3PIN+0x58>
+		return bit_is_set(PIND, pin);
+ 2c8:	80 b3       	in	r24, 0x10	; 16
+ 2ca:	90 e0       	ldi	r25, 0x00	; 0
+ 2cc:	02 c0       	rjmp	.+4      	; 0x2d2 <_ZN6Device9getStatusE4PORT3PIN+0x50>
+ 2ce:	95 95       	asr	r25
+ 2d0:	87 95       	ror	r24
+ 2d2:	6a 95       	dec	r22
+ 2d4:	e2 f7       	brpl	.-8      	; 0x2ce <_ZN6Device9getStatusE4PORT3PIN+0x4c>
+ 2d6:	81 70       	andi	r24, 0x01	; 1
+ 2d8:	08 95       	ret
+ 2da:	08 95       	ret
+
+000002dc <_ZN3LED10initializeEv>:
 		off();
 	return status;
 }
 
 void LED::initialize()
 {
-  96:	cf 93       	push	r28
-  98:	df 93       	push	r29
-  9a:	ec 01       	movw	r28, r24
-	Output::pinDirection(port, pin, true);
-  9c:	41 e0       	ldi	r20, 0x01	; 1
-  9e:	6c 81       	ldd	r22, Y+4	; 0x04
-  a0:	8b 81       	ldd	r24, Y+3	; 0x03
-  a2:	0e 94 e4 00 	call	0x1c8	; 0x1c8 <_ZN6Output12pinDirectionE4PORT3PINb>
-	Output::pinStatus(port, pin, false);
-  a6:	40 e0       	ldi	r20, 0x00	; 0
-  a8:	6c 81       	ldd	r22, Y+4	; 0x04
-  aa:	8b 81       	ldd	r24, Y+3	; 0x03
-  ac:	0e 94 74 00 	call	0xe8	; 0xe8 <_ZN6Output9pinStatusE4PORT3PINb>
-  b0:	df 91       	pop	r29
-  b2:	cf 91       	pop	r28
-  b4:	08 95       	ret
+ 2dc:	cf 93       	push	r28
+ 2de:	df 93       	push	r29
+ 2e0:	ec 01       	movw	r28, r24
+	setDirection(port, pin, true);
+ 2e2:	41 e0       	ldi	r20, 0x01	; 1
+ 2e4:	6c 81       	ldd	r22, Y+4	; 0x04
+ 2e6:	8b 81       	ldd	r24, Y+3	; 0x03
+ 2e8:	0e 94 b1 00 	call	0x162	; 0x162 <_ZN6Device12setDirectionE4PORT3PINb>
+	setStatus(port, pin, false);
+ 2ec:	40 e0       	ldi	r20, 0x00	; 0
+ 2ee:	6c 81       	ldd	r22, Y+4	; 0x04
+ 2f0:	8b 81       	ldd	r24, Y+3	; 0x03
+ 2f2:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
+ 2f6:	df 91       	pop	r29
+ 2f8:	cf 91       	pop	r28
+ 2fa:	08 95       	ret
 
-000000b6 <_ZN3LEDC1E4PORT3PIN>:
+000002fc <_ZN3LEDC1E4PORT3PIN>:
+
+
 #include "LED.h"
-#include <avr/io.h>
-#include <util/delay.h>
 
 // default constructor
 LED::LED(PORT port, PIN pin)
-  b6:	2c e6       	ldi	r18, 0x6C	; 108
-  b8:	30 e0       	ldi	r19, 0x00	; 0
-  ba:	fc 01       	movw	r30, r24
-  bc:	31 83       	std	Z+1, r19	; 0x01
-  be:	20 83       	st	Z, r18
+ 2fc:	2c e6       	ldi	r18, 0x6C	; 108
+ 2fe:	30 e0       	ldi	r19, 0x00	; 0
+ 300:	fc 01       	movw	r30, r24
+ 302:	31 83       	std	Z+1, r19	; 0x01
+ 304:	20 83       	st	Z, r18
 {
 	this->port = port;
-  c0:	63 83       	std	Z+3, r22	; 0x03
+ 306:	63 83       	std	Z+3, r22	; 0x03
 	this->pin = pin;
-  c2:	44 83       	std	Z+4, r20	; 0x04
+ 308:	44 83       	std	Z+4, r20	; 0x04
 	this->status = false;
-  c4:	12 82       	std	Z+2, r1	; 0x02
+ 30a:	12 82       	std	Z+2, r1	; 0x02
 	initialize();
-  c6:	0e 94 4b 00 	call	0x96	; 0x96 <_ZN3LED10initializeEv>
-  ca:	08 95       	ret
+ 30c:	0e 94 6e 01 	call	0x2dc	; 0x2dc <_ZN3LED10initializeEv>
+ 310:	08 95       	ret
 
-000000cc <_ZN3LEDD1Ev>:
-} //LED
-
-// default destructor
+00000312 <_ZN3LED2onEv>:
 LED::~LED()
-  cc:	08 95       	ret
-
-000000ce <_ZN3LED2onEv>:
 {
 } //~LED
 
 void LED::on()
 {
-  ce:	cf 93       	push	r28
-  d0:	df 93       	push	r29
-  d2:	ec 01       	movw	r28, r24
-	Output::pinStatus(port, pin, true);
-  d4:	41 e0       	ldi	r20, 0x01	; 1
-  d6:	6c 81       	ldd	r22, Y+4	; 0x04
-  d8:	8b 81       	ldd	r24, Y+3	; 0x03
-  da:	0e 94 74 00 	call	0xe8	; 0xe8 <_ZN6Output9pinStatusE4PORT3PINb>
+ 312:	cf 93       	push	r28
+ 314:	df 93       	push	r29
+ 316:	ec 01       	movw	r28, r24
+	setStatus(port, pin, true);
+ 318:	41 e0       	ldi	r20, 0x01	; 1
+ 31a:	6c 81       	ldd	r22, Y+4	; 0x04
+ 31c:	8b 81       	ldd	r24, Y+3	; 0x03
+ 31e:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
 	status = true;
-  de:	81 e0       	ldi	r24, 0x01	; 1
-  e0:	8a 83       	std	Y+2, r24	; 0x02
+ 322:	81 e0       	ldi	r24, 0x01	; 1
+ 324:	8a 83       	std	Y+2, r24	; 0x02
 }
-  e2:	df 91       	pop	r29
-  e4:	cf 91       	pop	r28
-  e6:	08 95       	ret
+ 326:	df 91       	pop	r29
+ 328:	cf 91       	pop	r28
+ 32a:	08 95       	ret
 
-000000e8 <_ZN6Output9pinStatusE4PORT3PINb>:
+0000032c <_ZN3LED3offEv>:
 
-// functions
-
-void Output::pinStatus(PORT port, PIN pin, bool state)
+void LED::off()
 {
-	if (state == true)
-  e8:	44 23       	and	r20, r20
-  ea:	a9 f1       	breq	.+106    	; 0x156 <_ZN6Output9pinStatusE4PORT3PINb+0x6e>
-	{
-		if (port == IOPORTA)
-  ec:	81 11       	cpse	r24, r1
-  ee:	0b c0       	rjmp	.+22     	; 0x106 <_ZN6Output9pinStatusE4PORT3PINb+0x1e>
-			PORTA |= 1 << pin;
-  f0:	2b b3       	in	r18, 0x1b	; 27
-  f2:	81 e0       	ldi	r24, 0x01	; 1
-  f4:	90 e0       	ldi	r25, 0x00	; 0
-  f6:	02 c0       	rjmp	.+4      	; 0xfc <_ZN6Output9pinStatusE4PORT3PINb+0x14>
-  f8:	88 0f       	add	r24, r24
-  fa:	99 1f       	adc	r25, r25
-  fc:	6a 95       	dec	r22
-  fe:	e2 f7       	brpl	.-8      	; 0xf8 <_ZN6Output9pinStatusE4PORT3PINb+0x10>
- 100:	82 2b       	or	r24, r18
- 102:	8b bb       	out	0x1b, r24	; 27
- 104:	08 95       	ret
-		else if (port == IOPORTB)
- 106:	81 30       	cpi	r24, 0x01	; 1
- 108:	59 f4       	brne	.+22     	; 0x120 <_ZN6Output9pinStatusE4PORT3PINb+0x38>
-			PORTB |= 1 << pin;
- 10a:	28 b3       	in	r18, 0x18	; 24
- 10c:	81 e0       	ldi	r24, 0x01	; 1
- 10e:	90 e0       	ldi	r25, 0x00	; 0
- 110:	02 c0       	rjmp	.+4      	; 0x116 <_ZN6Output9pinStatusE4PORT3PINb+0x2e>
- 112:	88 0f       	add	r24, r24
- 114:	99 1f       	adc	r25, r25
- 116:	6a 95       	dec	r22
- 118:	e2 f7       	brpl	.-8      	; 0x112 <_ZN6Output9pinStatusE4PORT3PINb+0x2a>
- 11a:	82 2b       	or	r24, r18
- 11c:	88 bb       	out	0x18, r24	; 24
- 11e:	08 95       	ret
-		else if (port == IOPORTC)
- 120:	82 30       	cpi	r24, 0x02	; 2
- 122:	59 f4       	brne	.+22     	; 0x13a <_ZN6Output9pinStatusE4PORT3PINb+0x52>
-			PORTC |= 1 << pin;
- 124:	25 b3       	in	r18, 0x15	; 21
- 126:	81 e0       	ldi	r24, 0x01	; 1
- 128:	90 e0       	ldi	r25, 0x00	; 0
- 12a:	02 c0       	rjmp	.+4      	; 0x130 <_ZN6Output9pinStatusE4PORT3PINb+0x48>
- 12c:	88 0f       	add	r24, r24
- 12e:	99 1f       	adc	r25, r25
- 130:	6a 95       	dec	r22
- 132:	e2 f7       	brpl	.-8      	; 0x12c <_ZN6Output9pinStatusE4PORT3PINb+0x44>
- 134:	82 2b       	or	r24, r18
- 136:	85 bb       	out	0x15, r24	; 21
- 138:	08 95       	ret
-		else if (port == IOPORTD)
- 13a:	83 30       	cpi	r24, 0x03	; 3
- 13c:	09 f0       	breq	.+2      	; 0x140 <_ZN6Output9pinStatusE4PORT3PINb+0x58>
- 13e:	43 c0       	rjmp	.+134    	; 0x1c6 <_ZN6Output9pinStatusE4PORT3PINb+0xde>
-			PORTD |= 1 << pin;
- 140:	22 b3       	in	r18, 0x12	; 18
- 142:	81 e0       	ldi	r24, 0x01	; 1
- 144:	90 e0       	ldi	r25, 0x00	; 0
- 146:	02 c0       	rjmp	.+4      	; 0x14c <_ZN6Output9pinStatusE4PORT3PINb+0x64>
- 148:	88 0f       	add	r24, r24
- 14a:	99 1f       	adc	r25, r25
- 14c:	6a 95       	dec	r22
- 14e:	e2 f7       	brpl	.-8      	; 0x148 <_ZN6Output9pinStatusE4PORT3PINb+0x60>
- 150:	82 2b       	or	r24, r18
- 152:	82 bb       	out	0x12, r24	; 18
- 154:	08 95       	ret
-	}
-	else if (state == false)
-	{
-		if (port == IOPORTA)
- 156:	81 11       	cpse	r24, r1
- 158:	0d c0       	rjmp	.+26     	; 0x174 <_ZN6Output9pinStatusE4PORT3PINb+0x8c>
-			PORTA &= ~(1 << pin);
- 15a:	9b b3       	in	r25, 0x1b	; 27
- 15c:	21 e0       	ldi	r18, 0x01	; 1
- 15e:	30 e0       	ldi	r19, 0x00	; 0
- 160:	06 2e       	mov	r0, r22
- 162:	02 c0       	rjmp	.+4      	; 0x168 <_ZN6Output9pinStatusE4PORT3PINb+0x80>
- 164:	22 0f       	add	r18, r18
- 166:	33 1f       	adc	r19, r19
- 168:	0a 94       	dec	r0
- 16a:	e2 f7       	brpl	.-8      	; 0x164 <_ZN6Output9pinStatusE4PORT3PINb+0x7c>
- 16c:	20 95       	com	r18
- 16e:	29 23       	and	r18, r25
- 170:	2b bb       	out	0x1b, r18	; 27
- 172:	1c c0       	rjmp	.+56     	; 0x1ac <_ZN6Output9pinStatusE4PORT3PINb+0xc4>
-		if (port == IOPORTB)
- 174:	81 30       	cpi	r24, 0x01	; 1
- 176:	61 f4       	brne	.+24     	; 0x190 <_ZN6Output9pinStatusE4PORT3PINb+0xa8>
-			PORTB &= ~(1 << pin);
- 178:	28 b3       	in	r18, 0x18	; 24
- 17a:	81 e0       	ldi	r24, 0x01	; 1
- 17c:	90 e0       	ldi	r25, 0x00	; 0
- 17e:	02 c0       	rjmp	.+4      	; 0x184 <_ZN6Output9pinStatusE4PORT3PINb+0x9c>
- 180:	88 0f       	add	r24, r24
- 182:	99 1f       	adc	r25, r25
- 184:	6a 95       	dec	r22
- 186:	e2 f7       	brpl	.-8      	; 0x180 <_ZN6Output9pinStatusE4PORT3PINb+0x98>
- 188:	80 95       	com	r24
- 18a:	82 23       	and	r24, r18
- 18c:	88 bb       	out	0x18, r24	; 24
- 18e:	08 95       	ret
-		if (port == IOPORTC)
- 190:	82 30       	cpi	r24, 0x02	; 2
- 192:	61 f4       	brne	.+24     	; 0x1ac <_ZN6Output9pinStatusE4PORT3PINb+0xc4>
-			PORTC &= ~(1 << pin);
- 194:	25 b3       	in	r18, 0x15	; 21
- 196:	81 e0       	ldi	r24, 0x01	; 1
- 198:	90 e0       	ldi	r25, 0x00	; 0
- 19a:	02 c0       	rjmp	.+4      	; 0x1a0 <_ZN6Output9pinStatusE4PORT3PINb+0xb8>
- 19c:	88 0f       	add	r24, r24
- 19e:	99 1f       	adc	r25, r25
- 1a0:	6a 95       	dec	r22
- 1a2:	e2 f7       	brpl	.-8      	; 0x19c <_ZN6Output9pinStatusE4PORT3PINb+0xb4>
- 1a4:	80 95       	com	r24
- 1a6:	82 23       	and	r24, r18
- 1a8:	85 bb       	out	0x15, r24	; 21
- 1aa:	08 95       	ret
-		if (port == IOPORTD)
- 1ac:	83 30       	cpi	r24, 0x03	; 3
- 1ae:	59 f4       	brne	.+22     	; 0x1c6 <_ZN6Output9pinStatusE4PORT3PINb+0xde>
-			PORTD &= ~(1 << pin);
- 1b0:	22 b3       	in	r18, 0x12	; 18
- 1b2:	81 e0       	ldi	r24, 0x01	; 1
- 1b4:	90 e0       	ldi	r25, 0x00	; 0
- 1b6:	02 c0       	rjmp	.+4      	; 0x1bc <_ZN6Output9pinStatusE4PORT3PINb+0xd4>
- 1b8:	88 0f       	add	r24, r24
- 1ba:	99 1f       	adc	r25, r25
- 1bc:	6a 95       	dec	r22
- 1be:	e2 f7       	brpl	.-8      	; 0x1b8 <_ZN6Output9pinStatusE4PORT3PINb+0xd0>
- 1c0:	80 95       	com	r24
- 1c2:	82 23       	and	r24, r18
- 1c4:	82 bb       	out	0x12, r24	; 18
- 1c6:	08 95       	ret
-
-000001c8 <_ZN6Output12pinDirectionE4PORT3PINb>:
-	}
+ 32c:	cf 93       	push	r28
+ 32e:	df 93       	push	r29
+ 330:	ec 01       	movw	r28, r24
+	setStatus(port, pin, false);
+ 332:	40 e0       	ldi	r20, 0x00	; 0
+ 334:	6c 81       	ldd	r22, Y+4	; 0x04
+ 336:	8b 81       	ldd	r24, Y+3	; 0x03
+ 338:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
+	status = false;
+ 33c:	1a 82       	std	Y+2, r1	; 0x02
 }
-
-void Output::pinDirection(PORT port, PIN pin, bool state)
-{
-	if (state == true)
- 1c8:	44 23       	and	r20, r20
- 1ca:	a9 f1       	breq	.+106    	; 0x236 <_ZN6Output12pinDirectionE4PORT3PINb+0x6e>
-	{
-		if (port == IOPORTA)
- 1cc:	81 11       	cpse	r24, r1
- 1ce:	0b c0       	rjmp	.+22     	; 0x1e6 <_ZN6Output12pinDirectionE4PORT3PINb+0x1e>
-			DDRA |= 1 << pin;
- 1d0:	2a b3       	in	r18, 0x1a	; 26
- 1d2:	81 e0       	ldi	r24, 0x01	; 1
- 1d4:	90 e0       	ldi	r25, 0x00	; 0
- 1d6:	02 c0       	rjmp	.+4      	; 0x1dc <_ZN6Output12pinDirectionE4PORT3PINb+0x14>
- 1d8:	88 0f       	add	r24, r24
- 1da:	99 1f       	adc	r25, r25
- 1dc:	6a 95       	dec	r22
- 1de:	e2 f7       	brpl	.-8      	; 0x1d8 <_ZN6Output12pinDirectionE4PORT3PINb+0x10>
- 1e0:	82 2b       	or	r24, r18
- 1e2:	8a bb       	out	0x1a, r24	; 26
- 1e4:	08 95       	ret
-		else if (port == IOPORTB)
- 1e6:	81 30       	cpi	r24, 0x01	; 1
- 1e8:	59 f4       	brne	.+22     	; 0x200 <_ZN6Output12pinDirectionE4PORT3PINb+0x38>
-			DDRB |= 1 << pin;
- 1ea:	27 b3       	in	r18, 0x17	; 23
- 1ec:	81 e0       	ldi	r24, 0x01	; 1
- 1ee:	90 e0       	ldi	r25, 0x00	; 0
- 1f0:	02 c0       	rjmp	.+4      	; 0x1f6 <_ZN6Output12pinDirectionE4PORT3PINb+0x2e>
- 1f2:	88 0f       	add	r24, r24
- 1f4:	99 1f       	adc	r25, r25
- 1f6:	6a 95       	dec	r22
- 1f8:	e2 f7       	brpl	.-8      	; 0x1f2 <_ZN6Output12pinDirectionE4PORT3PINb+0x2a>
- 1fa:	82 2b       	or	r24, r18
- 1fc:	87 bb       	out	0x17, r24	; 23
- 1fe:	08 95       	ret
-		else if (port == IOPORTC)
- 200:	82 30       	cpi	r24, 0x02	; 2
- 202:	59 f4       	brne	.+22     	; 0x21a <_ZN6Output12pinDirectionE4PORT3PINb+0x52>
-			DDRC |= 1 << pin;
- 204:	24 b3       	in	r18, 0x14	; 20
- 206:	81 e0       	ldi	r24, 0x01	; 1
- 208:	90 e0       	ldi	r25, 0x00	; 0
- 20a:	02 c0       	rjmp	.+4      	; 0x210 <_ZN6Output12pinDirectionE4PORT3PINb+0x48>
- 20c:	88 0f       	add	r24, r24
- 20e:	99 1f       	adc	r25, r25
- 210:	6a 95       	dec	r22
- 212:	e2 f7       	brpl	.-8      	; 0x20c <_ZN6Output12pinDirectionE4PORT3PINb+0x44>
- 214:	82 2b       	or	r24, r18
- 216:	84 bb       	out	0x14, r24	; 20
- 218:	08 95       	ret
-		else if (port == IOPORTD)
- 21a:	83 30       	cpi	r24, 0x03	; 3
- 21c:	09 f0       	breq	.+2      	; 0x220 <_ZN6Output12pinDirectionE4PORT3PINb+0x58>
- 21e:	43 c0       	rjmp	.+134    	; 0x2a6 <_ZN6Output12pinDirectionE4PORT3PINb+0xde>
-			DDRD |= 1 << pin;
- 220:	21 b3       	in	r18, 0x11	; 17
- 222:	81 e0       	ldi	r24, 0x01	; 1
- 224:	90 e0       	ldi	r25, 0x00	; 0
- 226:	02 c0       	rjmp	.+4      	; 0x22c <_ZN6Output12pinDirectionE4PORT3PINb+0x64>
- 228:	88 0f       	add	r24, r24
- 22a:	99 1f       	adc	r25, r25
- 22c:	6a 95       	dec	r22
- 22e:	e2 f7       	brpl	.-8      	; 0x228 <_ZN6Output12pinDirectionE4PORT3PINb+0x60>
- 230:	82 2b       	or	r24, r18
- 232:	81 bb       	out	0x11, r24	; 17
- 234:	08 95       	ret
-	}
-	else if (state == false)
-	{
-		if (port == IOPORTA)
- 236:	81 11       	cpse	r24, r1
- 238:	0d c0       	rjmp	.+26     	; 0x254 <_ZN6Output12pinDirectionE4PORT3PINb+0x8c>
-			DDRA &= ~(1 << pin);
- 23a:	9a b3       	in	r25, 0x1a	; 26
- 23c:	21 e0       	ldi	r18, 0x01	; 1
- 23e:	30 e0       	ldi	r19, 0x00	; 0
- 240:	06 2e       	mov	r0, r22
- 242:	02 c0       	rjmp	.+4      	; 0x248 <_ZN6Output12pinDirectionE4PORT3PINb+0x80>
- 244:	22 0f       	add	r18, r18
- 246:	33 1f       	adc	r19, r19
- 248:	0a 94       	dec	r0
- 24a:	e2 f7       	brpl	.-8      	; 0x244 <_ZN6Output12pinDirectionE4PORT3PINb+0x7c>
- 24c:	20 95       	com	r18
- 24e:	29 23       	and	r18, r25
- 250:	2a bb       	out	0x1a, r18	; 26
- 252:	1c c0       	rjmp	.+56     	; 0x28c <_ZN6Output12pinDirectionE4PORT3PINb+0xc4>
-		if (port == IOPORTB)
- 254:	81 30       	cpi	r24, 0x01	; 1
- 256:	61 f4       	brne	.+24     	; 0x270 <_ZN6Output12pinDirectionE4PORT3PINb+0xa8>
-			DDRB &= ~(1 << pin);
- 258:	27 b3       	in	r18, 0x17	; 23
- 25a:	81 e0       	ldi	r24, 0x01	; 1
- 25c:	90 e0       	ldi	r25, 0x00	; 0
- 25e:	02 c0       	rjmp	.+4      	; 0x264 <_ZN6Output12pinDirectionE4PORT3PINb+0x9c>
- 260:	88 0f       	add	r24, r24
- 262:	99 1f       	adc	r25, r25
- 264:	6a 95       	dec	r22
- 266:	e2 f7       	brpl	.-8      	; 0x260 <_ZN6Output12pinDirectionE4PORT3PINb+0x98>
- 268:	80 95       	com	r24
- 26a:	82 23       	and	r24, r18
- 26c:	87 bb       	out	0x17, r24	; 23
- 26e:	08 95       	ret
-		if (port == IOPORTC)
- 270:	82 30       	cpi	r24, 0x02	; 2
- 272:	61 f4       	brne	.+24     	; 0x28c <_ZN6Output12pinDirectionE4PORT3PINb+0xc4>
-			DDRC &= ~(1 << pin);
- 274:	24 b3       	in	r18, 0x14	; 20
- 276:	81 e0       	ldi	r24, 0x01	; 1
- 278:	90 e0       	ldi	r25, 0x00	; 0
- 27a:	02 c0       	rjmp	.+4      	; 0x280 <_ZN6Output12pinDirectionE4PORT3PINb+0xb8>
- 27c:	88 0f       	add	r24, r24
- 27e:	99 1f       	adc	r25, r25
- 280:	6a 95       	dec	r22
- 282:	e2 f7       	brpl	.-8      	; 0x27c <_ZN6Output12pinDirectionE4PORT3PINb+0xb4>
- 284:	80 95       	com	r24
- 286:	82 23       	and	r24, r18
- 288:	84 bb       	out	0x14, r24	; 20
- 28a:	08 95       	ret
-		if (port == IOPORTD)
- 28c:	83 30       	cpi	r24, 0x03	; 3
- 28e:	59 f4       	brne	.+22     	; 0x2a6 <_ZN6Output12pinDirectionE4PORT3PINb+0xde>
-			DDRD &= ~(1 << pin);
- 290:	21 b3       	in	r18, 0x11	; 17
- 292:	81 e0       	ldi	r24, 0x01	; 1
- 294:	90 e0       	ldi	r25, 0x00	; 0
- 296:	02 c0       	rjmp	.+4      	; 0x29c <_ZN6Output12pinDirectionE4PORT3PINb+0xd4>
- 298:	88 0f       	add	r24, r24
- 29a:	99 1f       	adc	r25, r25
- 29c:	6a 95       	dec	r22
- 29e:	e2 f7       	brpl	.-8      	; 0x298 <_ZN6Output12pinDirectionE4PORT3PINb+0xd0>
- 2a0:	80 95       	com	r24
- 2a2:	82 23       	and	r24, r18
- 2a4:	81 bb       	out	0x11, r24	; 17
- 2a6:	08 95       	ret
-
-000002a8 <_ZN6Output10portStatusE4PORTi>:
-	}
-}
-
-void Output::portStatus(PORT port, int state)
-{
-	if (port == IOPORTA)
- 2a8:	81 11       	cpse	r24, r1
- 2aa:	02 c0       	rjmp	.+4      	; 0x2b0 <_ZN6Output10portStatusE4PORTi+0x8>
-		PORTA = state;
- 2ac:	6b bb       	out	0x1b, r22	; 27
- 2ae:	08 95       	ret
-	else if (port == IOPORTB)
- 2b0:	81 30       	cpi	r24, 0x01	; 1
- 2b2:	11 f4       	brne	.+4      	; 0x2b8 <_ZN6Output10portStatusE4PORTi+0x10>
-		PORTB = state;
- 2b4:	68 bb       	out	0x18, r22	; 24
- 2b6:	08 95       	ret
-	else if (port == IOPORTC)
- 2b8:	82 30       	cpi	r24, 0x02	; 2
- 2ba:	11 f4       	brne	.+4      	; 0x2c0 <_ZN6Output10portStatusE4PORTi+0x18>
-		PORTC = state;
- 2bc:	65 bb       	out	0x15, r22	; 21
- 2be:	08 95       	ret
-	else if (port == IOPORTD)
- 2c0:	83 30       	cpi	r24, 0x03	; 3
- 2c2:	09 f4       	brne	.+2      	; 0x2c6 <_ZN6Output10portStatusE4PORTi+0x1e>
-		PORTD = state;
- 2c4:	62 bb       	out	0x12, r22	; 18
- 2c6:	08 95       	ret
-
-000002c8 <_ZN6Output13portDirectionE4PORTi>:
-}
-
-void Output::portDirection(PORT port, int state)
-{
-	if (port == IOPORTA)
- 2c8:	81 11       	cpse	r24, r1
- 2ca:	02 c0       	rjmp	.+4      	; 0x2d0 <_ZN6Output13portDirectionE4PORTi+0x8>
-		DDRA = state;
- 2cc:	6a bb       	out	0x1a, r22	; 26
- 2ce:	08 95       	ret
-	else if (port == IOPORTB)
- 2d0:	81 30       	cpi	r24, 0x01	; 1
- 2d2:	11 f4       	brne	.+4      	; 0x2d8 <_ZN6Output13portDirectionE4PORTi+0x10>
-		DDRB = state;
- 2d4:	67 bb       	out	0x17, r22	; 23
- 2d6:	08 95       	ret
-	else if (port == IOPORTC)
- 2d8:	82 30       	cpi	r24, 0x02	; 2
- 2da:	11 f4       	brne	.+4      	; 0x2e0 <_ZN6Output13portDirectionE4PORTi+0x18>
-		DDRC = state;
- 2dc:	64 bb       	out	0x14, r22	; 20
- 2de:	08 95       	ret
-	else if (port == IOPORTD)
- 2e0:	83 30       	cpi	r24, 0x03	; 3
- 2e2:	09 f4       	brne	.+2      	; 0x2e6 <_ZN6Output13portDirectionE4PORTi+0x1e>
-		DDRD = state;
- 2e4:	61 bb       	out	0x11, r22	; 17
- 2e6:	08 95       	ret
-
-000002e8 <_ZN6Output9pinStatusE4PORT3PIN>:
-}
-
-bool Output::pinStatus(PORT port, PIN pin)
-{
-	if (port == IOPORTA)
- 2e8:	81 11       	cpse	r24, r1
- 2ea:	09 c0       	rjmp	.+18     	; 0x2fe <_ZN6Output9pinStatusE4PORT3PIN+0x16>
-		return (DDRA & (1 << pin)) != 0;
- 2ec:	8a b3       	in	r24, 0x1a	; 26
- 2ee:	90 e0       	ldi	r25, 0x00	; 0
- 2f0:	02 c0       	rjmp	.+4      	; 0x2f6 <_ZN6Output9pinStatusE4PORT3PIN+0xe>
- 2f2:	95 95       	asr	r25
- 2f4:	87 95       	ror	r24
- 2f6:	6a 95       	dec	r22
- 2f8:	e2 f7       	brpl	.-8      	; 0x2f2 <_ZN6Output9pinStatusE4PORT3PIN+0xa>
- 2fa:	81 70       	andi	r24, 0x01	; 1
- 2fc:	08 95       	ret
-	else if (port == IOPORTB)
- 2fe:	81 30       	cpi	r24, 0x01	; 1
- 300:	49 f4       	brne	.+18     	; 0x314 <_ZN6Output9pinStatusE4PORT3PIN+0x2c>
-		return (DDRB & (1 << pin)) != 0;
- 302:	87 b3       	in	r24, 0x17	; 23
- 304:	90 e0       	ldi	r25, 0x00	; 0
- 306:	02 c0       	rjmp	.+4      	; 0x30c <_ZN6Output9pinStatusE4PORT3PIN+0x24>
- 308:	95 95       	asr	r25
- 30a:	87 95       	ror	r24
- 30c:	6a 95       	dec	r22
- 30e:	e2 f7       	brpl	.-8      	; 0x308 <_ZN6Output9pinStatusE4PORT3PIN+0x20>
- 310:	81 70       	andi	r24, 0x01	; 1
- 312:	08 95       	ret
-	else if (port == IOPORTC)
- 314:	82 30       	cpi	r24, 0x02	; 2
- 316:	49 f4       	brne	.+18     	; 0x32a <_ZN6Output9pinStatusE4PORT3PIN+0x42>
-		return (DDRC & (1 << pin)) != 0;
- 318:	84 b3       	in	r24, 0x14	; 20
- 31a:	90 e0       	ldi	r25, 0x00	; 0
- 31c:	02 c0       	rjmp	.+4      	; 0x322 <_ZN6Output9pinStatusE4PORT3PIN+0x3a>
- 31e:	95 95       	asr	r25
- 320:	87 95       	ror	r24
- 322:	6a 95       	dec	r22
- 324:	e2 f7       	brpl	.-8      	; 0x31e <_ZN6Output9pinStatusE4PORT3PIN+0x36>
- 326:	81 70       	andi	r24, 0x01	; 1
- 328:	08 95       	ret
-	else if (port == IOPORTD)
- 32a:	83 30       	cpi	r24, 0x03	; 3
- 32c:	49 f4       	brne	.+18     	; 0x340 <_ZN6Output9pinStatusE4PORT3PIN+0x58>
-		return (DDRD & (1 << pin)) != 0;
- 32e:	81 b3       	in	r24, 0x11	; 17
- 330:	90 e0       	ldi	r25, 0x00	; 0
- 332:	02 c0       	rjmp	.+4      	; 0x338 <_ZN6Output9pinStatusE4PORT3PIN+0x50>
- 334:	95 95       	asr	r25
- 336:	87 95       	ror	r24
- 338:	6a 95       	dec	r22
- 33a:	e2 f7       	brpl	.-8      	; 0x334 <_ZN6Output9pinStatusE4PORT3PIN+0x4c>
- 33c:	81 70       	andi	r24, 0x01	; 1
- 33e:	08 95       	ret
-	else
-		return false;
- 340:	80 e0       	ldi	r24, 0x00	; 0
-}
+ 33e:	df 91       	pop	r29
+ 340:	cf 91       	pop	r28
  342:	08 95       	ret
 
-00000344 <_ZN15ParallelTextLCDD1Ev>:
-	this->pinEN = pinEN;
-	initialize();
-} 
+00000344 <_ZN3LED6toggleEv>:
 
-// default destructor
-ParallelTextLCD::~ParallelTextLCD()
- 344:	08 95       	ret
+bool LED::toggle()
+{
+ 344:	cf 93       	push	r28
+ 346:	df 93       	push	r29
+ 348:	ec 01       	movw	r28, r24
+	if (status == false)
+ 34a:	8a 81       	ldd	r24, Y+2	; 0x02
+ 34c:	81 11       	cpse	r24, r1
+ 34e:	04 c0       	rjmp	.+8      	; 0x358 <_ZN3LED6toggleEv+0x14>
+		on();
+ 350:	ce 01       	movw	r24, r28
+ 352:	0e 94 89 01 	call	0x312	; 0x312 <_ZN3LED2onEv>
+ 356:	03 c0       	rjmp	.+6      	; 0x35e <_ZN3LED6toggleEv+0x1a>
+	else if(status == true)
+		off();
+ 358:	ce 01       	movw	r24, r28
+ 35a:	0e 94 96 01 	call	0x32c	; 0x32c <_ZN3LED3offEv>
+	return status;
+}
+ 35e:	8a 81       	ldd	r24, Y+2	; 0x02
+ 360:	df 91       	pop	r29
+ 362:	cf 91       	pop	r28
+ 364:	08 95       	ret
 
-00000346 <_ZN15ParallelTextLCD13action_enableEv>:
+00000366 <_ZN15ParallelTextLCD13action_enableEv>:
 		action_enable();
-	Output::portDirection(dataPort, 0xFF);
+	setDirection(dataPort, 0xFF);
 }
 
 void ParallelTextLCD::action_enable(void)
 {
- 346:	cf 93       	push	r28
- 348:	df 93       	push	r29
- 34a:	ec 01       	movw	r28, r24
-	Output::pinStatus(controlPort, pinEN, true);
- 34c:	41 e0       	ldi	r20, 0x01	; 1
- 34e:	6c 81       	ldd	r22, Y+4	; 0x04
- 350:	8b 81       	ldd	r24, Y+3	; 0x03
- 352:	0e 94 74 00 	call	0xe8	; 0xe8 <_ZN6Output9pinStatusE4PORT3PINb>
+ 366:	cf 93       	push	r28
+ 368:	df 93       	push	r29
+ 36a:	ec 01       	movw	r28, r24
+	setStatus(controlPort, pinEN, true);
+ 36c:	41 e0       	ldi	r20, 0x01	; 1
+ 36e:	6c 81       	ldd	r22, Y+4	; 0x04
+ 370:	8b 81       	ldd	r24, Y+3	; 0x03
+ 372:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
 	asm volatile ("nop");
- 356:	00 00       	nop
+ 376:	00 00       	nop
 	asm volatile ("nop");
- 358:	00 00       	nop
-	Output::pinStatus(controlPort, pinEN, false);
- 35a:	40 e0       	ldi	r20, 0x00	; 0
- 35c:	6c 81       	ldd	r22, Y+4	; 0x04
- 35e:	8b 81       	ldd	r24, Y+3	; 0x03
- 360:	0e 94 74 00 	call	0xe8	; 0xe8 <_ZN6Output9pinStatusE4PORT3PINb>
- 364:	df 91       	pop	r29
- 366:	cf 91       	pop	r28
- 368:	08 95       	ret
-
-0000036a <_ZN15ParallelTextLCD9wait_busyEv>:
-	action_enable();
-	Output::portStatus(dataPort, 0x00);
-}
-
-void ParallelTextLCD::wait_busy(void)
-{
- 36a:	cf 93       	push	r28
- 36c:	df 93       	push	r29
- 36e:	ec 01       	movw	r28, r24
-	Output::portDirection(dataPort, 0x00);
- 370:	60 e0       	ldi	r22, 0x00	; 0
- 372:	70 e0       	ldi	r23, 0x00	; 0
- 374:	8a 81       	ldd	r24, Y+2	; 0x02
- 376:	0e 94 64 01 	call	0x2c8	; 0x2c8 <_ZN6Output13portDirectionE4PORTi>
-	Output::pinStatus(controlPort, pinRW, true);
- 37a:	41 e0       	ldi	r20, 0x01	; 1
- 37c:	6d 81       	ldd	r22, Y+5	; 0x05
+ 378:	00 00       	nop
+	setStatus(controlPort, pinEN, false);
+ 37a:	40 e0       	ldi	r20, 0x00	; 0
+ 37c:	6c 81       	ldd	r22, Y+4	; 0x04
  37e:	8b 81       	ldd	r24, Y+3	; 0x03
- 380:	0e 94 74 00 	call	0xe8	; 0xe8 <_ZN6Output9pinStatusE4PORT3PINb>
-	Output::pinStatus(controlPort, pinRS, false);
- 384:	40 e0       	ldi	r20, 0x00	; 0
- 386:	6e 81       	ldd	r22, Y+6	; 0x06
- 388:	8b 81       	ldd	r24, Y+3	; 0x03
- 38a:	0e 94 74 00 	call	0xe8	; 0xe8 <_ZN6Output9pinStatusE4PORT3PINb>
-	while (Output::pinStatus(dataPort, IOPIN7) == true)
- 38e:	03 c0       	rjmp	.+6      	; 0x396 <_ZN15ParallelTextLCD9wait_busyEv+0x2c>
-		action_enable();
- 390:	ce 01       	movw	r24, r28
- 392:	0e 94 a3 01 	call	0x346	; 0x346 <_ZN15ParallelTextLCD13action_enableEv>
+ 380:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
+ 384:	df 91       	pop	r29
+ 386:	cf 91       	pop	r28
+ 388:	08 95       	ret
+
+0000038a <_ZN15ParallelTextLCD9wait_busyEv>:
+	action_enable();
+	setStatus(dataPort, 0x00);
+}
+
 void ParallelTextLCD::wait_busy(void)
 {
-	Output::portDirection(dataPort, 0x00);
-	Output::pinStatus(controlPort, pinRW, true);
-	Output::pinStatus(controlPort, pinRS, false);
-	while (Output::pinStatus(dataPort, IOPIN7) == true)
- 396:	67 e0       	ldi	r22, 0x07	; 7
- 398:	8a 81       	ldd	r24, Y+2	; 0x02
- 39a:	0e 94 74 01 	call	0x2e8	; 0x2e8 <_ZN6Output9pinStatusE4PORT3PIN>
- 39e:	81 11       	cpse	r24, r1
- 3a0:	f7 cf       	rjmp	.-18     	; 0x390 <_ZN15ParallelTextLCD9wait_busyEv+0x26>
+ 38a:	cf 93       	push	r28
+ 38c:	df 93       	push	r29
+ 38e:	ec 01       	movw	r28, r24
+	setDirection(dataPort, 0x00);
+ 390:	60 e0       	ldi	r22, 0x00	; 0
+ 392:	70 e0       	ldi	r23, 0x00	; 0
+ 394:	8a 81       	ldd	r24, Y+2	; 0x02
+ 396:	0e 94 31 01 	call	0x262	; 0x262 <_ZN6Device12setDirectionE4PORTi>
+	setStatus(controlPort, pinRW, true);
+ 39a:	41 e0       	ldi	r20, 0x01	; 1
+ 39c:	6d 81       	ldd	r22, Y+5	; 0x05
+ 39e:	8b 81       	ldd	r24, Y+3	; 0x03
+ 3a0:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
+	setStatus(controlPort, pinRS, false);
+ 3a4:	40 e0       	ldi	r20, 0x00	; 0
+ 3a6:	6e 81       	ldd	r22, Y+6	; 0x06
+ 3a8:	8b 81       	ldd	r24, Y+3	; 0x03
+ 3aa:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
+	while (getStatus(dataPort, IOPIN7) == true)
+ 3ae:	03 c0       	rjmp	.+6      	; 0x3b6 <_ZN15ParallelTextLCD9wait_busyEv+0x2c>
 		action_enable();
-	Output::portDirection(dataPort, 0xFF);
- 3a2:	6f ef       	ldi	r22, 0xFF	; 255
- 3a4:	70 e0       	ldi	r23, 0x00	; 0
- 3a6:	8a 81       	ldd	r24, Y+2	; 0x02
- 3a8:	0e 94 64 01 	call	0x2c8	; 0x2c8 <_ZN6Output13portDirectionE4PORTi>
+ 3b0:	ce 01       	movw	r24, r28
+ 3b2:	0e 94 b3 01 	call	0x366	; 0x366 <_ZN15ParallelTextLCD13action_enableEv>
+void ParallelTextLCD::wait_busy(void)
+{
+	setDirection(dataPort, 0x00);
+	setStatus(controlPort, pinRW, true);
+	setStatus(controlPort, pinRS, false);
+	while (getStatus(dataPort, IOPIN7) == true)
+ 3b6:	67 e0       	ldi	r22, 0x07	; 7
+ 3b8:	8a 81       	ldd	r24, Y+2	; 0x02
+ 3ba:	0e 94 41 01 	call	0x282	; 0x282 <_ZN6Device9getStatusE4PORT3PIN>
+ 3be:	81 11       	cpse	r24, r1
+ 3c0:	f7 cf       	rjmp	.-18     	; 0x3b0 <_ZN15ParallelTextLCD9wait_busyEv+0x26>
+		action_enable();
+	setDirection(dataPort, 0xFF);
+ 3c2:	6f ef       	ldi	r22, 0xFF	; 255
+ 3c4:	70 e0       	ldi	r23, 0x00	; 0
+ 3c6:	8a 81       	ldd	r24, Y+2	; 0x02
+ 3c8:	0e 94 31 01 	call	0x262	; 0x262 <_ZN6Device12setDirectionE4PORTi>
 }
- 3ac:	df 91       	pop	r29
- 3ae:	cf 91       	pop	r28
- 3b0:	08 95       	ret
+ 3cc:	df 91       	pop	r29
+ 3ce:	cf 91       	pop	r28
+ 3d0:	08 95       	ret
 
-000003b2 <_ZN15ParallelTextLCD7commandEh>:
+000003d2 <_ZN15ParallelTextLCD7commandEh>:
 		command(0b00001111);
 	_delay_us(50);
 }
 
 void ParallelTextLCD::command(unsigned char cmd)
 {
- 3b2:	1f 93       	push	r17
- 3b4:	cf 93       	push	r28
- 3b6:	df 93       	push	r29
- 3b8:	ec 01       	movw	r28, r24
- 3ba:	16 2f       	mov	r17, r22
+ 3d2:	1f 93       	push	r17
+ 3d4:	cf 93       	push	r28
+ 3d6:	df 93       	push	r29
+ 3d8:	ec 01       	movw	r28, r24
+ 3da:	16 2f       	mov	r17, r22
 	wait_busy();
- 3bc:	0e 94 b5 01 	call	0x36a	; 0x36a <_ZN15ParallelTextLCD9wait_busyEv>
-	Output::portStatus(dataPort, cmd);
- 3c0:	61 2f       	mov	r22, r17
- 3c2:	70 e0       	ldi	r23, 0x00	; 0
- 3c4:	8a 81       	ldd	r24, Y+2	; 0x02
- 3c6:	0e 94 54 01 	call	0x2a8	; 0x2a8 <_ZN6Output10portStatusE4PORTi>
-	Output::pinStatus(controlPort, pinRW, false);
- 3ca:	40 e0       	ldi	r20, 0x00	; 0
- 3cc:	6d 81       	ldd	r22, Y+5	; 0x05
- 3ce:	8b 81       	ldd	r24, Y+3	; 0x03
- 3d0:	0e 94 74 00 	call	0xe8	; 0xe8 <_ZN6Output9pinStatusE4PORT3PINb>
-	Output::pinStatus(controlPort, pinRS, false);
- 3d4:	40 e0       	ldi	r20, 0x00	; 0
- 3d6:	6e 81       	ldd	r22, Y+6	; 0x06
- 3d8:	8b 81       	ldd	r24, Y+3	; 0x03
- 3da:	0e 94 74 00 	call	0xe8	; 0xe8 <_ZN6Output9pinStatusE4PORT3PINb>
+ 3dc:	0e 94 c5 01 	call	0x38a	; 0x38a <_ZN15ParallelTextLCD9wait_busyEv>
+	setStatus(dataPort, cmd);
+ 3e0:	61 2f       	mov	r22, r17
+ 3e2:	70 e0       	ldi	r23, 0x00	; 0
+ 3e4:	8a 81       	ldd	r24, Y+2	; 0x02
+ 3e6:	0e 94 21 01 	call	0x242	; 0x242 <_ZN6Device9setStatusE4PORTi>
+	setStatus(controlPort, pinRW, false);
+ 3ea:	40 e0       	ldi	r20, 0x00	; 0
+ 3ec:	6d 81       	ldd	r22, Y+5	; 0x05
+ 3ee:	8b 81       	ldd	r24, Y+3	; 0x03
+ 3f0:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
+	setStatus(controlPort, pinRS, false);
+ 3f4:	40 e0       	ldi	r20, 0x00	; 0
+ 3f6:	6e 81       	ldd	r22, Y+6	; 0x06
+ 3f8:	8b 81       	ldd	r24, Y+3	; 0x03
+ 3fa:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
 	action_enable();
- 3de:	ce 01       	movw	r24, r28
- 3e0:	0e 94 a3 01 	call	0x346	; 0x346 <_ZN15ParallelTextLCD13action_enableEv>
-	Output::portStatus(dataPort, 0x00);
- 3e4:	60 e0       	ldi	r22, 0x00	; 0
- 3e6:	70 e0       	ldi	r23, 0x00	; 0
- 3e8:	8a 81       	ldd	r24, Y+2	; 0x02
- 3ea:	0e 94 54 01 	call	0x2a8	; 0x2a8 <_ZN6Output10portStatusE4PORTi>
+ 3fe:	ce 01       	movw	r24, r28
+ 400:	0e 94 b3 01 	call	0x366	; 0x366 <_ZN15ParallelTextLCD13action_enableEv>
+	setStatus(dataPort, 0x00);
+ 404:	60 e0       	ldi	r22, 0x00	; 0
+ 406:	70 e0       	ldi	r23, 0x00	; 0
+ 408:	8a 81       	ldd	r24, Y+2	; 0x02
+ 40a:	0e 94 21 01 	call	0x242	; 0x242 <_ZN6Device9setStatusE4PORTi>
 }
- 3ee:	df 91       	pop	r29
- 3f0:	cf 91       	pop	r28
- 3f2:	1f 91       	pop	r17
- 3f4:	08 95       	ret
+ 40e:	df 91       	pop	r29
+ 410:	cf 91       	pop	r28
+ 412:	1f 91       	pop	r17
+ 414:	08 95       	ret
 
-000003f6 <_ZN15ParallelTextLCD10initializeEv>:
-ParallelTextLCD::~ParallelTextLCD()
-{
+00000416 <_ZN15ParallelTextLCD10initializeEv>:
+	setStatus(controlPort, pinRW, false);
+	setStatus(controlPort, pinEN, false);
 }
 
 void ParallelTextLCD::initialize()
 {
- 3f6:	cf 93       	push	r28
- 3f8:	df 93       	push	r29
- 3fa:	ec 01       	movw	r28, r24
-	Output::pinDirection(controlPort, pinRS, true);
- 3fc:	41 e0       	ldi	r20, 0x01	; 1
- 3fe:	6e 81       	ldd	r22, Y+6	; 0x06
- 400:	8b 81       	ldd	r24, Y+3	; 0x03
- 402:	0e 94 e4 00 	call	0x1c8	; 0x1c8 <_ZN6Output12pinDirectionE4PORT3PINb>
-	Output::pinDirection(controlPort, pinRW, true);
- 406:	41 e0       	ldi	r20, 0x01	; 1
- 408:	6d 81       	ldd	r22, Y+5	; 0x05
- 40a:	8b 81       	ldd	r24, Y+3	; 0x03
- 40c:	0e 94 e4 00 	call	0x1c8	; 0x1c8 <_ZN6Output12pinDirectionE4PORT3PINb>
-	Output::pinDirection(controlPort, pinEN, true);
- 410:	41 e0       	ldi	r20, 0x01	; 1
- 412:	6c 81       	ldd	r22, Y+4	; 0x04
- 414:	8b 81       	ldd	r24, Y+3	; 0x03
- 416:	0e 94 e4 00 	call	0x1c8	; 0x1c8 <_ZN6Output12pinDirectionE4PORT3PINb>
+ 416:	cf 93       	push	r28
+ 418:	df 93       	push	r29
+ 41a:	ec 01       	movw	r28, r24
+	setDirection(controlPort, pinRS, true);
+ 41c:	41 e0       	ldi	r20, 0x01	; 1
+ 41e:	6e 81       	ldd	r22, Y+6	; 0x06
+ 420:	8b 81       	ldd	r24, Y+3	; 0x03
+ 422:	0e 94 b1 00 	call	0x162	; 0x162 <_ZN6Device12setDirectionE4PORT3PINb>
+	setDirection(controlPort, pinRW, true);
+ 426:	41 e0       	ldi	r20, 0x01	; 1
+ 428:	6d 81       	ldd	r22, Y+5	; 0x05
+ 42a:	8b 81       	ldd	r24, Y+3	; 0x03
+ 42c:	0e 94 b1 00 	call	0x162	; 0x162 <_ZN6Device12setDirectionE4PORT3PINb>
+	setDirection(controlPort, pinEN, true);
+ 430:	41 e0       	ldi	r20, 0x01	; 1
+ 432:	6c 81       	ldd	r22, Y+4	; 0x04
+ 434:	8b 81       	ldd	r24, Y+3	; 0x03
+ 436:	0e 94 b1 00 	call	0x162	; 0x162 <_ZN6Device12setDirectionE4PORT3PINb>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 41a:	85 ea       	ldi	r24, 0xA5	; 165
- 41c:	9e e0       	ldi	r25, 0x0E	; 14
- 41e:	01 97       	sbiw	r24, 0x01	; 1
- 420:	f1 f7       	brne	.-4      	; 0x41e <_ZN15ParallelTextLCD10initializeEv+0x28>
- 422:	00 c0       	rjmp	.+0      	; 0x424 <_ZN15ParallelTextLCD10initializeEv+0x2e>
- 424:	00 00       	nop
+ 43a:	85 ea       	ldi	r24, 0xA5	; 165
+ 43c:	9e e0       	ldi	r25, 0x0E	; 14
+ 43e:	01 97       	sbiw	r24, 0x01	; 1
+ 440:	f1 f7       	brne	.-4      	; 0x43e <_ZN15ParallelTextLCD10initializeEv+0x28>
+ 442:	00 c0       	rjmp	.+0      	; 0x444 <_ZN15ParallelTextLCD10initializeEv+0x2e>
+ 444:	00 00       	nop
 	_delay_ms(15);
 	command(0x01); // Clear Screen
- 426:	61 e0       	ldi	r22, 0x01	; 1
- 428:	ce 01       	movw	r24, r28
- 42a:	0e 94 d9 01 	call	0x3b2	; 0x3b2 <_ZN15ParallelTextLCD7commandEh>
- 42e:	83 ef       	ldi	r24, 0xF3	; 243
- 430:	91 e0       	ldi	r25, 0x01	; 1
- 432:	01 97       	sbiw	r24, 0x01	; 1
- 434:	f1 f7       	brne	.-4      	; 0x432 <_ZN15ParallelTextLCD10initializeEv+0x3c>
- 436:	00 c0       	rjmp	.+0      	; 0x438 <_ZN15ParallelTextLCD10initializeEv+0x42>
- 438:	00 00       	nop
+ 446:	61 e0       	ldi	r22, 0x01	; 1
+ 448:	ce 01       	movw	r24, r28
+ 44a:	0e 94 e9 01 	call	0x3d2	; 0x3d2 <_ZN15ParallelTextLCD7commandEh>
+ 44e:	83 ef       	ldi	r24, 0xF3	; 243
+ 450:	91 e0       	ldi	r25, 0x01	; 1
+ 452:	01 97       	sbiw	r24, 0x01	; 1
+ 454:	f1 f7       	brne	.-4      	; 0x452 <_ZN15ParallelTextLCD10initializeEv+0x3c>
+ 456:	00 c0       	rjmp	.+0      	; 0x458 <_ZN15ParallelTextLCD10initializeEv+0x42>
+ 458:	00 00       	nop
 	_delay_ms(2);
 	command(0x38); // Set up LCD 8-bit mode
- 43a:	68 e3       	ldi	r22, 0x38	; 56
- 43c:	ce 01       	movw	r24, r28
- 43e:	0e 94 d9 01 	call	0x3b2	; 0x3b2 <_ZN15ParallelTextLCD7commandEh>
+ 45a:	68 e3       	ldi	r22, 0x38	; 56
+ 45c:	ce 01       	movw	r24, r28
+ 45e:	0e 94 e9 01 	call	0x3d2	; 0x3d2 <_ZN15ParallelTextLCD7commandEh>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 442:	90 e1       	ldi	r25, 0x10	; 16
- 444:	9a 95       	dec	r25
- 446:	f1 f7       	brne	.-4      	; 0x444 <_ZN15ParallelTextLCD10initializeEv+0x4e>
- 448:	00 c0       	rjmp	.+0      	; 0x44a <_ZN15ParallelTextLCD10initializeEv+0x54>
+ 462:	90 e1       	ldi	r25, 0x10	; 16
+ 464:	9a 95       	dec	r25
+ 466:	f1 f7       	brne	.-4      	; 0x464 <_ZN15ParallelTextLCD10initializeEv+0x4e>
+ 468:	00 c0       	rjmp	.+0      	; 0x46a <_ZN15ParallelTextLCD10initializeEv+0x54>
 	_delay_us(50);
 	command(0b00001100); // Bit 3: Use function |2: Show Display |1: Show Cursor |0: Blinking Cursor
- 44a:	6c e0       	ldi	r22, 0x0C	; 12
- 44c:	ce 01       	movw	r24, r28
- 44e:	0e 94 d9 01 	call	0x3b2	; 0x3b2 <_ZN15ParallelTextLCD7commandEh>
- 452:	80 e1       	ldi	r24, 0x10	; 16
- 454:	8a 95       	dec	r24
- 456:	f1 f7       	brne	.-4      	; 0x454 <_ZN15ParallelTextLCD10initializeEv+0x5e>
- 458:	00 c0       	rjmp	.+0      	; 0x45a <_ZN15ParallelTextLCD10initializeEv+0x64>
+ 46a:	6c e0       	ldi	r22, 0x0C	; 12
+ 46c:	ce 01       	movw	r24, r28
+ 46e:	0e 94 e9 01 	call	0x3d2	; 0x3d2 <_ZN15ParallelTextLCD7commandEh>
+ 472:	80 e1       	ldi	r24, 0x10	; 16
+ 474:	8a 95       	dec	r24
+ 476:	f1 f7       	brne	.-4      	; 0x474 <_ZN15ParallelTextLCD10initializeEv+0x5e>
+ 478:	00 c0       	rjmp	.+0      	; 0x47a <_ZN15ParallelTextLCD10initializeEv+0x64>
 	_delay_us(50);
 }
- 45a:	df 91       	pop	r29
- 45c:	cf 91       	pop	r28
- 45e:	08 95       	ret
+ 47a:	df 91       	pop	r29
+ 47c:	cf 91       	pop	r28
+ 47e:	08 95       	ret
 
-00000460 <_ZN15ParallelTextLCDC1E4PORTS0_3PINS1_S1_>:
-#include <avr/io.h>
+00000480 <_ZN15ParallelTextLCDC1E4PORTS0_3PINS1_S1_>:
+#include "ParallelTextLCD.h"
 #include <stdlib.h>
 #include <util/delay.h>
 
 // default constructor
 ParallelTextLCD::ParallelTextLCD(PORT portData, PORT portControl, PIN pinRS, PIN pinRW, PIN pinEN)
- 460:	ef 92       	push	r14
- 462:	0f 93       	push	r16
- 464:	cf 93       	push	r28
- 466:	df 93       	push	r29
- 468:	ec 01       	movw	r28, r24
- 46a:	84 e7       	ldi	r24, 0x74	; 116
- 46c:	90 e0       	ldi	r25, 0x00	; 0
- 46e:	99 83       	std	Y+1, r25	; 0x01
- 470:	88 83       	st	Y, r24
- 472:	88 e0       	ldi	r24, 0x08	; 8
- 474:	e0 e6       	ldi	r30, 0x60	; 96
- 476:	f0 e0       	ldi	r31, 0x00	; 0
- 478:	de 01       	movw	r26, r28
- 47a:	17 96       	adiw	r26, 0x07	; 7
- 47c:	01 90       	ld	r0, Z+
- 47e:	0d 92       	st	X+, r0
- 480:	8a 95       	dec	r24
- 482:	e1 f7       	brne	.-8      	; 0x47c <_ZN15ParallelTextLCDC1E4PORTS0_3PINS1_S1_+0x1c>
+ 480:	ef 92       	push	r14
+ 482:	0f 93       	push	r16
+ 484:	cf 93       	push	r28
+ 486:	df 93       	push	r29
+ 488:	ec 01       	movw	r28, r24
+ 48a:	84 e7       	ldi	r24, 0x74	; 116
+ 48c:	90 e0       	ldi	r25, 0x00	; 0
+ 48e:	99 83       	std	Y+1, r25	; 0x01
+ 490:	88 83       	st	Y, r24
+ 492:	88 e0       	ldi	r24, 0x08	; 8
+ 494:	e0 e6       	ldi	r30, 0x60	; 96
+ 496:	f0 e0       	ldi	r31, 0x00	; 0
+ 498:	de 01       	movw	r26, r28
+ 49a:	17 96       	adiw	r26, 0x07	; 7
+ 49c:	01 90       	ld	r0, Z+
+ 49e:	0d 92       	st	X+, r0
+ 4a0:	8a 95       	dec	r24
+ 4a2:	e1 f7       	brne	.-8      	; 0x49c <_ZN15ParallelTextLCDC1E4PORTS0_3PINS1_S1_+0x1c>
 {
 	this->dataPort = portData;
- 484:	6a 83       	std	Y+2, r22	; 0x02
+ 4a4:	6a 83       	std	Y+2, r22	; 0x02
 	this->controlPort = portControl;
- 486:	4b 83       	std	Y+3, r20	; 0x03
+ 4a6:	4b 83       	std	Y+3, r20	; 0x03
 	this->pinRS = pinRS;
- 488:	2e 83       	std	Y+6, r18	; 0x06
+ 4a8:	2e 83       	std	Y+6, r18	; 0x06
 	this->pinRW = pinRW;
- 48a:	0d 83       	std	Y+5, r16	; 0x05
+ 4aa:	0d 83       	std	Y+5, r16	; 0x05
 	this->pinEN = pinEN;
- 48c:	ec 82       	std	Y+4, r14	; 0x04
+ 4ac:	ec 82       	std	Y+4, r14	; 0x04
 	initialize();
- 48e:	ce 01       	movw	r24, r28
- 490:	0e 94 fb 01 	call	0x3f6	; 0x3f6 <_ZN15ParallelTextLCD10initializeEv>
+ 4ae:	ce 01       	movw	r24, r28
+ 4b0:	0e 94 0b 02 	call	0x416	; 0x416 <_ZN15ParallelTextLCD10initializeEv>
 } 
- 494:	df 91       	pop	r29
- 496:	cf 91       	pop	r28
- 498:	0f 91       	pop	r16
- 49a:	ef 90       	pop	r14
- 49c:	08 95       	ret
+ 4b4:	df 91       	pop	r29
+ 4b6:	cf 91       	pop	r28
+ 4b8:	0f 91       	pop	r16
+ 4ba:	ef 90       	pop	r14
+ 4bc:	08 95       	ret
 
-0000049e <_ZN15ParallelTextLCD8positionEii>:
+000004be <_ZN15ParallelTextLCD8positionEii>:
 	while(*str > 0)
 		character(*str++);
 }
 
 void ParallelTextLCD::position(int x, int y)
 {
- 49e:	60 58       	subi	r22, 0x80	; 128
+ 4be:	60 58       	subi	r22, 0x80	; 128
 	command(0x80 + this->rowPositions[y] + x);
- 4a0:	fa 01       	movw	r30, r20
- 4a2:	ee 0f       	add	r30, r30
- 4a4:	ff 1f       	adc	r31, r31
- 4a6:	e8 0f       	add	r30, r24
- 4a8:	f9 1f       	adc	r31, r25
- 4aa:	27 81       	ldd	r18, Z+7	; 0x07
- 4ac:	62 0f       	add	r22, r18
- 4ae:	0e 94 d9 01 	call	0x3b2	; 0x3b2 <_ZN15ParallelTextLCD7commandEh>
- 4b2:	08 95       	ret
+ 4c0:	fa 01       	movw	r30, r20
+ 4c2:	ee 0f       	add	r30, r30
+ 4c4:	ff 1f       	adc	r31, r31
+ 4c6:	e8 0f       	add	r30, r24
+ 4c8:	f9 1f       	adc	r31, r25
+ 4ca:	27 81       	ldd	r18, Z+7	; 0x07
+ 4cc:	62 0f       	add	r22, r18
+ 4ce:	0e 94 e9 01 	call	0x3d2	; 0x3d2 <_ZN15ParallelTextLCD7commandEh>
+ 4d2:	08 95       	ret
 
-000004b4 <_ZN15ParallelTextLCD6cursorEbb>:
-	_delay_ms(2);
-}
-
-void ParallelTextLCD::cursor(bool visible, bool blink)
-{
-	if (!visible)
- 4b4:	61 11       	cpse	r22, r1
- 4b6:	04 c0       	rjmp	.+8      	; 0x4c0 <_ZN15ParallelTextLCD6cursorEbb+0xc>
-		command(0b00001100);
- 4b8:	6c e0       	ldi	r22, 0x0C	; 12
- 4ba:	0e 94 d9 01 	call	0x3b2	; 0x3b2 <_ZN15ParallelTextLCD7commandEh>
- 4be:	09 c0       	rjmp	.+18     	; 0x4d2 <_ZN15ParallelTextLCD6cursorEbb+0x1e>
-	else if (visible && !blink)
- 4c0:	41 11       	cpse	r20, r1
- 4c2:	04 c0       	rjmp	.+8      	; 0x4cc <_ZN15ParallelTextLCD6cursorEbb+0x18>
-		command(0b00001110);
- 4c4:	6e e0       	ldi	r22, 0x0E	; 14
- 4c6:	0e 94 d9 01 	call	0x3b2	; 0x3b2 <_ZN15ParallelTextLCD7commandEh>
- 4ca:	03 c0       	rjmp	.+6      	; 0x4d2 <_ZN15ParallelTextLCD6cursorEbb+0x1e>
-	else if (visible && blink)
-		command(0b00001111);
- 4cc:	6f e0       	ldi	r22, 0x0F	; 15
- 4ce:	0e 94 d9 01 	call	0x3b2	; 0x3b2 <_ZN15ParallelTextLCD7commandEh>
- 4d2:	80 e1       	ldi	r24, 0x10	; 16
- 4d4:	8a 95       	dec	r24
- 4d6:	f1 f7       	brne	.-4      	; 0x4d4 <_ZN15ParallelTextLCD6cursorEbb+0x20>
- 4d8:	00 c0       	rjmp	.+0      	; 0x4da <_ZN15ParallelTextLCD6cursorEbb+0x26>
- 4da:	08 95       	ret
-
-000004dc <_ZN15ParallelTextLCD9characterEh>:
+000004d4 <_ZN15ParallelTextLCD9characterEh>:
 	action_enable();
-	Output::portStatus(dataPort, 0x00);
+	setStatus(dataPort, 0x00);
 }
 
 void ParallelTextLCD::character(unsigned char chr)
 {
- 4dc:	1f 93       	push	r17
- 4de:	cf 93       	push	r28
- 4e0:	df 93       	push	r29
- 4e2:	ec 01       	movw	r28, r24
- 4e4:	16 2f       	mov	r17, r22
+ 4d4:	1f 93       	push	r17
+ 4d6:	cf 93       	push	r28
+ 4d8:	df 93       	push	r29
+ 4da:	ec 01       	movw	r28, r24
+ 4dc:	16 2f       	mov	r17, r22
 	wait_busy();
- 4e6:	0e 94 b5 01 	call	0x36a	; 0x36a <_ZN15ParallelTextLCD9wait_busyEv>
-	Output::portStatus(dataPort, chr);
- 4ea:	61 2f       	mov	r22, r17
- 4ec:	70 e0       	ldi	r23, 0x00	; 0
- 4ee:	8a 81       	ldd	r24, Y+2	; 0x02
- 4f0:	0e 94 54 01 	call	0x2a8	; 0x2a8 <_ZN6Output10portStatusE4PORTi>
-	Output::pinStatus(controlPort, pinRW, false);
- 4f4:	40 e0       	ldi	r20, 0x00	; 0
- 4f6:	6d 81       	ldd	r22, Y+5	; 0x05
- 4f8:	8b 81       	ldd	r24, Y+3	; 0x03
- 4fa:	0e 94 74 00 	call	0xe8	; 0xe8 <_ZN6Output9pinStatusE4PORT3PINb>
-	Output::pinStatus(controlPort, pinRS, true);
- 4fe:	41 e0       	ldi	r20, 0x01	; 1
- 500:	6e 81       	ldd	r22, Y+6	; 0x06
- 502:	8b 81       	ldd	r24, Y+3	; 0x03
- 504:	0e 94 74 00 	call	0xe8	; 0xe8 <_ZN6Output9pinStatusE4PORT3PINb>
+ 4de:	0e 94 c5 01 	call	0x38a	; 0x38a <_ZN15ParallelTextLCD9wait_busyEv>
+	setStatus(dataPort, chr);
+ 4e2:	61 2f       	mov	r22, r17
+ 4e4:	70 e0       	ldi	r23, 0x00	; 0
+ 4e6:	8a 81       	ldd	r24, Y+2	; 0x02
+ 4e8:	0e 94 21 01 	call	0x242	; 0x242 <_ZN6Device9setStatusE4PORTi>
+	setStatus(controlPort, pinRW, false);
+ 4ec:	40 e0       	ldi	r20, 0x00	; 0
+ 4ee:	6d 81       	ldd	r22, Y+5	; 0x05
+ 4f0:	8b 81       	ldd	r24, Y+3	; 0x03
+ 4f2:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
+	setStatus(controlPort, pinRS, true);
+ 4f6:	41 e0       	ldi	r20, 0x01	; 1
+ 4f8:	6e 81       	ldd	r22, Y+6	; 0x06
+ 4fa:	8b 81       	ldd	r24, Y+3	; 0x03
+ 4fc:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
 	action_enable();
- 508:	ce 01       	movw	r24, r28
- 50a:	0e 94 a3 01 	call	0x346	; 0x346 <_ZN15ParallelTextLCD13action_enableEv>
-	Output::portStatus(dataPort, 0x00);
- 50e:	60 e0       	ldi	r22, 0x00	; 0
- 510:	70 e0       	ldi	r23, 0x00	; 0
- 512:	8a 81       	ldd	r24, Y+2	; 0x02
- 514:	0e 94 54 01 	call	0x2a8	; 0x2a8 <_ZN6Output10portStatusE4PORTi>
+ 500:	ce 01       	movw	r24, r28
+ 502:	0e 94 b3 01 	call	0x366	; 0x366 <_ZN15ParallelTextLCD13action_enableEv>
+	setStatus(dataPort, 0x00);
+ 506:	60 e0       	ldi	r22, 0x00	; 0
+ 508:	70 e0       	ldi	r23, 0x00	; 0
+ 50a:	8a 81       	ldd	r24, Y+2	; 0x02
+ 50c:	0e 94 21 01 	call	0x242	; 0x242 <_ZN6Device9setStatusE4PORTi>
 }
- 518:	df 91       	pop	r29
- 51a:	cf 91       	pop	r28
- 51c:	1f 91       	pop	r17
- 51e:	08 95       	ret
+ 510:	df 91       	pop	r29
+ 512:	cf 91       	pop	r28
+ 514:	1f 91       	pop	r17
+ 516:	08 95       	ret
 
-00000520 <_ZN15ParallelTextLCD6stringEPc>:
+00000518 <_ZN15ParallelTextLCD6stringEPc>:
 	position(x, y);
 	string(str);
 }
 
 void ParallelTextLCD::string(char* str)
 {
- 520:	0f 93       	push	r16
- 522:	1f 93       	push	r17
- 524:	cf 93       	push	r28
- 526:	df 93       	push	r29
- 528:	eb 01       	movw	r28, r22
+ 518:	0f 93       	push	r16
+ 51a:	1f 93       	push	r17
+ 51c:	cf 93       	push	r28
+ 51e:	df 93       	push	r29
+ 520:	eb 01       	movw	r28, r22
 	while(*str > 0)
- 52a:	68 81       	ld	r22, Y
- 52c:	66 23       	and	r22, r22
- 52e:	41 f0       	breq	.+16     	; 0x540 <_ZN15ParallelTextLCD6stringEPc+0x20>
- 530:	8c 01       	movw	r16, r24
- 532:	21 96       	adiw	r28, 0x01	; 1
+ 522:	68 81       	ld	r22, Y
+ 524:	66 23       	and	r22, r22
+ 526:	41 f0       	breq	.+16     	; 0x538 <_ZN15ParallelTextLCD6stringEPc+0x20>
+ 528:	8c 01       	movw	r16, r24
+ 52a:	21 96       	adiw	r28, 0x01	; 1
 		character(*str++);
- 534:	c8 01       	movw	r24, r16
- 536:	0e 94 6e 02 	call	0x4dc	; 0x4dc <_ZN15ParallelTextLCD9characterEh>
+ 52c:	c8 01       	movw	r24, r16
+ 52e:	0e 94 6a 02 	call	0x4d4	; 0x4d4 <_ZN15ParallelTextLCD9characterEh>
 	string(str);
 }
 
 void ParallelTextLCD::string(char* str)
 {
 	while(*str > 0)
- 53a:	69 91       	ld	r22, Y+
- 53c:	61 11       	cpse	r22, r1
- 53e:	fa cf       	rjmp	.-12     	; 0x534 <_ZN15ParallelTextLCD6stringEPc+0x14>
+ 532:	69 91       	ld	r22, Y+
+ 534:	61 11       	cpse	r22, r1
+ 536:	fa cf       	rjmp	.-12     	; 0x52c <_ZN15ParallelTextLCD6stringEPc+0x14>
 		character(*str++);
 }
- 540:	df 91       	pop	r29
- 542:	cf 91       	pop	r28
- 544:	1f 91       	pop	r17
- 546:	0f 91       	pop	r16
- 548:	08 95       	ret
+ 538:	df 91       	pop	r29
+ 53a:	cf 91       	pop	r28
+ 53c:	1f 91       	pop	r17
+ 53e:	0f 91       	pop	r16
+ 540:	08 95       	ret
 
-0000054a <_ZN15ParallelTextLCD6stringEiiPc>:
+00000542 <_ZN15ParallelTextLCD6stringEiiPc>:
 	for (int i = 0; i < digits; i++) string(" ");
 	string(str);
 }
 
 void ParallelTextLCD::string(int x, int y, char* str)
 {
- 54a:	0f 93       	push	r16
- 54c:	1f 93       	push	r17
- 54e:	cf 93       	push	r28
- 550:	df 93       	push	r29
- 552:	ec 01       	movw	r28, r24
- 554:	89 01       	movw	r16, r18
+ 542:	0f 93       	push	r16
+ 544:	1f 93       	push	r17
+ 546:	cf 93       	push	r28
+ 548:	df 93       	push	r29
+ 54a:	ec 01       	movw	r28, r24
+ 54c:	89 01       	movw	r16, r18
 	position(x, y);
- 556:	0e 94 4f 02 	call	0x49e	; 0x49e <_ZN15ParallelTextLCD8positionEii>
+ 54e:	0e 94 5f 02 	call	0x4be	; 0x4be <_ZN15ParallelTextLCD8positionEii>
 	string(str);
- 55a:	b8 01       	movw	r22, r16
- 55c:	ce 01       	movw	r24, r28
- 55e:	0e 94 90 02 	call	0x520	; 0x520 <_ZN15ParallelTextLCD6stringEPc>
+ 552:	b8 01       	movw	r22, r16
+ 554:	ce 01       	movw	r24, r28
+ 556:	0e 94 8c 02 	call	0x518	; 0x518 <_ZN15ParallelTextLCD6stringEPc>
 }
- 562:	df 91       	pop	r29
- 564:	cf 91       	pop	r28
- 566:	1f 91       	pop	r17
- 568:	0f 91       	pop	r16
- 56a:	08 95       	ret
+ 55a:	df 91       	pop	r29
+ 55c:	cf 91       	pop	r28
+ 55e:	1f 91       	pop	r17
+ 560:	0f 91       	pop	r16
+ 562:	08 95       	ret
 
-0000056c <_ZN15ParallelTextLCD7integerEiiii>:
+00000564 <_ZN15ParallelTextLCD7integerEiiii>:
 	command(0b00001100); // Bit 3: Use function |2: Show Display |1: Show Cursor |0: Blinking Cursor
 	_delay_us(50);
 }
 
 void ParallelTextLCD::integer(int x, int y, int num, int digits)
 {
- 56c:	4f 92       	push	r4
- 56e:	5f 92       	push	r5
- 570:	6f 92       	push	r6
- 572:	7f 92       	push	r7
- 574:	8f 92       	push	r8
- 576:	9f 92       	push	r9
- 578:	af 92       	push	r10
- 57a:	bf 92       	push	r11
- 57c:	cf 92       	push	r12
- 57e:	df 92       	push	r13
- 580:	ef 92       	push	r14
- 582:	ff 92       	push	r15
- 584:	0f 93       	push	r16
- 586:	1f 93       	push	r17
- 588:	cf 93       	push	r28
- 58a:	df 93       	push	r29
- 58c:	cd b7       	in	r28, 0x3d	; 61
- 58e:	de b7       	in	r29, 0x3e	; 62
- 590:	6c 01       	movw	r12, r24
- 592:	5b 01       	movw	r10, r22
- 594:	4a 01       	movw	r8, r20
- 596:	c9 01       	movw	r24, r18
+ 564:	4f 92       	push	r4
+ 566:	5f 92       	push	r5
+ 568:	6f 92       	push	r6
+ 56a:	7f 92       	push	r7
+ 56c:	8f 92       	push	r8
+ 56e:	9f 92       	push	r9
+ 570:	af 92       	push	r10
+ 572:	bf 92       	push	r11
+ 574:	cf 92       	push	r12
+ 576:	df 92       	push	r13
+ 578:	ef 92       	push	r14
+ 57a:	ff 92       	push	r15
+ 57c:	0f 93       	push	r16
+ 57e:	1f 93       	push	r17
+ 580:	cf 93       	push	r28
+ 582:	df 93       	push	r29
+ 584:	cd b7       	in	r28, 0x3d	; 61
+ 586:	de b7       	in	r29, 0x3e	; 62
+ 588:	6c 01       	movw	r12, r24
+ 58a:	5b 01       	movw	r10, r22
+ 58c:	4a 01       	movw	r8, r20
+ 58e:	c9 01       	movw	r24, r18
 	char str[digits];
 	itoa(num, str, 10);
 	for (int i = 0; i < digits; i++) string(" ");
 	string(x, y, str);
 }
- 598:	6d b6       	in	r6, 0x3d	; 61
- 59a:	7e b6       	in	r7, 0x3e	; 62
+ 590:	6d b6       	in	r6, 0x3d	; 61
+ 592:	7e b6       	in	r7, 0x3e	; 62
 	_delay_us(50);
 }
 
 void ParallelTextLCD::integer(int x, int y, int num, int digits)
 {
 	char str[digits];
- 59c:	2d b7       	in	r18, 0x3d	; 61
- 59e:	3e b7       	in	r19, 0x3e	; 62
- 5a0:	20 1b       	sub	r18, r16
- 5a2:	31 0b       	sbc	r19, r17
- 5a4:	0f b6       	in	r0, 0x3f	; 63
- 5a6:	f8 94       	cli
- 5a8:	3e bf       	out	0x3e, r19	; 62
- 5aa:	0f be       	out	0x3f, r0	; 63
- 5ac:	2d bf       	out	0x3d, r18	; 61
- 5ae:	2f 5f       	subi	r18, 0xFF	; 255
- 5b0:	3f 4f       	sbci	r19, 0xFF	; 255
- 5b2:	29 01       	movw	r4, r18
+ 594:	2d b7       	in	r18, 0x3d	; 61
+ 596:	3e b7       	in	r19, 0x3e	; 62
+ 598:	20 1b       	sub	r18, r16
+ 59a:	31 0b       	sbc	r19, r17
+ 59c:	0f b6       	in	r0, 0x3f	; 63
+ 59e:	f8 94       	cli
+ 5a0:	3e bf       	out	0x3e, r19	; 62
+ 5a2:	0f be       	out	0x3f, r0	; 63
+ 5a4:	2d bf       	out	0x3d, r18	; 61
+ 5a6:	2f 5f       	subi	r18, 0xFF	; 255
+ 5a8:	3f 4f       	sbci	r19, 0xFF	; 255
+ 5aa:	29 01       	movw	r4, r18
     } else if (__radix < 2 || __radix > 36) {
 	*__s = 0;
 	return __s;
     } else {
 	extern char *__itoa_ncheck (int, char *, unsigned char);
 	return __itoa_ncheck (__val, __s, __radix);
- 5b4:	4a e0       	ldi	r20, 0x0A	; 10
- 5b6:	b9 01       	movw	r22, r18
- 5b8:	0e 94 71 03 	call	0x6e2	; 0x6e2 <__itoa_ncheck>
+ 5ac:	4a e0       	ldi	r20, 0x0A	; 10
+ 5ae:	b9 01       	movw	r22, r18
+ 5b0:	0e 94 ab 03 	call	0x756	; 0x756 <__itoa_ncheck>
 	itoa(num, str, 10);
 	for (int i = 0; i < digits; i++) string(" ");
- 5bc:	10 16       	cp	r1, r16
- 5be:	11 06       	cpc	r1, r17
- 5c0:	6c f4       	brge	.+26     	; 0x5dc <_ZN15ParallelTextLCD7integerEiiii+0x70>
- 5c2:	e1 2c       	mov	r14, r1
- 5c4:	f1 2c       	mov	r15, r1
- 5c6:	6e e6       	ldi	r22, 0x6E	; 110
- 5c8:	70 e0       	ldi	r23, 0x00	; 0
- 5ca:	c6 01       	movw	r24, r12
- 5cc:	0e 94 90 02 	call	0x520	; 0x520 <_ZN15ParallelTextLCD6stringEPc>
- 5d0:	3f ef       	ldi	r19, 0xFF	; 255
- 5d2:	e3 1a       	sub	r14, r19
- 5d4:	f3 0a       	sbc	r15, r19
- 5d6:	e0 16       	cp	r14, r16
- 5d8:	f1 06       	cpc	r15, r17
- 5da:	a9 f7       	brne	.-22     	; 0x5c6 <_ZN15ParallelTextLCD7integerEiiii+0x5a>
+ 5b4:	10 16       	cp	r1, r16
+ 5b6:	11 06       	cpc	r1, r17
+ 5b8:	6c f4       	brge	.+26     	; 0x5d4 <_ZN15ParallelTextLCD7integerEiiii+0x70>
+ 5ba:	e1 2c       	mov	r14, r1
+ 5bc:	f1 2c       	mov	r15, r1
+ 5be:	6e e6       	ldi	r22, 0x6E	; 110
+ 5c0:	70 e0       	ldi	r23, 0x00	; 0
+ 5c2:	c6 01       	movw	r24, r12
+ 5c4:	0e 94 8c 02 	call	0x518	; 0x518 <_ZN15ParallelTextLCD6stringEPc>
+ 5c8:	3f ef       	ldi	r19, 0xFF	; 255
+ 5ca:	e3 1a       	sub	r14, r19
+ 5cc:	f3 0a       	sbc	r15, r19
+ 5ce:	e0 16       	cp	r14, r16
+ 5d0:	f1 06       	cpc	r15, r17
+ 5d2:	a9 f7       	brne	.-22     	; 0x5be <_ZN15ParallelTextLCD7integerEiiii+0x5a>
 	string(x, y, str);
- 5dc:	92 01       	movw	r18, r4
- 5de:	a4 01       	movw	r20, r8
- 5e0:	b5 01       	movw	r22, r10
- 5e2:	c6 01       	movw	r24, r12
- 5e4:	0e 94 a5 02 	call	0x54a	; 0x54a <_ZN15ParallelTextLCD6stringEiiPc>
+ 5d4:	92 01       	movw	r18, r4
+ 5d6:	a4 01       	movw	r20, r8
+ 5d8:	b5 01       	movw	r22, r10
+ 5da:	c6 01       	movw	r24, r12
+ 5dc:	0e 94 a1 02 	call	0x542	; 0x542 <_ZN15ParallelTextLCD6stringEiiPc>
 }
- 5e8:	0f b6       	in	r0, 0x3f	; 63
- 5ea:	f8 94       	cli
- 5ec:	7e be       	out	0x3e, r7	; 62
- 5ee:	0f be       	out	0x3f, r0	; 63
- 5f0:	6d be       	out	0x3d, r6	; 61
- 5f2:	df 91       	pop	r29
- 5f4:	cf 91       	pop	r28
- 5f6:	1f 91       	pop	r17
- 5f8:	0f 91       	pop	r16
- 5fa:	ff 90       	pop	r15
- 5fc:	ef 90       	pop	r14
- 5fe:	df 90       	pop	r13
- 600:	cf 90       	pop	r12
- 602:	bf 90       	pop	r11
- 604:	af 90       	pop	r10
- 606:	9f 90       	pop	r9
- 608:	8f 90       	pop	r8
- 60a:	7f 90       	pop	r7
- 60c:	6f 90       	pop	r6
- 60e:	5f 90       	pop	r5
- 610:	4f 90       	pop	r4
- 612:	08 95       	ret
+ 5e0:	0f b6       	in	r0, 0x3f	; 63
+ 5e2:	f8 94       	cli
+ 5e4:	7e be       	out	0x3e, r7	; 62
+ 5e6:	0f be       	out	0x3f, r0	; 63
+ 5e8:	6d be       	out	0x3d, r6	; 61
+ 5ea:	df 91       	pop	r29
+ 5ec:	cf 91       	pop	r28
+ 5ee:	1f 91       	pop	r17
+ 5f0:	0f 91       	pop	r16
+ 5f2:	ff 90       	pop	r15
+ 5f4:	ef 90       	pop	r14
+ 5f6:	df 90       	pop	r13
+ 5f8:	cf 90       	pop	r12
+ 5fa:	bf 90       	pop	r11
+ 5fc:	af 90       	pop	r10
+ 5fe:	9f 90       	pop	r9
+ 600:	8f 90       	pop	r8
+ 602:	7f 90       	pop	r7
+ 604:	6f 90       	pop	r6
+ 606:	5f 90       	pop	r5
+ 608:	4f 90       	pop	r4
+ 60a:	08 95       	ret
 
-00000614 <_Z10initSystemv>:
-    }
-	return 0;
+0000060c <_ZN16PushButtonSwitch10initializeEv>:
+		return status;
+	}
 }
 
-void initSystem()
+void PushButtonSwitch::initialize()
 {
- 614:	ef 92       	push	r14
- 616:	0f 93       	push	r16
- 618:	1f 93       	push	r17
- 61a:	cf 93       	push	r28
- 61c:	df 93       	push	r29
- 61e:	cd b7       	in	r28, 0x3d	; 61
- 620:	de b7       	in	r29, 0x3e	; 62
- 622:	64 97       	sbiw	r28, 0x14	; 20
- 624:	0f b6       	in	r0, 0x3f	; 63
- 626:	f8 94       	cli
- 628:	de bf       	out	0x3e, r29	; 62
- 62a:	0f be       	out	0x3f, r0	; 63
- 62c:	cd bf       	out	0x3d, r28	; 61
-	LED led(IOPORTC, IOPIN6);
- 62e:	46 e0       	ldi	r20, 0x06	; 6
- 630:	62 e0       	ldi	r22, 0x02	; 2
- 632:	ce 01       	movw	r24, r28
- 634:	40 96       	adiw	r24, 0x10	; 16
- 636:	0e 94 5b 00 	call	0xb6	; 0xb6 <_ZN3LEDC1E4PORT3PIN>
-	ParallelTextLCD lcd(IOPORTB, IOPORTD, IOPIN2, IOPIN7, IOPIN5);
- 63a:	0f 2e       	mov	r0, r31
- 63c:	f5 e0       	ldi	r31, 0x05	; 5
- 63e:	ef 2e       	mov	r14, r31
- 640:	f0 2d       	mov	r31, r0
- 642:	07 e0       	ldi	r16, 0x07	; 7
- 644:	22 e0       	ldi	r18, 0x02	; 2
- 646:	43 e0       	ldi	r20, 0x03	; 3
- 648:	61 e0       	ldi	r22, 0x01	; 1
- 64a:	ce 01       	movw	r24, r28
- 64c:	01 96       	adiw	r24, 0x01	; 1
- 64e:	0e 94 30 02 	call	0x460	; 0x460 <_ZN15ParallelTextLCDC1E4PORTS0_3PINS1_S1_>
-	led.on();
- 652:	ce 01       	movw	r24, r28
- 654:	40 96       	adiw	r24, 0x10	; 16
- 656:	0e 94 67 00 	call	0xce	; 0xce <_ZN3LED2onEv>
-	lcd.string(0, 0, "Hello Controller");
- 65a:	26 e7       	ldi	r18, 0x76	; 118
- 65c:	30 e0       	ldi	r19, 0x00	; 0
- 65e:	40 e0       	ldi	r20, 0x00	; 0
- 660:	50 e0       	ldi	r21, 0x00	; 0
- 662:	60 e0       	ldi	r22, 0x00	; 0
- 664:	70 e0       	ldi	r23, 0x00	; 0
- 666:	ce 01       	movw	r24, r28
- 668:	01 96       	adiw	r24, 0x01	; 1
- 66a:	0e 94 a5 02 	call	0x54a	; 0x54a <_ZN15ParallelTextLCD6stringEiiPc>
-	lcd.integer(5, 1, 1309, 5);
- 66e:	05 e0       	ldi	r16, 0x05	; 5
- 670:	10 e0       	ldi	r17, 0x00	; 0
- 672:	2d e1       	ldi	r18, 0x1D	; 29
- 674:	35 e0       	ldi	r19, 0x05	; 5
- 676:	41 e0       	ldi	r20, 0x01	; 1
- 678:	50 e0       	ldi	r21, 0x00	; 0
- 67a:	65 e0       	ldi	r22, 0x05	; 5
- 67c:	70 e0       	ldi	r23, 0x00	; 0
- 67e:	ce 01       	movw	r24, r28
- 680:	01 96       	adiw	r24, 0x01	; 1
- 682:	0e 94 b6 02 	call	0x56c	; 0x56c <_ZN15ParallelTextLCD7integerEiiii>
-	lcd.cursor(true, true);
- 686:	41 e0       	ldi	r20, 0x01	; 1
- 688:	61 e0       	ldi	r22, 0x01	; 1
- 68a:	ce 01       	movw	r24, r28
- 68c:	01 96       	adiw	r24, 0x01	; 1
- 68e:	0e 94 5a 02 	call	0x4b4	; 0x4b4 <_ZN15ParallelTextLCD6cursorEbb>
+ 60c:	cf 93       	push	r28
+ 60e:	df 93       	push	r29
+ 610:	ec 01       	movw	r28, r24
+	setDirection(port, pin, false);
+ 612:	40 e0       	ldi	r20, 0x00	; 0
+ 614:	6e 81       	ldd	r22, Y+6	; 0x06
+ 616:	8d 81       	ldd	r24, Y+5	; 0x05
+ 618:	0e 94 b1 00 	call	0x162	; 0x162 <_ZN6Device12setDirectionE4PORT3PINb>
+	setStatus(port, pin, pullState);
+ 61c:	48 85       	ldd	r20, Y+8	; 0x08
+ 61e:	6e 81       	ldd	r22, Y+6	; 0x06
+ 620:	8d 81       	ldd	r24, Y+5	; 0x05
+ 622:	0e 94 41 00 	call	0x82	; 0x82 <_ZN6Device9setStatusE4PORT3PINb>
+	this->status = false;
+ 626:	1a 82       	std	Y+2, r1	; 0x02
+}
+ 628:	df 91       	pop	r29
+ 62a:	cf 91       	pop	r28
+ 62c:	08 95       	ret
+
+0000062e <_ZN16PushButtonSwitchC1E4PORT3PINbbi>:
+
+
+#include "PushButtonSwitch.h"
+
+// default constructor
+PushButtonSwitch::PushButtonSwitch(PORT port, PIN pin, bool no_nc, bool pullState, int debounceLimit)
+ 62e:	ef 92       	push	r14
+ 630:	ff 92       	push	r15
+ 632:	0f 93       	push	r16
+ 634:	fc 01       	movw	r30, r24
+ 636:	8a e7       	ldi	r24, 0x7A	; 122
+ 638:	90 e0       	ldi	r25, 0x00	; 0
+ 63a:	91 83       	std	Z+1, r25	; 0x01
+ 63c:	80 83       	st	Z, r24
+{
+	this->port = port;
+ 63e:	65 83       	std	Z+5, r22	; 0x05
+	this->pin = pin;
+ 640:	46 83       	std	Z+6, r20	; 0x06
+	this->no_nc = no_nc;
+ 642:	27 83       	std	Z+7, r18	; 0x07
+	this->pullState = pullState;
+ 644:	00 87       	std	Z+8, r16	; 0x08
+	this->debounceLimit = debounceLimit;
+ 646:	f4 82       	std	Z+4, r15	; 0x04
+ 648:	e3 82       	std	Z+3, r14	; 0x03
+	this->initialize();
+ 64a:	cf 01       	movw	r24, r30
+ 64c:	0e 94 06 03 	call	0x60c	; 0x60c <_ZN16PushButtonSwitch10initializeEv>
+} //PushButtonSwitch
+ 650:	0f 91       	pop	r16
+ 652:	ff 90       	pop	r15
+ 654:	ef 90       	pop	r14
+ 656:	08 95       	ret
+
+00000658 <_ZN16PushButtonSwitch10checkStateEv>:
+	setStatus(port, pin, pullState);
+	this->status = false;
 }
 
-void initSystem()
+bool PushButtonSwitch::checkState()
 {
-	LED led(IOPORTC, IOPIN6);
-	ParallelTextLCD lcd(IOPORTB, IOPORTD, IOPIN2, IOPIN7, IOPIN5);
- 692:	ce 01       	movw	r24, r28
- 694:	01 96       	adiw	r24, 0x01	; 1
- 696:	0e 94 a2 01 	call	0x344	; 0x344 <_ZN15ParallelTextLCDD1Ev>
-	led.on();
-	lcd.string(0, 0, "Hello Controller");
-	lcd.integer(5, 1, 1309, 5);
-	lcd.cursor(true, true);
- 69a:	ce 01       	movw	r24, r28
- 69c:	40 96       	adiw	r24, 0x10	; 16
- 69e:	0e 94 66 00 	call	0xcc	; 0xcc <_ZN3LEDD1Ev>
- 6a2:	64 96       	adiw	r28, 0x14	; 20
+ 658:	fc 01       	movw	r30, r24
+	if (pullState == true)
+ 65a:	80 85       	ldd	r24, Z+8	; 0x08
+ 65c:	88 23       	and	r24, r24
+ 65e:	39 f0       	breq	.+14     	; 0x66e <_ZN16PushButtonSwitch10checkStateEv+0x16>
+		return !getStatus(port, pin);
+ 660:	66 81       	ldd	r22, Z+6	; 0x06
+ 662:	85 81       	ldd	r24, Z+5	; 0x05
+ 664:	0e 94 41 01 	call	0x282	; 0x282 <_ZN6Device9getStatusE4PORT3PIN>
+ 668:	91 e0       	ldi	r25, 0x01	; 1
+ 66a:	89 27       	eor	r24, r25
+ 66c:	08 95       	ret
+	else
+		return getStatus(port, pin);
+ 66e:	66 81       	ldd	r22, Z+6	; 0x06
+ 670:	85 81       	ldd	r24, Z+5	; 0x05
+ 672:	0e 94 41 01 	call	0x282	; 0x282 <_ZN6Device9getStatusE4PORT3PIN>
+ 676:	08 95       	ret
+
+00000678 <_ZN16PushButtonSwitch5stateEv>:
+PushButtonSwitch::~PushButtonSwitch()
+{
+} //~PushButtonSwitch
+
+bool PushButtonSwitch::state()
+{
+ 678:	cf 93       	push	r28
+ 67a:	df 93       	push	r29
+ 67c:	ec 01       	movw	r28, r24
+	if(checkState() != status)
+ 67e:	0e 94 2c 03 	call	0x658	; 0x658 <_ZN16PushButtonSwitch10checkStateEv>
+ 682:	9a 81       	ldd	r25, Y+2	; 0x02
+ 684:	89 17       	cp	r24, r25
+ 686:	29 f0       	breq	.+10     	; 0x692 <_ZN16PushButtonSwitch5stateEv+0x1a>
+	{
+		status = checkState();
+ 688:	ce 01       	movw	r24, r28
+ 68a:	0e 94 2c 03 	call	0x658	; 0x658 <_ZN16PushButtonSwitch10checkStateEv>
+ 68e:	98 2f       	mov	r25, r24
+ 690:	8a 83       	std	Y+2, r24	; 0x02
+	}
+	else
+	{
+		return status;
+	}
+}
+ 692:	89 2f       	mov	r24, r25
+ 694:	df 91       	pop	r29
+ 696:	cf 91       	pop	r28
+ 698:	08 95       	ret
+
+0000069a <main>:
+#include "drivers/LED.h"
+#include "drivers/ParallelTextLCD.h"
+#include "drivers/PushButtonSwitch.h"
+
+int main(void)
+{
+ 69a:	cf 93       	push	r28
+ 69c:	df 93       	push	r29
+ 69e:	cd b7       	in	r28, 0x3d	; 61
+ 6a0:	de b7       	in	r29, 0x3e	; 62
+ 6a2:	6d 97       	sbiw	r28, 0x1d	; 29
  6a4:	0f b6       	in	r0, 0x3f	; 63
  6a6:	f8 94       	cli
  6a8:	de bf       	out	0x3e, r29	; 62
  6aa:	0f be       	out	0x3f, r0	; 63
  6ac:	cd bf       	out	0x3d, r28	; 61
- 6ae:	df 91       	pop	r29
- 6b0:	cf 91       	pop	r28
- 6b2:	1f 91       	pop	r17
- 6b4:	0f 91       	pop	r16
- 6b6:	ef 90       	pop	r14
- 6b8:	08 95       	ret
+	LED led(IOPORTC, IOPIN6);
+ 6ae:	46 e0       	ldi	r20, 0x06	; 6
+ 6b0:	62 e0       	ldi	r22, 0x02	; 2
+ 6b2:	ce 01       	movw	r24, r28
+ 6b4:	49 96       	adiw	r24, 0x19	; 25
+ 6b6:	0e 94 7e 01 	call	0x2fc	; 0x2fc <_ZN3LEDC1E4PORT3PIN>
+	PushButtonSwitch pbswitch(IOPORTA, IOPIN0, true, true, 100);
+ 6ba:	0f 2e       	mov	r0, r31
+ 6bc:	f4 e6       	ldi	r31, 0x64	; 100
+ 6be:	ef 2e       	mov	r14, r31
+ 6c0:	f1 2c       	mov	r15, r1
+ 6c2:	f0 2d       	mov	r31, r0
+ 6c4:	01 e0       	ldi	r16, 0x01	; 1
+ 6c6:	21 e0       	ldi	r18, 0x01	; 1
+ 6c8:	40 e0       	ldi	r20, 0x00	; 0
+ 6ca:	60 e0       	ldi	r22, 0x00	; 0
+ 6cc:	ce 01       	movw	r24, r28
+ 6ce:	40 96       	adiw	r24, 0x10	; 16
+ 6d0:	0e 94 17 03 	call	0x62e	; 0x62e <_ZN16PushButtonSwitchC1E4PORT3PINbbi>
+	ParallelTextLCD lcd(IOPORTB, IOPORTD, IOPIN2, IOPIN7, IOPIN5);
+ 6d4:	0f 2e       	mov	r0, r31
+ 6d6:	f5 e0       	ldi	r31, 0x05	; 5
+ 6d8:	ef 2e       	mov	r14, r31
+ 6da:	f0 2d       	mov	r31, r0
+ 6dc:	07 e0       	ldi	r16, 0x07	; 7
+ 6de:	22 e0       	ldi	r18, 0x02	; 2
+ 6e0:	43 e0       	ldi	r20, 0x03	; 3
+ 6e2:	61 e0       	ldi	r22, 0x01	; 1
+ 6e4:	ce 01       	movw	r24, r28
+ 6e6:	01 96       	adiw	r24, 0x01	; 1
+ 6e8:	0e 94 40 02 	call	0x480	; 0x480 <_ZN15ParallelTextLCDC1E4PORTS0_3PINS1_S1_>
+	lcd.string(0, 0, "Hello Debugger");
+ 6ec:	2c e7       	ldi	r18, 0x7C	; 124
+ 6ee:	30 e0       	ldi	r19, 0x00	; 0
+ 6f0:	40 e0       	ldi	r20, 0x00	; 0
+ 6f2:	50 e0       	ldi	r21, 0x00	; 0
+ 6f4:	60 e0       	ldi	r22, 0x00	; 0
+ 6f6:	70 e0       	ldi	r23, 0x00	; 0
+ 6f8:	ce 01       	movw	r24, r28
+ 6fa:	01 96       	adiw	r24, 0x01	; 1
+ 6fc:	0e 94 a1 02 	call	0x542	; 0x542 <_ZN15ParallelTextLCD6stringEiiPc>
+	lcd.integer(6, 1, 1309, 5);
+ 700:	05 e0       	ldi	r16, 0x05	; 5
+ 702:	10 e0       	ldi	r17, 0x00	; 0
+ 704:	2d e1       	ldi	r18, 0x1D	; 29
+ 706:	35 e0       	ldi	r19, 0x05	; 5
+ 708:	41 e0       	ldi	r20, 0x01	; 1
+ 70a:	50 e0       	ldi	r21, 0x00	; 0
+ 70c:	66 e0       	ldi	r22, 0x06	; 6
+ 70e:	70 e0       	ldi	r23, 0x00	; 0
+ 710:	ce 01       	movw	r24, r28
+ 712:	01 96       	adiw	r24, 0x01	; 1
+ 714:	0e 94 b2 02 	call	0x564	; 0x564 <_ZN15ParallelTextLCD7integerEiiii>
+	led.on();
+ 718:	ce 01       	movw	r24, r28
+ 71a:	49 96       	adiw	r24, 0x19	; 25
+ 71c:	0e 94 89 01 	call	0x312	; 0x312 <_ZN3LED2onEv>
+	while (1)
+    {
+		led.toggle();
+ 720:	ce 01       	movw	r24, r28
+ 722:	49 96       	adiw	r24, 0x19	; 25
+ 724:	0e 94 a2 01 	call	0x344	; 0x344 <_ZN3LED6toggleEv>
+		if (pbswitch.state()) _delay_ms(100);
+ 728:	ce 01       	movw	r24, r28
+ 72a:	40 96       	adiw	r24, 0x10	; 16
+ 72c:	0e 94 3c 03 	call	0x678	; 0x678 <_ZN16PushButtonSwitch5stateEv>
+ 730:	88 23       	and	r24, r24
+ 732:	39 f0       	breq	.+14     	; 0x742 <main+0xa8>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
 
-000006ba <main>:
-#include "controller/Microcontroller.h"
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 734:	87 ea       	ldi	r24, 0xA7	; 167
+ 736:	91 e6       	ldi	r25, 0x61	; 97
+ 738:	01 97       	sbiw	r24, 0x01	; 1
+ 73a:	f1 f7       	brne	.-4      	; 0x738 <main+0x9e>
+ 73c:	00 c0       	rjmp	.+0      	; 0x73e <main+0xa4>
+ 73e:	00 00       	nop
+ 740:	ef cf       	rjmp	.-34     	; 0x720 <main+0x86>
+ 742:	9f e3       	ldi	r25, 0x3F	; 63
+ 744:	2d e0       	ldi	r18, 0x0D	; 13
+ 746:	83 e0       	ldi	r24, 0x03	; 3
+ 748:	91 50       	subi	r25, 0x01	; 1
+ 74a:	20 40       	sbci	r18, 0x00	; 0
+ 74c:	80 40       	sbci	r24, 0x00	; 0
+ 74e:	e1 f7       	brne	.-8      	; 0x748 <main+0xae>
+ 750:	00 c0       	rjmp	.+0      	; 0x752 <main+0xb8>
+ 752:	00 00       	nop
+ 754:	e5 cf       	rjmp	.-54     	; 0x720 <main+0x86>
 
-void initSystem();
+00000756 <__itoa_ncheck>:
+ 756:	bb 27       	eor	r27, r27
+ 758:	4a 30       	cpi	r20, 0x0A	; 10
+ 75a:	31 f4       	brne	.+12     	; 0x768 <__itoa_ncheck+0x12>
+ 75c:	99 23       	and	r25, r25
+ 75e:	22 f4       	brpl	.+8      	; 0x768 <__itoa_ncheck+0x12>
+ 760:	bd e2       	ldi	r27, 0x2D	; 45
+ 762:	90 95       	com	r25
+ 764:	81 95       	neg	r24
+ 766:	9f 4f       	sbci	r25, 0xFF	; 255
+ 768:	0c 94 b7 03 	jmp	0x76e	; 0x76e <__utoa_common>
 
-int main(void)
-{
- 6ba:	cf 93       	push	r28
- 6bc:	df 93       	push	r29
- 6be:	00 d0       	rcall	.+0      	; 0x6c0 <main+0x6>
- 6c0:	cd b7       	in	r28, 0x3d	; 61
- 6c2:	de b7       	in	r29, 0x3e	; 62
-	Microcontroller atmega32;
- 6c4:	ce 01       	movw	r24, r28
- 6c6:	01 96       	adiw	r24, 0x01	; 1
- 6c8:	0e 94 41 00 	call	0x82	; 0x82 <_ZN15MicrocontrollerC1Ev>
-	atmega32.createTask(initSystem);
- 6cc:	6a e0       	ldi	r22, 0x0A	; 10
- 6ce:	73 e0       	ldi	r23, 0x03	; 3
- 6d0:	ce 01       	movw	r24, r28
- 6d2:	01 96       	adiw	r24, 0x01	; 1
- 6d4:	0e 94 42 00 	call	0x84	; 0x84 <_ZN15Microcontroller10createTaskEPFvvE>
-	atmega32.execute();
- 6d8:	ce 01       	movw	r24, r28
- 6da:	01 96       	adiw	r24, 0x01	; 1
- 6dc:	0e 94 46 00 	call	0x8c	; 0x8c <_ZN15Microcontroller7executeEv>
- 6e0:	ff cf       	rjmp	.-2      	; 0x6e0 <main+0x26>
+0000076c <__utoa_ncheck>:
+ 76c:	bb 27       	eor	r27, r27
 
-000006e2 <__itoa_ncheck>:
- 6e2:	bb 27       	eor	r27, r27
- 6e4:	4a 30       	cpi	r20, 0x0A	; 10
- 6e6:	31 f4       	brne	.+12     	; 0x6f4 <__itoa_ncheck+0x12>
- 6e8:	99 23       	and	r25, r25
- 6ea:	22 f4       	brpl	.+8      	; 0x6f4 <__itoa_ncheck+0x12>
- 6ec:	bd e2       	ldi	r27, 0x2D	; 45
- 6ee:	90 95       	com	r25
- 6f0:	81 95       	neg	r24
- 6f2:	9f 4f       	sbci	r25, 0xFF	; 255
- 6f4:	0c 94 7d 03 	jmp	0x6fa	; 0x6fa <__utoa_common>
+0000076e <__utoa_common>:
+ 76e:	fb 01       	movw	r30, r22
+ 770:	55 27       	eor	r21, r21
+ 772:	aa 27       	eor	r26, r26
+ 774:	88 0f       	add	r24, r24
+ 776:	99 1f       	adc	r25, r25
+ 778:	aa 1f       	adc	r26, r26
+ 77a:	a4 17       	cp	r26, r20
+ 77c:	10 f0       	brcs	.+4      	; 0x782 <__utoa_common+0x14>
+ 77e:	a4 1b       	sub	r26, r20
+ 780:	83 95       	inc	r24
+ 782:	50 51       	subi	r21, 0x10	; 16
+ 784:	b9 f7       	brne	.-18     	; 0x774 <__utoa_common+0x6>
+ 786:	a0 5d       	subi	r26, 0xD0	; 208
+ 788:	aa 33       	cpi	r26, 0x3A	; 58
+ 78a:	08 f0       	brcs	.+2      	; 0x78e <__utoa_common+0x20>
+ 78c:	a9 5d       	subi	r26, 0xD9	; 217
+ 78e:	a1 93       	st	Z+, r26
+ 790:	00 97       	sbiw	r24, 0x00	; 0
+ 792:	79 f7       	brne	.-34     	; 0x772 <__utoa_common+0x4>
+ 794:	b1 11       	cpse	r27, r1
+ 796:	b1 93       	st	Z+, r27
+ 798:	11 92       	st	Z+, r1
+ 79a:	cb 01       	movw	r24, r22
+ 79c:	0c 94 d0 03 	jmp	0x7a0	; 0x7a0 <strrev>
 
-000006f8 <__utoa_ncheck>:
- 6f8:	bb 27       	eor	r27, r27
+000007a0 <strrev>:
+ 7a0:	dc 01       	movw	r26, r24
+ 7a2:	fc 01       	movw	r30, r24
+ 7a4:	67 2f       	mov	r22, r23
+ 7a6:	71 91       	ld	r23, Z+
+ 7a8:	77 23       	and	r23, r23
+ 7aa:	e1 f7       	brne	.-8      	; 0x7a4 <strrev+0x4>
+ 7ac:	32 97       	sbiw	r30, 0x02	; 2
+ 7ae:	04 c0       	rjmp	.+8      	; 0x7b8 <strrev+0x18>
+ 7b0:	7c 91       	ld	r23, X
+ 7b2:	6d 93       	st	X+, r22
+ 7b4:	70 83       	st	Z, r23
+ 7b6:	62 91       	ld	r22, -Z
+ 7b8:	ae 17       	cp	r26, r30
+ 7ba:	bf 07       	cpc	r27, r31
+ 7bc:	c8 f3       	brcs	.-14     	; 0x7b0 <strrev+0x10>
+ 7be:	08 95       	ret
 
-000006fa <__utoa_common>:
- 6fa:	fb 01       	movw	r30, r22
- 6fc:	55 27       	eor	r21, r21
- 6fe:	aa 27       	eor	r26, r26
- 700:	88 0f       	add	r24, r24
- 702:	99 1f       	adc	r25, r25
- 704:	aa 1f       	adc	r26, r26
- 706:	a4 17       	cp	r26, r20
- 708:	10 f0       	brcs	.+4      	; 0x70e <__utoa_common+0x14>
- 70a:	a4 1b       	sub	r26, r20
- 70c:	83 95       	inc	r24
- 70e:	50 51       	subi	r21, 0x10	; 16
- 710:	b9 f7       	brne	.-18     	; 0x700 <__utoa_common+0x6>
- 712:	a0 5d       	subi	r26, 0xD0	; 208
- 714:	aa 33       	cpi	r26, 0x3A	; 58
- 716:	08 f0       	brcs	.+2      	; 0x71a <__utoa_common+0x20>
- 718:	a9 5d       	subi	r26, 0xD9	; 217
- 71a:	a1 93       	st	Z+, r26
- 71c:	00 97       	sbiw	r24, 0x00	; 0
- 71e:	79 f7       	brne	.-34     	; 0x6fe <__utoa_common+0x4>
- 720:	b1 11       	cpse	r27, r1
- 722:	b1 93       	st	Z+, r27
- 724:	11 92       	st	Z+, r1
- 726:	cb 01       	movw	r24, r22
- 728:	0c 94 96 03 	jmp	0x72c	; 0x72c <strrev>
+000007c0 <_exit>:
+ 7c0:	f8 94       	cli
 
-0000072c <strrev>:
- 72c:	dc 01       	movw	r26, r24
- 72e:	fc 01       	movw	r30, r24
- 730:	67 2f       	mov	r22, r23
- 732:	71 91       	ld	r23, Z+
- 734:	77 23       	and	r23, r23
- 736:	e1 f7       	brne	.-8      	; 0x730 <strrev+0x4>
- 738:	32 97       	sbiw	r30, 0x02	; 2
- 73a:	04 c0       	rjmp	.+8      	; 0x744 <strrev+0x18>
- 73c:	7c 91       	ld	r23, X
- 73e:	6d 93       	st	X+, r22
- 740:	70 83       	st	Z, r23
- 742:	62 91       	ld	r22, -Z
- 744:	ae 17       	cp	r26, r30
- 746:	bf 07       	cpc	r27, r31
- 748:	c8 f3       	brcs	.-14     	; 0x73c <strrev+0x10>
- 74a:	08 95       	ret
-
-0000074c <_exit>:
- 74c:	f8 94       	cli
-
-0000074e <__stop_program>:
- 74e:	ff cf       	rjmp	.-2      	; 0x74e <__stop_program>
+000007c2 <__stop_program>:
+ 7c2:	ff cf       	rjmp	.-2      	; 0x7c2 <__stop_program>

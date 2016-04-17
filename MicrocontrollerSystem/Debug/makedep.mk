@@ -6,6 +6,8 @@ controller\Microcontroller.cpp
 
 drivers\Communication.cpp
 
+drivers\Device.cpp
+
 drivers\Input.cpp
 
 drivers\LED.cpp

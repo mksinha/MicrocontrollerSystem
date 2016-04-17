@@ -7,7 +7,6 @@
 
 
 #include "ParallelTextLCD.h"
-#include <avr/io.h>
 #include <stdlib.h>
 #include <util/delay.h>
 
@@ -25,13 +24,21 @@ ParallelTextLCD::ParallelTextLCD(PORT portData, PORT portControl, PIN pinRS, PIN
 // default destructor
 ParallelTextLCD::~ParallelTextLCD()
 {
+	setDirection(dataPort, false);
+	setDirection(controlPort, pinRS, false);
+	setDirection(controlPort, pinRW, false);
+	setDirection(controlPort, pinEN, false);
+	setStatus(dataPort, false);
+	setStatus(controlPort, pinRS, false);
+	setStatus(controlPort, pinRW, false);
+	setStatus(controlPort, pinEN, false);
 }
 
 void ParallelTextLCD::initialize()
 {
-	Output::pinDirection(controlPort, pinRS, true);
-	Output::pinDirection(controlPort, pinRW, true);
-	Output::pinDirection(controlPort, pinEN, true);
+	setDirection(controlPort, pinRS, true);
+	setDirection(controlPort, pinRW, true);
+	setDirection(controlPort, pinEN, true);
 	_delay_ms(15);
 	command(0x01); // Clear Screen
 	_delay_ms(2);
@@ -94,37 +101,37 @@ void ParallelTextLCD::cursor(bool visible, bool blink)
 void ParallelTextLCD::command(unsigned char cmd)
 {
 	wait_busy();
-	Output::portStatus(dataPort, cmd);
-	Output::pinStatus(controlPort, pinRW, false);
-	Output::pinStatus(controlPort, pinRS, false);
+	setStatus(dataPort, cmd);
+	setStatus(controlPort, pinRW, false);
+	setStatus(controlPort, pinRS, false);
 	action_enable();
-	Output::portStatus(dataPort, 0x00);
+	setStatus(dataPort, 0x00);
 }
 
 void ParallelTextLCD::character(unsigned char chr)
 {
 	wait_busy();
-	Output::portStatus(dataPort, chr);
-	Output::pinStatus(controlPort, pinRW, false);
-	Output::pinStatus(controlPort, pinRS, true);
+	setStatus(dataPort, chr);
+	setStatus(controlPort, pinRW, false);
+	setStatus(controlPort, pinRS, true);
 	action_enable();
-	Output::portStatus(dataPort, 0x00);
+	setStatus(dataPort, 0x00);
 }
 
 void ParallelTextLCD::wait_busy(void)
 {
-	Output::portDirection(dataPort, 0x00);
-	Output::pinStatus(controlPort, pinRW, true);
-	Output::pinStatus(controlPort, pinRS, false);
-	while (Output::pinStatus(dataPort, IOPIN7) == true)
+	setDirection(dataPort, 0x00);
+	setStatus(controlPort, pinRW, true);
+	setStatus(controlPort, pinRS, false);
+	while (getStatus(dataPort, IOPIN7) != true)
 		action_enable();
-	Output::portDirection(dataPort, 0xFF);
+	setDirection(dataPort, 0xFF);
 }
 
 void ParallelTextLCD::action_enable(void)
 {
-	Output::pinStatus(controlPort, pinEN, true);
+	setStatus(controlPort, pinEN, true);
 	asm volatile ("nop");
 	asm volatile ("nop");
-	Output::pinStatus(controlPort, pinEN, false);
+	setStatus(controlPort, pinEN, false);
 }

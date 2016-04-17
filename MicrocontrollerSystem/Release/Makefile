@@ -41,6 +41,7 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../controller/Microcontroller.cpp \
 ../drivers/Communication.cpp \
+../drivers/Device.cpp \
 ../drivers/Input.cpp \
 ../drivers/LED.cpp \
 ../drivers/Output.cpp \
@@ -60,6 +61,7 @@ ASM_SRCS +=
 OBJS +=  \
 controller/Microcontroller.o \
 drivers/Communication.o \
+drivers/Device.o \
 drivers/Input.o \
 drivers/LED.o \
 drivers/Output.o \
@@ -72,6 +74,7 @@ main.o
 OBJS_AS_ARGS +=  \
 controller/Microcontroller.o \
 drivers/Communication.o \
+drivers/Device.o \
 drivers/Input.o \
 drivers/LED.o \
 drivers/Output.o \
@@ -84,6 +87,7 @@ main.o
 C_DEPS +=  \
 controller/Microcontroller.d \
 drivers/Communication.d \
+drivers/Device.d \
 drivers/Input.d \
 drivers/LED.d \
 drivers/Output.d \
@@ -96,6 +100,7 @@ main.d
 C_DEPS_AS_ARGS +=  \
 controller/Microcontroller.d \
 drivers/Communication.d \
+drivers/Device.d \
 drivers/Input.d \
 drivers/LED.d \
 drivers/Output.d \
@@ -119,6 +124,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
