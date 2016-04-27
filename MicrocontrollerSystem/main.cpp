@@ -14,7 +14,7 @@
 int main(void)
 {
 	LED led(IOPORTC, IOPIN6);
-	PushButtonSwitch pbswitch(IOPORTA, IOPIN0, true, true, 100);
+	PushButtonSwitch pbswitch(IOPORTA, IOPIN0, true, true);
 	ParallelTextLCD lcd(IOPORTB, IOPORTD, IOPIN2, IOPIN7, IOPIN5);
 	led.on();
 	lcd.string(0, 0, "Hello Framework!");

@@ -17,14 +17,13 @@ class PushButtonSwitch : public Input
 //variables
 protected:
 	bool status;
-	int debounceLimit;
 	PORT port;
 	PIN pin;
 	bool no_nc, pullState;
 
 //functions
 public:
-	PushButtonSwitch(PORT port, PIN pin, bool no_nc, bool pullState, int debounceLimit);
+	PushButtonSwitch(PORT port, PIN pin, bool no_nc, bool pullState);
 	~PushButtonSwitch();
 	bool state();  // debounced status
 	void initialize();

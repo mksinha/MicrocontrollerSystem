@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<library>
-	<module name="Drivers">
-		<abstract name="Devices">
-			<abstract name="Outputs">
+<framework name="Integral">
+	<module name="Driver">
+		<abstract name="Device">
+			<abstract name="Output">
 				<class name="LED">
 					<function name="LED"></function>
 					<function name="~LED"></function>
@@ -23,7 +23,7 @@
 					<function name="cursor"></function>
 				</class>
 			</abstract>
-			<abstract name="Inputs">
+			<abstract name="Input">
 				<class name="PushButtonSwitch">
 					<function name="PushButtonSwitch"></function>
 					<function name="~PushButtonSwitch"></function>
@@ -35,15 +35,16 @@
 			</abstract>
 			<abstract name="Timer">
 			</abstract>
-			<abstract name="Communications">
+			<abstract name="Communication">
 			</abstract>
 		</abstract>
 	</module>
 	<module name="controller">
-		<class name="Microcontroller"></class>
+		<class name="Microcontroller">
+		</class>
 		<helper name="registry">
 			<enum name="PORT"></enum>
 			<enum name="PIN"></enum>
 		</helper>
 	</module>
-</library>
+</framework>
