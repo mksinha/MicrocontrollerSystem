@@ -64,13 +64,13 @@ void ParallelTextLCD::integer(int num, int digits)
 	string(str);
 }
 
-void ParallelTextLCD::string(int x, int y, char* str)
+void ParallelTextLCD::string(int x, int y, const char* str)
 {
 	position(x, y);
 	string(str);
 }
 
-void ParallelTextLCD::string(char* str)
+void ParallelTextLCD::string(const char* str)
 {
 	while(*str > 0)
 		character(*str++);

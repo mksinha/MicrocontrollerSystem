@@ -27,8 +27,8 @@ public:
 	void initialize();
 	void integer(int x, int y, int num, int digits);
 	void integer(int num, int digits);
-	void string(int x, int y, char* str);
-	void string(char* str);
+	void string(int x, int y, const char* str);
+	void string(const char* str);
 	void position(int x, int y);
 	void clear();
 	void cursor(bool visible, bool blink);

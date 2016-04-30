@@ -41,6 +41,6 @@ void AnalogInput::setCallback(void (*func)(void))
 // Problem here
 ISR(ADC_vect)
 {
-	uint16_t value = ADCL | (ADCH << 8);
+	// uint16_t value = ADCL | (ADCH << 8);
 	ADCSRA |= 1 << ADSC;
 }

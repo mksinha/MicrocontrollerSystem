@@ -7,6 +7,7 @@
 
 #include "Device.h"
 #include <avr/io.h>
+#include <avr/sfr_defs.h>
 
 // functions
 
@@ -88,12 +89,17 @@ void Device::setDirection(PORT port, int state)
 
 bool Device::getStatus(PORT port, PIN pin)
 {
-	if (port == IOPORTA)
-		return bit_is_set(PINA, pin);
-	else if (port == IOPORTB)
-		return bit_is_set(PINB, pin);
-	else if (port == IOPORTC)
-		return bit_is_set(PINC, pin);
-	else if (port == IOPORTD)
-		return bit_is_set(PIND, pin);
+	switch(port)
+	{
+		case IOPORTA:
+			return bit_is_set(PINA, pin);
+		case IOPORTB:
+			return bit_is_set(PINB, pin);
+		case IOPORTC:
+			return bit_is_set(PINC, pin);
+		case IOPORTD:
+			return bit_is_set(PIND, pin);
+		default:
+			return false;
+	}
 }
