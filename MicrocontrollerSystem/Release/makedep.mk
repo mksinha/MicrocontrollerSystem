@@ -4,6 +4,8 @@
 
 controller\Microcontroller.cpp
 
+drivers\AnalogInput.cpp
+
 drivers\Communication.cpp
 
 drivers\Device.cpp

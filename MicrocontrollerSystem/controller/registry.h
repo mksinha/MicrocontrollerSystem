@@ -11,6 +11,9 @@
 
 // Pin Configuration setup
 
+#define HIGH true
+#define LOW false
+
 enum PORT {
 	IOPORTA, IOPORTB, IOPORTC, IOPORTD
 };
