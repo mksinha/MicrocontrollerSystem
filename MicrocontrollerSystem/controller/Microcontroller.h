@@ -18,7 +18,6 @@ class Microcontroller
 {
 //variables
 public:
-	void (*threadInit)(void);
 protected:
 private:
 
@@ -26,8 +25,6 @@ private:
 public:
 	Microcontroller();
 	~Microcontroller();
-	void createTask(void (*func)(void));
-	void execute();
 protected:
 private:
 	Microcontroller( const Microcontroller &c );

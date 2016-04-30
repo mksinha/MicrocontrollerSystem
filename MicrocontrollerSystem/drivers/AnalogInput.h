@@ -17,17 +17,21 @@ class AnalogInput : public Input
 //variables
 public:
 	uint16_t value;
-protected:
-	PIN pin;
 	void (*callback)(void);
+protected:
+	ADCPIN pin;
 private:
 
 //functions
 public:
-	AnalogInput(PIN pin);
+	AnalogInput(ADCPIN pin);
 	~AnalogInput();
 	void initialize();
+	ADCPIN getID();
 	void setCallback(void (*func)(void));
+	void readValue();
+	void startConversion();
+	void stopConversion();
 protected:
 private:
 	AnalogInput( const AnalogInput &c );

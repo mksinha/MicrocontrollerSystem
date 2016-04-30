@@ -17,13 +17,3 @@ Microcontroller::Microcontroller()
 Microcontroller::~Microcontroller()
 {
 } //~Microcontroller
-
-void Microcontroller::createTask(void (*func)(void))
-{
-	this->threadInit = func;
-}
-
-void Microcontroller::execute()
-{
-	this->threadInit();
-}
