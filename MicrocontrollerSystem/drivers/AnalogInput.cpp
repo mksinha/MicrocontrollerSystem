@@ -28,11 +28,12 @@ ADCchannel AnalogInput::getID()
 	return pin;
 }
 
-void AnalogInput::globablInit()
+void AnalogInput::globablInit(ADCconfig::VREF vref, ADCconfig::ADPS adps)
 {
-	ADMUX |= (1<<REFS0) | (1<<REFS1);
-	ADCSRA |= 1 << ADPS2;
-	ADCSRA &= ~((1 << ADPS1) | (1 << ADPS0));
+	ADMUX &= ~((1<<REFS0) | (1<<REFS1));
+	ADCSRA &= ~((1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0));
+	ADCSRA |= adps << ADPS0;
+	ADMUX |= vref << REFS0;
 	ADCSRA |= 1<<ADIE;
 	ADCSRA |= 1<<ADEN;
 	sei();

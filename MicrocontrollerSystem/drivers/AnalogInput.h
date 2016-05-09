@@ -12,6 +12,17 @@
 #include "Input.h"
 
 
+namespace ADCconfig {
+	enum ADPS {
+		PS2 = 1, PS4 = 2, PS8 = 3, PS16 = 4,
+		PS32 = 5, PS64 = 6, PS128 = 7
+	};
+	enum VREF {
+		AREF = 0, AVCC = 1, IREF = 3
+	};
+}
+
+
 class AnalogInput : public Input
 {
 //variables
@@ -26,7 +37,7 @@ private:
 public:
 	AnalogInput(ADCchannel pin);
 	~AnalogInput();
-	static void globablInit();
+	static void globablInit(ADCconfig::VREF vref = ADCconfig::IREF, ADCconfig::ADPS adps = ADCconfig::PS16);
 	void initialize();
 	ADCchannel getID();
 	void setCallback(void (*func)(void));
