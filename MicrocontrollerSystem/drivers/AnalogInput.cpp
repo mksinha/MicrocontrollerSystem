@@ -23,9 +23,14 @@ AnalogInput::~AnalogInput()
 {
 } //~AnalogInput
 
-ADCchannel AnalogInput::getID()
+ADCchannel AnalogInput::getChannel()
 {
 	return pin;
+}
+
+bool AnalogInput::isLive()
+{
+	return (ADMUX & 0b00011111) == pin;
 }
 
 void AnalogInput::globablInit(ADCconfig::VREF vref, ADCconfig::ADPS adps)
@@ -41,12 +46,8 @@ void AnalogInput::globablInit(ADCconfig::VREF vref, ADCconfig::ADPS adps)
 
 void AnalogInput::initialize()
 {
+	ADMUX &= (0b11100000);
 	ADMUX |= pin;
-}
-
-void AnalogInput::setCallback(void (*func)(void))
-{
-	this->callback = func;
 }
 
 void AnalogInput::readValue()
@@ -57,10 +58,22 @@ void AnalogInput::readValue()
 
 void AnalogInput::startConversion()
 {
+	this->initialize();
 	ADCSRA |= 1 << ADSC;
 }
 
 void AnalogInput::stopConversion()
 {
 	ADCSRA &= ~(1 << ADSC);
+}
+
+void AnalogInput::setCallback(void (*func)(int, ADCchannel))
+{
+	callback = func;
+}
+
+void AnalogInput::process()
+{
+	readValue();
+	callback(value, pin);
 }

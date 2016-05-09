@@ -28,9 +28,9 @@ class AnalogInput : public Input
 //variables
 public:
 	uint16_t value;
-	void (*callback)(void);
 protected:
 	ADCchannel pin;
+	void (*callback)(int value, ADCchannel channel);
 private:
 
 //functions
@@ -39,11 +39,13 @@ public:
 	~AnalogInput();
 	static void globablInit(ADCconfig::VREF vref = ADCconfig::IREF, ADCconfig::ADPS adps = ADCconfig::PS16);
 	void initialize();
-	ADCchannel getID();
-	void setCallback(void (*func)(void));
+	ADCchannel getChannel();
+	bool isLive();
 	void readValue();
 	void startConversion();
 	void stopConversion();
+	void setCallback(void (*func)(int, ADCchannel));
+	void process();
 protected:
 private:
 	AnalogInput( const AnalogInput &c );
