@@ -11,11 +11,11 @@
 #include <avr/io.h>
 
 // default constructor
-AnalogInput::AnalogInput(ADCPIN pin)
+AnalogInput::AnalogInput(ADCchannel pin)
 {
 	this->pin = pin;
 	this->value = 0;
-	initialize();
+	this->globablInit();
 } //AnalogInput
 
 // default destructor
@@ -23,19 +23,24 @@ AnalogInput::~AnalogInput()
 {
 } //~AnalogInput
 
-ADCPIN AnalogInput::getID()
+ADCchannel AnalogInput::getID()
 {
 	return pin;
 }
 
-void AnalogInput::initialize()
+void AnalogInput::globablInit()
 {
-	ADMUX |= 1 << REFS0;
-	ADMUX &= ~(1 << REFS1);
-	ADMUX |= pin;
+	ADMUX |= (1<<REFS0) | (1<<REFS1);
 	ADCSRA |= 1 << ADPS2;
 	ADCSRA &= ~((1 << ADPS1) | (1 << ADPS0));
-	ADCSRA |= (1 << ADEN);
+	ADCSRA |= 1<<ADIE;
+	ADCSRA |= 1<<ADEN;
+	sei();
+}
+
+void AnalogInput::initialize()
+{
+	ADMUX |= pin;
 }
 
 void AnalogInput::setCallback(void (*func)(void))
@@ -45,7 +50,8 @@ void AnalogInput::setCallback(void (*func)(void))
 
 void AnalogInput::readValue()
 {
-	this->value = (ADCH << 8) | ADCL;
+	uint16_t value8bit = ADCL;
+	this->value = (ADCH << 8) | value8bit;
 }
 
 void AnalogInput::startConversion()

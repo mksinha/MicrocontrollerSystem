@@ -19,15 +19,16 @@ public:
 	uint16_t value;
 	void (*callback)(void);
 protected:
-	ADCPIN pin;
+	ADCchannel pin;
 private:
 
 //functions
 public:
-	AnalogInput(ADCPIN pin);
+	AnalogInput(ADCchannel pin);
 	~AnalogInput();
+	static void globablInit();
 	void initialize();
-	ADCPIN getID();
+	ADCchannel getID();
 	void setCallback(void (*func)(void));
 	void readValue();
 	void startConversion();
