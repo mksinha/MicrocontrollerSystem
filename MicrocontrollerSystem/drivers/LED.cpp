@@ -7,11 +7,9 @@
 
 
 #include "LED.h"
-#include <avr/io.h>
-#include <util/delay.h>
 
 // default constructor
-LED::LED(int port, int pin)
+LED::LED(PORT port, PIN pin)
 {
 	this->port = port;
 	this->pin = pin;
@@ -26,13 +24,13 @@ LED::~LED()
 
 void LED::on()
 {
-	Output::pinStatus(port, pin, true);
+	setStatus(port, pin, true);
 	status = true;
 }
 
 void LED::off()
 {
-	Output::pinStatus(port, pin, false);
+	setStatus(port, pin, false);
 	status = false;
 }
 
@@ -47,6 +45,6 @@ bool LED::toggle()
 
 void LED::initialize()
 {
-	Output::pinDirection(port, pin, true);
-	Output::pinStatus(port, pin, false);
+	setDirection(port, pin, true);
+	setStatus(port, pin, false);
 }

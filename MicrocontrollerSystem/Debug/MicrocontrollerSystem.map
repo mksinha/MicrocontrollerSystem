@@ -1,9 +1,9 @@
 Archive member included to satisfy reference by file (symbol)
 
 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                              E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
+                              E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
-                              drivers/LED.o (__do_copy_data)
+                              drivers/Communication.o (__do_copy_data)
 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
                               drivers/ParallelTextLCD.o (__itoa_ncheck)
 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
@@ -13,33 +13,148 @@ e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchai
 
 Discarded input sections
 
- .data          0x00000000        0x0 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
- .bss           0x00000000        0x0 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .data          0x00000000        0x0 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5/crtatmega32.o
+ .bss           0x00000000        0x0 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5/crtatmega32.o
+ .text          0x00000000        0x0 controller/Microcontroller.o
+ .data          0x00000000        0x0 controller/Microcontroller.o
+ .bss           0x00000000        0x0 controller/Microcontroller.o
+ .text._ZN15MicrocontrollerC2Ev
+                0x00000000        0x2 controller/Microcontroller.o
+ .text._ZN15MicrocontrollerD2Ev
+                0x00000000        0x2 controller/Microcontroller.o
+ .text._ZN15Microcontroller10createTaskEPFvvE
+                0x00000000        0x8 controller/Microcontroller.o
+ .text._ZN15Microcontroller7executeEv
+                0x00000000        0xa controller/Microcontroller.o
+ .debug_info    0x00000000      0x224 controller/Microcontroller.o
+ .debug_abbrev  0x00000000      0x156 controller/Microcontroller.o
+ .debug_loc     0x00000000       0x26 controller/Microcontroller.o
+ .debug_aranges
+                0x00000000       0x38 controller/Microcontroller.o
+ .debug_ranges  0x00000000       0x28 controller/Microcontroller.o
+ .debug_line    0x00000000       0x92 controller/Microcontroller.o
+ .debug_str     0x00000000      0x22e controller/Microcontroller.o
+ .comment       0x00000000       0x31 controller/Microcontroller.o
+ .debug_frame   0x00000000       0x54 controller/Microcontroller.o
+ .group         0x00000000        0x8 drivers/Communication.o
+ .text          0x00000000        0x0 drivers/Communication.o
+ .data          0x00000000        0x0 drivers/Communication.o
+ .bss           0x00000000        0x0 drivers/Communication.o
+ .text._ZN13Communication7Method2Ev
+                0x00000000        0x2 drivers/Communication.o
+ .text._ZN13Communication7Method3Ev
+                0x00000000        0x2 drivers/Communication.o
+ .text._ZN13CommunicationD2Ev
+                0x00000000        0x2 drivers/Communication.o
+ .text._ZN13CommunicationD0Ev
+                0x00000000        0x6 drivers/Communication.o
+ .rodata._ZTV13Communication
+                0x00000000        0xe drivers/Communication.o
+ .debug_info    0x00000000      0x372 drivers/Communication.o
+ .debug_abbrev  0x00000000      0x1ba drivers/Communication.o
+ .debug_loc     0x00000000       0x26 drivers/Communication.o
+ .debug_aranges
+                0x00000000       0x38 drivers/Communication.o
+ .debug_ranges  0x00000000       0x28 drivers/Communication.o
+ .debug_line    0x00000000       0xbd drivers/Communication.o
+ .debug_str     0x00000000      0x3e9 drivers/Communication.o
+ .comment       0x00000000       0x31 drivers/Communication.o
+ .debug_frame   0x00000000       0x54 drivers/Communication.o
+ .text          0x00000000        0x0 drivers/Device.o
+ .data          0x00000000        0x0 drivers/Device.o
+ .bss           0x00000000        0x0 drivers/Device.o
+ .text          0x00000000        0x0 drivers/Input.o
+ .data          0x00000000        0x0 drivers/Input.o
+ .bss           0x00000000        0x0 drivers/Input.o
+ .debug_info    0x00000000       0x56 drivers/Input.o
+ .debug_abbrev  0x00000000       0x26 drivers/Input.o
+ .debug_aranges
+                0x00000000       0x18 drivers/Input.o
+ .debug_line    0x00000000       0x1a drivers/Input.o
+ .debug_str     0x00000000      0x197 drivers/Input.o
+ .comment       0x00000000       0x31 drivers/Input.o
  .group         0x00000000        0x8 drivers/LED.o
  .text          0x00000000        0x0 drivers/LED.o
  .data          0x00000000        0x0 drivers/LED.o
  .bss           0x00000000        0x0 drivers/LED.o
  .text._ZN3LEDD2Ev
                 0x00000000        0x2 drivers/LED.o
- .text          0x00000000        0x0 drivers/Outputs.o
- .data          0x00000000        0x0 drivers/Outputs.o
- .bss           0x00000000        0x0 drivers/Outputs.o
- .text._ZN7Outputs9pinStatusEii
-                0x00000000       0x60 drivers/Outputs.o
- .text._ZN7Outputs12pinDirectionEii
-                0x00000000       0x60 drivers/Outputs.o
- .text._ZN7Outputs13portDirectionEi
-                0x00000000       0x32 drivers/Outputs.o
+ .text          0x00000000        0x0 drivers/Output.o
+ .data          0x00000000        0x0 drivers/Output.o
+ .bss           0x00000000        0x0 drivers/Output.o
+ .debug_info    0x00000000       0x56 drivers/Output.o
+ .debug_abbrev  0x00000000       0x26 drivers/Output.o
+ .debug_aranges
+                0x00000000       0x18 drivers/Output.o
+ .debug_line    0x00000000       0x1a drivers/Output.o
+ .debug_str     0x00000000      0x198 drivers/Output.o
+ .comment       0x00000000       0x31 drivers/Output.o
  .group         0x00000000        0x8 drivers/ParallelTextLCD.o
  .text          0x00000000        0x0 drivers/ParallelTextLCD.o
  .data          0x00000000        0x0 drivers/ParallelTextLCD.o
  .bss           0x00000000        0x0 drivers/ParallelTextLCD.o
  .text._ZN15ParallelTextLCDD2Ev
-                0x00000000        0x2 drivers/ParallelTextLCD.o
- .rodata.str1.1
-                0x00000000        0x2 drivers/ParallelTextLCD.o
- .text._ZN15ParallelTextLCD7integerEiiii
-                0x00000000       0x84 drivers/ParallelTextLCD.o
+                0x00000000       0x64 drivers/ParallelTextLCD.o
+ .text._ZN15ParallelTextLCD5clearEv
+                0x00000000       0x14 drivers/ParallelTextLCD.o
+ .text._ZN15ParallelTextLCD6cursorEbb
+                0x00000000       0x28 drivers/ParallelTextLCD.o
+ .text._ZN15ParallelTextLCD7integerEii
+                0x00000000       0x90 drivers/ParallelTextLCD.o
+ .group         0x00000000        0x8 drivers/PushButtonSwitch.o
+ .text          0x00000000        0x0 drivers/PushButtonSwitch.o
+ .data          0x00000000        0x0 drivers/PushButtonSwitch.o
+ .bss           0x00000000        0x0 drivers/PushButtonSwitch.o
+ .text._ZN16PushButtonSwitchD2Ev
+                0x00000000        0x2 drivers/PushButtonSwitch.o
+ .group         0x00000000        0x8 drivers/Storage.o
+ .text          0x00000000        0x0 drivers/Storage.o
+ .data          0x00000000        0x0 drivers/Storage.o
+ .bss           0x00000000        0x0 drivers/Storage.o
+ .text._ZN7Storage7Method2Ev
+                0x00000000        0x2 drivers/Storage.o
+ .text._ZN7Storage7Method3Ev
+                0x00000000        0x2 drivers/Storage.o
+ .text._ZN7StorageD2Ev
+                0x00000000        0x2 drivers/Storage.o
+ .text._ZN7StorageD0Ev
+                0x00000000        0x6 drivers/Storage.o
+ .rodata._ZTV7Storage
+                0x00000000        0xe drivers/Storage.o
+ .debug_info    0x00000000      0x372 drivers/Storage.o
+ .debug_abbrev  0x00000000      0x1ba drivers/Storage.o
+ .debug_loc     0x00000000       0x26 drivers/Storage.o
+ .debug_aranges
+                0x00000000       0x38 drivers/Storage.o
+ .debug_ranges  0x00000000       0x28 drivers/Storage.o
+ .debug_line    0x00000000       0xb1 drivers/Storage.o
+ .debug_str     0x00000000      0x3b4 drivers/Storage.o
+ .comment       0x00000000       0x31 drivers/Storage.o
+ .debug_frame   0x00000000       0x54 drivers/Storage.o
+ .group         0x00000000        0x8 drivers/Timer.o
+ .text          0x00000000        0x0 drivers/Timer.o
+ .data          0x00000000        0x0 drivers/Timer.o
+ .bss           0x00000000        0x0 drivers/Timer.o
+ .text._ZN5Timer7Method2Ev
+                0x00000000        0x2 drivers/Timer.o
+ .text._ZN5Timer7Method3Ev
+                0x00000000        0x2 drivers/Timer.o
+ .text._ZN5TimerD2Ev
+                0x00000000        0x2 drivers/Timer.o
+ .text._ZN5TimerD0Ev
+                0x00000000        0x6 drivers/Timer.o
+ .rodata._ZTV5Timer
+                0x00000000        0xe drivers/Timer.o
+ .debug_info    0x00000000      0x372 drivers/Timer.o
+ .debug_abbrev  0x00000000      0x1ba drivers/Timer.o
+ .debug_loc     0x00000000       0x26 drivers/Timer.o
+ .debug_aranges
+                0x00000000       0x38 drivers/Timer.o
+ .debug_ranges  0x00000000       0x28 drivers/Timer.o
+ .debug_line    0x00000000       0xad drivers/Timer.o
+ .debug_str     0x00000000      0x3a4 drivers/Timer.o
+ .comment       0x00000000       0x31 drivers/Timer.o
+ .debug_frame   0x00000000       0x54 drivers/Timer.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -78,18 +193,12 @@ Discarded input sections
  .text          0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
  .data          0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
  .bss           0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
- .text.avr-libc
-                0x00000000       0x16 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
  .text          0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
  .data          0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
  .bss           0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
- .text.avr-libc
-                0x00000000       0x34 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
  .text          0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
  .data          0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
  .bss           0x00000000        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
- .text.avr-libc
-                0x00000000       0x20 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
 
 Memory Configuration
 
@@ -105,10 +214,17 @@ user_signatures  0x00850000         0x00000400         rw !x
 
 Linker script and memory map
 
-LOAD E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+LOAD E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5/crtatmega32.o
+LOAD controller/Microcontroller.o
+LOAD drivers/Communication.o
+LOAD drivers/Device.o
+LOAD drivers/Input.o
 LOAD drivers/LED.o
-LOAD drivers/Outputs.o
+LOAD drivers/Output.o
 LOAD drivers/ParallelTextLCD.o
+LOAD drivers/PushButtonSwitch.o
+LOAD drivers/Storage.o
+LOAD drivers/Timer.o
 LOAD main.o
 START GROUP
 LOAD e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a
@@ -119,7 +235,7 @@ START GROUP
 LOAD e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a
 LOAD e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a
 LOAD e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a
-LOAD E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5\libatmega32.a
+LOAD E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5\libatmega32.a
 END GROUP
 
 .hash
@@ -212,9 +328,9 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x64a
+.text           0x00000000      0x7c4
  *(.vectors)
- .vectors       0x00000000       0x54 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .vectors       0x00000000       0x54 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
@@ -240,13 +356,13 @@ END GROUP
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000054        0x0 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .init0         0x00000054        0x0 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000054                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000054        0xc E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .init2         0x00000054        0xc E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5/crtatmega32.o
  *(.init2)
  *(.init3)
  *(.init3)
@@ -263,10 +379,10 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000076        0x8 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .init9         0x00000076        0x8 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5/crtatmega32.o
  *(.init9)
  *(.text)
- .text          0x0000007e        0x4 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+ .text          0x0000007e        0x4 E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x0000007e                __vector_1
                 0x0000007e                __vector_12
                 0x0000007e                __bad_interrupt
@@ -290,72 +406,98 @@ END GROUP
                 0x0000007e                __vector_20
                 0x00000082                . = ALIGN (0x2)
  *(.text.*)
+ .text._ZN6Device9setStatusE4PORT3PINb
+                0x00000082       0xe0 drivers/Device.o
+                0x00000082                _ZN6Device9setStatusE4PORT3PINb
+ .text._ZN6Device12setDirectionE4PORT3PINb
+                0x00000162       0xe0 drivers/Device.o
+                0x00000162                _ZN6Device12setDirectionE4PORT3PINb
+ .text._ZN6Device9setStatusE4PORTi
+                0x00000242       0x20 drivers/Device.o
+                0x00000242                _ZN6Device9setStatusE4PORTi
+ .text._ZN6Device12setDirectionE4PORTi
+                0x00000262       0x20 drivers/Device.o
+                0x00000262                _ZN6Device12setDirectionE4PORTi
+ .text._ZN6Device9getStatusE4PORT3PIN
+                0x00000282       0x5a drivers/Device.o
+                0x00000282                _ZN6Device9getStatusE4PORT3PIN
  .text._ZN3LED10initializeEv
-                0x00000082       0x28 drivers/LED.o
-                0x00000082                _ZN3LED10initializeEv
- .text._ZN3LEDC2Eii
-                0x000000aa       0x36 drivers/LED.o
-                0x000000aa                _ZN3LEDC1Eii
-                0x000000aa                _ZN3LEDC2Eii
+                0x000002dc       0x20 drivers/LED.o
+                0x000002dc                _ZN3LED10initializeEv
+ .text._ZN3LEDC2E4PORT3PIN
+                0x000002fc       0x16 drivers/LED.o
+                0x000002fc                _ZN3LEDC1E4PORT3PIN
+                0x000002fc                _ZN3LEDC2E4PORT3PIN
  .text._ZN3LED2onEv
-                0x000000e0       0x1e drivers/LED.o
-                0x000000e0                _ZN3LED2onEv
+                0x00000312       0x1a drivers/LED.o
+                0x00000312                _ZN3LED2onEv
  .text._ZN3LED3offEv
-                0x000000fe       0x1c drivers/LED.o
-                0x000000fe                _ZN3LED3offEv
+                0x0000032c       0x18 drivers/LED.o
+                0x0000032c                _ZN3LED3offEv
  .text._ZN3LED6toggleEv
-                0x0000011a       0x22 drivers/LED.o
-                0x0000011a                _ZN3LED6toggleEv
- .text._ZN7Outputs9pinStatusEiib
-                0x0000013c       0xe8 drivers/Outputs.o
-                0x0000013c                _ZN7Outputs9pinStatusEiib
- .text._ZN7Outputs12pinDirectionEiib
-                0x00000224       0xe8 drivers/Outputs.o
-                0x00000224                _ZN7Outputs12pinDirectionEiib
- .text._ZN7Outputs10portStatusEii
-                0x0000030c       0x24 drivers/Outputs.o
-                0x0000030c                _ZN7Outputs10portStatusEii
- .text._ZN7Outputs13portDirectionEii
-                0x00000330       0x24 drivers/Outputs.o
-                0x00000330                _ZN7Outputs13portDirectionEii
- .text._ZN7Outputs10portStatusEi
-                0x00000354       0x32 drivers/Outputs.o
-                0x00000354                _ZN7Outputs10portStatusEi
+                0x00000344       0x22 drivers/LED.o
+                0x00000344                _ZN3LED6toggleEv
  .text._ZN15ParallelTextLCD13action_enableEv
-                0x00000386       0x2c drivers/ParallelTextLCD.o
-                0x00000386                _ZN15ParallelTextLCD13action_enableEv
+                0x00000366       0x24 drivers/ParallelTextLCD.o
+                0x00000366                _ZN15ParallelTextLCD13action_enableEv
  .text._ZN15ParallelTextLCD9wait_busyEv
-                0x000003b2       0x56 drivers/ParallelTextLCD.o
-                0x000003b2                _ZN15ParallelTextLCD9wait_busyEv
+                0x0000038a       0x48 drivers/ParallelTextLCD.o
+                0x0000038a                _ZN15ParallelTextLCD9wait_busyEv
  .text._ZN15ParallelTextLCD7commandEh
-                0x00000408       0x50 drivers/ParallelTextLCD.o
-                0x00000408                _ZN15ParallelTextLCD7commandEh
+                0x000003d2       0x44 drivers/ParallelTextLCD.o
+                0x000003d2                _ZN15ParallelTextLCD7commandEh
  .text._ZN15ParallelTextLCD10initializeEv
-                0x00000458       0x7e drivers/ParallelTextLCD.o
-                0x00000458                _ZN15ParallelTextLCD10initializeEv
- .text._ZN15ParallelTextLCDC2Eiiiii
-                0x000004d6       0x4c drivers/ParallelTextLCD.o
-                0x000004d6                _ZN15ParallelTextLCDC1Eiiiii
-                0x000004d6                _ZN15ParallelTextLCDC2Eiiiii
- .text._ZN15ParallelTextLCD9characterEh
-                0x00000522       0x50 drivers/ParallelTextLCD.o
-                0x00000522                _ZN15ParallelTextLCD9characterEh
- .text._ZN15ParallelTextLCD10put_stringEPc
-                0x00000572       0x2a drivers/ParallelTextLCD.o
-                0x00000572                _ZN15ParallelTextLCD10put_stringEPc
+                0x00000416       0x6a drivers/ParallelTextLCD.o
+                0x00000416                _ZN15ParallelTextLCD10initializeEv
+ .text._ZN15ParallelTextLCDC2E4PORTS0_3PINS1_S1_
+                0x00000480       0x3e drivers/ParallelTextLCD.o
+                0x00000480                _ZN15ParallelTextLCDC1E4PORTS0_3PINS1_S1_
+                0x00000480                _ZN15ParallelTextLCDC2E4PORTS0_3PINS1_S1_
  .text._ZN15ParallelTextLCD8positionEii
-                0x0000059c       0x18 drivers/ParallelTextLCD.o
-                0x0000059c                _ZN15ParallelTextLCD8positionEii
+                0x000004be       0x16 drivers/ParallelTextLCD.o
+                0x000004be                _ZN15ParallelTextLCD8positionEii
+ .text._ZN15ParallelTextLCD9characterEh
+                0x000004d4       0x44 drivers/ParallelTextLCD.o
+                0x000004d4                _ZN15ParallelTextLCD9characterEh
+ .text._ZN15ParallelTextLCD6stringEPc
+                0x00000518       0x2a drivers/ParallelTextLCD.o
+                0x00000518                _ZN15ParallelTextLCD6stringEPc
  .text._ZN15ParallelTextLCD6stringEiiPc
-                0x000005b4       0x22 drivers/ParallelTextLCD.o
-                0x000005b4                _ZN15ParallelTextLCD6stringEiiPc
- .text.main     0x000005d6       0x70 main.o
-                0x000005d6                main
-                0x00000646                . = ALIGN (0x2)
+                0x00000542       0x22 drivers/ParallelTextLCD.o
+                0x00000542                _ZN15ParallelTextLCD6stringEiiPc
+ .text._ZN15ParallelTextLCD7integerEiiii
+                0x00000564       0xa8 drivers/ParallelTextLCD.o
+                0x00000564                _ZN15ParallelTextLCD7integerEiiii
+ .text._ZN16PushButtonSwitch10initializeEv
+                0x0000060c       0x22 drivers/PushButtonSwitch.o
+                0x0000060c                _ZN16PushButtonSwitch10initializeEv
+ .text._ZN16PushButtonSwitchC2E4PORT3PINbbi
+                0x0000062e       0x2a drivers/PushButtonSwitch.o
+                0x0000062e                _ZN16PushButtonSwitchC1E4PORT3PINbbi
+                0x0000062e                _ZN16PushButtonSwitchC2E4PORT3PINbbi
+ .text._ZN16PushButtonSwitch10checkStateEv
+                0x00000658       0x20 drivers/PushButtonSwitch.o
+                0x00000658                _ZN16PushButtonSwitch10checkStateEv
+ .text._ZN16PushButtonSwitch5stateEv
+                0x00000678       0x22 drivers/PushButtonSwitch.o
+                0x00000678                _ZN16PushButtonSwitch5stateEv
+ .text.main     0x0000069a       0xbc main.o
+                0x0000069a                main
+ .text.avr-libc
+                0x00000756       0x16 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
+                0x00000756                __itoa_ncheck
+ .text.avr-libc
+                0x0000076c       0x34 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
+                0x0000076c                __utoa_ncheck
+                0x0000076e                __utoa_common
+ .text.avr-libc
+                0x000007a0       0x20 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x000007a0                strrev
+                0x000007c0                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000646        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x00000646                _exit
-                0x00000646                exit
+ .fini9         0x000007c0        0x0 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x000007c0                _exit
+                0x000007c0                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -374,11 +516,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000646        0x4 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x000007c0        0x4 e:/microsoft visual studio/atmel studio 7.0/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000064a                _etext = .
+                0x000007c4                _etext = .
 
-.data           0x00800060       0x24 load address 0x0000064a
+.data           0x00800060       0x2c load address 0x000007c4
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -388,31 +530,37 @@ END GROUP
  .rodata._ZTV3LED
                 0x00800068        0x6 drivers/LED.o
                 0x00800068                _ZTV3LED
- .rodata._ZTV15ParallelTextLCD
-                0x0080006e        0x6 drivers/ParallelTextLCD.o
-                0x0080006e                _ZTV15ParallelTextLCD
  .rodata.str1.1
-                0x00800074       0x10 main.o
+                0x0080006e        0x2 drivers/ParallelTextLCD.o
+ .rodata._ZTV15ParallelTextLCD
+                0x00800070        0x6 drivers/ParallelTextLCD.o
+                0x00800070                _ZTV15ParallelTextLCD
+ .rodata._ZTV16PushButtonSwitch
+                0x00800076        0x6 drivers/PushButtonSwitch.o
+                0x00800076                _ZTV16PushButtonSwitch
+ .rodata.str1.1
+                0x0080007c        0xf main.o
  *(.gnu.linkonce.d*)
-                0x00800084                . = ALIGN (0x2)
-                0x00800084                _edata = .
-                0x00800084                PROVIDE (__data_end, .)
+                0x0080008c                . = ALIGN (0x2)
+ *fill*         0x0080008b        0x1 
+                0x0080008c                _edata = .
+                0x0080008c                PROVIDE (__data_end, .)
 
-.bss            0x00800084        0x0
-                0x00800084                PROVIDE (__bss_start, .)
+.bss            0x0080008c        0x0
+                0x0080008c                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
-                0x00800084                PROVIDE (__bss_end, .)
-                0x0000064a                __data_load_start = LOADADDR (.data)
-                0x0000066e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0080008c                PROVIDE (__bss_end, .)
+                0x000007c4                __data_load_start = LOADADDR (.data)
+                0x000007f0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800084        0x0
-                0x00800084                PROVIDE (__noinit_start, .)
+.noinit         0x0080008c        0x0
+                0x0080008c                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800084                PROVIDE (__noinit_end, .)
-                0x00800084                _end = .
-                0x00800084                PROVIDE (__heap_start, .)
+                0x0080008c                PROVIDE (__noinit_end, .)
+                0x0080008c                _end = .
+                0x0080008c                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -453,16 +601,17 @@ END GROUP
 
 .comment        0x00000000       0x30
  *(.comment)
- .comment       0x00000000       0x30 drivers/LED.o
+ .comment       0x00000000       0x30 drivers/Device.o
                                  0x31 (size before relaxing)
- .comment       0x00000030       0x31 drivers/Outputs.o
+ .comment       0x00000030       0x31 drivers/LED.o
  .comment       0x00000030       0x31 drivers/ParallelTextLCD.o
+ .comment       0x00000030       0x31 drivers/PushButtonSwitch.o
  .comment       0x00000030       0x31 main.o
 
 .note.gnu.avr.deviceinfo
                 0x00000000       0x3c
  .note.gnu.avr.deviceinfo
-                0x00000000       0x3c E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.90/gcc/dev/atmega32/avr5/crtatmega32.o
+                0x00000000       0x3c E:/Microsoft Visual Studio/Atmel Studio 7.0/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5/crtatmega32.o
 
 .note.gnu.build-id
  *(.note.gnu.build-id)
@@ -479,65 +628,74 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x130
+.debug_aranges  0x00000000      0x170
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x48 drivers/LED.o
+                0x00000000       0x40 drivers/Device.o
  .debug_aranges
-                0x00000048       0x58 drivers/Outputs.o
+                0x00000040       0x48 drivers/LED.o
  .debug_aranges
-                0x000000a0       0x70 drivers/ParallelTextLCD.o
+                0x00000088       0x88 drivers/ParallelTextLCD.o
  .debug_aranges
-                0x00000110       0x20 main.o
+                0x00000110       0x40 drivers/PushButtonSwitch.o
+ .debug_aranges
+                0x00000150       0x20 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x188c
+.debug_info     0x00000000     0x2584
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x5aa drivers/LED.o
- .debug_info    0x000005aa      0x324 drivers/Outputs.o
- .debug_info    0x000008ce      0xd41 drivers/ParallelTextLCD.o
- .debug_info    0x0000160f      0x27d main.o
+ .debug_info    0x00000000      0x297 drivers/Device.o
+ .debug_info    0x00000297      0x60f drivers/LED.o
+ .debug_info    0x000008a6     0x121c drivers/ParallelTextLCD.o
+ .debug_info    0x00001ac2      0x69b drivers/PushButtonSwitch.o
+ .debug_info    0x0000215d      0x427 main.o
 
-.debug_abbrev   0x00000000      0x88d
+.debug_abbrev   0x00000000      0xbe3
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x2ac drivers/LED.o
- .debug_abbrev  0x000002ac       0xd1 drivers/Outputs.o
- .debug_abbrev  0x0000037d      0x3a9 drivers/ParallelTextLCD.o
- .debug_abbrev  0x00000726      0x167 main.o
+ .debug_abbrev  0x00000000       0xed drivers/Device.o
+ .debug_abbrev  0x000000ed      0x28c drivers/LED.o
+ .debug_abbrev  0x00000379      0x3bb drivers/ParallelTextLCD.o
+ .debug_abbrev  0x00000734      0x2d4 drivers/PushButtonSwitch.o
+ .debug_abbrev  0x00000a08      0x1db main.o
 
-.debug_line     0x00000000      0x56b
+.debug_line     0x00000000      0x7a8
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000       0xb5 drivers/LED.o
- .debug_line    0x000000b5      0x10c drivers/Outputs.o
- .debug_line    0x000001c1      0x25b drivers/ParallelTextLCD.o
- .debug_line    0x0000041c      0x14f main.o
+ .debug_line    0x00000000      0x14d drivers/Device.o
+ .debug_line    0x0000014d       0xe5 drivers/LED.o
+ .debug_line    0x00000232      0x2fd drivers/ParallelTextLCD.o
+ .debug_line    0x0000052f       0xf0 drivers/PushButtonSwitch.o
+ .debug_line    0x0000061f      0x189 main.o
 
-.debug_frame    0x00000000      0x308
+.debug_frame    0x00000000      0x3dc
  *(.debug_frame)
- .debug_frame   0x00000000       0xb0 drivers/LED.o
- .debug_frame   0x000000b0       0x94 drivers/Outputs.o
- .debug_frame   0x00000144      0x190 drivers/ParallelTextLCD.o
- .debug_frame   0x000002d4       0x34 main.o
+ .debug_frame   0x00000000       0x64 drivers/Device.o
+ .debug_frame   0x00000064       0xa4 drivers/LED.o
+ .debug_frame   0x00000108      0x214 drivers/ParallelTextLCD.o
+ .debug_frame   0x0000031c       0x8c drivers/PushButtonSwitch.o
+ .debug_frame   0x000003a8       0x34 main.o
 
-.debug_str      0x00000000      0x678
+.debug_str      0x00000000      0x87c
  *(.debug_str)
- .debug_str     0x00000000      0x365 drivers/LED.o
-                                0x3a1 (size before relaxing)
- .debug_str     0x00000365       0x1d drivers/Outputs.o
-                                0x2bf (size before relaxing)
- .debug_str     0x00000382      0x2e3 drivers/ParallelTextLCD.o
-                                0x610 (size before relaxing)
- .debug_str     0x00000665       0x13 main.o
-                                0x23a (size before relaxing)
+ .debug_str     0x00000000      0x29a drivers/Device.o
+                                0x2d5 (size before relaxing)
+ .debug_str     0x0000029a      0x101 drivers/LED.o
+                                0x3b8 (size before relaxing)
+ .debug_str     0x0000039b      0x379 drivers/ParallelTextLCD.o
+                                0x6b6 (size before relaxing)
+ .debug_str     0x00000714      0x14c drivers/PushButtonSwitch.o
+                                0x48e (size before relaxing)
+ .debug_str     0x00000860       0x1c main.o
+                                0x30c (size before relaxing)
 
-.debug_loc      0x00000000     0x104f
+.debug_loc      0x00000000     0x1315
  *(.debug_loc)
- .debug_loc     0x00000000      0x265 drivers/LED.o
- .debug_loc     0x00000265      0x4a0 drivers/Outputs.o
- .debug_loc     0x00000705      0x903 drivers/ParallelTextLCD.o
- .debug_loc     0x00001008       0x47 main.o
+ .debug_loc     0x00000000      0x1f3 drivers/Device.o
+ .debug_loc     0x000001f3      0x1fc drivers/LED.o
+ .debug_loc     0x000003ef      0xc5d drivers/ParallelTextLCD.o
+ .debug_loc     0x0000104c      0x23a drivers/PushButtonSwitch.o
+ .debug_loc     0x00001286       0x8f main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -557,12 +715,13 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0xf0
+.debug_ranges   0x00000000      0x120
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x38 drivers/LED.o
- .debug_ranges  0x00000038       0x48 drivers/Outputs.o
- .debug_ranges  0x00000080       0x60 drivers/ParallelTextLCD.o
- .debug_ranges  0x000000e0       0x10 main.o
+ .debug_ranges  0x00000000       0x30 drivers/Device.o
+ .debug_ranges  0x00000030       0x38 drivers/LED.o
+ .debug_ranges  0x00000068       0x78 drivers/ParallelTextLCD.o
+ .debug_ranges  0x000000e0       0x30 drivers/PushButtonSwitch.o
+ .debug_ranges  0x00000110       0x10 main.o
 
 .debug_macro
  *(.debug_macro)

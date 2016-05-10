@@ -7,17 +7,3 @@
 
 
 #include "Input.h"
-
-// functions
-void Input::Method2()//virtual
-{
-}
-
-void Input::Method3()
-{
-}
-
-// virtual destructor
-Input::~Input()
-{
-} //~Input

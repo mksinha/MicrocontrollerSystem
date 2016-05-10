@@ -5,31 +5,30 @@
 * Author: Animesh Sinha
 */
 
-#include "Output.h"
 
 #ifndef __TEXTLCD_H__
 #define __TEXTLCD_H__
+
+#include "Output.h"
 
 
 class ParallelTextLCD : public Output
 {
 //variables
-public:
 protected:
-	int dataPort, controlPort;
-	int pinEN, pinRW, pinRS;
+	PORT dataPort, controlPort;
+	PIN pinEN, pinRW, pinRS;
 	int rowPositions[4] = {0, 64, 20, 84};
-private:
 
 //functions
 public:
-	ParallelTextLCD(int portData, int portControl, int pinRS, int pinRW, int pinEN);
+	ParallelTextLCD(PORT portData, PORT portControl, PIN pinRS, PIN pinRW, PIN pinEN);
 	~ParallelTextLCD();
 	void initialize();
 	void integer(int x, int y, int num, int digits);
 	void integer(int num, int digits);
-	void string(int x, int y, char* str);
-	void string(char* str);
+	void string(int x, int y, const char* str);
+	void string(const char* str);
 	void position(int x, int y);
 	void clear();
 	void cursor(bool visible, bool blink);

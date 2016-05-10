@@ -1,26 +1,45 @@
-/*
- * MicrocontrollerSystem.cpp
- *
- * Created: 4/10/2016 12:04:45 PM
- * Author : Manish Sinha
- */ 
-
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <util/delay.h>
-#include "drivers/LED.h"
 #include "drivers/ParallelTextLCD.h"
+#include "drivers/AnalogInput.h"
+// "drivers/LED.h" LED
+// "drivers/PushButtonSwitch.h" PushButtonSwitch
+
+void display(int value, ADCchannel channel);
+
+ParallelTextLCD lcd(IOPORTB, IOPORTD, IOPIN2, IOPIN7, IOPIN5);
+AnalogInput adc(ADC0);
+AnalogInput pot(ADC1);
 
 int main(void)
 {
-	LED led(IOPORTC, IOPIN6);
-	ParallelTextLCD lcd(IOPORTB, IOPORTD, IOPIN2, IOPIN7, IOPIN5);
-	lcd.string(0, 0, "Hello Controller");
-	lcd.integer(5, 1, 1309, 5);
-    lcd.cursor(true, false);
-		while (1)
-    {
-		led.toggle();
-		_delay_ms(500);
-    }
-	return 0;
+	lcd.string(0, 0, "ADC Result:");
+	lcd.string(0, 1, "POT Result:");
+	adc.setCallback(display);
+	pot.setCallback(display);
+	adc.startConversion();
+	while (1)
+	{
+	}
+}
+
+ISR(ADC_vect)
+{
+	if (adc.isLive())
+	{
+		adc.process();
+		pot.startConversion();
+	}
+	else if (pot.isLive())
+	{
+		pot.process();
+		adc.startConversion();
+	}
+}
+
+void display(int value, ADCchannel channel)
+{
+	lcd.integer(11, channel, value, 4);
+	_delay_ms(500);
 }

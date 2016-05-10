@@ -11,15 +11,12 @@
 
 #include "Device.h"
 
+
 class Input : public Device
 {
 //functions
 public:
-	virtual ~Input();
-	virtual void Method1()=0;//make Input not instantiable
-	virtual void Method2();
-	void Method3();
-
+	virtual void initialize()=0;//make Output not instantiable
 }; //Input
 
 #endif //__INPUT_H__
