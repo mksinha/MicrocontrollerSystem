@@ -11,15 +11,17 @@
 
 #include "Device.h"
 
-class Storage : public Device
+namespace Integral
 {
-//functions
-public:
-	virtual ~Storage();
-	virtual void Method1()=0;//make Storage not instantiable
-	virtual void Method2();
-	void Method3();
+	class Storage : public Device
+	{
+	//functions
+	public:
+		virtual ~Storage();
+		virtual void Method1()=0;//make Storage not instantiable
+		virtual void Method2();
+		void Method3();
 
-}; //Storage
-
+	}; //Storage
+}
 #endif //__STORAGE_H__

@@ -12,18 +12,20 @@
 #include <avr/io.h>
 #include "../controller/registry.h"
 
-
-class Device
+namespace Integral 
 {
-//functions
-public:
-	virtual void initialize()=0;//make Device not instantiable
-protected:
-	static void setStatus(PORT port, PIN pin, bool state);
-	static void setDirection(PORT port, PIN pin, bool state);
-	static void setStatus(PORT port, int state);
-	static void setDirection(PORT port, int state);
-	static bool getStatus(PORT port, PIN pin);
-}; //Device
+	class Device
+	{
+	//functions
+	public:
+		virtual void initialize()=0;//make Device not instantiable
+	protected:
+		static void setStatus(PORT port, PIN pin, bool state);
+		static void setDirection(PORT port, PIN pin, bool state);
+		static void setStatus(PORT port, int state);
+		static void setDirection(PORT port, int state);
+		static bool getStatus(PORT port, PIN pin);
+	}; //Device
+}
 
 #endif //__DEVICE_H__

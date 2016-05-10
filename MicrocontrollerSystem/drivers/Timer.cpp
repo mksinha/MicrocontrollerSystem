@@ -8,16 +8,19 @@
 
 #include "Timer.h"
 
-// functions
-void Timer::Method2()//virtual
+namespace Integral
 {
-}
+	// functions
+	void Timer::Method2()//virtual
+	{
+	}
 
-void Timer::Method3()
-{
-}
+	void Timer::Method3()
+	{
+	}
 
-// virtual destructor
-Timer::~Timer()
-{
-} //~Timer
+	// virtual destructor
+	Timer::~Timer()
+	{
+	} //~Timer
+}

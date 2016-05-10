@@ -7,3 +7,8 @@
 
 
 #include "Input.h"
+
+namespace Integral
+{
+
+}

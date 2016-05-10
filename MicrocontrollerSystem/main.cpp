@@ -3,14 +3,18 @@
 #include <util/delay.h>
 #include "drivers/ParallelTextLCD.h"
 #include "drivers/AnalogInput.h"
-// "drivers/LED.h" LED
-// "drivers/PushButtonSwitch.h" PushButtonSwitch
+#include "drivers/LED.h"
+#include "drivers/PushButtonSwitch.h"
+
+using namespace Integral;
 
 void display(int value, ADCchannel channel);
 
 ParallelTextLCD lcd(IOPORTB, IOPORTD, IOPIN2, IOPIN7, IOPIN5);
 AnalogInput adc(ADC0);
 AnalogInput pot(ADC1);
+PushButtonSwitch pbs(IOPORTC, IOPIN6, false, HIGH);
+LED led(IOPORTC, IOPIN7);
 
 int main(void)
 {
@@ -21,6 +25,12 @@ int main(void)
 	adc.startConversion();
 	while (1)
 	{
+		led.toggle();
+		// Blink Speed
+		if (pbs.state() == HIGH)
+			_delay_ms(100);
+		else if (pbs.state() == LOW)
+			_delay_ms(1000);
 	}
 }
 

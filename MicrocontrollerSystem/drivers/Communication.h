@@ -11,15 +11,18 @@
 
 #include "Device.h"
 
-class Communication : public Device
+namespace Integral
 {
-//functions
-public:
-	virtual ~Communication();
-	virtual void Method1()=0;//make Communication not instantiable
-	virtual void Method2();
-	void Method3();
+	class Communication : public Device
+	{
+	//functions
+	public:
+		virtual ~Communication();
+		virtual void Method1()=0;//make Communication not instantiable
+		virtual void Method2();
+		void Method3();
 
-}; //Communication
+	}; //Communication
+}
 
 #endif //__COMMUNICATION_H__

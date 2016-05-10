@@ -11,15 +11,18 @@
 
 #include "Device.h"
 
-class Timer : public Device
+namespace Integral 
 {
-//functions
-public:
-	virtual ~Timer();
-	virtual void Method1()=0;//make Timer not instantiable
-	virtual void Method2();
-	void Method3();
+	class Timer : public Device
+	{
+	//functions
+	public:
+		virtual ~Timer();
+		virtual void Method1()=0;//make Timer not instantiable
+		virtual void Method2();
+		void Method3();
 
-}; //Timer
+	}; //Timer
+}
 
 #endif //__TIMER_H__

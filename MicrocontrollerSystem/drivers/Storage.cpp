@@ -8,16 +8,19 @@
 
 #include "Storage.h"
 
-// functions
-void Storage::Method2()//virtual
+namespace Integral
 {
-}
+	// functions
+	void Storage::Method2()//virtual
+	{
+	}
 
-void Storage::Method3()
-{
-}
+	void Storage::Method3()
+	{
+	}
 
-// virtual destructor
-Storage::~Storage()
-{
-} //~Storage
+	// virtual destructor
+	Storage::~Storage()
+	{
+	} //~Storage
+}
