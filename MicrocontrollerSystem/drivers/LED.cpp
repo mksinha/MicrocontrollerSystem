@@ -11,7 +11,7 @@
 namespace Integral 
 {
 	// default constructor
-	LED::LED(PORT port, PIN pin)
+	LED::LED(PORT port, POSITION pin)
 	{
 		this->port = port;
 		this->pin = pin;

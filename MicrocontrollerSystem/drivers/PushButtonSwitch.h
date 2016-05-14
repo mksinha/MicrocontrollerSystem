@@ -19,12 +19,12 @@ namespace Integral
 	protected:
 		bool status;
 		PORT port;
-		PIN pin;
+		POSITION pin;
 		bool no_nc, pullState;
 
 	//functions
 	public:
-		PushButtonSwitch(PORT port, PIN pin, bool no_nc, bool pullState);
+		PushButtonSwitch(PORT port, POSITION pin, bool no_nc, bool pullState);
 		~PushButtonSwitch();
 		bool state();  // debounced status
 		void initialize();

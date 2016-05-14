@@ -532,28 +532,28 @@ END GROUP
  .text._ZN8Integral11AnalogInput7processEv
                 0x00000142       0x1a drivers/AnalogInput.o
                 0x00000142                _ZN8Integral11AnalogInput7processEv
- .text._ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb
+ .text._ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb
                 0x0000015c       0xc4 drivers/Device.o
-                0x0000015c                _ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb
- .text._ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb
+                0x0000015c                _ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb
+ .text._ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb
                 0x00000220       0xc4 drivers/Device.o
-                0x00000220                _ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb
+                0x00000220                _ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb
  .text._ZN8Integral6Device9setStatusENS_4PORTEi
                 0x000002e4       0x20 drivers/Device.o
                 0x000002e4                _ZN8Integral6Device9setStatusENS_4PORTEi
  .text._ZN8Integral6Device12setDirectionENS_4PORTEi
                 0x00000304       0x20 drivers/Device.o
                 0x00000304                _ZN8Integral6Device12setDirectionENS_4PORTEi
- .text._ZN8Integral6Device9getStatusENS_4PORTENS_3PINE
+ .text._ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE
                 0x00000324       0x30 drivers/Device.o
-                0x00000324                _ZN8Integral6Device9getStatusENS_4PORTENS_3PINE
+                0x00000324                _ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE
  .text._ZN8Integral3LED10initializeEv
                 0x00000354       0x1e drivers/LED.o
                 0x00000354                _ZN8Integral3LED10initializeEv
- .text._ZN8Integral3LEDC2ENS_4PORTENS_3PINE
+ .text._ZN8Integral3LEDC2ENS_4PORTENS_8POSITIONE
                 0x00000372       0x14 drivers/LED.o
-                0x00000372                _ZN8Integral3LEDC1ENS_4PORTENS_3PINE
-                0x00000372                _ZN8Integral3LEDC2ENS_4PORTENS_3PINE
+                0x00000372                _ZN8Integral3LEDC2ENS_4PORTENS_8POSITIONE
+                0x00000372                _ZN8Integral3LEDC1ENS_4PORTENS_8POSITIONE
  .text._ZN8Integral3LEDD2Ev
                 0x00000386        0x2 drivers/LED.o
                 0x00000386                _ZN8Integral3LEDD2Ev
@@ -583,10 +583,10 @@ END GROUP
  .text._ZN8Integral15ParallelTextLCD10initializeEv
                 0x000004fc       0x6a drivers/ParallelTextLCD.o
                 0x000004fc                _ZN8Integral15ParallelTextLCD10initializeEv
- .text._ZN8Integral15ParallelTextLCDC2ENS_4PORTES1_NS_3PINES2_S2_
+ .text._ZN8Integral15ParallelTextLCDC2ENS_4PORTES1_NS_8POSITIONES2_S2_
                 0x00000566       0x3c drivers/ParallelTextLCD.o
-                0x00000566                _ZN8Integral15ParallelTextLCDC1ENS_4PORTES1_NS_3PINES2_S2_
-                0x00000566                _ZN8Integral15ParallelTextLCDC2ENS_4PORTES1_NS_3PINES2_S2_
+                0x00000566                _ZN8Integral15ParallelTextLCDC1ENS_4PORTES1_NS_8POSITIONES2_S2_
+                0x00000566                _ZN8Integral15ParallelTextLCDC2ENS_4PORTES1_NS_8POSITIONES2_S2_
  .text._ZN8Integral15ParallelTextLCD8positionEii
                 0x000005a2       0x14 drivers/ParallelTextLCD.o
                 0x000005a2                _ZN8Integral15ParallelTextLCD8positionEii
@@ -605,10 +605,10 @@ END GROUP
  .text._ZN8Integral16PushButtonSwitch10initializeEv
                 0x000006f4       0x22 drivers/PushButtonSwitch.o
                 0x000006f4                _ZN8Integral16PushButtonSwitch10initializeEv
- .text._ZN8Integral16PushButtonSwitchC2ENS_4PORTENS_3PINEbb
+ .text._ZN8Integral16PushButtonSwitchC2ENS_4PORTENS_8POSITIONEbb
                 0x00000716       0x1c drivers/PushButtonSwitch.o
-                0x00000716                _ZN8Integral16PushButtonSwitchC1ENS_4PORTENS_3PINEbb
-                0x00000716                _ZN8Integral16PushButtonSwitchC2ENS_4PORTENS_3PINEbb
+                0x00000716                _ZN8Integral16PushButtonSwitchC1ENS_4PORTENS_8POSITIONEbb
+                0x00000716                _ZN8Integral16PushButtonSwitchC2ENS_4PORTENS_8POSITIONEbb
  .text._ZN8Integral16PushButtonSwitchD2Ev
                 0x00000732        0x2 drivers/PushButtonSwitch.o
                 0x00000732                _ZN8Integral16PushButtonSwitchD1Ev

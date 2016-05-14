@@ -11,7 +11,7 @@
 namespace Integral
 {
 	// default constructor
-	PushButtonSwitch::PushButtonSwitch(PORT port, PIN pin, bool no_nc, bool pullState)
+	PushButtonSwitch::PushButtonSwitch(PORT port, POSITION pin, bool no_nc, bool pullState)
 	{
 		this->port = port;
 		this->pin = pin;

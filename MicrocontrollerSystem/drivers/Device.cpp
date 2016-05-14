@@ -13,7 +13,7 @@ namespace Integral
 {
 	// functions
 
-	void Device::setStatus(PORT port, PIN pin, bool state)
+	void Device::setStatus(PORT port, POSITION pin, bool state)
 	{
 		if (state == true)
 		{
@@ -39,7 +39,7 @@ namespace Integral
 		}
 	}
 
-	void Device::setDirection(PORT port, PIN pin, bool state)
+	void Device::setDirection(PORT port, POSITION pin, bool state)
 	{
 		if (state == true)
 		{
@@ -89,7 +89,7 @@ namespace Integral
 			DDRD = state;
 	}
 
-	bool Device::getStatus(PORT port, PIN pin)
+	bool Device::getStatus(PORT port, POSITION pin)
 	{
 		switch(port)
 		{

@@ -19,7 +19,7 @@ namespace Integral
 	enum PORT {
 		IOPORTA, IOPORTB, IOPORTC, IOPORTD
 	};
-	enum PIN {
+	enum POSITION {
 		IOPIN0 = 0, IOPIN1 = 1, IOPIN2 = 2, IOPIN3 = 3,
 		IOPIN4 = 4, IOPIN5 = 5, IOPIN6 = 6, IOPIN7 = 7
 	};

@@ -14,7 +14,7 @@
 namespace Integral
 {
 	// default constructor
-	ParallelTextLCD::ParallelTextLCD(PORT portData, PORT portControl, PIN pinRS, PIN pinRW, PIN pinEN)
+	ParallelTextLCD::ParallelTextLCD(PORT portData, PORT portControl, POSITION pinRS, POSITION pinRW, POSITION pinEN)
 	{
 		this->dataPort = portData;
 		this->controlPort = portControl;

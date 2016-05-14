@@ -201,201 +201,201 @@ Disassembly of section .text:
  158:	cf 91       	pop	r28
  15a:	09 94       	ijmp
 
-0000015c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>:
+0000015c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>:
  15c:	44 23       	and	r20, r20
- 15e:	61 f1       	breq	.+88     	; 0x1b8 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x5c>
+ 15e:	61 f1       	breq	.+88     	; 0x1b8 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x5c>
  160:	81 11       	cpse	r24, r1
- 162:	09 c0       	rjmp	.+18     	; 0x176 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x1a>
+ 162:	09 c0       	rjmp	.+18     	; 0x176 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x1a>
  164:	2b b3       	in	r18, 0x1b	; 27
  166:	81 e0       	ldi	r24, 0x01	; 1
  168:	90 e0       	ldi	r25, 0x00	; 0
- 16a:	01 c0       	rjmp	.+2      	; 0x16e <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x12>
+ 16a:	01 c0       	rjmp	.+2      	; 0x16e <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x12>
  16c:	88 0f       	add	r24, r24
  16e:	6a 95       	dec	r22
- 170:	ea f7       	brpl	.-6      	; 0x16c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x10>
+ 170:	ea f7       	brpl	.-6      	; 0x16c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x10>
  172:	82 2b       	or	r24, r18
- 174:	2c c0       	rjmp	.+88     	; 0x1ce <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x72>
+ 174:	2c c0       	rjmp	.+88     	; 0x1ce <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x72>
  176:	81 30       	cpi	r24, 0x01	; 1
- 178:	49 f4       	brne	.+18     	; 0x18c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x30>
+ 178:	49 f4       	brne	.+18     	; 0x18c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x30>
  17a:	28 b3       	in	r18, 0x18	; 24
  17c:	81 e0       	ldi	r24, 0x01	; 1
  17e:	90 e0       	ldi	r25, 0x00	; 0
- 180:	01 c0       	rjmp	.+2      	; 0x184 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x28>
+ 180:	01 c0       	rjmp	.+2      	; 0x184 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x28>
  182:	88 0f       	add	r24, r24
  184:	6a 95       	dec	r22
- 186:	ea f7       	brpl	.-6      	; 0x182 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x26>
+ 186:	ea f7       	brpl	.-6      	; 0x182 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x26>
  188:	82 2b       	or	r24, r18
- 18a:	2e c0       	rjmp	.+92     	; 0x1e8 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x8c>
+ 18a:	2e c0       	rjmp	.+92     	; 0x1e8 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x8c>
  18c:	82 30       	cpi	r24, 0x02	; 2
- 18e:	49 f4       	brne	.+18     	; 0x1a2 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x46>
+ 18e:	49 f4       	brne	.+18     	; 0x1a2 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x46>
  190:	25 b3       	in	r18, 0x15	; 21
  192:	81 e0       	ldi	r24, 0x01	; 1
  194:	90 e0       	ldi	r25, 0x00	; 0
- 196:	01 c0       	rjmp	.+2      	; 0x19a <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x3e>
+ 196:	01 c0       	rjmp	.+2      	; 0x19a <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x3e>
  198:	88 0f       	add	r24, r24
  19a:	6a 95       	dec	r22
- 19c:	ea f7       	brpl	.-6      	; 0x198 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x3c>
+ 19c:	ea f7       	brpl	.-6      	; 0x198 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x3c>
  19e:	82 2b       	or	r24, r18
- 1a0:	30 c0       	rjmp	.+96     	; 0x202 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0xa6>
+ 1a0:	30 c0       	rjmp	.+96     	; 0x202 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0xa6>
  1a2:	83 30       	cpi	r24, 0x03	; 3
- 1a4:	e1 f5       	brne	.+120    	; 0x21e <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0xc2>
+ 1a4:	e1 f5       	brne	.+120    	; 0x21e <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0xc2>
  1a6:	22 b3       	in	r18, 0x12	; 18
  1a8:	81 e0       	ldi	r24, 0x01	; 1
  1aa:	90 e0       	ldi	r25, 0x00	; 0
- 1ac:	01 c0       	rjmp	.+2      	; 0x1b0 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x54>
+ 1ac:	01 c0       	rjmp	.+2      	; 0x1b0 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x54>
  1ae:	88 0f       	add	r24, r24
  1b0:	6a 95       	dec	r22
- 1b2:	ea f7       	brpl	.-6      	; 0x1ae <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x52>
+ 1b2:	ea f7       	brpl	.-6      	; 0x1ae <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x52>
  1b4:	82 2b       	or	r24, r18
- 1b6:	32 c0       	rjmp	.+100    	; 0x21c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0xc0>
+ 1b6:	32 c0       	rjmp	.+100    	; 0x21c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0xc0>
  1b8:	81 11       	cpse	r24, r1
- 1ba:	0b c0       	rjmp	.+22     	; 0x1d2 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x76>
+ 1ba:	0b c0       	rjmp	.+22     	; 0x1d2 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x76>
  1bc:	2b b3       	in	r18, 0x1b	; 27
  1be:	81 e0       	ldi	r24, 0x01	; 1
  1c0:	90 e0       	ldi	r25, 0x00	; 0
- 1c2:	01 c0       	rjmp	.+2      	; 0x1c6 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x6a>
+ 1c2:	01 c0       	rjmp	.+2      	; 0x1c6 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x6a>
  1c4:	88 0f       	add	r24, r24
  1c6:	6a 95       	dec	r22
- 1c8:	ea f7       	brpl	.-6      	; 0x1c4 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x68>
+ 1c8:	ea f7       	brpl	.-6      	; 0x1c4 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x68>
  1ca:	80 95       	com	r24
  1cc:	82 23       	and	r24, r18
  1ce:	8b bb       	out	0x1b, r24	; 27
  1d0:	08 95       	ret
  1d2:	81 30       	cpi	r24, 0x01	; 1
- 1d4:	59 f4       	brne	.+22     	; 0x1ec <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x90>
+ 1d4:	59 f4       	brne	.+22     	; 0x1ec <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x90>
  1d6:	28 b3       	in	r18, 0x18	; 24
  1d8:	81 e0       	ldi	r24, 0x01	; 1
  1da:	90 e0       	ldi	r25, 0x00	; 0
- 1dc:	01 c0       	rjmp	.+2      	; 0x1e0 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x84>
+ 1dc:	01 c0       	rjmp	.+2      	; 0x1e0 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x84>
  1de:	88 0f       	add	r24, r24
  1e0:	6a 95       	dec	r22
- 1e2:	ea f7       	brpl	.-6      	; 0x1de <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x82>
+ 1e2:	ea f7       	brpl	.-6      	; 0x1de <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x82>
  1e4:	80 95       	com	r24
  1e6:	82 23       	and	r24, r18
  1e8:	88 bb       	out	0x18, r24	; 24
  1ea:	08 95       	ret
  1ec:	82 30       	cpi	r24, 0x02	; 2
- 1ee:	59 f4       	brne	.+22     	; 0x206 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0xaa>
+ 1ee:	59 f4       	brne	.+22     	; 0x206 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0xaa>
  1f0:	25 b3       	in	r18, 0x15	; 21
  1f2:	81 e0       	ldi	r24, 0x01	; 1
  1f4:	90 e0       	ldi	r25, 0x00	; 0
- 1f6:	01 c0       	rjmp	.+2      	; 0x1fa <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x9e>
+ 1f6:	01 c0       	rjmp	.+2      	; 0x1fa <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x9e>
  1f8:	88 0f       	add	r24, r24
  1fa:	6a 95       	dec	r22
- 1fc:	ea f7       	brpl	.-6      	; 0x1f8 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0x9c>
+ 1fc:	ea f7       	brpl	.-6      	; 0x1f8 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0x9c>
  1fe:	80 95       	com	r24
  200:	82 23       	and	r24, r18
  202:	85 bb       	out	0x15, r24	; 21
  204:	08 95       	ret
  206:	83 30       	cpi	r24, 0x03	; 3
- 208:	51 f4       	brne	.+20     	; 0x21e <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0xc2>
+ 208:	51 f4       	brne	.+20     	; 0x21e <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0xc2>
  20a:	22 b3       	in	r18, 0x12	; 18
  20c:	81 e0       	ldi	r24, 0x01	; 1
  20e:	90 e0       	ldi	r25, 0x00	; 0
- 210:	01 c0       	rjmp	.+2      	; 0x214 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0xb8>
+ 210:	01 c0       	rjmp	.+2      	; 0x214 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0xb8>
  212:	88 0f       	add	r24, r24
  214:	6a 95       	dec	r22
- 216:	ea f7       	brpl	.-6      	; 0x212 <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb+0xb6>
+ 216:	ea f7       	brpl	.-6      	; 0x212 <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb+0xb6>
  218:	80 95       	com	r24
  21a:	82 23       	and	r24, r18
  21c:	82 bb       	out	0x12, r24	; 18
  21e:	08 95       	ret
 
-00000220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb>:
+00000220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb>:
  220:	44 23       	and	r20, r20
- 222:	61 f1       	breq	.+88     	; 0x27c <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x5c>
+ 222:	61 f1       	breq	.+88     	; 0x27c <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x5c>
  224:	81 11       	cpse	r24, r1
- 226:	09 c0       	rjmp	.+18     	; 0x23a <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x1a>
+ 226:	09 c0       	rjmp	.+18     	; 0x23a <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x1a>
  228:	2a b3       	in	r18, 0x1a	; 26
  22a:	81 e0       	ldi	r24, 0x01	; 1
  22c:	90 e0       	ldi	r25, 0x00	; 0
- 22e:	01 c0       	rjmp	.+2      	; 0x232 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x12>
+ 22e:	01 c0       	rjmp	.+2      	; 0x232 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x12>
  230:	88 0f       	add	r24, r24
  232:	6a 95       	dec	r22
- 234:	ea f7       	brpl	.-6      	; 0x230 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x10>
+ 234:	ea f7       	brpl	.-6      	; 0x230 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x10>
  236:	82 2b       	or	r24, r18
- 238:	2c c0       	rjmp	.+88     	; 0x292 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x72>
+ 238:	2c c0       	rjmp	.+88     	; 0x292 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x72>
  23a:	81 30       	cpi	r24, 0x01	; 1
- 23c:	49 f4       	brne	.+18     	; 0x250 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x30>
+ 23c:	49 f4       	brne	.+18     	; 0x250 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x30>
  23e:	27 b3       	in	r18, 0x17	; 23
  240:	81 e0       	ldi	r24, 0x01	; 1
  242:	90 e0       	ldi	r25, 0x00	; 0
- 244:	01 c0       	rjmp	.+2      	; 0x248 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x28>
+ 244:	01 c0       	rjmp	.+2      	; 0x248 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x28>
  246:	88 0f       	add	r24, r24
  248:	6a 95       	dec	r22
- 24a:	ea f7       	brpl	.-6      	; 0x246 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x26>
+ 24a:	ea f7       	brpl	.-6      	; 0x246 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x26>
  24c:	82 2b       	or	r24, r18
- 24e:	2e c0       	rjmp	.+92     	; 0x2ac <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x8c>
+ 24e:	2e c0       	rjmp	.+92     	; 0x2ac <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x8c>
  250:	82 30       	cpi	r24, 0x02	; 2
- 252:	49 f4       	brne	.+18     	; 0x266 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x46>
+ 252:	49 f4       	brne	.+18     	; 0x266 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x46>
  254:	24 b3       	in	r18, 0x14	; 20
  256:	81 e0       	ldi	r24, 0x01	; 1
  258:	90 e0       	ldi	r25, 0x00	; 0
- 25a:	01 c0       	rjmp	.+2      	; 0x25e <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x3e>
+ 25a:	01 c0       	rjmp	.+2      	; 0x25e <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x3e>
  25c:	88 0f       	add	r24, r24
  25e:	6a 95       	dec	r22
- 260:	ea f7       	brpl	.-6      	; 0x25c <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x3c>
+ 260:	ea f7       	brpl	.-6      	; 0x25c <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x3c>
  262:	82 2b       	or	r24, r18
- 264:	30 c0       	rjmp	.+96     	; 0x2c6 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0xa6>
+ 264:	30 c0       	rjmp	.+96     	; 0x2c6 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0xa6>
  266:	83 30       	cpi	r24, 0x03	; 3
- 268:	e1 f5       	brne	.+120    	; 0x2e2 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0xc2>
+ 268:	e1 f5       	brne	.+120    	; 0x2e2 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0xc2>
  26a:	21 b3       	in	r18, 0x11	; 17
  26c:	81 e0       	ldi	r24, 0x01	; 1
  26e:	90 e0       	ldi	r25, 0x00	; 0
- 270:	01 c0       	rjmp	.+2      	; 0x274 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x54>
+ 270:	01 c0       	rjmp	.+2      	; 0x274 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x54>
  272:	88 0f       	add	r24, r24
  274:	6a 95       	dec	r22
- 276:	ea f7       	brpl	.-6      	; 0x272 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x52>
+ 276:	ea f7       	brpl	.-6      	; 0x272 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x52>
  278:	82 2b       	or	r24, r18
- 27a:	32 c0       	rjmp	.+100    	; 0x2e0 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0xc0>
+ 27a:	32 c0       	rjmp	.+100    	; 0x2e0 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0xc0>
  27c:	81 11       	cpse	r24, r1
- 27e:	0b c0       	rjmp	.+22     	; 0x296 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x76>
+ 27e:	0b c0       	rjmp	.+22     	; 0x296 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x76>
  280:	2a b3       	in	r18, 0x1a	; 26
  282:	81 e0       	ldi	r24, 0x01	; 1
  284:	90 e0       	ldi	r25, 0x00	; 0
- 286:	01 c0       	rjmp	.+2      	; 0x28a <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x6a>
+ 286:	01 c0       	rjmp	.+2      	; 0x28a <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x6a>
  288:	88 0f       	add	r24, r24
  28a:	6a 95       	dec	r22
- 28c:	ea f7       	brpl	.-6      	; 0x288 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x68>
+ 28c:	ea f7       	brpl	.-6      	; 0x288 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x68>
  28e:	80 95       	com	r24
  290:	82 23       	and	r24, r18
  292:	8a bb       	out	0x1a, r24	; 26
  294:	08 95       	ret
  296:	81 30       	cpi	r24, 0x01	; 1
- 298:	59 f4       	brne	.+22     	; 0x2b0 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x90>
+ 298:	59 f4       	brne	.+22     	; 0x2b0 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x90>
  29a:	27 b3       	in	r18, 0x17	; 23
  29c:	81 e0       	ldi	r24, 0x01	; 1
  29e:	90 e0       	ldi	r25, 0x00	; 0
- 2a0:	01 c0       	rjmp	.+2      	; 0x2a4 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x84>
+ 2a0:	01 c0       	rjmp	.+2      	; 0x2a4 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x84>
  2a2:	88 0f       	add	r24, r24
  2a4:	6a 95       	dec	r22
- 2a6:	ea f7       	brpl	.-6      	; 0x2a2 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x82>
+ 2a6:	ea f7       	brpl	.-6      	; 0x2a2 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x82>
  2a8:	80 95       	com	r24
  2aa:	82 23       	and	r24, r18
  2ac:	87 bb       	out	0x17, r24	; 23
  2ae:	08 95       	ret
  2b0:	82 30       	cpi	r24, 0x02	; 2
- 2b2:	59 f4       	brne	.+22     	; 0x2ca <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0xaa>
+ 2b2:	59 f4       	brne	.+22     	; 0x2ca <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0xaa>
  2b4:	24 b3       	in	r18, 0x14	; 20
  2b6:	81 e0       	ldi	r24, 0x01	; 1
  2b8:	90 e0       	ldi	r25, 0x00	; 0
- 2ba:	01 c0       	rjmp	.+2      	; 0x2be <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x9e>
+ 2ba:	01 c0       	rjmp	.+2      	; 0x2be <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x9e>
  2bc:	88 0f       	add	r24, r24
  2be:	6a 95       	dec	r22
- 2c0:	ea f7       	brpl	.-6      	; 0x2bc <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0x9c>
+ 2c0:	ea f7       	brpl	.-6      	; 0x2bc <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0x9c>
  2c2:	80 95       	com	r24
  2c4:	82 23       	and	r24, r18
  2c6:	84 bb       	out	0x14, r24	; 20
  2c8:	08 95       	ret
  2ca:	83 30       	cpi	r24, 0x03	; 3
- 2cc:	51 f4       	brne	.+20     	; 0x2e2 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0xc2>
+ 2cc:	51 f4       	brne	.+20     	; 0x2e2 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0xc2>
  2ce:	21 b3       	in	r18, 0x11	; 17
  2d0:	81 e0       	ldi	r24, 0x01	; 1
  2d2:	90 e0       	ldi	r25, 0x00	; 0
- 2d4:	01 c0       	rjmp	.+2      	; 0x2d8 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0xb8>
+ 2d4:	01 c0       	rjmp	.+2      	; 0x2d8 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0xb8>
  2d6:	88 0f       	add	r24, r24
  2d8:	6a 95       	dec	r22
- 2da:	ea f7       	brpl	.-6      	; 0x2d6 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb+0xb6>
+ 2da:	ea f7       	brpl	.-6      	; 0x2d6 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb+0xb6>
  2dc:	80 95       	com	r24
  2de:	82 23       	and	r24, r18
  2e0:	81 bb       	out	0x11, r24	; 17
@@ -437,27 +437,27 @@ Disassembly of section .text:
  320:	61 bb       	out	0x11, r22	; 17
  322:	08 95       	ret
 
-00000324 <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE>:
+00000324 <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE>:
  324:	81 30       	cpi	r24, 0x01	; 1
- 326:	49 f0       	breq	.+18     	; 0x33a <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE+0x16>
- 328:	30 f0       	brcs	.+12     	; 0x336 <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE+0x12>
+ 326:	49 f0       	breq	.+18     	; 0x33a <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE+0x16>
+ 328:	30 f0       	brcs	.+12     	; 0x336 <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE+0x12>
  32a:	82 30       	cpi	r24, 0x02	; 2
- 32c:	41 f0       	breq	.+16     	; 0x33e <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE+0x1a>
+ 32c:	41 f0       	breq	.+16     	; 0x33e <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE+0x1a>
  32e:	83 30       	cpi	r24, 0x03	; 3
- 330:	79 f4       	brne	.+30     	; 0x350 <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE+0x2c>
+ 330:	79 f4       	brne	.+30     	; 0x350 <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE+0x2c>
  332:	80 b3       	in	r24, 0x10	; 16
- 334:	05 c0       	rjmp	.+10     	; 0x340 <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE+0x1c>
+ 334:	05 c0       	rjmp	.+10     	; 0x340 <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE+0x1c>
  336:	89 b3       	in	r24, 0x19	; 25
- 338:	03 c0       	rjmp	.+6      	; 0x340 <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE+0x1c>
+ 338:	03 c0       	rjmp	.+6      	; 0x340 <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE+0x1c>
  33a:	86 b3       	in	r24, 0x16	; 22
- 33c:	01 c0       	rjmp	.+2      	; 0x340 <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE+0x1c>
+ 33c:	01 c0       	rjmp	.+2      	; 0x340 <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE+0x1c>
  33e:	83 b3       	in	r24, 0x13	; 19
  340:	90 e0       	ldi	r25, 0x00	; 0
- 342:	02 c0       	rjmp	.+4      	; 0x348 <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE+0x24>
+ 342:	02 c0       	rjmp	.+4      	; 0x348 <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE+0x24>
  344:	95 95       	asr	r25
  346:	87 95       	ror	r24
  348:	6a 95       	dec	r22
- 34a:	e2 f7       	brpl	.-8      	; 0x344 <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE+0x20>
+ 34a:	e2 f7       	brpl	.-8      	; 0x344 <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE+0x20>
  34c:	81 70       	andi	r24, 0x01	; 1
  34e:	08 95       	ret
  350:	80 e0       	ldi	r24, 0x00	; 0
@@ -470,15 +470,15 @@ Disassembly of section .text:
  35a:	41 e0       	ldi	r20, 0x01	; 1
  35c:	6c 81       	ldd	r22, Y+4	; 0x04
  35e:	8b 81       	ldd	r24, Y+3	; 0x03
- 360:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb>
+ 360:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb>
  364:	40 e0       	ldi	r20, 0x00	; 0
  366:	6c 81       	ldd	r22, Y+4	; 0x04
  368:	8b 81       	ldd	r24, Y+3	; 0x03
  36a:	df 91       	pop	r29
  36c:	cf 91       	pop	r28
- 36e:	0c 94 ae 00 	jmp	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 36e:	0c 94 ae 00 	jmp	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
 
-00000372 <_ZN8Integral3LEDC1ENS_4PORTENS_3PINE>:
+00000372 <_ZN8Integral3LEDC1ENS_4PORTENS_8POSITIONE>:
  372:	22 e7       	ldi	r18, 0x72	; 114
  374:	30 e0       	ldi	r19, 0x00	; 0
  376:	fc 01       	movw	r30, r24
@@ -499,7 +499,7 @@ Disassembly of section .text:
  38e:	41 e0       	ldi	r20, 0x01	; 1
  390:	6c 81       	ldd	r22, Y+4	; 0x04
  392:	8b 81       	ldd	r24, Y+3	; 0x03
- 394:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 394:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  398:	81 e0       	ldi	r24, 0x01	; 1
  39a:	8a 83       	std	Y+2, r24	; 0x02
  39c:	df 91       	pop	r29
@@ -513,7 +513,7 @@ Disassembly of section .text:
  3a8:	40 e0       	ldi	r20, 0x00	; 0
  3aa:	6c 81       	ldd	r22, Y+4	; 0x04
  3ac:	8b 81       	ldd	r24, Y+3	; 0x03
- 3ae:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 3ae:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  3b2:	1a 82       	std	Y+2, r1	; 0x02
  3b4:	df 91       	pop	r29
  3b6:	cf 91       	pop	r28
@@ -551,15 +551,15 @@ Disassembly of section .text:
  3f4:	40 e0       	ldi	r20, 0x00	; 0
  3f6:	6e 81       	ldd	r22, Y+6	; 0x06
  3f8:	8b 81       	ldd	r24, Y+3	; 0x03
- 3fa:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb>
+ 3fa:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb>
  3fe:	40 e0       	ldi	r20, 0x00	; 0
  400:	6d 81       	ldd	r22, Y+5	; 0x05
  402:	8b 81       	ldd	r24, Y+3	; 0x03
- 404:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb>
+ 404:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb>
  408:	40 e0       	ldi	r20, 0x00	; 0
  40a:	6c 81       	ldd	r22, Y+4	; 0x04
  40c:	8b 81       	ldd	r24, Y+3	; 0x03
- 40e:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb>
+ 40e:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb>
  412:	60 e0       	ldi	r22, 0x00	; 0
  414:	70 e0       	ldi	r23, 0x00	; 0
  416:	8a 81       	ldd	r24, Y+2	; 0x02
@@ -567,17 +567,17 @@ Disassembly of section .text:
  41c:	40 e0       	ldi	r20, 0x00	; 0
  41e:	6e 81       	ldd	r22, Y+6	; 0x06
  420:	8b 81       	ldd	r24, Y+3	; 0x03
- 422:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 422:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  426:	40 e0       	ldi	r20, 0x00	; 0
  428:	6d 81       	ldd	r22, Y+5	; 0x05
  42a:	8b 81       	ldd	r24, Y+3	; 0x03
- 42c:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 42c:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  430:	40 e0       	ldi	r20, 0x00	; 0
  432:	6c 81       	ldd	r22, Y+4	; 0x04
  434:	8b 81       	ldd	r24, Y+3	; 0x03
  436:	df 91       	pop	r29
  438:	cf 91       	pop	r28
- 43a:	0c 94 ae 00 	jmp	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 43a:	0c 94 ae 00 	jmp	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
 
 0000043e <_ZN8Integral15ParallelTextLCD13action_enableEv>:
  43e:	cf 93       	push	r28
@@ -586,7 +586,7 @@ Disassembly of section .text:
  444:	41 e0       	ldi	r20, 0x01	; 1
  446:	6c 81       	ldd	r22, Y+4	; 0x04
  448:	8b 81       	ldd	r24, Y+3	; 0x03
- 44a:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 44a:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  44e:	00 00       	nop
  450:	00 00       	nop
  452:	40 e0       	ldi	r20, 0x00	; 0
@@ -594,7 +594,7 @@ Disassembly of section .text:
  456:	8b 81       	ldd	r24, Y+3	; 0x03
  458:	df 91       	pop	r29
  45a:	cf 91       	pop	r28
- 45c:	0c 94 ae 00 	jmp	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 45c:	0c 94 ae 00 	jmp	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
 
 00000460 <_ZN8Integral15ParallelTextLCD9wait_busyEv>:
  460:	cf 93       	push	r28
@@ -607,14 +607,14 @@ Disassembly of section .text:
  470:	41 e0       	ldi	r20, 0x01	; 1
  472:	6d 81       	ldd	r22, Y+5	; 0x05
  474:	8b 81       	ldd	r24, Y+3	; 0x03
- 476:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 476:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  47a:	40 e0       	ldi	r20, 0x00	; 0
  47c:	6e 81       	ldd	r22, Y+6	; 0x06
  47e:	8b 81       	ldd	r24, Y+3	; 0x03
- 480:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 480:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  484:	67 e0       	ldi	r22, 0x07	; 7
  486:	8a 81       	ldd	r24, Y+2	; 0x02
- 488:	0e 94 92 01 	call	0x324	; 0x324 <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE>
+ 488:	0e 94 92 01 	call	0x324	; 0x324 <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE>
  48c:	81 11       	cpse	r24, r1
  48e:	04 c0       	rjmp	.+8      	; 0x498 <_ZN8Integral15ParallelTextLCD9wait_busyEv+0x38>
  490:	ce 01       	movw	r24, r28
@@ -647,12 +647,12 @@ Disassembly of section .text:
  4ca:	f8 01       	movw	r30, r16
  4cc:	65 81       	ldd	r22, Z+5	; 0x05
  4ce:	83 81       	ldd	r24, Z+3	; 0x03
- 4d0:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 4d0:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  4d4:	40 e0       	ldi	r20, 0x00	; 0
  4d6:	f8 01       	movw	r30, r16
  4d8:	66 81       	ldd	r22, Z+6	; 0x06
  4da:	83 81       	ldd	r24, Z+3	; 0x03
- 4dc:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 4dc:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  4e0:	c8 01       	movw	r24, r16
  4e2:	0e 94 1f 02 	call	0x43e	; 0x43e <_ZN8Integral15ParallelTextLCD13action_enableEv>
  4e6:	60 e0       	ldi	r22, 0x00	; 0
@@ -673,15 +673,15 @@ Disassembly of section .text:
  502:	41 e0       	ldi	r20, 0x01	; 1
  504:	6e 81       	ldd	r22, Y+6	; 0x06
  506:	8b 81       	ldd	r24, Y+3	; 0x03
- 508:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb>
+ 508:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb>
  50c:	41 e0       	ldi	r20, 0x01	; 1
  50e:	6d 81       	ldd	r22, Y+5	; 0x05
  510:	8b 81       	ldd	r24, Y+3	; 0x03
- 512:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb>
+ 512:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb>
  516:	41 e0       	ldi	r20, 0x01	; 1
  518:	6c 81       	ldd	r22, Y+4	; 0x04
  51a:	8b 81       	ldd	r24, Y+3	; 0x03
- 51c:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb>
+ 51c:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb>
  520:	85 ea       	ldi	r24, 0xA5	; 165
  522:	9e e0       	ldi	r25, 0x0E	; 14
  524:	01 97       	sbiw	r24, 0x01	; 1
@@ -715,7 +715,7 @@ Disassembly of section .text:
  562:	cf 91       	pop	r28
  564:	08 95       	ret
 
-00000566 <_ZN8Integral15ParallelTextLCDC1ENS_4PORTES1_NS_3PINES2_S2_>:
+00000566 <_ZN8Integral15ParallelTextLCDC1ENS_4PORTES1_NS_8POSITIONES2_S2_>:
  566:	ef 92       	push	r14
  568:	0f 93       	push	r16
  56a:	cf 93       	push	r28
@@ -733,7 +733,7 @@ Disassembly of section .text:
  582:	01 90       	ld	r0, Z+
  584:	0d 92       	st	X+, r0
  586:	8a 95       	dec	r24
- 588:	e1 f7       	brne	.-8      	; 0x582 <_ZN8Integral15ParallelTextLCDC1ENS_4PORTES1_NS_3PINES2_S2_+0x1c>
+ 588:	e1 f7       	brne	.-8      	; 0x582 <_ZN8Integral15ParallelTextLCDC1ENS_4PORTES1_NS_8POSITIONES2_S2_+0x1c>
  58a:	6a 83       	std	Y+2, r22	; 0x02
  58c:	4b 83       	std	Y+3, r20	; 0x03
  58e:	2e 83       	std	Y+6, r18	; 0x06
@@ -777,12 +777,12 @@ Disassembly of section .text:
  5da:	f8 01       	movw	r30, r16
  5dc:	65 81       	ldd	r22, Z+5	; 0x05
  5de:	83 81       	ldd	r24, Z+3	; 0x03
- 5e0:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 5e0:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  5e4:	41 e0       	ldi	r20, 0x01	; 1
  5e6:	f8 01       	movw	r30, r16
  5e8:	66 81       	ldd	r22, Z+6	; 0x06
  5ea:	83 81       	ldd	r24, Z+3	; 0x03
- 5ec:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 5ec:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  5f0:	c8 01       	movw	r24, r16
  5f2:	0e 94 1f 02 	call	0x43e	; 0x43e <_ZN8Integral15ParallelTextLCD13action_enableEv>
  5f6:	60 e0       	ldi	r22, 0x00	; 0
@@ -919,17 +919,17 @@ Disassembly of section .text:
  6fa:	40 e0       	ldi	r20, 0x00	; 0
  6fc:	6c 81       	ldd	r22, Y+4	; 0x04
  6fe:	8b 81       	ldd	r24, Y+3	; 0x03
- 700:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_3PINEb>
+ 700:	0e 94 10 01 	call	0x220	; 0x220 <_ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb>
  704:	4e 81       	ldd	r20, Y+6	; 0x06
  706:	6c 81       	ldd	r22, Y+4	; 0x04
  708:	8b 81       	ldd	r24, Y+3	; 0x03
- 70a:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_3PINEb>
+ 70a:	0e 94 ae 00 	call	0x15c	; 0x15c <_ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb>
  70e:	1a 82       	std	Y+2, r1	; 0x02
  710:	df 91       	pop	r29
  712:	cf 91       	pop	r28
  714:	08 95       	ret
 
-00000716 <_ZN8Integral16PushButtonSwitchC1ENS_4PORTENS_3PINEbb>:
+00000716 <_ZN8Integral16PushButtonSwitchC1ENS_4PORTENS_8POSITIONEbb>:
  716:	0f 93       	push	r16
  718:	fc 01       	movw	r30, r24
  71a:	80 e8       	ldi	r24, 0x80	; 128
@@ -954,12 +954,12 @@ Disassembly of section .text:
  73a:	88 23       	and	r24, r24
  73c:	31 f0       	breq	.+12     	; 0x74a <_ZN8Integral16PushButtonSwitch10checkStateEv+0x16>
  73e:	83 81       	ldd	r24, Z+3	; 0x03
- 740:	0e 94 92 01 	call	0x324	; 0x324 <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE>
+ 740:	0e 94 92 01 	call	0x324	; 0x324 <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE>
  744:	91 e0       	ldi	r25, 0x01	; 1
  746:	89 27       	eor	r24, r25
  748:	08 95       	ret
  74a:	83 81       	ldd	r24, Z+3	; 0x03
- 74c:	0c 94 92 01 	jmp	0x324	; 0x324 <_ZN8Integral6Device9getStatusENS_4PORTENS_3PINE>
+ 74c:	0c 94 92 01 	jmp	0x324	; 0x324 <_ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE>
 
 00000750 <_ZN8Integral16PushButtonSwitch5stateEv>:
  750:	4f 92       	push	r4
@@ -1258,7 +1258,7 @@ Disassembly of section .text:
  9be:	61 e0       	ldi	r22, 0x01	; 1
  9c0:	84 eb       	ldi	r24, 0xB4	; 180
  9c2:	90 e0       	ldi	r25, 0x00	; 0
- 9c4:	0e 94 b3 02 	call	0x566	; 0x566 <_ZN8Integral15ParallelTextLCDC1ENS_4PORTES1_NS_3PINES2_S2_>
+ 9c4:	0e 94 b3 02 	call	0x566	; 0x566 <_ZN8Integral15ParallelTextLCDC1ENS_4PORTES1_NS_8POSITIONES2_S2_>
  9c8:	60 e0       	ldi	r22, 0x00	; 0
  9ca:	8d ea       	ldi	r24, 0xAD	; 173
  9cc:	90 e0       	ldi	r25, 0x00	; 0
@@ -1273,14 +1273,14 @@ Disassembly of section .text:
  9e2:	62 e0       	ldi	r22, 0x02	; 2
  9e4:	8f e9       	ldi	r24, 0x9F	; 159
  9e6:	90 e0       	ldi	r25, 0x00	; 0
- 9e8:	0e 94 8b 03 	call	0x716	; 0x716 <_ZN8Integral16PushButtonSwitchC1ENS_4PORTENS_3PINEbb>
+ 9e8:	0e 94 8b 03 	call	0x716	; 0x716 <_ZN8Integral16PushButtonSwitchC1ENS_4PORTENS_8POSITIONEbb>
  9ec:	47 e0       	ldi	r20, 0x07	; 7
  9ee:	62 e0       	ldi	r22, 0x02	; 2
  9f0:	8a e9       	ldi	r24, 0x9A	; 154
  9f2:	90 e0       	ldi	r25, 0x00	; 0
  9f4:	0f 91       	pop	r16
  9f6:	ef 90       	pop	r14
- 9f8:	0c 94 b9 01 	jmp	0x372	; 0x372 <_ZN8Integral3LEDC1ENS_4PORTENS_3PINE>
+ 9f8:	0c 94 b9 01 	jmp	0x372	; 0x372 <_ZN8Integral3LEDC1ENS_4PORTENS_8POSITIONE>
 
 000009fc <_GLOBAL__sub_D_lcd>:
  9fc:	8a e9       	ldi	r24, 0x9A	; 154
