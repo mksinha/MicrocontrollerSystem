@@ -11,9 +11,8 @@
 namespace Integral 
 {
 	// default constructor
-	LED::LED(PORT port, POSITION pin)
+	LED::LED(PIN pin)
 	{
-		this->port = port;
 		this->pin = pin;
 		this->status = false;
 		initialize();
@@ -26,13 +25,13 @@ namespace Integral
 
 	void LED::on()
 	{
-		setStatus(port, pin, HIGH);
+		setStatus(pin, HIGH);
 		status = true;
 	}
 
 	void LED::off()
 	{
-		setStatus(port, pin, LOW);
+		setStatus(pin, LOW);
 		status = false;
 	}
 
@@ -47,7 +46,7 @@ namespace Integral
 
 	void LED::initialize()
 	{
-		setDirection(port, pin, HIGH);
-		setStatus(port, pin, LOW);
+		setDirection(pin, HIGH);
+		setStatus(pin, LOW);
 	}
 }

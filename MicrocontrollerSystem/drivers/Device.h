@@ -19,7 +19,6 @@ namespace Integral
 	//functions
 	public:
 		virtual void initialize()=0;//make Device not instantiable
-	protected:
 		static void setStatus(PIN pin, bool state);
 		static void setDirection(PIN pin, bool state);
 		static bool getStatus(PIN pin);

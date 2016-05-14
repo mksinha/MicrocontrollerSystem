@@ -18,12 +18,11 @@ namespace Integral
 	//variables
 	protected:
 		bool status; 
-		PORT port;
-		POSITION pin;
+		PIN pin;
 
 	//functions
 	public:
-		LED(PORT port, POSITION pin);
+		LED(PIN pin);
 		~LED();
 		void on(); // Switches the LED on
 		void off(); // Switches the LED off

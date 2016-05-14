@@ -17,7 +17,7 @@ namespace Integral
 	#define LOW false
 
 	enum PORT {
-		IOPORTA, IOPORTB, IOPORTC, IOPORTD
+		IOPORTA = 0, IOPORTB = 8, IOPORTC = 16, IOPORTD = 24
 	};
 	enum PIN {
 		IOPINA0 =  0, IOPINA1 =  1, IOPINA2 =  2, IOPINA3 =  3,
