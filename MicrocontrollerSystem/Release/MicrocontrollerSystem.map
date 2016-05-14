@@ -85,6 +85,12 @@ Discarded input sections
  .text          0x00000000        0x0 drivers/Device.o
  .data          0x00000000        0x0 drivers/Device.o
  .bss           0x00000000        0x0 drivers/Device.o
+ .text._ZN8Integral6Device9setStatusENS_3PINEb
+                0x00000000      0x11c drivers/Device.o
+ .text._ZN8Integral6Device12setDirectionENS_3PINEb
+                0x00000000      0x11c drivers/Device.o
+ .text._ZN8Integral6Device9getStatusENS_3PINE
+                0x00000000       0x50 drivers/Device.o
  .text          0x00000000        0x0 drivers/Input.o
  .data          0x00000000        0x0 drivers/Input.o
  .bss           0x00000000        0x0 drivers/Input.o

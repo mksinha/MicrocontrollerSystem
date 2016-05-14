@@ -12,6 +12,71 @@
 namespace Integral
 {
 	// functions
+	void Device::setStatus(PIN pin, bool state)
+	{
+		if (state == true)
+		{
+			if (pin >= IOPINA0 && pin <= IOPINA7)
+				PORTA |= 1 << (pin - IOPORTA);
+			else if (pin >= IOPINB0 && pin <= IOPINB7)
+				PORTB |= 1 << (pin - IOPORTB);
+			else if (pin >= IOPINC0 && pin <= IOPINC7)
+				PORTC |= 1 << (pin - IOPORTC);
+			else if (pin >= IOPIND0 && pin <= IOPIND7)
+				PORTD |= 1 << (pin - IOPORTD);
+		}
+		else if (state == false)
+		{
+			if (pin >= IOPINA0 && pin <= IOPINA7)
+				PORTA &= ~(1 << (pin - IOPORTA));
+			else if (pin >= IOPINB0 && pin <= IOPINB7)
+				PORTB &= ~(1 << (pin - IOPORTB));
+			else if (pin >= IOPINC0 && pin <= IOPINC7)
+				PORTC &= ~(1 << (pin - IOPORTC));
+			else if (pin >= IOPIND0 && pin <= IOPIND7)
+				PORTD &= ~(1 << (pin - IOPORTD));
+		}
+	}
+	
+	void Device::setDirection(PIN pin, bool state)
+	{
+		if (state == true)
+		{
+			if (pin >= IOPINA0 && pin <= IOPINA7)
+				DDRA |= 1 << (pin - IOPORTA);
+			else if (pin >= IOPINB0 && pin <= IOPINB7)
+				DDRB |= 1 << (pin - IOPORTB);
+			else if (pin >= IOPINC0 && pin <= IOPINC7)
+				DDRC |= 1 << (pin - IOPORTC);
+			else if (pin >= IOPIND0 && pin <= IOPIND7)
+				DDRD |= 1 << (pin - IOPORTD);
+		}
+		else if (state == false)
+		{
+			if (pin >= IOPINA0 && pin <= IOPINA7)
+				DDRA &= ~(1 << (pin - IOPORTA));
+			else if (pin >= IOPINB0 && pin <= IOPINB7)
+				DDRB &= ~(1 << (pin - IOPORTB));
+			else if (pin >= IOPINC0 && pin <= IOPINC7)
+				DDRC &= ~(1 << (pin - IOPORTC));
+			else if (pin >= IOPIND0 && pin <= IOPIND7)
+				DDRD &= ~(1 << (pin - IOPORTD));
+		}
+	}
+
+	bool Device::getStatus(PIN pin)
+	{
+		if (pin >= IOPINA0 && pin <= IOPINA7)
+			return bit_is_set(PINA, pin - IOPORTA);
+		else if (pin >= IOPINB0 && pin <= IOPINB7)
+			return bit_is_set(PINB, pin - IOPORTB);
+		else if (pin >= IOPINC0 && pin <= IOPINC7)
+			return bit_is_set(PINC, pin - IOPORTC);
+		else if (pin >= IOPIND0 && pin <= IOPIND7)
+			return bit_is_set(PIND, pin - IOPORTD);
+		else
+			return false;
+	}
 
 	void Device::setStatus(PORT port, POSITION pin, bool state)
 	{

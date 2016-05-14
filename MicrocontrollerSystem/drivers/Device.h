@@ -20,10 +20,14 @@ namespace Integral
 	public:
 		virtual void initialize()=0;//make Device not instantiable
 	protected:
-		static void setStatus(PORT port, POSITION pin, bool state);
-		static void setDirection(PORT port, POSITION pin, bool state);
+		static void setStatus(PIN pin, bool state);
+		static void setDirection(PIN pin, bool state);
+		static bool getStatus(PIN pin);
 		static void setStatus(PORT port, int state);
 		static void setDirection(PORT port, int state);
+		// TODO: Make depreciated format functions private
+		static void setStatus(PORT port, POSITION pin, bool state);
+		static void setDirection(PORT port, POSITION pin, bool state);
 		static bool getStatus(PORT port, POSITION pin);
 	}; //Device
 }
