@@ -539,17 +539,17 @@ END GROUP
                 0x00000142       0x1a drivers/AnalogInput.o
                 0x00000142                _ZN8Integral11AnalogInput7processEv
  .text._ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb
-                0x0000015c       0xc4 drivers/Device.o
+                0x0000015c       0xca drivers/Device.o
                 0x0000015c                _ZN8Integral6Device9setStatusENS_4PORTENS_8POSITIONEb
  .text._ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb
-                0x00000220       0xc4 drivers/Device.o
-                0x00000220                _ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb
+                0x00000226       0xca drivers/Device.o
+                0x00000226                _ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb
  .text._ZN8Integral6Device9setStatusENS_4PORTEi
-                0x000002e4       0x20 drivers/Device.o
-                0x000002e4                _ZN8Integral6Device9setStatusENS_4PORTEi
+                0x000002f0       0x1a drivers/Device.o
+                0x000002f0                _ZN8Integral6Device9setStatusENS_4PORTEi
  .text._ZN8Integral6Device12setDirectionENS_4PORTEi
-                0x00000304       0x20 drivers/Device.o
-                0x00000304                _ZN8Integral6Device12setDirectionENS_4PORTEi
+                0x0000030a       0x1a drivers/Device.o
+                0x0000030a                _ZN8Integral6Device12setDirectionENS_4PORTEi
  .text._ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE
                 0x00000324       0x30 drivers/Device.o
                 0x00000324                _ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE
