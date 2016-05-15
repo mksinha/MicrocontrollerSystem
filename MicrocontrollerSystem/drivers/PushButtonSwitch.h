@@ -18,13 +18,12 @@ namespace Integral
 	//variables
 	protected:
 		bool status;
-		PORT port;
-		POSITION pin;
+		PIN pin;
 		bool no_nc, pullState;
 
 	//functions
 	public:
-		PushButtonSwitch(PORT port, POSITION pin, bool no_nc, bool pullState);
+		PushButtonSwitch(PIN pin, bool pullState = HIGH, bool no_nc = HIGH);
 		~PushButtonSwitch();
 		bool state();  // debounced status
 		void initialize();

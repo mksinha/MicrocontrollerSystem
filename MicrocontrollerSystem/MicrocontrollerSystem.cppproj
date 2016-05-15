@@ -158,6 +158,12 @@
     <Compile Include="controller\Microcontroller.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="controller\Pinset.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="controller\Pinset.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="controller\registry.h">
       <SubType>compile</SubType>
     </Compile>

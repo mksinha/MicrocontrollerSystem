@@ -14,7 +14,8 @@ main.d main.o: .././main.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././drivers/LED.h .././drivers/Output.h .././drivers/Device.h \
- .././drivers/../controller/registry.h
+ .././drivers/../controller/registry.h .././drivers/ParallelTextLCD.h \
+ .././drivers/PushButtonSwitch.h .././drivers/Input.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -51,3 +52,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././drivers/Device.h:
 
 .././drivers/../controller/registry.h:
+
+.././drivers/ParallelTextLCD.h:
+
+.././drivers/PushButtonSwitch.h:
+
+.././drivers/Input.h:

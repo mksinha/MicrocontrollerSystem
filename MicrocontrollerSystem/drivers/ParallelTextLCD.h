@@ -18,13 +18,13 @@ namespace Integral
 	{
 	//variables
 	protected:
-		PORT dataPort, controlPort;
-		POSITION pinEN, pinRW, pinRS;
+		PORT dataPort;
+		PIN pinEN, pinRW, pinRS;
 		int rowPositions[4] = {0, 64, 20, 84};
 
 	//functions
 	public:
-		ParallelTextLCD(PORT portData, PORT portControl, POSITION pinRS, POSITION pinRW, POSITION pinEN);
+		ParallelTextLCD(PORT portData, PIN pinRS, PIN pinRW, PIN pinEN);
 		~ParallelTextLCD();
 		void initialize();
 		void integer(int x, int y, int num, int digits);

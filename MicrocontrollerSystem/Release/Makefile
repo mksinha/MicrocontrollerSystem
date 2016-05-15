@@ -40,6 +40,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../controller/Microcontroller.cpp \
+../controller/Pinset.cpp \
 ../drivers/AnalogInput.cpp \
 ../drivers/Communication.cpp \
 ../drivers/Device.cpp \
@@ -61,6 +62,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 controller/Microcontroller.o \
+controller/Pinset.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
@@ -75,6 +77,7 @@ main.o
 
 OBJS_AS_ARGS +=  \
 controller/Microcontroller.o \
+controller/Pinset.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
@@ -89,6 +92,7 @@ main.o
 
 C_DEPS +=  \
 controller/Microcontroller.d \
+controller/Pinset.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
@@ -103,6 +107,7 @@ main.d
 
 C_DEPS_AS_ARGS +=  \
 controller/Microcontroller.d \
+controller/Pinset.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
@@ -129,6 +134,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

@@ -4,6 +4,8 @@
 
 controller\Microcontroller.cpp
 
+controller\Pinset.cpp
+
 drivers\AnalogInput.cpp
 
 drivers\Communication.cpp
