@@ -10,6 +10,7 @@
 #define __PINSET_H__
 
 #include "registry.h"
+#include <stdarg.h>
 
 namespace Integral
 {
@@ -18,13 +19,13 @@ namespace Integral
 	//variables
 	public:
 	protected:
-		PIN list[];
-		int size;
+		PIN pins[];
+		short size;
 	private:
 
 	//functions
 	public:
-		Pinset();
+		Pinset(int size, PIN set[]);
 		~Pinset();
 		unsigned int getData();
 		void putData(unsigned int data);

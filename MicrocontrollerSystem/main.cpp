@@ -1,20 +1,22 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include "drivers/LED.h"
-#include "drivers/ParallelTextLCD.h"
-#include "drivers/PushButtonSwitch.h"
-using namespace Integral;
+#include "controller/Pinset.h"
+using namespace Integral; 
 
 int main(void)
 {
-	LED led(IOPIND0);
-	ParallelTextLCD lcd(IOPORTB, IOPIND2, IOPIND7, IOPIND5);
-	PushButtonSwitch swt(IOPINC0);
-	led.on();
-	lcd.string(0, 0, "Hello Control!");
+	PIN pinlist[4] = {IOPIND1, IOPIND3, IOPIND6, IOPIND4};
+	Pinset pins(4, pinlist);
 	while (1)
 	{
-		led.toggle();
-		_delay_ms(100);
+		pins.putData(0b1010);
+		_delay_ms(200);
+		pins.putData(0b0110);
+		_delay_ms(200);
+		pins.putData(0b0101);
+		_delay_ms(200);
+		pins.putData(0b1001);
+		_delay_ms(200);
 	}
 }

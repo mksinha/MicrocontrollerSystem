@@ -126,7 +126,7 @@ namespace Integral
 		setStatus(pinRW, HIGH);
 		setStatus(pinRS, LOW);
 		while (getStatus(dataPort, IOPIN7) != HIGH)
-		action_enable();
+			action_enable();
 		setDirection(dataPort, 0xFF);
 	}
 

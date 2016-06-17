@@ -54,15 +54,10 @@ Discarded input sections
  .text          0x00000000        0x0 controller/Pinset.o
  .data          0x00000000        0x0 controller/Pinset.o
  .bss           0x00000000        0x0 controller/Pinset.o
- .text._ZN8Integral6PinsetC2Ev
-                0x00000000        0x2 controller/Pinset.o
  .text._ZN8Integral6PinsetD2Ev
                 0x00000000        0x2 controller/Pinset.o
- .text._ZN8Integral7getDataEv
-                0x00000000        0x2 controller/Pinset.o
- .text._ZN8Integral7putDataEj
-                0x00000000        0x2 controller/Pinset.o
- .comment       0x00000000       0x31 controller/Pinset.o
+ .text._ZN8Integral6Pinset7getDataEv
+                0x00000000       0x6e controller/Pinset.o
  .group         0x00000000        0x8 drivers/AnalogInput.o
  .text          0x00000000        0x0 drivers/AnalogInput.o
  .data          0x00000000        0x0 drivers/AnalogInput.o
@@ -116,6 +111,12 @@ Discarded input sections
                 0x00000000       0xd6 drivers/Device.o
  .text._ZN8Integral6Device12setDirectionENS_4PORTENS_8POSITIONEb
                 0x00000000       0xd6 drivers/Device.o
+ .text._ZN8Integral6Device9setStatusENS_4PORTEi
+                0x00000000       0x20 drivers/Device.o
+ .text._ZN8Integral6Device12setDirectionENS_4PORTEi
+                0x00000000       0x20 drivers/Device.o
+ .text._ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE
+                0x00000000       0x34 drivers/Device.o
  .text          0x00000000        0x0 drivers/Input.o
  .data          0x00000000        0x0 drivers/Input.o
  .bss           0x00000000        0x0 drivers/Input.o
@@ -124,8 +125,21 @@ Discarded input sections
  .text          0x00000000        0x0 drivers/LED.o
  .data          0x00000000        0x0 drivers/LED.o
  .bss           0x00000000        0x0 drivers/LED.o
+ .text._ZN8Integral3LED10initializeEv
+                0x00000000       0x1a drivers/LED.o
+ .text._ZN8Integral3LEDC2ENS_3PINE
+                0x00000000       0x12 drivers/LED.o
  .text._ZN8Integral3LEDD2Ev
                 0x00000000        0x2 drivers/LED.o
+ .text._ZN8Integral3LED2onEv
+                0x00000000       0x18 drivers/LED.o
+ .text._ZN8Integral3LED3offEv
+                0x00000000       0x16 drivers/LED.o
+ .text._ZN8Integral3LED6toggleEv
+                0x00000000       0x22 drivers/LED.o
+ .rodata._ZTVN8Integral3LEDE
+                0x00000000        0x6 drivers/LED.o
+ .comment       0x00000000       0x31 drivers/LED.o
  .text          0x00000000        0x0 drivers/Output.o
  .data          0x00000000        0x0 drivers/Output.o
  .bss           0x00000000        0x0 drivers/Output.o
@@ -136,26 +150,55 @@ Discarded input sections
  .bss           0x00000000        0x0 drivers/ParallelTextLCD.o
  .text._ZN8Integral15ParallelTextLCDD2Ev
                 0x00000000       0x56 drivers/ParallelTextLCD.o
+ .text._ZN8Integral15ParallelTextLCD13action_enableEv
+                0x00000000       0x1e drivers/ParallelTextLCD.o
+ .text._ZN8Integral15ParallelTextLCD9wait_busyEv
+                0x00000000       0x42 drivers/ParallelTextLCD.o
+ .text._ZN8Integral15ParallelTextLCD7commandEh
+                0x00000000       0x52 drivers/ParallelTextLCD.o
+ .text._ZN8Integral15ParallelTextLCD10initializeEv
+                0x00000000       0x64 drivers/ParallelTextLCD.o
+ .rodata        0x00000000        0x8 drivers/ParallelTextLCD.o
+ .text._ZN8Integral15ParallelTextLCDC2ENS_4PORTENS_3PINES2_S2_
+                0x00000000       0x36 drivers/ParallelTextLCD.o
+ .text._ZN8Integral15ParallelTextLCD8positionEii
+                0x00000000       0x16 drivers/ParallelTextLCD.o
  .text._ZN8Integral15ParallelTextLCD5clearEv
                 0x00000000       0x14 drivers/ParallelTextLCD.o
  .text._ZN8Integral15ParallelTextLCD6cursorEbb
                 0x00000000       0x20 drivers/ParallelTextLCD.o
+ .text._ZN8Integral15ParallelTextLCD9characterEh
+                0x00000000       0x52 drivers/ParallelTextLCD.o
+ .text._ZN8Integral15ParallelTextLCD6stringEPKc
+                0x00000000       0x24 drivers/ParallelTextLCD.o
  .rodata.str1.1
                 0x00000000        0x2 drivers/ParallelTextLCD.o
  .text._ZN8Integral15ParallelTextLCD7integerEii
                 0x00000000       0x8c drivers/ParallelTextLCD.o
+ .text._ZN8Integral15ParallelTextLCD6stringEiiPKc
+                0x00000000       0x20 drivers/ParallelTextLCD.o
  .text._ZN8Integral15ParallelTextLCD7integerEiiii
                 0x00000000       0xa4 drivers/ParallelTextLCD.o
+ .rodata._ZTVN8Integral15ParallelTextLCDE
+                0x00000000        0x6 drivers/ParallelTextLCD.o
+ .comment       0x00000000       0x31 drivers/ParallelTextLCD.o
  .group         0x00000000        0x8 drivers/PushButtonSwitch.o
  .text          0x00000000        0x0 drivers/PushButtonSwitch.o
  .data          0x00000000        0x0 drivers/PushButtonSwitch.o
  .bss           0x00000000        0x0 drivers/PushButtonSwitch.o
+ .text._ZN8Integral16PushButtonSwitch10initializeEv
+                0x00000000       0x1e drivers/PushButtonSwitch.o
+ .text._ZN8Integral16PushButtonSwitchC2ENS_3PINEbb
+                0x00000000       0x20 drivers/PushButtonSwitch.o
  .text._ZN8Integral16PushButtonSwitchD2Ev
                 0x00000000        0x2 drivers/PushButtonSwitch.o
  .text._ZN8Integral16PushButtonSwitch10checkStateEv
                 0x00000000       0x1c drivers/PushButtonSwitch.o
  .text._ZN8Integral16PushButtonSwitch5stateEv
                 0x00000000      0x12e drivers/PushButtonSwitch.o
+ .rodata._ZTVN8Integral16PushButtonSwitchE
+                0x00000000        0x6 drivers/PushButtonSwitch.o
+ .comment       0x00000000       0x31 drivers/PushButtonSwitch.o
  .group         0x00000000        0x8 drivers/Storage.o
  .text          0x00000000        0x0 drivers/Storage.o
  .data          0x00000000        0x0 drivers/Storage.o
@@ -437,7 +480,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x63a
+.text           0x00000000      0x3a4
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -515,80 +558,27 @@ END GROUP
                 0x0000007e                __vector_20
                 0x00000082                . = ALIGN (0x2)
  *(.text.*)
+ .text._ZN8Integral6PinsetC2EiPNS_3PINE
+                0x00000082       0x22 controller/Pinset.o
+                0x00000082                _ZN8Integral6PinsetC2EiPNS_3PINE
+                0x00000082                _ZN8Integral6PinsetC1EiPNS_3PINE
+ .text._ZN8Integral6Pinset7putDataEj
+                0x000000a4       0x4a controller/Pinset.o
+                0x000000a4                _ZN8Integral6Pinset7putDataEj
  .text._ZN8Integral6Device9setStatusENS_3PINEb
-                0x00000082      0x110 drivers/Device.o
-                0x00000082                _ZN8Integral6Device9setStatusENS_3PINEb
+                0x000000ee      0x110 drivers/Device.o
+                0x000000ee                _ZN8Integral6Device9setStatusENS_3PINEb
  .text._ZN8Integral6Device12setDirectionENS_3PINEb
-                0x00000192      0x110 drivers/Device.o
-                0x00000192                _ZN8Integral6Device12setDirectionENS_3PINEb
- .text._ZN8Integral6Device9setStatusENS_4PORTEi
-                0x000002a2       0x20 drivers/Device.o
-                0x000002a2                _ZN8Integral6Device9setStatusENS_4PORTEi
- .text._ZN8Integral6Device12setDirectionENS_4PORTEi
-                0x000002c2       0x20 drivers/Device.o
-                0x000002c2                _ZN8Integral6Device12setDirectionENS_4PORTEi
- .text._ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE
-                0x000002e2       0x34 drivers/Device.o
-                0x000002e2                _ZN8Integral6Device9getStatusENS_4PORTENS_8POSITIONE
- .text._ZN8Integral3LED10initializeEv
-                0x00000316       0x1a drivers/LED.o
-                0x00000316                _ZN8Integral3LED10initializeEv
- .text._ZN8Integral3LEDC2ENS_3PINE
-                0x00000330       0x12 drivers/LED.o
-                0x00000330                _ZN8Integral3LEDC1ENS_3PINE
-                0x00000330                _ZN8Integral3LEDC2ENS_3PINE
- .text._ZN8Integral3LED2onEv
-                0x00000342       0x18 drivers/LED.o
-                0x00000342                _ZN8Integral3LED2onEv
- .text._ZN8Integral3LED3offEv
-                0x0000035a       0x16 drivers/LED.o
-                0x0000035a                _ZN8Integral3LED3offEv
- .text._ZN8Integral3LED6toggleEv
-                0x00000370       0x22 drivers/LED.o
-                0x00000370                _ZN8Integral3LED6toggleEv
- .text._ZN8Integral15ParallelTextLCD13action_enableEv
-                0x00000392       0x1e drivers/ParallelTextLCD.o
-                0x00000392                _ZN8Integral15ParallelTextLCD13action_enableEv
- .text._ZN8Integral15ParallelTextLCD9wait_busyEv
-                0x000003b0       0x42 drivers/ParallelTextLCD.o
-                0x000003b0                _ZN8Integral15ParallelTextLCD9wait_busyEv
- .text._ZN8Integral15ParallelTextLCD7commandEh
-                0x000003f2       0x52 drivers/ParallelTextLCD.o
-                0x000003f2                _ZN8Integral15ParallelTextLCD7commandEh
- .text._ZN8Integral15ParallelTextLCD10initializeEv
-                0x00000444       0x64 drivers/ParallelTextLCD.o
-                0x00000444                _ZN8Integral15ParallelTextLCD10initializeEv
- .text._ZN8Integral15ParallelTextLCDC2ENS_4PORTENS_3PINES2_S2_
-                0x000004a8       0x36 drivers/ParallelTextLCD.o
-                0x000004a8                _ZN8Integral15ParallelTextLCDC2ENS_4PORTENS_3PINES2_S2_
-                0x000004a8                _ZN8Integral15ParallelTextLCDC1ENS_4PORTENS_3PINES2_S2_
- .text._ZN8Integral15ParallelTextLCD8positionEii
-                0x000004de       0x16 drivers/ParallelTextLCD.o
-                0x000004de                _ZN8Integral15ParallelTextLCD8positionEii
- .text._ZN8Integral15ParallelTextLCD9characterEh
-                0x000004f4       0x52 drivers/ParallelTextLCD.o
-                0x000004f4                _ZN8Integral15ParallelTextLCD9characterEh
- .text._ZN8Integral15ParallelTextLCD6stringEPKc
-                0x00000546       0x24 drivers/ParallelTextLCD.o
-                0x00000546                _ZN8Integral15ParallelTextLCD6stringEPKc
- .text._ZN8Integral15ParallelTextLCD6stringEiiPKc
-                0x0000056a       0x20 drivers/ParallelTextLCD.o
-                0x0000056a                _ZN8Integral15ParallelTextLCD6stringEiiPKc
- .text._ZN8Integral16PushButtonSwitch10initializeEv
-                0x0000058a       0x1e drivers/PushButtonSwitch.o
-                0x0000058a                _ZN8Integral16PushButtonSwitch10initializeEv
- .text._ZN8Integral16PushButtonSwitchC2ENS_3PINEbb
-                0x000005a8       0x20 drivers/PushButtonSwitch.o
-                0x000005a8                _ZN8Integral16PushButtonSwitchC2ENS_3PINEbb
-                0x000005a8                _ZN8Integral16PushButtonSwitchC1ENS_3PINEbb
+                0x000001fe      0x110 drivers/Device.o
+                0x000001fe                _ZN8Integral6Device12setDirectionENS_3PINEb
  .text.startup.main
-                0x000005c8       0x6e main.o
-                0x000005c8                main
-                0x00000636                . = ALIGN (0x2)
+                0x0000030e       0x92 main.o
+                0x0000030e                main
+                0x000003a0                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000636        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x00000636                _exit
-                0x00000636                exit
+ .fini9         0x000003a0        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x000003a0                _exit
+                0x000003a0                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -607,49 +597,36 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000636        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x000003a0        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000063a                _etext = .
+                0x000003a4                _etext = .
 
-.data           0x00800060       0x2a load address 0x0000063a
+.data           0x00800060        0x0 load address 0x000003a4
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  *(.rodata)
- .rodata        0x00800060        0x8 drivers/ParallelTextLCD.o
  *(.rodata*)
- .rodata._ZTVN8Integral3LEDE
-                0x00800068        0x6 drivers/LED.o
-                0x00800068                _ZTVN8Integral3LEDE
- .rodata._ZTVN8Integral15ParallelTextLCDE
-                0x0080006e        0x6 drivers/ParallelTextLCD.o
-                0x0080006e                _ZTVN8Integral15ParallelTextLCDE
- .rodata._ZTVN8Integral16PushButtonSwitchE
-                0x00800074        0x6 drivers/PushButtonSwitch.o
-                0x00800074                _ZTVN8Integral16PushButtonSwitchE
- .rodata.str1.1
-                0x0080007a        0xf main.o
  *(.gnu.linkonce.d*)
-                0x0080008a                . = ALIGN (0x2)
- *fill*         0x00800089        0x1 
-                0x0080008a                _edata = .
-                0x0080008a                PROVIDE (__data_end, .)
+                0x00800060                . = ALIGN (0x2)
+                0x00800060                _edata = .
+                0x00800060                PROVIDE (__data_end, .)
 
-.bss            0x0080008a        0x0
-                0x0080008a                PROVIDE (__bss_start, .)
+.bss            0x00800060        0x0
+                0x00800060                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
-                0x0080008a                PROVIDE (__bss_end, .)
-                0x0000063a                __data_load_start = LOADADDR (.data)
-                0x00000664                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800060                PROVIDE (__bss_end, .)
+                0x000003a4                __data_load_start = LOADADDR (.data)
+                0x000003a4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080008a        0x0
-                0x0080008a                PROVIDE (__noinit_start, .)
+.noinit         0x00800060        0x0
+                0x00800060                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080008a                PROVIDE (__noinit_end, .)
-                0x0080008a                _end = .
-                0x0080008a                PROVIDE (__heap_start, .)
+                0x00800060                PROVIDE (__noinit_end, .)
+                0x00800060                _end = .
+                0x00800060                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -690,11 +667,9 @@ END GROUP
 
 .comment        0x00000000       0x30
  *(.comment)
- .comment       0x00000000       0x30 drivers/Device.o
+ .comment       0x00000000       0x30 controller/Pinset.o
                                  0x31 (size before relaxing)
- .comment       0x00000030       0x31 drivers/LED.o
- .comment       0x00000030       0x31 drivers/ParallelTextLCD.o
- .comment       0x00000030       0x31 drivers/PushButtonSwitch.o
+ .comment       0x00000030       0x31 drivers/Device.o
  .comment       0x00000030       0x31 main.o
 
 .note.gnu.avr.deviceinfo
