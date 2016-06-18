@@ -18,9 +18,9 @@ namespace Integral
 	{
 	//variables
 	public:
+		short size = 0;
 	protected:
 		PIN pins[];
-		short size;
 	private:
 
 	//functions

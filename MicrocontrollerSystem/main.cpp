@@ -6,17 +6,10 @@ using namespace Integral;
 
 int main(void)
 {
-	PIN pinlist[4] = {IOPIND1, IOPIND3, IOPIND6, IOPIND4};
+	PIN pinlist[4] = {IOPIND1, IOPIND3, IOPIND4, IOPIND6};
 	Pinset pins(4, pinlist);
+	pins.putData(14);
 	while (1)
 	{
-		pins.putData(0b1010);
-		_delay_ms(200);
-		pins.putData(0b0110);
-		_delay_ms(200);
-		pins.putData(0b0101);
-		_delay_ms(200);
-		pins.putData(0b1001);
-		_delay_ms(200);
 	}
 }

@@ -8,6 +8,7 @@
 
 #include "Pinset.h"
 #include "../drivers/Device.h"
+#include <util/delay.h>
 
 namespace Integral
 {
@@ -27,7 +28,7 @@ namespace Integral
 	unsigned int Pinset::getData()
 	{
 		uint32_t data = 0;
-		for (int i = 0; i < size; i++)
+		for (int i = 0; i < this->size; i++)
 		{
 			Device::setDirection(pins[i], LOW);
 			data = data * 2 + Device::getStatus(pins[i]);
@@ -37,7 +38,7 @@ namespace Integral
 
 	void Pinset::putData(unsigned int data)
 	{
-		for (int i = 0; i < 4; i++, data /= 2)
+		for (int i = 0; i < this->size; i++, data /= 2)
 		{
 			Device::setDirection(pins[i], HIGH);
 			if (data % 2 == HIGH)
