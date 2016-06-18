@@ -14,10 +14,9 @@
 namespace Integral
 {
 	// default constructor
-	ParallelTextLCD::ParallelTextLCD(PORT portData, PORT portControl, PIN pinRS, PIN pinRW, PIN pinEN)
+	ParallelTextLCD::ParallelTextLCD(PORT portData, PIN pinRS, PIN pinRW, PIN pinEN)
 	{
 		this->dataPort = portData;
-		this->controlPort = portControl;
 		this->pinRS = pinRS;
 		this->pinRW = pinRW;
 		this->pinEN = pinEN;
@@ -28,20 +27,20 @@ namespace Integral
 	ParallelTextLCD::~ParallelTextLCD()
 	{
 		setDirection(dataPort, LOW);
-		setDirection(controlPort, pinRS, LOW);
-		setDirection(controlPort, pinRW, LOW);
-		setDirection(controlPort, pinEN, LOW);
+		setDirection(pinRS, LOW);
+		setDirection(pinRW, LOW);
+		setDirection(pinEN, LOW);
 		setStatus(dataPort, LOW);
-		setStatus(controlPort, pinRS, LOW);
-		setStatus(controlPort, pinRW, LOW);
-		setStatus(controlPort, pinEN, LOW);
+		setStatus(pinRS, LOW);
+		setStatus(pinRW, LOW);
+		setStatus(pinEN, LOW);
 	}
 
 	void ParallelTextLCD::initialize()
 	{
-		setDirection(controlPort, pinRS, HIGH);
-		setDirection(controlPort, pinRW, HIGH);
-		setDirection(controlPort, pinEN, HIGH);
+		setDirection(pinRS, HIGH);
+		setDirection(pinRW, HIGH);
+		setDirection(pinEN, HIGH);
 		_delay_ms(15);
 		command(0x01); // Clear Screen
 		_delay_ms(2);
@@ -105,8 +104,8 @@ namespace Integral
 	{
 		wait_busy();
 		setStatus(dataPort, cmd);
-		setStatus(controlPort, pinRW, LOW);
-		setStatus(controlPort, pinRS, LOW);
+		setStatus(pinRW, LOW);
+		setStatus(pinRS, LOW);
 		action_enable();
 		setStatus(dataPort, 0x00);
 	}
@@ -115,8 +114,8 @@ namespace Integral
 	{
 		wait_busy();
 		setStatus(dataPort, chr);
-		setStatus(controlPort, pinRW, LOW);
-		setStatus(controlPort, pinRS, HIGH);
+		setStatus(pinRW, LOW);
+		setStatus(pinRS, HIGH);
 		action_enable();
 		setStatus(dataPort, 0x00);
 	}
@@ -124,18 +123,18 @@ namespace Integral
 	void ParallelTextLCD::wait_busy(void)
 	{
 		setDirection(dataPort, 0x00);
-		setStatus(controlPort, pinRW, HIGH);
-		setStatus(controlPort, pinRS, LOW);
+		setStatus(pinRW, HIGH);
+		setStatus(pinRS, LOW);
 		while (getStatus(dataPort, IOPIN7) != HIGH)
-		action_enable();
+			action_enable();
 		setDirection(dataPort, 0xFF);
 	}
 
 	void ParallelTextLCD::action_enable(void)
 	{
-		setStatus(controlPort, pinEN, HIGH);
+		setStatus(pinEN, HIGH);
 		asm volatile ("nop");
 		asm volatile ("nop");
-		setStatus(controlPort, pinEN, LOW);
+		setStatus(pinEN, LOW);
 	}
 }
