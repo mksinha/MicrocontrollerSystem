@@ -1,15 +1,19 @@
 #include <avr/io.h>
+#include "drivers/USART.h"
 #include <util/delay.h>
 #include "drivers/LED.h"
-#include "controller/Pinset.h"
-using namespace Integral; 
+
+using namespace Integral;
 
 int main(void)
 {
-	PIN pinlist[4] = {IOPIND1, IOPIND3, IOPIND4, IOPIND6};
-	Pinset pins(4, pinlist);
-	pins.putData(14);
+	_delay_ms(2000);
+	USART usart(960);
+	LED led(IOPINA0);
+	usart.transmit(0xff);
+//	if (usart.receive()==0xff)
+	led.on();
 	while (1)
-	{
+	{	
 	}
 }

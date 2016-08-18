@@ -26,5 +26,7 @@ drivers\Storage.cpp
 
 drivers\Timer.cpp
 
+drivers\USART.cpp
+
 main.cpp
 

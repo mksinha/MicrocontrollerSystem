@@ -51,6 +51,7 @@ C_SRCS +=  \
 ../drivers/PushButtonSwitch.cpp \
 ../drivers/Storage.cpp \
 ../drivers/Timer.cpp \
+../drivers/USART.cpp \
 ../main.cpp
 
 
@@ -73,6 +74,7 @@ drivers/ParallelTextLCD.o \
 drivers/PushButtonSwitch.o \
 drivers/Storage.o \
 drivers/Timer.o \
+drivers/USART.o \
 main.o
 
 OBJS_AS_ARGS +=  \
@@ -88,6 +90,7 @@ drivers/ParallelTextLCD.o \
 drivers/PushButtonSwitch.o \
 drivers/Storage.o \
 drivers/Timer.o \
+drivers/USART.o \
 main.o
 
 C_DEPS +=  \
@@ -103,6 +106,7 @@ drivers/ParallelTextLCD.d \
 drivers/PushButtonSwitch.d \
 drivers/Storage.d \
 drivers/Timer.d \
+drivers/USART.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
@@ -118,6 +122,7 @@ drivers/ParallelTextLCD.d \
 drivers/PushButtonSwitch.d \
 drivers/Storage.d \
 drivers/Timer.d \
+drivers/USART.d \
 main.d
 
 OUTPUT_FILE_PATH +=MicrocontrollerSystem.elf
@@ -134,6 +139,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
