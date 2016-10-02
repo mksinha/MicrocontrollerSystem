@@ -17,10 +17,6 @@ namespace Integral
 	{
 	//functions
 	public:
-		virtual ~Communication();
-		virtual void Method1()=0;//make Communication not instantiable
-		virtual void Method2();
-		void Method3();
 
 	}; //Communication
 }
