@@ -11,23 +11,24 @@
 
 #include "Output.h"
 
-
-class LED : public Output
+namespace Integral
 {
-//variables
-protected:
-	bool status; 
-	PORT port;
-	PIN pin;
+	class LED : public Output
+	{
+	//variables
+	protected:
+		bool status; 
+		PIN pin;
 
-//functions
-public:
-	LED(PORT port, PIN pin);
-	~LED();
-	void on(); // Switches the LED on
-	void off(); // Switches the LED off
-	bool toggle(); // Changes the state of LED from on to off or back
-	void initialize(); // Initializes the LED port
-}; //LED
+	//functions
+	public:
+		LED(PIN pin);
+		~LED();
+		void on(); // Switches the LED on
+		void off(); // Switches the LED off
+		bool toggle(); // Changes the state of LED from on to off or back
+		void initialize(); // Initializes the LED port
+	}; //LED
+}
 
 #endif //__LED_H__

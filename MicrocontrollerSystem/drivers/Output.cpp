@@ -7,3 +7,8 @@
 
 
 #include "Output.h"
+
+namespace Integral
+{
+
+}

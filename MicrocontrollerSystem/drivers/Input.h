@@ -11,12 +11,14 @@
 
 #include "Device.h"
 
-
-class Input : public Device
+namespace Integral
 {
-//functions
-public:
-	virtual void initialize()=0;//make Output not instantiable
-}; //Input
+	class Input : public Device
+	{
+	//functions
+	public:
+		virtual void initialize()=0;//make Output not instantiable
+	}; //Input
+}
 
 #endif //__INPUT_H__

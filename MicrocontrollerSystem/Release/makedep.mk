@@ -4,6 +4,8 @@
 
 controller\Microcontroller.cpp
 
+controller\Pinset.cpp
+
 drivers\AnalogInput.cpp
 
 drivers\Communication.cpp
@@ -23,6 +25,8 @@ drivers\PushButtonSwitch.cpp
 drivers\Storage.cpp
 
 drivers\Timer.cpp
+
+drivers\USART.cpp
 
 main.cpp
 

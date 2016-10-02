@@ -8,16 +8,6 @@
 
 #include "Communication.h"
 
-// functions
-void Communication::Method2()//virtual
+namespace Integral
 {
 }
-
-void Communication::Method3()
-{
-}
-
-// virtual destructor
-Communication::~Communication()
-{
-} //~Communication

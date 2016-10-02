@@ -8,69 +8,71 @@
 
 #include "PushButtonSwitch.h"
 
-// default constructor
-PushButtonSwitch::PushButtonSwitch(PORT port, PIN pin, bool no_nc, bool pullState)
+namespace Integral
 {
-	this->port = port;
-	this->pin = pin;
-	this->no_nc = no_nc;
-	this->pullState = pullState;
-	this->initialize();
-} //PushButtonSwitch
-
-// default destructor
-PushButtonSwitch::~PushButtonSwitch()
-{
-} //~PushButtonSwitch
-
-bool PushButtonSwitch::state()
-{
-	int minLimit = 50, maxLimit = 10000;
-	double confirmPoint = 0.90;
-	bool result = false;
-	for (double i = 0.0, high = 0.0; i < maxLimit; i++)
+	// default constructor
+	PushButtonSwitch::PushButtonSwitch(PIN pin, bool pullState, bool no_nc)
 	{
-		if (checkState() == true)
-			high++;
-		if (i > minLimit && high/i > confirmPoint)
-		{
-			result = true;
-			break;
-		}
-		if (i > minLimit && (1 - high/i) > confirmPoint)
-		{
-			result = false;
-			break;
-		}
-		if (i == maxLimit - 1)
-		{
-			if (high/i > 0.5)
-				result = true;
-			else
-				result = false;
-		}
-	}
-	// Reporting the status and updating variables
-	if (result != status)
+		this->pin = pin;
+		this->no_nc = no_nc;
+		this->pullState = pullState;
+		this->initialize();
+	} //PushButtonSwitch
+
+	// default destructor
+	PushButtonSwitch::~PushButtonSwitch()
 	{
-		status = result;
-		return status;
+	} //~PushButtonSwitch
+
+	bool PushButtonSwitch::state()
+	{
+		int minLimit = 50, maxLimit = 10000;
+		double confirmPoint = 0.90;
+		bool result = LOW;
+		for (double i = 0.0, high = 0.0; i < maxLimit; i++)
+		{
+			if (checkState() == HIGH)
+				high++;
+			if (i > minLimit && high/i > confirmPoint)
+			{
+				result = HIGH;
+				break;
+			}
+			if (i > minLimit && (1 - high/i) > confirmPoint)
+			{
+				result = LOW;
+				break;
+			}
+			if (i == maxLimit - 1)
+			{
+				if (high/i > 0.5)
+					result = HIGH;
+				else
+					result = LOW;
+			}
+		}
+		// Reporting the status and updating variables
+		if (result != status)
+		{
+			status = result;
+			return status;
+		}
+		else
+			return status;
 	}
-	else
-		return status;
-}
 
-void PushButtonSwitch::initialize()
-{
-	setDirection(port, pin, false);
-	setStatus(port, pin, pullState);
-	this->status = false;
-}
+	void PushButtonSwitch::initialize()
+	{
+		setDirection(pin, LOW);
+		setStatus(pin, pullState);
+		this->status = false;
+	}
 
-bool PushButtonSwitch::checkState()
-{
-	if (pullState == true)
-		return !getStatus(port, pin);
-	else
-		return getStatus(port, pin);
+	bool PushButtonSwitch::checkState()
+	{
+		if (pullState == HIGH)
+			return !getStatus(pin);
+		else
+			return getStatus(pin);
+	}
 }

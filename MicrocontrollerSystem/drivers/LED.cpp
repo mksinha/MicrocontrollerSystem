@@ -8,43 +8,45 @@
 
 #include "LED.h"
 
-// default constructor
-LED::LED(PORT port, PIN pin)
+namespace Integral 
 {
-	this->port = port;
-	this->pin = pin;
-	this->status = false;
-	initialize();
-} //LED
+	// default constructor
+	LED::LED(PIN pin)
+	{
+		this->pin = pin;
+		this->status = false;
+		initialize();
+	} //LED
 
-// default destructor
-LED::~LED()
-{
-} //~LED
+	// default destructor
+	LED::~LED()
+	{
+	} //~LED
 
-void LED::on()
-{
-	setStatus(port, pin, true);
-	status = true;
-}
+	void LED::on()
+	{
+		setStatus(pin, HIGH);
+		status = true;
+	}
 
-void LED::off()
-{
-	setStatus(port, pin, false);
-	status = false;
-}
+	void LED::off()
+	{
+		setStatus(pin, LOW);
+		status = false;
+	}
 
-bool LED::toggle()
-{
-	if (status == false)
-		on();
-	else if(status == true)
-		off();
-	return status;
-}
+	bool LED::toggle()
+	{
+		if (status == false)
+			on();
+		else if(status == true)
+			off();
+		return status;
+	}
 
-void LED::initialize()
-{
-	setDirection(port, pin, true);
-	setStatus(port, pin, false);
+	void LED::initialize()
+	{
+		setDirection(pin, HIGH);
+		setStatus(pin, LOW);
+	}
 }

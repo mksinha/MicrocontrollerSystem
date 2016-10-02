@@ -8,12 +8,15 @@
 
 #include "Microcontroller.h"
 
-// default constructor
-Microcontroller::Microcontroller()
+namespace Integral
 {
-} //Microcontroller
+	// default constructor
+	Microcontroller::Microcontroller()
+	{
+	} //Microcontroller
 
-// default destructor
-Microcontroller::~Microcontroller()
-{
-} //~Microcontroller
+	// default destructor
+	Microcontroller::~Microcontroller()
+	{
+	} //~Microcontroller
+}
