@@ -23,12 +23,12 @@ namespace Integral
 
 	//functions
 	public:
-		PushButtonSwitch(PIN pin, bool pullState = HIGH, bool no_nc = HIGH);
+		PushButtonSwitch(PIN pin, bool pullState = HIGH);
 		~PushButtonSwitch();
 		bool state();  // debounced status
 		void initialize();
+		bool isPressed();  // state without debouncing
 	protected:
-		bool checkState();  // state without debouncing
 	private:
 		PushButtonSwitch( const PushButtonSwitch &c );
 		PushButtonSwitch& operator=( const PushButtonSwitch &c );

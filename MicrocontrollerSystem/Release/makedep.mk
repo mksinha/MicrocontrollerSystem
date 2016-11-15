@@ -14,7 +14,7 @@ drivers\Device.cpp
 
 drivers\Input.cpp
 
-drivers\LED.cpp
+drivers\DigitalOutput.cpp
 
 drivers\Output.cpp
 

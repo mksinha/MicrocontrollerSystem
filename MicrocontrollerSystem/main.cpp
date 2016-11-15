@@ -1,26 +1,16 @@
 #include <avr/io.h>
-#include <util/delay.h>
-#include "drivers/USART.h"
-#include "drivers/LED.h"
-
-#define CODE_TXD // Currently programming the transmitter
-
+#include "drivers/DigitalOutput.h"
+#include "drivers/PushButtonSwitch.h"
 using namespace Integral;
-
 int main(void)
 {
-	USART usart(960);
-	LED led(IOPINA0);
-	#ifdef CODE_TXD
-		_delay_ms(2000);
-		usart.transmit(0xd3);
-		led.on();
-	#endif
-	while (1)
+	PushButtonSwitch pb(IOPINB0);
+	DigitalOutput led(IOPINA0);
+	while(1)
 	{
-		#ifdef CODE_RXD
-			if (usart.receive() == 0xd3)
-				led.on();
-		#endif
+		if (pb.isPressed())
+			led.on();
+		else
+			led.off();
 	}
 }

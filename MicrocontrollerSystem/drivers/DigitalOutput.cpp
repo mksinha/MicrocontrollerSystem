@@ -1,41 +1,41 @@
 /* 
-* LED.cpp
+* DigitalOutput.cpp
 *
 * Created: 4/10/2016 12:32:16 PM
 * Author: Manish Sinha
 */
 
 
-#include "LED.h"
+#include "DigitalOutput.h"
 
 namespace Integral 
 {
 	// default constructor
-	LED::LED(PIN pin)
+	DigitalOutput::DigitalOutput(PIN pin)
 	{
 		this->pin = pin;
 		this->status = false;
 		initialize();
-	} //LED
+	} //DigitalOutput
 
 	// default destructor
-	LED::~LED()
+	DigitalOutput::~DigitalOutput()
 	{
-	} //~LED
+	} //~DigitalOutput
 
-	void LED::on()
+	void DigitalOutput::on()
 	{
 		setStatus(pin, HIGH);
 		status = true;
 	}
 
-	void LED::off()
+	void DigitalOutput::off()
 	{
 		setStatus(pin, LOW);
 		status = false;
 	}
 
-	bool LED::toggle()
+	bool DigitalOutput::toggle()
 	{
 		if (status == false)
 			on();
@@ -44,7 +44,7 @@ namespace Integral
 		return status;
 	}
 
-	void LED::initialize()
+	void DigitalOutput::initialize()
 	{
 		setDirection(pin, HIGH);
 		setStatus(pin, LOW);

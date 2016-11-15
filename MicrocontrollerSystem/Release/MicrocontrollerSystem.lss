@@ -3,13 +3,13 @@ MicrocontrollerSystem.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000035e  00000000  00000000  00000074  2**1
+  0 .text         000003de  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000000c  00800060  0000035e  000003d2  2**0
+  1 .data         0000000c  00800060  000003de  00000452  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  000003de  2**0
+  2 .comment      00000030  00000000  00000000  0000045e  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000410  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000490  2**2
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -49,7 +49,7 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	ee e5       	ldi	r30, 0x5E	; 94
+  66:	ee ed       	ldi	r30, 0xDE	; 222
   68:	f3 e0       	ldi	r31, 0x03	; 3
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
@@ -57,8 +57,8 @@ Disassembly of section .text:
   70:	ac 36       	cpi	r26, 0x6C	; 108
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
-  76:	0e 94 88 01 	call	0x310	; 0x310 <main>
-  7a:	0c 94 ad 01 	jmp	0x35a	; 0x35a <_exit>
+  76:	0e 94 c8 01 	call	0x390	; 0x390 <main>
+  7a:	0c 94 ed 01 	jmp	0x3da	; 0x3da <_exit>
 
 0000007e <__bad_interrupt>:
   7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -339,106 +339,167 @@ Disassembly of section .text:
  29e:	81 bb       	out	0x11, r24	; 17
  2a0:	08 95       	ret
 
-000002a2 <_ZN8Integral3LED10initializeEv>:
- 2a2:	cf 93       	push	r28
- 2a4:	df 93       	push	r29
- 2a6:	ec 01       	movw	r28, r24
- 2a8:	61 e0       	ldi	r22, 0x01	; 1
- 2aa:	8b 81       	ldd	r24, Y+3	; 0x03
- 2ac:	0e 94 c9 00 	call	0x192	; 0x192 <_ZN8Integral6Device12setDirectionENS_3PINEb>
- 2b0:	60 e0       	ldi	r22, 0x00	; 0
- 2b2:	8b 81       	ldd	r24, Y+3	; 0x03
- 2b4:	df 91       	pop	r29
- 2b6:	cf 91       	pop	r28
- 2b8:	0c 94 41 00 	jmp	0x82	; 0x82 <_ZN8Integral6Device9setStatusENS_3PINEb>
-
-000002bc <_ZN8Integral3LEDC1ENS_3PINE>:
- 2bc:	24 e6       	ldi	r18, 0x64	; 100
- 2be:	30 e0       	ldi	r19, 0x00	; 0
- 2c0:	fc 01       	movw	r30, r24
- 2c2:	31 83       	std	Z+1, r19	; 0x01
- 2c4:	20 83       	st	Z, r18
- 2c6:	63 83       	std	Z+3, r22	; 0x03
- 2c8:	12 82       	std	Z+2, r1	; 0x02
- 2ca:	0c 94 51 01 	jmp	0x2a2	; 0x2a2 <_ZN8Integral3LED10initializeEv>
-
-000002ce <_ZN8Integral3LED2onEv>:
- 2ce:	cf 93       	push	r28
- 2d0:	df 93       	push	r29
- 2d2:	ec 01       	movw	r28, r24
- 2d4:	61 e0       	ldi	r22, 0x01	; 1
- 2d6:	8b 81       	ldd	r24, Y+3	; 0x03
- 2d8:	0e 94 41 00 	call	0x82	; 0x82 <_ZN8Integral6Device9setStatusENS_3PINEb>
- 2dc:	81 e0       	ldi	r24, 0x01	; 1
- 2de:	8a 83       	std	Y+2, r24	; 0x02
- 2e0:	df 91       	pop	r29
- 2e2:	cf 91       	pop	r28
+000002a2 <_ZN8Integral6Device9getStatusENS_3PINE>:
+ 2a2:	48 2f       	mov	r20, r24
+ 2a4:	88 30       	cpi	r24, 0x08	; 8
+ 2a6:	20 f4       	brcc	.+8      	; 0x2b0 <_ZN8Integral6Device9getStatusENS_3PINE+0xe>
+ 2a8:	99 b3       	in	r25, 0x19	; 25
+ 2aa:	89 2f       	mov	r24, r25
+ 2ac:	90 e0       	ldi	r25, 0x00	; 0
+ 2ae:	14 c0       	rjmp	.+40     	; 0x2d8 <_ZN8Integral6Device9getStatusENS_3PINE+0x36>
+ 2b0:	88 ef       	ldi	r24, 0xF8	; 248
+ 2b2:	84 0f       	add	r24, r20
+ 2b4:	88 30       	cpi	r24, 0x08	; 8
+ 2b6:	10 f4       	brcc	.+4      	; 0x2bc <_ZN8Integral6Device9getStatusENS_3PINE+0x1a>
+ 2b8:	26 b3       	in	r18, 0x16	; 22
+ 2ba:	0b c0       	rjmp	.+22     	; 0x2d2 <_ZN8Integral6Device9getStatusENS_3PINE+0x30>
+ 2bc:	80 ef       	ldi	r24, 0xF0	; 240
+ 2be:	84 0f       	add	r24, r20
+ 2c0:	88 30       	cpi	r24, 0x08	; 8
+ 2c2:	10 f4       	brcc	.+4      	; 0x2c8 <_ZN8Integral6Device9getStatusENS_3PINE+0x26>
+ 2c4:	23 b3       	in	r18, 0x13	; 19
+ 2c6:	05 c0       	rjmp	.+10     	; 0x2d2 <_ZN8Integral6Device9getStatusENS_3PINE+0x30>
+ 2c8:	88 ee       	ldi	r24, 0xE8	; 232
+ 2ca:	84 0f       	add	r24, r20
+ 2cc:	88 30       	cpi	r24, 0x08	; 8
+ 2ce:	58 f4       	brcc	.+22     	; 0x2e6 <_ZN8Integral6Device9getStatusENS_3PINE+0x44>
+ 2d0:	20 b3       	in	r18, 0x10	; 16
+ 2d2:	30 e0       	ldi	r19, 0x00	; 0
+ 2d4:	48 2f       	mov	r20, r24
+ 2d6:	c9 01       	movw	r24, r18
+ 2d8:	02 c0       	rjmp	.+4      	; 0x2de <_ZN8Integral6Device9getStatusENS_3PINE+0x3c>
+ 2da:	95 95       	asr	r25
+ 2dc:	87 95       	ror	r24
+ 2de:	4a 95       	dec	r20
+ 2e0:	e2 f7       	brpl	.-8      	; 0x2da <_ZN8Integral6Device9getStatusENS_3PINE+0x38>
+ 2e2:	81 70       	andi	r24, 0x01	; 1
  2e4:	08 95       	ret
+ 2e6:	80 e0       	ldi	r24, 0x00	; 0
+ 2e8:	08 95       	ret
 
-000002e6 <_ZN8Integral5USART10initializeEv>:
- 2e6:	88 e1       	ldi	r24, 0x18	; 24
- 2e8:	8a b9       	out	0x0a, r24	; 10
- 2ea:	8e e8       	ldi	r24, 0x8E	; 142
- 2ec:	80 bd       	out	0x20, r24	; 32
- 2ee:	08 95       	ret
+000002ea <_ZN8Integral13DigitalOutput10initializeEv>:
+ 2ea:	cf 93       	push	r28
+ 2ec:	df 93       	push	r29
+ 2ee:	ec 01       	movw	r28, r24
+ 2f0:	61 e0       	ldi	r22, 0x01	; 1
+ 2f2:	8b 81       	ldd	r24, Y+3	; 0x03
+ 2f4:	0e 94 c9 00 	call	0x192	; 0x192 <_ZN8Integral6Device12setDirectionENS_3PINEb>
+ 2f8:	60 e0       	ldi	r22, 0x00	; 0
+ 2fa:	8b 81       	ldd	r24, Y+3	; 0x03
+ 2fc:	df 91       	pop	r29
+ 2fe:	cf 91       	pop	r28
+ 300:	0c 94 41 00 	jmp	0x82	; 0x82 <_ZN8Integral6Device9setStatusENS_3PINEb>
 
-000002f0 <_ZN8Integral5USARTC1Ej>:
- 2f0:	2a e6       	ldi	r18, 0x6A	; 106
- 2f2:	30 e0       	ldi	r19, 0x00	; 0
- 2f4:	fc 01       	movw	r30, r24
- 2f6:	31 83       	std	Z+1, r19	; 0x01
- 2f8:	20 83       	st	Z, r18
- 2fa:	10 bc       	out	0x20, r1	; 32
- 2fc:	69 b9       	out	0x09, r22	; 9
- 2fe:	88 e1       	ldi	r24, 0x18	; 24
- 300:	8a b9       	out	0x0a, r24	; 10
- 302:	8e e8       	ldi	r24, 0x8E	; 142
- 304:	80 bd       	out	0x20, r24	; 32
- 306:	08 95       	ret
+00000304 <_ZN8Integral13DigitalOutputC1ENS_3PINE>:
+ 304:	24 e6       	ldi	r18, 0x64	; 100
+ 306:	30 e0       	ldi	r19, 0x00	; 0
+ 308:	fc 01       	movw	r30, r24
+ 30a:	31 83       	std	Z+1, r19	; 0x01
+ 30c:	20 83       	st	Z, r18
+ 30e:	63 83       	std	Z+3, r22	; 0x03
+ 310:	12 82       	std	Z+2, r1	; 0x02
+ 312:	0c 94 75 01 	jmp	0x2ea	; 0x2ea <_ZN8Integral13DigitalOutput10initializeEv>
 
-00000308 <_ZN8Integral5USART8transmitEh>:
- 308:	5d 9b       	sbis	0x0b, 5	; 11
- 30a:	fe cf       	rjmp	.-4      	; 0x308 <_ZN8Integral5USART8transmitEh>
- 30c:	6c b9       	out	0x0c, r22	; 12
- 30e:	08 95       	ret
+00000316 <_ZN8Integral13DigitalOutput2onEv>:
+ 316:	cf 93       	push	r28
+ 318:	df 93       	push	r29
+ 31a:	ec 01       	movw	r28, r24
+ 31c:	61 e0       	ldi	r22, 0x01	; 1
+ 31e:	8b 81       	ldd	r24, Y+3	; 0x03
+ 320:	0e 94 41 00 	call	0x82	; 0x82 <_ZN8Integral6Device9setStatusENS_3PINEb>
+ 324:	81 e0       	ldi	r24, 0x01	; 1
+ 326:	8a 83       	std	Y+2, r24	; 0x02
+ 328:	df 91       	pop	r29
+ 32a:	cf 91       	pop	r28
+ 32c:	08 95       	ret
 
-00000310 <main>:
- 310:	cf 93       	push	r28
- 312:	df 93       	push	r29
- 314:	00 d0       	rcall	.+0      	; 0x316 <main+0x6>
- 316:	00 d0       	rcall	.+0      	; 0x318 <main+0x8>
- 318:	00 d0       	rcall	.+0      	; 0x31a <main+0xa>
- 31a:	cd b7       	in	r28, 0x3d	; 61
- 31c:	de b7       	in	r29, 0x3e	; 62
- 31e:	60 ec       	ldi	r22, 0xC0	; 192
- 320:	73 e0       	ldi	r23, 0x03	; 3
- 322:	ce 01       	movw	r24, r28
- 324:	05 96       	adiw	r24, 0x05	; 5
- 326:	0e 94 78 01 	call	0x2f0	; 0x2f0 <_ZN8Integral5USARTC1Ej>
- 32a:	60 e0       	ldi	r22, 0x00	; 0
- 32c:	ce 01       	movw	r24, r28
- 32e:	01 96       	adiw	r24, 0x01	; 1
- 330:	0e 94 5e 01 	call	0x2bc	; 0x2bc <_ZN8Integral3LEDC1ENS_3PINE>
- 334:	2f e7       	ldi	r18, 0x7F	; 127
- 336:	8a e1       	ldi	r24, 0x1A	; 26
- 338:	96 e0       	ldi	r25, 0x06	; 6
- 33a:	21 50       	subi	r18, 0x01	; 1
- 33c:	80 40       	sbci	r24, 0x00	; 0
- 33e:	90 40       	sbci	r25, 0x00	; 0
- 340:	e1 f7       	brne	.-8      	; 0x33a <main+0x2a>
- 342:	00 c0       	rjmp	.+0      	; 0x344 <main+0x34>
- 344:	00 00       	nop
- 346:	63 ed       	ldi	r22, 0xD3	; 211
- 348:	ce 01       	movw	r24, r28
- 34a:	05 96       	adiw	r24, 0x05	; 5
- 34c:	0e 94 84 01 	call	0x308	; 0x308 <_ZN8Integral5USART8transmitEh>
- 350:	ce 01       	movw	r24, r28
- 352:	01 96       	adiw	r24, 0x01	; 1
- 354:	0e 94 67 01 	call	0x2ce	; 0x2ce <_ZN8Integral3LED2onEv>
- 358:	ff cf       	rjmp	.-2      	; 0x358 <main+0x48>
+0000032e <_ZN8Integral13DigitalOutput3offEv>:
+ 32e:	cf 93       	push	r28
+ 330:	df 93       	push	r29
+ 332:	ec 01       	movw	r28, r24
+ 334:	60 e0       	ldi	r22, 0x00	; 0
+ 336:	8b 81       	ldd	r24, Y+3	; 0x03
+ 338:	0e 94 41 00 	call	0x82	; 0x82 <_ZN8Integral6Device9setStatusENS_3PINEb>
+ 33c:	1a 82       	std	Y+2, r1	; 0x02
+ 33e:	df 91       	pop	r29
+ 340:	cf 91       	pop	r28
+ 342:	08 95       	ret
 
-0000035a <_exit>:
- 35a:	f8 94       	cli
+00000344 <_ZN8Integral16PushButtonSwitch10initializeEv>:
+ 344:	cf 93       	push	r28
+ 346:	df 93       	push	r29
+ 348:	ec 01       	movw	r28, r24
+ 34a:	60 e0       	ldi	r22, 0x00	; 0
+ 34c:	8b 81       	ldd	r24, Y+3	; 0x03
+ 34e:	0e 94 c9 00 	call	0x192	; 0x192 <_ZN8Integral6Device12setDirectionENS_3PINEb>
+ 352:	6d 81       	ldd	r22, Y+5	; 0x05
+ 354:	8b 81       	ldd	r24, Y+3	; 0x03
+ 356:	0e 94 41 00 	call	0x82	; 0x82 <_ZN8Integral6Device9setStatusENS_3PINEb>
+ 35a:	1a 82       	std	Y+2, r1	; 0x02
+ 35c:	df 91       	pop	r29
+ 35e:	cf 91       	pop	r28
+ 360:	08 95       	ret
 
-0000035c <__stop_program>:
- 35c:	ff cf       	rjmp	.-2      	; 0x35c <__stop_program>
+00000362 <_ZN8Integral16PushButtonSwitchC1ENS_3PINEb>:
+ 362:	2a e6       	ldi	r18, 0x6A	; 106
+ 364:	30 e0       	ldi	r19, 0x00	; 0
+ 366:	fc 01       	movw	r30, r24
+ 368:	31 83       	std	Z+1, r19	; 0x01
+ 36a:	20 83       	st	Z, r18
+ 36c:	63 83       	std	Z+3, r22	; 0x03
+ 36e:	45 83       	std	Z+5, r20	; 0x05
+ 370:	0c 94 a2 01 	jmp	0x344	; 0x344 <_ZN8Integral16PushButtonSwitch10initializeEv>
+
+00000374 <_ZN8Integral16PushButtonSwitch9isPressedEv>:
+ 374:	fc 01       	movw	r30, r24
+ 376:	25 81       	ldd	r18, Z+5	; 0x05
+ 378:	22 23       	and	r18, r18
+ 37a:	31 f0       	breq	.+12     	; 0x388 <_ZN8Integral16PushButtonSwitch9isPressedEv+0x14>
+ 37c:	83 81       	ldd	r24, Z+3	; 0x03
+ 37e:	0e 94 51 01 	call	0x2a2	; 0x2a2 <_ZN8Integral6Device9getStatusENS_3PINE>
+ 382:	91 e0       	ldi	r25, 0x01	; 1
+ 384:	89 27       	eor	r24, r25
+ 386:	08 95       	ret
+ 388:	fc 01       	movw	r30, r24
+ 38a:	83 81       	ldd	r24, Z+3	; 0x03
+ 38c:	0c 94 51 01 	jmp	0x2a2	; 0x2a2 <_ZN8Integral6Device9getStatusENS_3PINE>
+
+00000390 <main>:
+ 390:	cf 93       	push	r28
+ 392:	df 93       	push	r29
+ 394:	cd b7       	in	r28, 0x3d	; 61
+ 396:	de b7       	in	r29, 0x3e	; 62
+ 398:	2a 97       	sbiw	r28, 0x0a	; 10
+ 39a:	0f b6       	in	r0, 0x3f	; 63
+ 39c:	f8 94       	cli
+ 39e:	de bf       	out	0x3e, r29	; 62
+ 3a0:	0f be       	out	0x3f, r0	; 63
+ 3a2:	cd bf       	out	0x3d, r28	; 61
+ 3a4:	41 e0       	ldi	r20, 0x01	; 1
+ 3a6:	68 e0       	ldi	r22, 0x08	; 8
+ 3a8:	ce 01       	movw	r24, r28
+ 3aa:	01 96       	adiw	r24, 0x01	; 1
+ 3ac:	0e 94 b1 01 	call	0x362	; 0x362 <_ZN8Integral16PushButtonSwitchC1ENS_3PINEb>
+ 3b0:	60 e0       	ldi	r22, 0x00	; 0
+ 3b2:	ce 01       	movw	r24, r28
+ 3b4:	07 96       	adiw	r24, 0x07	; 7
+ 3b6:	0e 94 82 01 	call	0x304	; 0x304 <_ZN8Integral13DigitalOutputC1ENS_3PINE>
+ 3ba:	ce 01       	movw	r24, r28
+ 3bc:	01 96       	adiw	r24, 0x01	; 1
+ 3be:	0e 94 ba 01 	call	0x374	; 0x374 <_ZN8Integral16PushButtonSwitch9isPressedEv>
+ 3c2:	88 23       	and	r24, r24
+ 3c4:	29 f0       	breq	.+10     	; 0x3d0 <main+0x40>
+ 3c6:	ce 01       	movw	r24, r28
+ 3c8:	07 96       	adiw	r24, 0x07	; 7
+ 3ca:	0e 94 8b 01 	call	0x316	; 0x316 <_ZN8Integral13DigitalOutput2onEv>
+ 3ce:	f5 cf       	rjmp	.-22     	; 0x3ba <main+0x2a>
+ 3d0:	ce 01       	movw	r24, r28
+ 3d2:	07 96       	adiw	r24, 0x07	; 7
+ 3d4:	0e 94 97 01 	call	0x32e	; 0x32e <_ZN8Integral13DigitalOutput3offEv>
+ 3d8:	f0 cf       	rjmp	.-32     	; 0x3ba <main+0x2a>
+
+000003da <_exit>:
+ 3da:	f8 94       	cli
+
+000003dc <__stop_program>:
+ 3dc:	ff cf       	rjmp	.-2      	; 0x3dc <__stop_program>

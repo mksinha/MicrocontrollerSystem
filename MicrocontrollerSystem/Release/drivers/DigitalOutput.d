@@ -1,4 +1,5 @@
-drivers/LED.d drivers/LED.o: ../drivers/LED.cpp ../drivers/LED.h \
+drivers/DigitalOutput.d drivers/DigitalOutput.o: \
+ ../drivers/DigitalOutput.cpp ../drivers/DigitalOutput.h \
  ../drivers/Output.h ../drivers/Device.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -13,7 +14,7 @@ drivers/LED.d drivers/LED.o: ../drivers/LED.cpp ../drivers/LED.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  ../drivers/../controller/registry.h
 
-../drivers/LED.h:
+../drivers/DigitalOutput.h:
 
 ../drivers/Output.h:
 
