@@ -25,7 +25,7 @@ namespace Integral
 	public:
 		PushButtonSwitch(PIN pin, bool pullState = HIGH);
 		~PushButtonSwitch();
-		bool state();  // debounced status
+		bool pressed();  // debounced status
 		void initialize();
 		bool isPressed();  // state without debouncing
 	protected:

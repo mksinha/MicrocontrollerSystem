@@ -27,7 +27,22 @@ namespace Integral
 	{
 	} //~PushButtonSwitch
 
-	bool PushButtonSwitch::state()
+	void PushButtonSwitch::initialize()
+	{
+		setDirection(pin, LOW);
+		setStatus(pin, pullState);
+		this->status = false;
+	}
+
+	bool PushButtonSwitch::isPressed()
+	{
+		if (pullState == HIGH)
+		return !getStatus(pin);
+		else
+		return getStatus(pin);
+	}
+
+	bool PushButtonSwitch::pressed()
 	{
 		bool result = LOW;
 		for (double i = 0.0, high = 0.0; i < DEBOUNCE_MAXCYCLES; i++)
@@ -62,20 +77,5 @@ namespace Integral
 		}
 		else
 			return status;
-	}
-
-	void PushButtonSwitch::initialize()
-	{
-		setDirection(pin, LOW);
-		setStatus(pin, pullState);
-		this->status = false;
-	}
-
-	bool PushButtonSwitch::isPressed()
-	{
-		if (pullState == HIGH)
-			return !getStatus(pin);
-		else
-			return getStatus(pin);
 	}
 }
