@@ -34,20 +34,20 @@ namespace Integral
 		this->status = false;
 	}
 
-	bool PushButtonSwitch::isPressed()
+	bool PushButtonSwitch::undebouncedStatus()
 	{
 		if (pullState == HIGH)
-		return !getStatus(pin);
+			return !getStatus(pin);
 		else
-		return getStatus(pin);
+			return getStatus(pin);
 	}
 
-	bool PushButtonSwitch::pressed()
+	bool PushButtonSwitch::isPressed()
 	{
 		bool result = LOW;
 		for (double i = 0.0, high = 0.0; i < DEBOUNCE_MAXCYCLES; i++)
 		{
-			if (isPressed())
+			if (undebouncedStatus())
 				high++;
 			// conditions to break the loop and accept result
 			if (i > DEBOUNCE_MINCYCLES && high/i > DEBOUNCE_CONFIDFRAC)
@@ -71,11 +71,7 @@ namespace Integral
 		}
 		// Reporting the status and updating variables
 		if (result != status)
-		{
 			status = result;
-			return status;
-		}
-		else
-			return status;
+		return status;
 	}
 }

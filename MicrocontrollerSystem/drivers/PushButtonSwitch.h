@@ -17,17 +17,17 @@ namespace Integral
 	{
 	//variables
 	protected:
-		bool status;
 		PIN pin;
-		bool no_nc, pullState;
+		bool pullState;
+		bool status;
 
 	//functions
 	public:
 		PushButtonSwitch(PIN pin, bool pullState = HIGH);
 		~PushButtonSwitch();
-		bool pressed();  // debounced status
 		void initialize();
-		bool isPressed();  // state without debouncing
+		bool isPressed(); //debounced status
+		bool undebouncedStatus(); //state without debouncing
 	protected:
 	private:
 		PushButtonSwitch( const PushButtonSwitch &c );

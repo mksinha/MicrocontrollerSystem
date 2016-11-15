@@ -197,6 +197,12 @@
     <Compile Include="drivers\DigitalOutput.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="drivers\Keypad.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\Keypad.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\Output.cpp">
       <SubType>compile</SubType>
     </Compile>

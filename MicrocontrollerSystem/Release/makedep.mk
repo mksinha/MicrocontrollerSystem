@@ -16,6 +16,8 @@ drivers\Input.cpp
 
 drivers\DigitalOutput.cpp
 
+drivers\Keypad.cpp
+
 drivers\Output.cpp
 
 drivers\ParallelTextLCD.cpp

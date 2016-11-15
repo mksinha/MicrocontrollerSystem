@@ -46,6 +46,7 @@ C_SRCS +=  \
 ../drivers/Device.cpp \
 ../drivers/Input.cpp \
 ../drivers/DigitalOutput.cpp \
+../drivers/Keypad.cpp \
 ../drivers/Output.cpp \
 ../drivers/ParallelTextLCD.cpp \
 ../drivers/PushButtonSwitch.cpp \
@@ -69,6 +70,7 @@ drivers/Communication.o \
 drivers/Device.o \
 drivers/Input.o \
 drivers/DigitalOutput.o \
+drivers/Keypad.o \
 drivers/Output.o \
 drivers/ParallelTextLCD.o \
 drivers/PushButtonSwitch.o \
@@ -85,6 +87,7 @@ drivers/Communication.o \
 drivers/Device.o \
 drivers/Input.o \
 drivers/DigitalOutput.o \
+drivers/Keypad.o \
 drivers/Output.o \
 drivers/ParallelTextLCD.o \
 drivers/PushButtonSwitch.o \
@@ -101,6 +104,7 @@ drivers/Communication.d \
 drivers/Device.d \
 drivers/Input.d \
 drivers/DigitalOutput.d \
+drivers/Keypad.d \
 drivers/Output.d \
 drivers/ParallelTextLCD.d \
 drivers/PushButtonSwitch.d \
@@ -117,6 +121,7 @@ drivers/Communication.d \
 drivers/Device.d \
 drivers/Input.d \
 drivers/DigitalOutput.d \
+drivers/Keypad.d \
 drivers/Output.d \
 drivers/ParallelTextLCD.d \
 drivers/PushButtonSwitch.d \
@@ -139,6 +144,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
