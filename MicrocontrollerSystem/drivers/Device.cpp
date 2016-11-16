@@ -86,12 +86,16 @@ namespace Integral
 			{
 				case IOPORTA:
 					PORTA |= 1 << pin;
+					break;
 				case IOPORTB:
 					PORTB |= 1 << pin;
+					break;
 				case IOPORTC:
 					PORTC |= 1 << pin;
+					break;
 				case IOPORTD:
 					PORTD |= 1 << pin;
+					break;
 			}
 		}
 		else if (state == false)
@@ -100,12 +104,16 @@ namespace Integral
 			{
 				case IOPORTA:
 					PORTA &= ~(1 << pin);
+					break;
 				case IOPORTB:
 					PORTB &= ~(1 << pin);
+					break;
 				case IOPORTC:
 					PORTC &= ~(1 << pin);
+					break;
 				case IOPORTD:
 					PORTD &= ~(1 << pin);
+					break;
 			}
 		}
 	}
@@ -118,12 +126,16 @@ namespace Integral
 			{
 				case IOPORTA:
 					DDRA |= 1 << pin;
+					break;
 				case IOPORTB:
 					DDRB |= 1 << pin;
+					break;
 				case IOPORTC:
 					DDRC |= 1 << pin;
+					break;
 				case IOPORTD:
 					DDRD |= 1 << pin;
+					break;
 			}
 		}
 		else if (state == false)
@@ -132,12 +144,16 @@ namespace Integral
 			{
 				case IOPORTA:
 					DDRA &= ~(1 << pin);
+					break;
 				case IOPORTB:
 					DDRB &= ~(1 << pin);
+					break;
 				case IOPORTC:
 					DDRC &= ~(1 << pin);
+					break;
 				case IOPORTD:
 					DDRD &= ~(1 << pin);
+					break;
 			}
 		}
 	}
@@ -148,12 +164,16 @@ namespace Integral
 		{
 			case IOPORTA:
 				PORTA = state;
+				break;
 			case IOPORTB:
 				PORTB = state;
+				break;
 			case IOPORTC:
 				PORTC = state;
+				break;
 			case IOPORTD:
 				PORTD = state;
+				break;
 		}
 	}
 
@@ -163,12 +183,16 @@ namespace Integral
 		{
 			case IOPORTA:
 				DDRA = state;
+				break;
 			case IOPORTB:
 				DDRB = state;
+				break;
 			case IOPORTC:
 				DDRC = state;
+				break;
 			case IOPORTD:
 				DDRD = state;
+				break;
 		}
 	}
 

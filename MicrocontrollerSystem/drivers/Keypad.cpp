@@ -25,28 +25,8 @@ namespace Integral
 
 	void Keypad::initialize()
 	{
-		if(port == IOPORTA)
-		{
-			DDRA = 0x0F;
-			PORTA = 0xFF;
-		}
-		else if(port == IOPORTB)
-		{
-			DDRB = 0x0F;
-			PORTB = 0xFF;
-		} 
-		else if(port == IOPORTC)
-		{
-			DDRC = 0x0F;
-			PORTC = 0xFF;
-		}
-		else if(port == IOPORTD)
-		{
-			DDRD = 0x0F;
-			PORTD = 0xFF;
-		}
-		//setDirection(port, 0x0F);
-		//setStatus(port, 0xFF);
+		setDirection(port, 0x0F);
+		setStatus(port, 0xFF);
 	}
 	
 	KeypadMatrix Keypad::undebouncedStatus()
