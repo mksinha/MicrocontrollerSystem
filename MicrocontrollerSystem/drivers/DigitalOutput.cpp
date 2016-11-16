@@ -21,6 +21,8 @@ namespace Integral
 	// default destructor
 	DigitalOutput::~DigitalOutput()
 	{
+		setDirection(pin, DDR_INPUT);
+		setStatus(pin, LOW);
 	} //~DigitalOutput
 
 	void DigitalOutput::on()
@@ -46,7 +48,7 @@ namespace Integral
 
 	void DigitalOutput::initialize()
 	{
-		setDirection(pin, HIGH);
+		setDirection(pin, DDR_OUTPUT);
 		setStatus(pin, LOW);
 	}
 }

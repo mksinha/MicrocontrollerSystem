@@ -1,5 +1,6 @@
-drivers/Timer.d drivers/Timer.o: ../drivers/Timer.cpp ../drivers/Timer.h \
- ../drivers/Device.h \
+drivers/DigitalOutput.d drivers/DigitalOutput.o: \
+ ../drivers/DigitalOutput.cpp ../drivers/DigitalOutput.h \
+ ../drivers/Output.h ../drivers/Device.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -13,7 +14,9 @@ drivers/Timer.d drivers/Timer.o: ../drivers/Timer.cpp ../drivers/Timer.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  ../drivers/../controller/registry.h
 
-../drivers/Timer.h:
+../drivers/DigitalOutput.h:
+
+../drivers/Output.h:
 
 ../drivers/Device.h:
 

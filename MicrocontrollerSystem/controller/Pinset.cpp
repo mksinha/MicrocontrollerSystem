@@ -30,7 +30,7 @@ namespace Integral
 		uint32_t data = 0;
 		for (int i = 0; i < this->size; i++)
 		{
-			Device::setDirection(pins[i], LOW);
+			Device::setDirection(pins[i], DDR_INPUT);
 			data = data * 2 + Device::getStatus(pins[i]);
 		}
 		return data;
@@ -40,7 +40,7 @@ namespace Integral
 	{
 		for (int i = 0; i < this->size; i++, data /= 2)
 		{
-			Device::setDirection(pins[i], HIGH);
+			Device::setDirection(pins[i], DDR_OUTPUT);
 			if (data % 2 == HIGH)
 				Device::setStatus(pins[i], HIGH);
 			else

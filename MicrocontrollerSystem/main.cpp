@@ -18,6 +18,5 @@ int main(void)
 				else
 					lcd.string(i*4 + j, 0, "0");
 			}
-		_delay_ms(100);
 	}
 }

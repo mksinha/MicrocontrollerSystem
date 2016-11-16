@@ -9,6 +9,10 @@
 #include "Keypad.h"
 #include "../controller/registry.h"
 
+#define DEBOUNCE_MINCYCLES 3
+#define DEBOUNCE_MAXCYCLES 100
+#define DEBOUNCE_CONFIDFRAC 0.7
+
 namespace Integral
 {
 	// default constructor
@@ -21,6 +25,8 @@ namespace Integral
 	// default destructor
 	Keypad::~Keypad()
 	{
+		setDirection(port, 0x00);
+		setStatus(port, 0x00);
 	} //~Keypad
 
 	void Keypad::initialize()
@@ -57,6 +63,32 @@ namespace Integral
 
 	bool Keypad::switchPressed(PIN pin)
 	{
-		return !getStatus(pin);
+		bool result = LOW;
+		for (double i = 0.0, high = 0.0; i < DEBOUNCE_MAXCYCLES; i++)
+		{
+			if (!getStatus(pin))
+			high++;
+			// conditions to break the loop and accept result
+			if (i > DEBOUNCE_MINCYCLES && high/i >= DEBOUNCE_CONFIDFRAC)
+			{
+				result = HIGH;
+				break;
+			}
+			if (i > DEBOUNCE_MINCYCLES && (1 - high/i) >= DEBOUNCE_CONFIDFRAC)
+			{
+				result = LOW;
+				break;
+			}
+			if (i == DEBOUNCE_MAXCYCLES - 1)
+			{
+				if (high/i > 0.5)
+					result = HIGH;
+				else
+					result = LOW;
+				break;
+			}
+		}
+		// Reporting the status and updating variables
+		return result;
 	}
 }

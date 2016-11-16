@@ -15,6 +15,9 @@ namespace Integral
 {
 	#define HIGH true
 	#define LOW false
+	
+	#define DDR_OUTPUT true
+	#define DDR_INPUT false 
 
 	enum PORT {
 		IOPORTA = 0, IOPORTB = 8, IOPORTC = 16, IOPORTD = 24

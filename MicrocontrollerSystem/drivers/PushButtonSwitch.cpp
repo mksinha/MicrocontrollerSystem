@@ -25,11 +25,12 @@ namespace Integral
 	// default destructor
 	PushButtonSwitch::~PushButtonSwitch()
 	{
+		setStatus(pin, LOW);
 	} //~PushButtonSwitch
 
 	void PushButtonSwitch::initialize()
 	{
-		setDirection(pin, LOW);
+		setDirection(pin, DDR_INPUT);
 		setStatus(pin, pullState);
 		this->status = false;
 	}
