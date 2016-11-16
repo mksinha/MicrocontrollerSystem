@@ -13,10 +13,9 @@ main.d main.o: .././main.cpp \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././drivers/DigitalOutput.h .././drivers/Output.h .././drivers/Device.h \
- .././drivers/../controller/registry.h .././drivers/PushButtonSwitch.h \
- .././drivers/Input.h .././drivers/Keypad.h \
- .././drivers/ParallelTextLCD.h
+ .././drivers/ParallelTextLCD.h .././drivers/Output.h \
+ .././drivers/Device.h .././drivers/../controller/registry.h \
+ .././drivers/Keypad.h .././drivers/Input.h
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -46,7 +45,7 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-.././drivers/DigitalOutput.h:
+.././drivers/ParallelTextLCD.h:
 
 .././drivers/Output.h:
 
@@ -54,10 +53,6 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 .././drivers/../controller/registry.h:
 
-.././drivers/PushButtonSwitch.h:
-
-.././drivers/Input.h:
-
 .././drivers/Keypad.h:
 
-.././drivers/ParallelTextLCD.h:
+.././drivers/Input.h:

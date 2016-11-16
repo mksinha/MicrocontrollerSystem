@@ -24,16 +24,9 @@ namespace Integral
 	} //~Keypad
 
 	void Keypad::initialize()
-	{	
-		setDirection((PIN)(port + 0), HIGH);
-		setDirection((PIN)(port + 1), HIGH);
-		setDirection((PIN)(port + 2), HIGH);
-		setDirection((PIN)(port + 3), HIGH);
-		setDirection((PIN)(port + 4), LOW);
-		setDirection((PIN)(port + 5), LOW);
-		setDirection((PIN)(port + 6), LOW);
-		setDirection((PIN)(port + 7), LOW);
-		setStatus(port, HIGH);
+	{
+		setDirection(port, 0x0F);
+		setStatus(port, 0xFF);
 	}
 	
 	KeypadMatrix Keypad::undebouncedStatus()
@@ -51,14 +44,15 @@ namespace Integral
 
 	KeypadMatrix Keypad::isPressed()
 	{	
+		KeypadMatrix result;
 		for (int i = 0; i < 4; i++)
 		{
 			setStatus((PIN)(port + i), LOW);
 			for (int j = 0; j < 4; j++)
-				status.set(i, j, switchPressed((PIN)(port + 4 + j)));
+			result.set(i, j, switchPressed((PIN)(port + 4 + j)));
 			setStatus((PIN)(port + i), HIGH);
 		}
-		return status;
+		return result;
 	}
 
 	bool Keypad::switchPressed(PIN pin)

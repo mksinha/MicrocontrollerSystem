@@ -43,9 +43,9 @@ namespace Integral
 		void initialize();
 		KeypadMatrix isPressed(); //debounced status
 		KeypadMatrix undebouncedStatus(); //state without debouncing
+		static bool switchPressed(PIN pin);
 	protected:
 	private:
-		bool switchPressed(PIN pin);
 	}; //Keypad
 }
 
