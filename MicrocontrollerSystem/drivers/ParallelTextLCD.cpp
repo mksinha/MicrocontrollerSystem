@@ -26,10 +26,10 @@ namespace Integral
 	// default destructor
 	ParallelTextLCD::~ParallelTextLCD()
 	{
-		setDirection(dataPort, LOW);
-		setDirection(pinRS, LOW);
-		setDirection(pinRW, LOW);
-		setDirection(pinEN, LOW);
+		setDirection(dataPort, DDR_INPUT);
+		setDirection(pinRS, DDR_INPUT);
+		setDirection(pinRW, DDR_INPUT);
+		setDirection(pinEN, DDR_INPUT);
 		setStatus(dataPort, LOW);
 		setStatus(pinRS, LOW);
 		setStatus(pinRW, LOW);
@@ -38,9 +38,9 @@ namespace Integral
 
 	void ParallelTextLCD::initialize()
 	{
-		setDirection(pinRS, HIGH);
-		setDirection(pinRW, HIGH);
-		setDirection(pinEN, HIGH);
+		setDirection(pinRS, DDR_OUTPUT);
+		setDirection(pinRW, DDR_OUTPUT);
+		setDirection(pinEN, DDR_OUTPUT);
 		_delay_ms(15);
 		command(0x01); // Clear Screen
 		_delay_ms(2);

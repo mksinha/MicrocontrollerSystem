@@ -21,6 +21,9 @@ namespace Integral
 	// default destructor
 	USART::~USART()
 	{
+		UCSRB = 0x00;
+		UCSRC = 0x00;
+		UDR = 0x00;
 	} //~USART
 
 	void USART::initialize()

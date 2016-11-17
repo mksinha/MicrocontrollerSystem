@@ -1,5 +1,5 @@
-drivers/AnalogInput.d drivers/AnalogInput.o: ../drivers/AnalogInput.cpp \
- ../drivers/AnalogInput.h ../drivers/Input.h ../drivers/Device.h \
+drivers/Keypad.d drivers/Keypad.o: ../drivers/Keypad.cpp \
+ ../drivers/Keypad.h ../drivers/Input.h ../drivers/Device.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -11,10 +11,9 @@ drivers/AnalogInput.d drivers/AnalogInput.o: ../drivers/AnalogInput.cpp \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../drivers/../controller/registry.h \
- c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h
+ ../drivers/../controller/registry.h
 
-../drivers/AnalogInput.h:
+../drivers/Keypad.h:
 
 ../drivers/Input.h:
 
@@ -43,5 +42,3 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
 ../drivers/../controller/registry.h:
-
-c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:

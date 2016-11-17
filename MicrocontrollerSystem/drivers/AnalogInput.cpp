@@ -23,6 +23,11 @@ namespace Integral
 	// default destructor
 	AnalogInput::~AnalogInput()
 	{
+		if(isLive())
+		{
+			ADMUX &= (0b11100000);
+			stopConversion();
+		}
 	} //~AnalogInput
 
 	ADCchannel AnalogInput::getChannel()
