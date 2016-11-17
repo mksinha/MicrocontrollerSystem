@@ -34,7 +34,8 @@ LINKER_SCRIPT_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../drivers \
-../controller
+../controller \
+../interface
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -53,6 +54,7 @@ C_SRCS +=  \
 ../drivers/Storage.cpp \
 ../drivers/Timer.cpp \
 ../drivers/USART.cpp \
+../interface/Istream.cpp \
 ../main.cpp
 
 
@@ -77,6 +79,7 @@ drivers/PushButtonSwitch.o \
 drivers/Storage.o \
 drivers/Timer.o \
 drivers/USART.o \
+interface/Istream.o \
 main.o
 
 OBJS_AS_ARGS +=  \
@@ -94,6 +97,7 @@ drivers/PushButtonSwitch.o \
 drivers/Storage.o \
 drivers/Timer.o \
 drivers/USART.o \
+interface/Istream.o \
 main.o
 
 C_DEPS +=  \
@@ -111,6 +115,7 @@ drivers/PushButtonSwitch.d \
 drivers/Storage.d \
 drivers/Timer.d \
 drivers/USART.d \
+interface/Istream.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
@@ -128,6 +133,7 @@ drivers/PushButtonSwitch.d \
 drivers/Storage.d \
 drivers/Timer.d \
 drivers/USART.d \
+interface/Istream.d \
 main.d
 
 OUTPUT_FILE_PATH +=MicrocontrollerSystem.elf
@@ -175,6 +181,8 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
 controller/%.o: ../controller/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
@@ -183,6 +191,13 @@ controller/%.o: ../controller/%.cpp
 	
 
 drivers/%.o: ../drivers/%.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.90\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.90\gcc\dev\atmega32" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+interface/%.o: ../interface/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
 	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.90\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.90\gcc\dev\atmega32" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

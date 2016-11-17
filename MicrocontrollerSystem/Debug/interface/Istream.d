@@ -1,4 +1,6 @@
-main.d main.o: .././main.cpp \
+interface/Istream.d interface/Istream.o: ../interface/Istream.cpp \
+ ../interface/Istream.h ../interface/../drivers/Keypad.h \
+ ../interface/../drivers/Input.h ../interface/../drivers/Device.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -10,13 +12,15 @@ main.d main.o: .././main.cpp \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
- c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././drivers/Keypad.h .././drivers/Input.h .././drivers/Device.h \
- .././drivers/../controller/registry.h .././interface/Istream.h \
- .././interface/../drivers/Keypad.h .././drivers/ParallelTextLCD.h \
- .././drivers/Output.h
+ ../interface/../drivers/../controller/registry.h
+
+../interface/Istream.h:
+
+../interface/../drivers/Keypad.h:
+
+../interface/../drivers/Input.h:
+
+../interface/../drivers/Device.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -40,24 +44,4 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
-
-c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
-
-c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
-
-.././drivers/Keypad.h:
-
-.././drivers/Input.h:
-
-.././drivers/Device.h:
-
-.././drivers/../controller/registry.h:
-
-.././interface/Istream.h:
-
-.././interface/../drivers/Keypad.h:
-
-.././drivers/ParallelTextLCD.h:
-
-.././drivers/Output.h:
+../interface/../drivers/../controller/registry.h:
