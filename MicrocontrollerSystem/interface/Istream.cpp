@@ -25,14 +25,18 @@ namespace Integral
 	{
 	} //~Istream
 	
-	void Istream::update()
+	void Istream::update(Keypad& pad)
 	{
-		Keypad pad(IOPORTA);
 		KeypadMatrix data = pad.isPressed();
+		if (data.get(disabledKey/4, disabledKey%4) == false)
+			disabledKey = 100;
 		for (int i = 0; i < 4; i++)
 			for (int j = 0; j < 4; j++)
-				if (data.get(i, j))
+				if (data.get(i, j) && disabledKey != i*4 + j)
+				{
 					append(keymap[i][j]);
+					disabledKey = i*4 + j;
+				}
 	}
 	
 	void Istream::append(char chr)
@@ -44,8 +48,7 @@ namespace Integral
 
 	char* Istream::getStream()
 	{
-		char* result = "";
-		strncpy(result, stream, BUFFER_SIZE);
+		stream[streamPtrE] = '\0';
 		return stream;
 	}
 }

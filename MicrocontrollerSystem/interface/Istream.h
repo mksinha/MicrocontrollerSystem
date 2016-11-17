@@ -34,7 +34,7 @@ namespace Integral {
 		Istream();
 		~Istream();
 		char* getStream();
-		void update();
+		void update(Keypad& pad);
 		void append(const char chr);
 	protected:
 	private:

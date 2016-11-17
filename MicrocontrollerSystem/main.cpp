@@ -11,7 +11,7 @@ int main(void)
 	ParallelTextLCD lcd(IOPORTB, IOPIND2, IOPIND7, IOPIND5);
 	while (1)
 	{
-		stream.update();
+		stream.update(pad);
 		lcd.string(0, 0, stream.getStream());
 		_delay_ms(100);
 	}
