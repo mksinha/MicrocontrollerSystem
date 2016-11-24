@@ -11,7 +11,7 @@
 
 #include "Communication.h"
 
-namespace Integral
+namespace atmicro
 {
 	class USART : public Communication
 	{

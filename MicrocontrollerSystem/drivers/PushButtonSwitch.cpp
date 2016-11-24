@@ -12,7 +12,7 @@
 #define DEBOUNCE_MAXCYCLES 10000
 #define DEBOUNCE_CONFIDFRAC 0.75
 
-namespace Integral
+namespace atmicro
 {
 	// default constructor
 	PushButtonSwitch::PushButtonSwitch(PIN pin, bool pullState)

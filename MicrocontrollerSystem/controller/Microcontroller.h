@@ -10,7 +10,7 @@
 #ifndef __MICROCONTROLLER_H__
 #define __MICROCONTROLLER_H__
 
-namespace Integral
+namespace atmicro
 {
 	class Microcontroller
 	{

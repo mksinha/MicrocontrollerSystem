@@ -8,7 +8,7 @@
 
 #include "Output.h"
 
-namespace Integral
+namespace atmicro
 {
 
 }

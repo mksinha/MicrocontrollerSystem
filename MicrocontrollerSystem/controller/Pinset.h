@@ -12,7 +12,7 @@
 #include "registry.h"
 #include <stdarg.h>
 
-namespace Integral
+namespace atmicro
 {
 	class Pinset
 	{

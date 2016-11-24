@@ -35,7 +35,8 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../drivers \
 ../controller \
-../interface
+../interface \
+../remote
 
 
 # Add inputs and outputs from these tool invocations to the build variables 

@@ -13,7 +13,7 @@
 #define DEBOUNCE_MAXCYCLES 100
 #define DEBOUNCE_CONFIDFRAC 0.7
 
-namespace Integral
+namespace atmicro
 {
 	// default constructor
 	Keypad::Keypad(PORT port)
@@ -58,6 +58,15 @@ namespace Integral
 			result.set(i, j, switchPressed((PIN)(port + 4 + j)));
 			setStatus((PIN)(port + i), HIGH);
 		}
+		return result;
+	}
+
+	bool Keypad::isPressed(short x, short y)
+	{
+		bool result = false;
+		setStatus((PIN)(port + x), LOW);
+		result = switchPressed((PIN)(port + 4 + y));
+		setStatus((PIN)(port + x), HIGH);
 		return result;
 	}
 

@@ -8,7 +8,7 @@
 
 #include "Timer.h"
 
-namespace Integral
+namespace atmicro
 {
 	// functions
 	void Timer::Method2()//virtual

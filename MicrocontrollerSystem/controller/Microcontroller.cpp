@@ -8,7 +8,7 @@
 
 #include "Microcontroller.h"
 
-namespace Integral
+namespace atmicro
 {
 	// default constructor
 	Microcontroller::Microcontroller()

@@ -1,4 +1,4 @@
-/* 
+/*
 * Istream.cpp
 *
 * Created: 11/17/2016 12:35:04 PM
@@ -7,16 +7,14 @@
 
 
 #include "Istream.h"
-#include <util/delay.h>
 #include <string.h>
 
-namespace Integral
+namespace atmicro
 {
 	// default constructor
 	Istream::Istream()
 	{
-		for(int i = 0; i < BUFFER_SIZE; i++)
-			stream[i] = ' ';
+		clear();
 		disabledKey = 100;
 	} //Istream
 
@@ -29,26 +27,33 @@ namespace Integral
 	{
 		KeypadMatrix data = pad.isPressed();
 		if (data.get(disabledKey/4, disabledKey%4) == false)
-			disabledKey = 100;
+		disabledKey = 100;
 		for (int i = 0; i < 4; i++)
-			for (int j = 0; j < 4; j++)
-				if (data.get(i, j) && disabledKey != i*4 + j)
-				{
-					append(keymap[i][j]);
-					disabledKey = i*4 + j;
-				}
+		for (int j = 0; j < 4; j++)
+		if (data.get(i, j) && disabledKey != i*4 + j)
+		{
+			push(keymap[i][j]);
+			disabledKey = i*4 + j;
+		}
 	}
 	
-	void Istream::append(char chr)
+	void Istream::push(char chr)
 	{
-		if(streamPtrE >= BUFFER_SIZE) streamPtrE = 0;
-		stream[streamPtrE] = chr;
-		streamPtrE++;
+		if (length == BUFFER_SIZE)
+		{
+			clear();
+			return;
+		}
+		stream[length] = chr;
+		length++;
+		stream[length] = '\0';
 	}
-
-	char* Istream::getStream()
+	
+	void Istream::clear()
 	{
-		stream[streamPtrE] = '\0';
-		return stream;
+		for (int i = 0; i < BUFFER_SIZE; i++)
+			stream[i] = ' ';
+		stream[0] = '\0';
+		length = 0;
 	}
 }

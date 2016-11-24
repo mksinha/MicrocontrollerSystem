@@ -11,7 +11,7 @@
 
 #include "Output.h"
 
-namespace Integral
+namespace atmicro
 {
 	class DigitalOutput : public Output
 	{

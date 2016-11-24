@@ -13,12 +13,14 @@
 
 #include "../drivers/Keypad.h"
 
-namespace Integral {
+namespace atmicro {
 	class Istream
 	{
 	//variables
-	protected:
+	public:
 		char stream[BUFFER_SIZE];
+		int length = 0;
+	protected:
 		char keymap[4][4] = {
 			{'1', '2', '3', 'A'},
 			{'4', '5', '6', 'B'},
@@ -27,15 +29,14 @@ namespace Integral {
 		};
 	private:
 		int disabledKey;
-		int streamPtrS = 0, streamPtrE = 0;
 
 	//functions
 	public:
 		Istream();
 		~Istream();
-		char* getStream();
 		void update(Keypad& pad);
-		void append(const char chr);
+		void push(const char chr);
+		void clear();
 	protected:
 	private:
 

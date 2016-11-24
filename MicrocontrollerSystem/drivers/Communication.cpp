@@ -8,6 +8,6 @@
 
 #include "Communication.h"
 
-namespace Integral
+namespace atmicro
 {
 }

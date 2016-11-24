@@ -9,7 +9,7 @@
 #include <avr/io.h>
 #include <avr/sfr_defs.h>
 
-namespace Integral
+namespace atmicro
 {
 	// functions
 	void Device::setStatus(PIN pin, bool state)

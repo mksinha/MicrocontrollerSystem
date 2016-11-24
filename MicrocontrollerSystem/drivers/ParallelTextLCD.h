@@ -12,7 +12,7 @@
 #include "Output.h"
 
 
-namespace Integral
+namespace atmicro
 {
 	class ParallelTextLCD : public Output
 	{

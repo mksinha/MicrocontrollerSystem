@@ -8,7 +8,7 @@
 
 #include "Storage.h"
 
-namespace Integral
+namespace atmicro
 {
 	// functions
 	void Storage::Method2()//virtual
