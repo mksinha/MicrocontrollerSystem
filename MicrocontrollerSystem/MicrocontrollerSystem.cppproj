@@ -251,7 +251,16 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="remote\actions.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="remote\parse.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="remote\State.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="remote\State.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

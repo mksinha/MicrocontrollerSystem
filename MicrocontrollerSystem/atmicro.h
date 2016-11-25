@@ -18,6 +18,7 @@
 #include "interface/Istream.h"
 #include "controller/Microcontroller.h"
 #include <util/delay.h>
+#include <math.h>
 
 using namespace atmicro;
 

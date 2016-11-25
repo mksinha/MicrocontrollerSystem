@@ -29,12 +29,12 @@ namespace atmicro
 		if (data.get(disabledKey/4, disabledKey%4) == false)
 		disabledKey = 100;
 		for (int i = 0; i < 4; i++)
-		for (int j = 0; j < 4; j++)
-		if (data.get(i, j) && disabledKey != i*4 + j)
-		{
-			push(keymap[i][j]);
-			disabledKey = i*4 + j;
-		}
+			for (int j = 0; j < 4; j++)
+				if (data.get(i, j) && disabledKey != i*4 + j)
+				{
+					push(keymap[i][j]);
+					disabledKey = i*4 + j;
+				}
 	}
 	
 	void Istream::push(char chr)

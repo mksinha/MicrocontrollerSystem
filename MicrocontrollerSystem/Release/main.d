@@ -20,7 +20,7 @@ main.d main.o: .././main.cpp .././atmicro.h .././drivers/AnalogInput.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././remote/parse.h .././remote/../atmicro.h
+ .././remote/parse.h .././remote/../atmicro.h .././remote/actions.h
 
 .././atmicro.h:
 
@@ -83,3 +83,5 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 .././remote/parse.h:
 
 .././remote/../atmicro.h:
+
+.././remote/actions.h:
