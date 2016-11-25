@@ -8,7 +8,7 @@
 
 #include "DigitalOutput.h"
 
-namespace Integral 
+namespace atmicro 
 {
 	// default constructor
 	DigitalOutput::DigitalOutput(PIN pin)

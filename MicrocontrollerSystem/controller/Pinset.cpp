@@ -10,7 +10,7 @@
 #include "../drivers/Device.h"
 #include <util/delay.h>
 
-namespace Integral
+namespace atmicro
 {
 	// default constructor
 	Pinset::Pinset(int size, PIN set[])

@@ -11,7 +11,7 @@
 
 #include "Input.h"
 
-namespace Integral
+namespace atmicro
 {
 	class KeypadMatrix
 	{
@@ -41,8 +41,9 @@ namespace Integral
 		Keypad(PORT port);
 		~Keypad();
 		void initialize();
-		KeypadMatrix isPressed(); //debounced status
-		KeypadMatrix undebouncedStatus(); //state without debouncing
+		KeypadMatrix isPressed();
+		bool isPressed(short x, short y);
+		KeypadMatrix undebouncedStatus();
 		static bool switchPressed(PIN pin);
 	protected:
 	private:

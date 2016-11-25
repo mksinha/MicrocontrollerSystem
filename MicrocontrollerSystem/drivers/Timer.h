@@ -11,7 +11,7 @@
 
 #include "Device.h"
 
-namespace Integral 
+namespace atmicro 
 {
 	class Timer : public Device
 	{

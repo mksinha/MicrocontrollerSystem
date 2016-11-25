@@ -12,7 +12,7 @@
 #include <avr/io.h>
 #include "../controller/registry.h"
 
-namespace Integral 
+namespace atmicro 
 {
 	class Device
 	{

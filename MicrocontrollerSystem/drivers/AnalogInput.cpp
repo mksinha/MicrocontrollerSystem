@@ -10,7 +10,7 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
 
-namespace Integral
+namespace atmicro
 {
 	// default constructor
 	AnalogInput::AnalogInput(ADCchannel pin)

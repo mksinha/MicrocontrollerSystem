@@ -11,7 +11,7 @@
 
 #include "Input.h"
 
-namespace Integral
+namespace atmicro
 {
 	class PushButtonSwitch : public Input
 	{

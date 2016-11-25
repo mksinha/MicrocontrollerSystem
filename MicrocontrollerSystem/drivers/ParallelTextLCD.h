@@ -12,7 +12,7 @@
 #include "Output.h"
 
 
-namespace Integral
+namespace atmicro
 {
 	class ParallelTextLCD : public Output
 	{
@@ -34,9 +34,9 @@ namespace Integral
 		void position(int x, int y);
 		void clear();
 		void cursor(bool visible, bool blink);
-	protected:
-		void command(unsigned char cmd);
 		void character(unsigned char chr);
+		void command(unsigned char cmd);
+	protected:
 		void wait_busy(void);
 		void action_enable(void);
 	private:

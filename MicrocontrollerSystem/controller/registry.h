@@ -11,7 +11,7 @@
 
 // Pin Configuration setup
 
-namespace Integral
+namespace atmicro
 {
 	#define HIGH true
 	#define LOW false

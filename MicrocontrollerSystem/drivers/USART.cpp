@@ -8,7 +8,7 @@
 
 #include "USART.h"
 
-namespace Integral
+namespace atmicro
 {
 	// default constructor
 	USART::USART(unsigned int baud)

@@ -11,7 +11,7 @@
 #include <util/delay.h>
 
 
-namespace Integral
+namespace atmicro
 {
 	// default constructor
 	ParallelTextLCD::ParallelTextLCD(PORT portData, PIN pinRS, PIN pinRW, PIN pinEN)
@@ -75,7 +75,7 @@ namespace Integral
 	void ParallelTextLCD::string(const char* str)
 	{
 		while(*str > 0)
-		character(*str++);
+			character(*str++);
 	}
 
 	void ParallelTextLCD::position(int x, int y)
