@@ -2,7 +2,7 @@
 * State.h
 *
 * Created: 11/25/2016 9:09:06 AM
-* Author: mksin
+* Author: Animesh Sinha
 */
 
 
@@ -16,13 +16,18 @@ class State
 public:
 protected:
 private:
-	char* passcode;
-	
+	int passcode = 0000;
+	short alarmMode, travelMode;
+	bool safe = true;
+	int hardwareID = 1;
 
 //functions
 public:
 	State();
 	~State();
+	bool setPasscode(int oldcode, int newcode);
+	bool checkPasscode(int pass);
+
 protected:
 private:
 	State( const State &c );
