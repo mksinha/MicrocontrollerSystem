@@ -161,8 +161,6 @@ Discarded input sections
                 0x00000000       0x4a drivers/ParallelTextLCD.o
  .text._ZN7atmicro15ParallelTextLCD7integerEiii
                 0x00000000       0x62 drivers/ParallelTextLCD.o
- .text._ZN7atmicro15ParallelTextLCD9characterEiih
-                0x00000000       0x2a drivers/ParallelTextLCD.o
  .group         0x00000000        0x8 drivers/PushButtonSwitch.o
  .text          0x00000000        0x0 drivers/PushButtonSwitch.o
  .data          0x00000000        0x0 drivers/PushButtonSwitch.o
@@ -235,10 +233,6 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text._Z3armR5State
-                0x00000000       0x14 main.o
- .text._Z6menuopRN7atmicro7IstreamER5State
-                0x00000000        0x4 main.o
  .text          0x00000000        0x0 box/State.o
  .data          0x00000000        0x0 box/State.o
  .bss           0x00000000        0x0 box/State.o
@@ -497,7 +491,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1150
+.text           0x00000000     0x13ea
  *(.vectors)
  .vectors       0x00000000       0x54 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -647,110 +641,119 @@ END GROUP
  .text._ZN7atmicro15ParallelTextLCD6stringEiiPKc
                 0x00000740       0x20 drivers/ParallelTextLCD.o
                 0x00000740                _ZN7atmicro15ParallelTextLCD6stringEiiPKc
+ .text._ZN7atmicro15ParallelTextLCD9characterEiih
+                0x00000760       0x2a drivers/ParallelTextLCD.o
+                0x00000760                _ZN7atmicro15ParallelTextLCD9characterEiih
  .text._ZN7atmicro7Istream5clearEv
-                0x00000760       0x1c interface/Istream.o
-                0x00000760                _ZN7atmicro7Istream5clearEv
+                0x0000078a       0x1c interface/Istream.o
+                0x0000078a                _ZN7atmicro7Istream5clearEv
  .text._ZN7atmicro7IstreamC2Ev
-                0x0000077c       0x30 interface/Istream.o
-                0x0000077c                _ZN7atmicro7IstreamC2Ev
-                0x0000077c                _ZN7atmicro7IstreamC1Ev
+                0x000007a6       0x30 interface/Istream.o
+                0x000007a6                _ZN7atmicro7IstreamC2Ev
+                0x000007a6                _ZN7atmicro7IstreamC1Ev
  .text._ZN7atmicro7Istream4pushEc
-                0x000007ac       0x2a interface/Istream.o
-                0x000007ac                _ZN7atmicro7Istream4pushEc
+                0x000007d6       0x2a interface/Istream.o
+                0x000007d6                _ZN7atmicro7Istream4pushEc
  .text._ZN7atmicro7Istream6updateERNS_6KeypadE
-                0x000007d6       0xfc interface/Istream.o
-                0x000007d6                _ZN7atmicro7Istream6updateERNS_6KeypadE
+                0x00000800       0xfc interface/Istream.o
+                0x00000800                _ZN7atmicro7Istream6updateERNS_6KeypadE
+ .text._Z3armR5State
+                0x000008fc       0x18 main.o
+                0x000008fc                _Z3armR5State
  .text._Z6disarmRN7atmicro7IstreamER5State
-                0x000008d2       0x44 main.o
-                0x000008d2                _Z6disarmRN7atmicro7IstreamER5State
+                0x00000914       0x56 main.o
+                0x00000914                _Z6disarmRN7atmicro7IstreamER5State
  .text._Z10changecodeRN7atmicro7IstreamER5State
-                0x00000916       0x6a main.o
-                0x00000916                _Z10changecodeRN7atmicro7IstreamER5State
+                0x0000096a       0x6a main.o
+                0x0000096a                _Z10changecodeRN7atmicro7IstreamER5State
+ .text._Z6menuopRN7atmicro7IstreamER5State
+                0x000009d4       0x38 main.o
+                0x000009d4                _Z6menuopRN7atmicro7IstreamER5State
  .text._Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State
-                0x00000980      0x296 main.o
-                0x00000980                _Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State
+                0x00000a0c      0x49c main.o
+                0x00000a0c                _Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State
  .text.startup.main
-                0x00000c16       0x68 main.o
-                0x00000c16                main
+                0x00000ea8       0x68 main.o
+                0x00000ea8                main
  .text._ZN5State13checkPasscodeEi
-                0x00000c7e       0x14 box/State.o
-                0x00000c7e                _ZN5State13checkPasscodeEi
+                0x00000f10       0x14 box/State.o
+                0x00000f10                _ZN5State13checkPasscodeEi
  .text._ZN5State12saveToMemoryEv
-                0x00000c92       0xac box/State.o
-                0x00000c92                _ZN5State12saveToMemoryEv
+                0x00000f24       0xac box/State.o
+                0x00000f24                _ZN5State12saveToMemoryEv
  .text._ZN5State11setPasscodeEii
-                0x00000d3e       0x1c box/State.o
-                0x00000d3e                _ZN5State11setPasscodeEii
+                0x00000fd0       0x1c box/State.o
+                0x00000fd0                _ZN5State11setPasscodeEii
  .text._ZN5State18retrieveFromMemoryEv
-                0x00000d5a       0x8c box/State.o
-                0x00000d5a                _ZN5State18retrieveFromMemoryEv
+                0x00000fec       0x8c box/State.o
+                0x00000fec                _ZN5State18retrieveFromMemoryEv
  .text._ZN5StateC2Ev
-                0x00000de6       0x5a box/State.o
-                0x00000de6                _ZN5StateC1Ev
-                0x00000de6                _ZN5StateC2Ev
+                0x00001078       0x62 box/State.o
+                0x00001078                _ZN5StateC1Ev
+                0x00001078                _ZN5StateC2Ev
  .text.avr-libc.fplib
-                0x00000e40        0xe c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                0x00000e40                __subsf3
-                0x00000e42                __addsf3
+                0x000010da        0xe c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(addsf3.o)
+                0x000010da                __subsf3
+                0x000010dc                __addsf3
  .text.avr-libc.fplib
-                0x00000e4e       0xcc c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(addsf3x.o)
-                0x00000e70                __addsf3x
+                0x000010e8       0xcc c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(addsf3x.o)
+                0x0000110a                __addsf3x
  .text.avr-libc.fplib
-                0x00000f1a        0xa c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
-                0x00000f1a                __nesf2
-                0x00000f1a                __eqsf2
-                0x00000f1a                __cmpsf2
-                0x00000f1a                __ltsf2
-                0x00000f1a                __lesf2
+                0x000011b4        0xa c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
+                0x000011b4                __nesf2
+                0x000011b4                __eqsf2
+                0x000011b4                __cmpsf2
+                0x000011b4                __ltsf2
+                0x000011b4                __lesf2
  .text.avr-libc.fplib
-                0x00000f24        0x8 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(divsf3.o)
-                0x00000f24                __divsf3
+                0x000011be        0x8 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(divsf3.o)
+                0x000011be                __divsf3
  .text.avr-libc.fplib
-                0x00000f2c       0xdc c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(divsf3x.o)
-                0x00000f4c                __divsf3x
-                0x00000f52                __divsf3_pse
+                0x000011c6       0xdc c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(divsf3x.o)
+                0x000011e6                __divsf3x
+                0x000011ec                __divsf3_pse
  .text.avr-libc.fplib
-                0x00001008       0x48 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
-                0x00001008                __fp_cmp
+                0x000012a2       0x48 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
+                0x000012a2                __fp_cmp
  .text.avr-libc.fplib
-                0x00001050        0xc c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_inf.o)
-                0x00001050                __fp_inf
+                0x000012ea        0xc c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+                0x000012ea                __fp_inf
  .text.avr-libc.fplib
-                0x0000105c        0x6 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_nan.o)
-                0x0000105c                __fp_nan
+                0x000012f6        0x6 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+                0x000012f6                __fp_nan
  .text.avr-libc.fplib
-                0x00001062        0xe c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
-                0x00001062                __fp_pscA
+                0x000012fc        0xe c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+                0x000012fc                __fp_pscA
  .text.avr-libc.fplib
-                0x00001070        0xe c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
-                0x00001070                __fp_pscB
+                0x0000130a        0xe c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+                0x0000130a                __fp_pscB
  .text.avr-libc.fplib
-                0x0000107e       0x22 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_round.o)
-                0x0000107e                __fp_round
+                0x00001318       0x22 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_round.o)
+                0x00001318                __fp_round
  .text.avr-libc.fplib
-                0x000010a0       0x44 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_split3.o)
-                0x000010a0                __fp_split3
-                0x000010b0                __fp_splitA
+                0x0000133a       0x44 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+                0x0000133a                __fp_split3
+                0x0000134a                __fp_splitA
  .text.avr-libc.fplib
-                0x000010e4        0xe c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_zero.o)
-                0x000010e4                __fp_zero
-                0x000010e6                __fp_szero
+                0x0000137e        0xe c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+                0x0000137e                __fp_zero
+                0x00001380                __fp_szero
  .text.avr-libc.fplib
-                0x000010f2        0xa c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(gesf2.o)
-                0x000010f2                __gesf2
-                0x000010f2                __gtsf2
+                0x0000138c        0xa c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(gesf2.o)
+                0x0000138c                __gesf2
+                0x0000138c                __gtsf2
  .text.libgcc.div
-                0x000010fc       0x28 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
-                0x000010fc                _div
-                0x000010fc                __divmodhi4
+                0x00001396       0x28 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
+                0x00001396                _div
+                0x00001396                __divmodhi4
  .text.libgcc.div
-                0x00001124       0x28 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
-                0x00001124                __udivmodhi4
-                0x0000114c                . = ALIGN (0x2)
+                0x000013be       0x28 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
+                0x000013be                __udivmodhi4
+                0x000013e6                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000114c        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x0000114c                _exit
-                0x0000114c                exit
+ .fini9         0x000013e6        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x000013e6                _exit
+                0x000013e6                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -769,11 +772,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000114c        0x4 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x000013e6        0x4 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001150                _etext = .
+                0x000013ea                _etext = .
 
-.data           0x00800060      0x11c load address 0x00001150
+.data           0x00800060      0x288 load address 0x000013ea
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -788,29 +791,29 @@ END GROUP
                 0x0080007e        0x6 drivers/ParallelTextLCD.o
                 0x0080007e                _ZTVN7atmicro15ParallelTextLCDE
  .rodata.str1.1
-                0x00800084       0xf7 main.o
-                                 0xf9 (size before relaxing)
+                0x00800084      0x263 main.o
+                                0x265 (size before relaxing)
  *(.gnu.linkonce.d*)
-                0x0080017c                . = ALIGN (0x2)
- *fill*         0x0080017b        0x1 
-                0x0080017c                _edata = .
-                0x0080017c                PROVIDE (__data_end, .)
+                0x008002e8                . = ALIGN (0x2)
+ *fill*         0x008002e7        0x1 
+                0x008002e8                _edata = .
+                0x008002e8                PROVIDE (__data_end, .)
 
-.bss            0x0080017c        0x0
-                0x0080017c                PROVIDE (__bss_start, .)
+.bss            0x008002e8        0x0
+                0x008002e8                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
-                0x0080017c                PROVIDE (__bss_end, .)
-                0x00001150                __data_load_start = LOADADDR (.data)
-                0x0000126c                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008002e8                PROVIDE (__bss_end, .)
+                0x000013ea                __data_load_start = LOADADDR (.data)
+                0x00001672                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080017c        0x0
-                0x0080017c                PROVIDE (__noinit_start, .)
+.noinit         0x008002e8        0x0
+                0x008002e8                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080017c                PROVIDE (__noinit_end, .)
-                0x0080017c                _end = .
-                0x0080017c                PROVIDE (__heap_start, .)
+                0x008002e8                PROVIDE (__noinit_end, .)
+                0x008002e8                _end = .
+                0x008002e8                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)

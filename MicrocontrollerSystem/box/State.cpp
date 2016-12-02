@@ -19,6 +19,9 @@ State::State()
 	{
 		armstate = false;
 		safe = true;
+		alarmMode = ON;
+		travelMode = TRAIN;
+		saveToMemory();
 	}
 } //State
 

@@ -19,12 +19,13 @@
 
 class State
 {
-enum AlarmMode {
-		OFF, LOCAL, ON
-	};
-enum TravelMode {
-		TRAIN, BUS, AIRPLANE, TAXI, WALK, STATION
-	};
+public:
+	enum AlarmMode {
+			OFF, ON, LOCAL
+		};
+	enum TravelMode {
+			TRAIN, BUS, AIRPLANE, TAXI, WALK, STATION
+		};
 
 //variables
 public:
