@@ -12,18 +12,26 @@
 #include "../atmicro.h"
 #include "actions.h"
 
-void parse(Istream& input, ParallelTextLCD& lcd)
+void parse(Istream& input, ParallelTextLCD& lcd, State& state)
 {
 	if (input.length == 0)
 	{
-		lcd.string(0, 0, "Safe :D!        ");
-		lcd.string(0, 1, "                ");
+		if(state.armstate == true)
+		{
+			lcd.string(0, 0, "Safe :)         ");
+			lcd.string(0, 1, "                ");
+		}
+		else
+		{
+			lcd.string(0, 0, "Disarmed!       ");
+			lcd.string(0, 1, "                ");
+		}
 	}
 	// Action A - Arm Device
 	else if (input.stream[0] == 'A')
 	{
 		lcd.clear();
-		if (arm())
+		if (arm(state))
 			lcd.string(0, 0, "Armed Device    ");
 		else
 			lcd.string(0, 0, "Error in Arming!");
@@ -36,10 +44,10 @@ void parse(Istream& input, ParallelTextLCD& lcd)
 	{
 		lcd.string(0, 0, "Pass code: ");
 		for (int i = 1; i < input.length; i++)
-			lcd.string(i + 11, 0, "*");
+			lcd.string(i + 10, 0, "*");
 		if (input.length >= 5)
 		{
-			if(disarm(input))
+			if(disarm(input, state))
 				lcd.string(0, 1, "Disarmed device ");
 			else
 				lcd.string(0, 1, "Failed to disarm");
@@ -67,7 +75,7 @@ void parse(Istream& input, ParallelTextLCD& lcd)
 		else
 		{
 			lcd.clear();
-			if(changecode(input))
+			if(changecode(input, state))
 				lcd.string(0, 0, "Changed PassCode");
 			else
 				lcd.string(0, 0, "Failed to Change");
@@ -82,7 +90,7 @@ void parse(Istream& input, ParallelTextLCD& lcd)
 		lcd.string(0, 0, "Menu Choice: ");
 		if (input.length >= 2)
 		{
-			menuop(input);
+			menuop(input, state);
 			lcd.string(14, 0, &input.stream[1]);
 			lcd.string(0, 1, "Unavailable Now!");
 			input.clear();

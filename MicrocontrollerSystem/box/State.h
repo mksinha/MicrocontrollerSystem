@@ -9,6 +9,13 @@
 #ifndef __STATE_H__
 #define __STATE_H__
 
+#include "../atmicro.h"
+
+#define BASEADDRESS_ARMSTATE	0x01
+#define BASEADDRESS_SAFETY		0x02
+#define BASEADDRESS_PASSWORD	0x03
+#define BASEADDRESS_TRAVELMODE	0x05
+#define BASEADDRESS_ALARMMODE	0x06
 
 class State
 {
@@ -21,13 +28,15 @@ enum TravelMode {
 
 //variables
 public:
+	bool safe = true;
+	bool armstate = false;
+	AlarmMode alarmMode;
+	TravelMode travelMode;
 protected:
 private:
 	int passcode = 0000;
-	AlarmMode alarmMode;
-	TravelMode travelMode;
-	bool safe = true;
 	int hardwareID = 0x000000FF;
+	EEPROM memory;
 
 //functions
 public:
@@ -35,6 +44,8 @@ public:
 	~State();
 	bool setPasscode(int oldcode, int newcode);
 	bool checkPasscode(int pass);
+	void saveToMemory();
+	void retrieveFromMemory();
 
 protected:
 private:

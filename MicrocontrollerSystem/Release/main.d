@@ -14,7 +14,7 @@ main.d main.o: .././main.cpp .././atmicro.h .././drivers/AnalogInput.h \
  .././drivers/../controller/registry.h .././drivers/DigitalOutput.h \
  .././drivers/Output.h .././drivers/Keypad.h \
  .././drivers/ParallelTextLCD.h .././drivers/PushButtonSwitch.h \
- .././drivers/USART.h .././drivers/Communication.h \
+ .././drivers/USART.h .././drivers/Communication.h .././drivers/EEPROM.h \
  .././interface/Istream.h .././interface/../drivers/Keypad.h \
  .././controller/Microcontroller.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
@@ -68,6 +68,8 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 .././drivers/USART.h:
 
 .././drivers/Communication.h:
+
+.././drivers/EEPROM.h:
 
 .././interface/Istream.h:
 

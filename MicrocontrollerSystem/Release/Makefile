@@ -46,6 +46,7 @@ C_SRCS +=  \
 ../drivers/AnalogInput.cpp \
 ../drivers/Communication.cpp \
 ../drivers/Device.cpp \
+../drivers/EEPROM.cpp \
 ../drivers/Input.cpp \
 ../drivers/DigitalOutput.cpp \
 ../drivers/Keypad.cpp \
@@ -72,6 +73,7 @@ controller/Pinset.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
+drivers/EEPROM.o \
 drivers/Input.o \
 drivers/DigitalOutput.o \
 drivers/Keypad.o \
@@ -91,6 +93,7 @@ controller/Pinset.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
+drivers/EEPROM.o \
 drivers/Input.o \
 drivers/DigitalOutput.o \
 drivers/Keypad.o \
@@ -110,6 +113,7 @@ controller/Pinset.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
+drivers/EEPROM.d \
 drivers/Input.d \
 drivers/DigitalOutput.d \
 drivers/Keypad.d \
@@ -129,6 +133,7 @@ controller/Pinset.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
+drivers/EEPROM.d \
 drivers/Input.d \
 drivers/DigitalOutput.d \
 drivers/Keypad.d \
@@ -156,6 +161,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

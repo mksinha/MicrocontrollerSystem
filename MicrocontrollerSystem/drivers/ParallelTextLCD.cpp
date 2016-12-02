@@ -50,19 +50,17 @@ namespace atmicro
 		_delay_us(50);
 	}
 
-	void ParallelTextLCD::integer(int x, int y, int num, int digits)
+	void ParallelTextLCD::integer(int x, int y, int num)
 	{
-		char str[digits];
+		char str[20];
 		itoa(num, str, 10);
-		for (int i = 0; i < digits; i++) string(" ");
 		string(x, y, str);
 	}
 
-	void ParallelTextLCD::integer(int num, int digits)
+	void ParallelTextLCD::integer(int num)
 	{
-		char str[digits];
+		char str[20];
 		itoa(num, str, 10);
-		for (int i = 0; i < digits; i++) string(" ");
 		string(str);
 	}
 
@@ -118,6 +116,12 @@ namespace atmicro
 		setStatus(pinRS, HIGH);
 		action_enable();
 		setStatus(dataPort, 0x00);
+	}
+	
+	void ParallelTextLCD::character(int x, int y, unsigned char chr)
+	{
+		position(x, y);
+		character(chr);
 	}
 
 	void ParallelTextLCD::wait_busy(void)

@@ -11,22 +11,36 @@
 
 #include "State.h"
 
-State state;
-
-bool arm()
-{	
-	return false;
+bool arm(State& state)
+{
+	if (state.armstate == false)
+	{
+		state.armstate = true;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-bool disarm(Istream& args)
+bool disarm(Istream& args, State& state)
 {
 	int passcode = 0;
 	for (int i = 1; i < 5; i++)
 		passcode = passcode*10 + (int)args.stream[i]-48;
-	return state.checkPasscode(passcode);
+	if(state.checkPasscode(passcode) && state.armstate == true)
+	{
+		state.armstate = false;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
-bool changecode(Istream& args)
+bool changecode(Istream& args, State& state)
 {
 	int oldcode = 0, newcode = 0;
 	for (int i = 1; i <= 4; i++)
@@ -36,7 +50,7 @@ bool changecode(Istream& args)
 	return state.setPasscode(oldcode, newcode);
 }
 
-bool menuop(Istream& args)
+bool menuop(Istream& args, State& state)
 {
 	return false;
 }

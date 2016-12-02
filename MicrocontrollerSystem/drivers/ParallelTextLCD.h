@@ -27,14 +27,15 @@ namespace atmicro
 		ParallelTextLCD(PORT portData, PIN pinRS, PIN pinRW, PIN pinEN);
 		~ParallelTextLCD();
 		void initialize();
-		void integer(int x, int y, int num, int digits);
-		void integer(int num, int digits);
+		void integer(int x, int y, int num);
+		void integer(int num);
 		void string(int x, int y, const char* str);
 		void string(const char* str);
 		void position(int x, int y);
 		void clear();
 		void cursor(bool visible, bool blink);
 		void character(unsigned char chr);
+		void character(int x, int y, unsigned char chr);
 		void command(unsigned char cmd);
 	protected:
 		void wait_busy(void);

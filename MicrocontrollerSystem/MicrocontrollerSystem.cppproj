@@ -188,6 +188,12 @@
     <Compile Include="drivers\Device.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="drivers\EEPROM.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\EEPROM.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\Input.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -269,6 +275,11 @@
     <Folder Include="controller" />
     <Folder Include="interface" />
     <Folder Include="box" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MicrocontrollerSystem.componentinfo.xml">
+      <SubType>compile</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

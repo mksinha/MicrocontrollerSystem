@@ -12,6 +12,8 @@ drivers\Communication.cpp
 
 drivers\Device.cpp
 
+drivers\EEPROM.cpp
+
 drivers\Input.cpp
 
 drivers\DigitalOutput.cpp
