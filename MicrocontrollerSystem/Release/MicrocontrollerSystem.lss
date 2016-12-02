@@ -7,7 +7,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .data         000000fa  00800060  00000f9e  00001032  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000009  0080015a  0080015a  0000112c  2**0
+  2 .bss          00000007  0080015a  0080015a  0000112c  2**0
                   ALLOC
   3 .comment      00000030  00000000  00000000  0000112c  2**0
                   CONTENTS, READONLY
@@ -76,7 +76,7 @@ Disassembly of section .text:
   82:	1d 92       	st	X+, r1
 
 00000084 <.do_clear_bss_start>:
-  84:	a3 36       	cpi	r26, 0x63	; 99
+  84:	a1 36       	cpi	r26, 0x61	; 97
   86:	b2 07       	cpc	r27, r18
   88:	e1 f7       	brne	.-8      	; 0x82 <.do_clear_bss_loop>
 
@@ -1504,7 +1504,7 @@ Disassembly of section .text:
  bd4:	de bf       	out	0x3e, r29	; 62
  bd6:	0f be       	out	0x3f, r0	; 63
  bd8:	cd bf       	out	0x3d, r28	; 61
- bda:	60 e0       	ldi	r22, 0x00	; 0
+ bda:	60 e1       	ldi	r22, 0x10	; 16
  bdc:	ce 01       	movw	r24, r28
  bde:	8e 96       	adiw	r24, 0x2e	; 46
  be0:	0e 94 d9 01 	call	0x3b2	; 0x3b2 <_ZN7atmicro6KeypadC1ENS_4PORTE>
@@ -1548,11 +1548,11 @@ Disassembly of section .text:
  c2e:	11 82       	std	Z+1, r1	; 0x01
  c30:	10 82       	st	Z, r1
  c32:	81 e0       	ldi	r24, 0x01	; 1
- c34:	86 83       	std	Z+6, r24	; 0x06
- c36:	81 e0       	ldi	r24, 0x01	; 1
+ c34:	84 83       	std	Z+4, r24	; 0x04
+ c36:	8f ef       	ldi	r24, 0xFF	; 255
  c38:	90 e0       	ldi	r25, 0x00	; 0
- c3a:	90 87       	std	Z+8, r25	; 0x08
- c3c:	87 83       	std	Z+7, r24	; 0x07
+ c3a:	96 83       	std	Z+6, r25	; 0x06
+ c3c:	85 83       	std	Z+5, r24	; 0x05
  c3e:	08 95       	ret
 
 00000c40 <_ZN5StateD1Ev>:

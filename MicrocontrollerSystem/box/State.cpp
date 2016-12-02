@@ -7,7 +7,6 @@
 
 
 #include "State.h"
-#include <string.h>
 
 // default constructor
 State::State()

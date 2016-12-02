@@ -12,14 +12,22 @@
 
 class State
 {
+enum AlarmMode {
+		OFF, LOCAL, ON
+	};
+enum TravelMode {
+		TRAIN, BUS, AIRPLANE, TAXI, WALK, STATION
+	};
+
 //variables
 public:
 protected:
 private:
 	int passcode = 0000;
-	short alarmMode, travelMode;
+	AlarmMode alarmMode;
+	TravelMode travelMode;
 	bool safe = true;
-	int hardwareID = 1;
+	int hardwareID = 0x000000FF;
 
 //functions
 public:
