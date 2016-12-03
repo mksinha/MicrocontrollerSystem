@@ -29,14 +29,14 @@ public:
 
 //variables
 public:
-	bool safe = true;
-	bool armstate = false;
+	bool safe;
+	bool armstate;
 	AlarmMode alarmMode;
 	TravelMode travelMode;
 protected:
 private:
-	int passcode = 0000;
-	int hardwareID = 0x000000FF;
+	int passcode;
+	int hardwareID;
 	EEPROM memory;
 
 //functions

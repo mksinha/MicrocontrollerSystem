@@ -170,6 +170,12 @@
     <Compile Include="controller\registry.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="drivers\Accelerometer.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\Accelerometer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\AnalogInput.cpp">
       <SubType>compile</SubType>
     </Compile>

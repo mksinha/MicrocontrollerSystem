@@ -6,6 +6,8 @@ controller\Microcontroller.cpp
 
 controller\Pinset.cpp
 
+drivers\Accelerometer.cpp
+
 drivers\AnalogInput.cpp
 
 drivers\Communication.cpp

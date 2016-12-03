@@ -17,8 +17,16 @@ namespace atmicro
 	{
 		this->pin = pin;
 		this->value = 0;
-		this->globablInit();
+		globablInit();
 	} //AnalogInput
+
+	AnalogInput::AnalogInput(ADCchannel pin, void (*func)(int, ADCchannel))
+	{
+		this->pin = pin;
+		this->value = 0;
+		globablInit();
+		setCallback(func);
+	}
 
 	// default destructor
 	AnalogInput::~AnalogInput()
@@ -29,11 +37,6 @@ namespace atmicro
 			stopConversion();
 		}
 	} //~AnalogInput
-
-	ADCchannel AnalogInput::getChannel()
-	{
-		return pin;
-	}
 
 	bool AnalogInput::isLive()
 	{
@@ -57,10 +60,18 @@ namespace atmicro
 		ADMUX |= pin;
 	}
 
-	void AnalogInput::readValue()
+	int AnalogInput::readValue()
 	{
-		uint16_t value8bit = ADCL;
-		this->value = (ADCH << 8) | value8bit;
+		if (this->isLive())
+		{
+			uint16_t value8bit = ADCL;
+			this->value = (ADCH << 8) | value8bit;
+			return this->value;
+		}
+		else
+		{
+			return this->value;
+		}
 	}
 
 	void AnalogInput::startConversion()

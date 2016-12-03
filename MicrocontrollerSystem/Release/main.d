@@ -15,13 +15,15 @@ main.d main.o: .././main.cpp .././atmicro.h .././drivers/AnalogInput.h \
  .././drivers/Output.h .././drivers/Keypad.h \
  .././drivers/ParallelTextLCD.h .././drivers/PushButtonSwitch.h \
  .././drivers/USART.h .././drivers/Communication.h .././drivers/EEPROM.h \
+ .././drivers/Accelerometer.h .././drivers/AnalogInput.h \
  .././interface/Istream.h .././interface/../drivers/Keypad.h \
  .././controller/Microcontroller.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././box/parse.h .././box/../atmicro.h .././box/actions.h \
- .././box/State.h
+ .././box/State.h \
+ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h
 
 .././atmicro.h:
 
@@ -71,6 +73,10 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 .././drivers/EEPROM.h:
 
+.././drivers/Accelerometer.h:
+
+.././drivers/AnalogInput.h:
+
 .././interface/Istream.h:
 
 .././interface/../drivers/Keypad.h:
@@ -90,3 +96,5 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 .././box/actions.h:
 
 .././box/State.h:
+
+c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:

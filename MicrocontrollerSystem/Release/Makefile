@@ -43,6 +43,7 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../controller/Microcontroller.cpp \
 ../controller/Pinset.cpp \
+../drivers/Accelerometer.cpp \
 ../drivers/AnalogInput.cpp \
 ../drivers/Communication.cpp \
 ../drivers/Device.cpp \
@@ -70,6 +71,7 @@ ASM_SRCS +=
 OBJS +=  \
 controller/Microcontroller.o \
 controller/Pinset.o \
+drivers/Accelerometer.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
@@ -90,6 +92,7 @@ box/State.o
 OBJS_AS_ARGS +=  \
 controller/Microcontroller.o \
 controller/Pinset.o \
+drivers/Accelerometer.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
@@ -110,6 +113,7 @@ box/State.o
 C_DEPS +=  \
 controller/Microcontroller.d \
 controller/Pinset.d \
+drivers/Accelerometer.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
@@ -130,6 +134,7 @@ box/State.d
 C_DEPS_AS_ARGS +=  \
 controller/Microcontroller.d \
 controller/Pinset.d \
+drivers/Accelerometer.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
@@ -161,6 +166,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

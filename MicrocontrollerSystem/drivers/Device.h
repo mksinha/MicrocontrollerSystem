@@ -24,6 +24,7 @@ namespace atmicro
 		static bool getStatus(PIN pin);
 		static void setStatus(PORT port, int state);
 		static void setDirection(PORT port, int state);
+	protected:
 		// TODO: Make depreciated format functions private
 		static void setStatus(PORT port, POSITION pin, bool state);
 		static void setDirection(PORT port, POSITION pin, bool state);
