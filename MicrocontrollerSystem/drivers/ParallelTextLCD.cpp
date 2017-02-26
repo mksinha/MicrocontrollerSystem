@@ -50,19 +50,17 @@ namespace atmicro
 		_delay_us(50);
 	}
 
-	void ParallelTextLCD::integer(int x, int y, int num, int digits)
+	void ParallelTextLCD::integer(int x, int y, int num)
 	{
-		char str[digits];
+		char str[16];
 		itoa(num, str, 10);
-		for (int i = 0; i < digits; i++) string(" ");
 		string(x, y, str);
 	}
 
-	void ParallelTextLCD::integer(int num, int digits)
+	void ParallelTextLCD::integer(int num)
 	{
-		char str[digits];
+		char* str;
 		itoa(num, str, 10);
-		for (int i = 0; i < digits; i++) string(" ");
 		string(str);
 	}
 

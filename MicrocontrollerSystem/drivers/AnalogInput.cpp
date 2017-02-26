@@ -20,6 +20,14 @@ namespace atmicro
 		this->globablInit();
 	} //AnalogInput
 
+	AnalogInput::AnalogInput(ADCchannel pin, void (*func)(AnalogInput))
+	{
+		this->pin = pin;
+		this->value = 0;
+		this->globablInit();
+		this->setEventListener(func);
+	}
+
 	// default destructor
 	AnalogInput::~AnalogInput()
 	{
@@ -29,11 +37,6 @@ namespace atmicro
 			stopConversion();
 		}
 	} //~AnalogInput
-
-	ADCchannel AnalogInput::getChannel()
-	{
-		return pin;
-	}
 
 	bool AnalogInput::isLive()
 	{
@@ -74,7 +77,7 @@ namespace atmicro
 		ADCSRA &= ~(1 << ADSC);
 	}
 
-	void AnalogInput::setCallback(void (*func)(int, ADCchannel))
+	void AnalogInput::setEventListener(void (*func)(AnalogInput))
 	{
 		callback = func;
 	}
@@ -82,6 +85,6 @@ namespace atmicro
 	void AnalogInput::process()
 	{
 		readValue();
-		callback(value, pin);
+		callback(*this);
 	}
 }

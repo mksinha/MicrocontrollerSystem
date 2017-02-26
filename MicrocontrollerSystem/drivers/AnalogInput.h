@@ -28,13 +28,14 @@ namespace atmicro
 	//variables
 	public:
 		uint16_t value;
-	protected:
 		ADCchannel pin;
-		void (*callback)(int value, ADCchannel channel);
+	protected:
+		void (*callback)(AnalogInput e);
 
 	//functions
 	public:
 		AnalogInput(ADCchannel pin);
+		AnalogInput(ADCchannel pin, void (*func)(AnalogInput));
 		~AnalogInput();
 		static void globablInit(ADCconfig::VREF vref = ADCconfig::IREF, ADCconfig::ADPS adps = ADCconfig::PS16);
 		void initialize();
@@ -43,11 +44,8 @@ namespace atmicro
 		void readValue();
 		void startConversion();
 		void stopConversion();
-		void setCallback(void (*func)(int, ADCchannel));
+		void setEventListener(void (*func)(AnalogInput));
 		void process();
-	private:
-		AnalogInput( const AnalogInput &c );
-		AnalogInput& operator=( const AnalogInput &c );
 	}; //AnalogInput
 }
 

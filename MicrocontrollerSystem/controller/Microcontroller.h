@@ -18,7 +18,7 @@ namespace atmicro
 	public:
 	protected:
 	private:
-
+		
 	//functions
 	public:
 		Microcontroller();

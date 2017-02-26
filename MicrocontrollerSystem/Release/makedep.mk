@@ -26,8 +26,6 @@ drivers\PushButtonSwitch.cpp
 
 drivers\Storage.cpp
 
-drivers\Timer.cpp
-
 drivers\USART.cpp
 
 interface\Istream.cpp

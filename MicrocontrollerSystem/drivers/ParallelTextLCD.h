@@ -27,8 +27,8 @@ namespace atmicro
 		ParallelTextLCD(PORT portData, PIN pinRS, PIN pinRW, PIN pinEN);
 		~ParallelTextLCD();
 		void initialize();
-		void integer(int x, int y, int num, int digits);
-		void integer(int num, int digits);
+		void integer(int x, int y, int num);
+		void integer(int num);
 		void string(int x, int y, const char* str);
 		void string(const char* str);
 		void position(int x, int y);
@@ -39,9 +39,6 @@ namespace atmicro
 	protected:
 		void wait_busy(void);
 		void action_enable(void);
-	private:
-		ParallelTextLCD( const ParallelTextLCD &c );
-		ParallelTextLCD& operator=( const ParallelTextLCD &c );
 	}; //TextLCD
 }
 
