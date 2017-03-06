@@ -14,15 +14,15 @@ main.d main.o: .././main.cpp .././atmicro.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././drivers/AnalogInput.h .././drivers/Input.h .././drivers/Device.h \
- .././drivers/../controller/registry.h .././drivers/DigitalOutput.h \
- .././drivers/Output.h .././drivers/Keypad.h \
+ .././drivers/../controller/registry.h \
+ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
+ .././drivers/DigitalOutput.h .././drivers/Output.h .././drivers/Keypad.h \
  .././drivers/ParallelTextLCD.h .././drivers/PushButtonSwitch.h \
  .././drivers/USART.h .././drivers/Communication.h \
- .././interface/Istream.h .././interface/../drivers/Keypad.h \
- .././controller/Microcontroller.h .././controller/adc.h \
+ .././controller/Istream.h .././controller/../drivers/Keypad.h \
+ .././controller/adc.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- .././controller/vault.h \
- c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h
+ .././controller/vault.h
 
 .././atmicro.h:
 
@@ -62,6 +62,8 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 .././drivers/../controller/registry.h:
 
+c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
+
 .././drivers/DigitalOutput.h:
 
 .././drivers/Output.h:
@@ -76,16 +78,12 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 .././drivers/Communication.h:
 
-.././interface/Istream.h:
+.././controller/Istream.h:
 
-.././interface/../drivers/Keypad.h:
-
-.././controller/Microcontroller.h:
+.././controller/../drivers/Keypad.h:
 
 .././controller/adc.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
 .././controller/vault.h:
-
-c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:

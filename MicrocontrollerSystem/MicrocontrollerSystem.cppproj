@@ -160,10 +160,10 @@
     <Compile Include="controller\adc.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="controller\Microcontroller.cpp">
+    <Compile Include="controller\Istream.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="controller\Microcontroller.h">
+    <Compile Include="controller\Istream.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="controller\Pinset.cpp">
@@ -244,12 +244,6 @@
     <Compile Include="drivers\USART.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="interface\Istream.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="interface\Istream.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -269,8 +263,12 @@
   <ItemGroup>
     <Folder Include="drivers" />
     <Folder Include="controller" />
-    <Folder Include="interface" />
     <Folder Include="remote" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassStructure.xml">
+      <SubType>compile</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

@@ -11,6 +11,9 @@
 
 #define F_CPU 1000000L
 
+#define __OPTION_ADMUX true
+#define __OPTION_VAULT true
+
 #include <avr/io.h>
 #include <util/delay.h>
 #include <math.h>
@@ -20,8 +23,7 @@
 #include "drivers/ParallelTextLCD.h"
 #include "drivers/PushButtonSwitch.h"
 #include "drivers/USART.h"
-#include "interface/Istream.h"
-#include "controller/Microcontroller.h"
+#include "controller/Istream.h"
 #include "controller/adc.h"
 #include "controller/vault.h"
 

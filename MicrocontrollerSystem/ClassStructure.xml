@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<namespace id="atmicro">
+	<module id="drivers">
+		<class id="Device" type="interface">
+			<class id="Input" type="abstract">
+				<class id="Keypad" type="real">
+					<function id="initialize" />
+					<function id="isPressed" />
+					<function id="isPressed" />
+					<function id="undeboucedStatus" />
+				</class>
+				<class id="PushButtonSwitch" type="real">
+					<function id="initialize" />
+					<function id="isPressed" />
+					<function id="undeboucedStatus" />
+				</class>
+				<class id="AnalogInput" type="real">
+					<function id="initialize" />
+					<function id="islive" />
+					<function id="startConversion" />
+					<function id="stopConversion" />
+					<function id="process" />
+					<function id="gInit" />
+					<function id="setEventListener" />
+				</class>
+			</class>
+			<class id="Output" type="abstract">
+				<class id="ParallelTextLCD" type="real">
+					<function id="initialize" />
+					<function id="print" />
+					<function id="print" />
+					<function id="print" />
+					<function id="print" />
+					<function id="cursor" />
+					<function id="cursor" />
+					<function id="clear" />
+				</class>
+				<class id="DigitalOutput" type="real">
+					<function id="initialize" />
+					<function id="on" />
+					<function id="off" />
+					<function id="toggle" />
+				</class>
+			</class>
+			<class id="Communication" type="abstract">
+				<class id="USART" type="real">
+					<function id="initialize" />
+					<function id="transmit" />
+					<function id="recieve" />
+				</class>
+			</class>
+			<class id="Storage" type="abstract">
+				<class id="EEPROM" type="real">
+					<function id="initialize" />
+					<function id="store" />
+					<function id="retrieve" />
+				</class>
+			</class>
+		</class>
+	</module>
+	<module id="controller">
+		<file id="adc" option="__OPTION_ADMUX">
+			<function id="startADC" />
+			<function id="stopADC" />
+			<function id="registerADC" />
+			<function id="clearADClist" />
+		</file>
+		<file id="vault" option="__OPTION_VAULT">
+			<function id="registerDevice" />
+			<function id="getDevice" />
+		</file>
+		<class id="Istream">
+			<function id="update" />
+			<function id="push" />
+			<function id="clear" />
+		</class>
+		<class id="Pinset">
+			<function id="getData" />
+			<function id="putData" />
+		</class>
+	</module>
+</namespace>

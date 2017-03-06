@@ -33,8 +33,6 @@ namespace atmicro
 	public:
 		PORT port;
 		KeypadMatrix status;
-	protected:
-	private:
 
 	//functions
 	public:
@@ -44,9 +42,8 @@ namespace atmicro
 		KeypadMatrix isPressed();
 		bool isPressed(short x, short y);
 		KeypadMatrix undebouncedStatus();
-		static bool switchPressed(PIN pin);
-	protected:
 	private:
+		static bool switchPressed(PIN pin);
 	}; //Keypad
 }
 

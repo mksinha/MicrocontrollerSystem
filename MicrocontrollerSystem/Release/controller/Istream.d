@@ -1,6 +1,6 @@
-interface/Istream.d interface/Istream.o: ../interface/Istream.cpp \
- ../interface/Istream.h ../interface/../drivers/Keypad.h \
- ../interface/../drivers/Input.h ../interface/../drivers/Device.h \
+controller/Istream.d controller/Istream.o: ../controller/Istream.cpp \
+ ../controller/Istream.h ../controller/../drivers/Keypad.h \
+ ../controller/../drivers/Input.h ../controller/../drivers/Device.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -12,17 +12,17 @@ interface/Istream.d interface/Istream.o: ../interface/Istream.cpp \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../interface/../drivers/../controller/registry.h \
+ ../controller/../drivers/../controller/registry.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h
 
-../interface/Istream.h:
+../controller/Istream.h:
 
-../interface/../drivers/Keypad.h:
+../controller/../drivers/Keypad.h:
 
-../interface/../drivers/Input.h:
+../controller/../drivers/Input.h:
 
-../interface/../drivers/Device.h:
+../controller/../drivers/Device.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -46,7 +46,7 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-../interface/../drivers/../controller/registry.h:
+../controller/../drivers/../controller/registry.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 

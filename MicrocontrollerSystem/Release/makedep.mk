@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-controller\Microcontroller.cpp
+controller\Istream.cpp
 
 controller\Pinset.cpp
 
@@ -27,8 +27,6 @@ drivers\PushButtonSwitch.cpp
 drivers\Storage.cpp
 
 drivers\USART.cpp
-
-interface\Istream.cpp
 
 main.cpp
 

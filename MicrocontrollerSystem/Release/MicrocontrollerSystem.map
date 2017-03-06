@@ -29,11 +29,11 @@ c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/g
 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(gesf2.o)
                               drivers/Keypad.o (__gesf2)
 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
-                              interface/Istream.o (__divmodhi4)
+                              controller/Istream.o (__divmodhi4)
 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
                               C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
-                              drivers/AnalogInput.o (__do_copy_data)
+                              controller/Istream.o (__do_copy_data)
 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_clear_bss.o)
                               main.o (__do_clear_bss)
 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
@@ -49,14 +49,21 @@ Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32/avr5/crtatmega32.o
  .bss           0x00000000        0x0 C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32/avr5/crtatmega32.o
- .text          0x00000000        0x0 controller/Microcontroller.o
- .data          0x00000000        0x0 controller/Microcontroller.o
- .bss           0x00000000        0x0 controller/Microcontroller.o
- .text._ZN7atmicro15MicrocontrollerC2Ev
-                0x00000000        0x2 controller/Microcontroller.o
- .text._ZN7atmicro15MicrocontrollerD2Ev
-                0x00000000        0x2 controller/Microcontroller.o
- .comment       0x00000000       0x31 controller/Microcontroller.o
+ .text          0x00000000        0x0 controller/Istream.o
+ .data          0x00000000        0x0 controller/Istream.o
+ .bss           0x00000000        0x0 controller/Istream.o
+ .text._ZN7atmicro7IstreamD2Ev
+                0x00000000        0x2 controller/Istream.o
+ .text._ZN7atmicro7Istream5clearEv
+                0x00000000       0x1c controller/Istream.o
+ .rodata        0x00000000       0x10 controller/Istream.o
+ .text._ZN7atmicro7IstreamC2Ev
+                0x00000000       0x30 controller/Istream.o
+ .text._ZN7atmicro7Istream4pushEc
+                0x00000000       0x2a controller/Istream.o
+ .text._ZN7atmicro7Istream6updateERNS_6KeypadE
+                0x00000000       0xfc controller/Istream.o
+ .comment       0x00000000       0x31 controller/Istream.o
  .text          0x00000000        0x0 controller/Pinset.o
  .data          0x00000000        0x0 controller/Pinset.o
  .bss           0x00000000        0x0 controller/Pinset.o
@@ -73,8 +80,12 @@ Discarded input sections
  .text          0x00000000        0x0 drivers/AnalogInput.o
  .data          0x00000000        0x0 drivers/AnalogInput.o
  .bss           0x00000000        0x0 drivers/AnalogInput.o
+ .text._ZN7atmicro11AnalogInput5gInitENS_7ADCconf4VREFENS1_4ADPSE
+                0x00000000       0x28 drivers/AnalogInput.o
  .text._ZN7atmicro11AnalogInputC2ENS_10ADCchannelE
-                0x00000000       0x18 drivers/AnalogInput.o
+                0x00000000       0x1c drivers/AnalogInput.o
+ .text._ZN7atmicro11AnalogInputC2ENS_10ADCchannelEPFvS0_E
+                0x00000000       0x34 drivers/AnalogInput.o
  .text._ZN7atmicro11AnalogInput16setEventListenerEPFvS0_E
                 0x00000000        0x8 drivers/AnalogInput.o
  .text          0x00000000        0x0 drivers/Communication.o
@@ -98,12 +109,21 @@ Discarded input sections
  .text          0x00000000        0x0 drivers/DigitalOutput.o
  .data          0x00000000        0x0 drivers/DigitalOutput.o
  .bss           0x00000000        0x0 drivers/DigitalOutput.o
+ .text._ZN7atmicro13DigitalOutput10initializeEv
+                0x00000000       0x1a drivers/DigitalOutput.o
+ .text._ZN7atmicro13DigitalOutputC2ENS_3PINE
+                0x00000000       0x12 drivers/DigitalOutput.o
  .text._ZN7atmicro13DigitalOutputD2Ev
                 0x00000000       0x22 drivers/DigitalOutput.o
+ .text._ZN7atmicro13DigitalOutput2onEv
+                0x00000000       0x18 drivers/DigitalOutput.o
  .text._ZN7atmicro13DigitalOutput3offEv
                 0x00000000       0x16 drivers/DigitalOutput.o
  .text._ZN7atmicro13DigitalOutput6toggleEv
                 0x00000000       0x22 drivers/DigitalOutput.o
+ .rodata._ZTVN7atmicro13DigitalOutputE
+                0x00000000        0x6 drivers/DigitalOutput.o
+ .comment       0x00000000       0x31 drivers/DigitalOutput.o
  .group         0x00000000        0x8 drivers/Keypad.o
  .text          0x00000000        0x0 drivers/Keypad.o
  .data          0x00000000        0x0 drivers/Keypad.o
@@ -139,8 +159,10 @@ Discarded input sections
                 0x00000000       0x14 drivers/ParallelTextLCD.o
  .text._ZN7atmicro15ParallelTextLCD6cursorEbb
                 0x00000000       0x20 drivers/ParallelTextLCD.o
- .text._ZN7atmicro15ParallelTextLCD7integerEi
-                0x00000000       0x28 drivers/ParallelTextLCD.o
+ .text._ZN7atmicro15ParallelTextLCD5printEi
+                0x00000000       0x4a drivers/ParallelTextLCD.o
+ .text._ZN7atmicro15ParallelTextLCD5printEiii
+                0x00000000       0x62 drivers/ParallelTextLCD.o
  .group         0x00000000        0x8 drivers/PushButtonSwitch.o
  .text          0x00000000        0x0 drivers/PushButtonSwitch.o
  .data          0x00000000        0x0 drivers/PushButtonSwitch.o
@@ -190,28 +212,27 @@ Discarded input sections
  .rodata._ZTVN7atmicro5USARTE
                 0x00000000        0x6 drivers/USART.o
  .comment       0x00000000       0x31 drivers/USART.o
- .text          0x00000000        0x0 interface/Istream.o
- .data          0x00000000        0x0 interface/Istream.o
- .bss           0x00000000        0x0 interface/Istream.o
- .text._ZN7atmicro7IstreamD2Ev
-                0x00000000        0x2 interface/Istream.o
- .text._ZN7atmicro7Istream5clearEv
-                0x00000000       0x1c interface/Istream.o
- .rodata        0x00000000       0x10 interface/Istream.o
- .text._ZN7atmicro7IstreamC2Ev
-                0x00000000       0x30 interface/Istream.o
- .text._ZN7atmicro7Istream4pushEc
-                0x00000000       0x2a interface/Istream.o
- .text._ZN7atmicro7Istream6updateERNS_6KeypadE
-                0x00000000       0xfc interface/Istream.o
- .comment       0x00000000       0x31 interface/Istream.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
+ .text._ZN7atmicro13ADCcontroller8startADCEv
+                0x00000000       0x20 main.o
  .text._ZN7atmicro13ADCcontroller7stopADCEv
                 0x00000000       0x18 main.o
+ .text._ZN7atmicro13ADCcontroller11registerADCERNS_11AnalogInputE
+                0x00000000       0x36 main.o
  .text._ZN7atmicro13ADCcontroller12clearADClistEv
                 0x00000000       0x12 main.o
+ .text._ZN16DeviceController14registerDeviceEPN7atmicro6DeviceEPc
+                0x00000000       0x30 main.o
+ .text._ZN16DeviceController9getDeviceEPc
+                0x00000000       0x32 main.o
+ .bss._ZN16DeviceController18registeredDeviceIdE
+                0x00000000       0x40 main.o
+ .bss._ZN16DeviceController15numberOfDevicesE
+                0x00000000        0x2 main.o
+ .bss._ZN16DeviceController17registeredDevicesE
+                0x00000000       0x40 main.o
  .text          0x00000000        0x0 remote/State.o
  .data          0x00000000        0x0 remote/State.o
  .bss           0x00000000        0x0 remote/State.o
@@ -373,12 +394,18 @@ Discarded input sections
  .text          0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
  .data          0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
  .bss           0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
+ .text.avr-libc
+                0x00000000       0x16 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
  .text          0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
  .data          0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
  .bss           0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
+ .text.avr-libc
+                0x00000000       0x34 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
  .text          0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
  .data          0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
  .bss           0x00000000        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
+ .text.avr-libc
+                0x00000000       0x20 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
 
 Memory Configuration
 
@@ -395,7 +422,7 @@ user_signatures  0x00850000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32/avr5/crtatmega32.o
-LOAD controller/Microcontroller.o
+LOAD controller/Istream.o
 LOAD controller/Pinset.o
 LOAD drivers/AnalogInput.o
 LOAD drivers/Communication.o
@@ -408,7 +435,6 @@ LOAD drivers/ParallelTextLCD.o
 LOAD drivers/PushButtonSwitch.o
 LOAD drivers/Storage.o
 LOAD drivers/USART.o
-LOAD interface/Istream.o
 LOAD main.o
 LOAD remote/State.o
 START GROUP
@@ -520,7 +546,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xa0c
+.text           0x00000000      0x6f0
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.106/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -607,126 +633,73 @@ END GROUP
  .text._ZN7atmicro11AnalogInput6isLiveEv
                 0x000000a4       0x18 drivers/AnalogInput.o
                 0x000000a4                _ZN7atmicro11AnalogInput6isLiveEv
- .text._ZN7atmicro11AnalogInput11globablInitENS_9ADCconfig4VREFENS1_4ADPSE
-                0x000000bc       0x28 drivers/AnalogInput.o
-                0x000000bc                _ZN7atmicro11AnalogInput11globablInitENS_9ADCconfig4VREFENS1_4ADPSE
- .text._ZN7atmicro11AnalogInputC2ENS_10ADCchannelEPFvS0_E
-                0x000000e4       0x30 drivers/AnalogInput.o
-                0x000000e4                _ZN7atmicro11AnalogInputC1ENS_10ADCchannelEPFvS0_E
-                0x000000e4                _ZN7atmicro11AnalogInputC2ENS_10ADCchannelEPFvS0_E
- .text._ZN7atmicro11AnalogInput9readValueEv
-                0x00000114       0x10 drivers/AnalogInput.o
-                0x00000114                _ZN7atmicro11AnalogInput9readValueEv
  .text._ZN7atmicro11AnalogInput15startConversionEv
-                0x00000124       0x12 drivers/AnalogInput.o
-                0x00000124                _ZN7atmicro11AnalogInput15startConversionEv
+                0x000000bc       0x12 drivers/AnalogInput.o
+                0x000000bc                _ZN7atmicro11AnalogInput15startConversionEv
  .text._ZN7atmicro11AnalogInput14stopConversionEv
-                0x00000136        0x4 drivers/AnalogInput.o
-                0x00000136                _ZN7atmicro11AnalogInput14stopConversionEv
+                0x000000ce        0x4 drivers/AnalogInput.o
+                0x000000ce                _ZN7atmicro11AnalogInput14stopConversionEv
  .text._ZN7atmicro11AnalogInputD2Ev
-                0x0000013a       0x2e drivers/AnalogInput.o
-                0x0000013a                _ZN7atmicro11AnalogInputD2Ev
-                0x0000013a                _ZN7atmicro11AnalogInputD1Ev
+                0x000000d2       0x2e drivers/AnalogInput.o
+                0x000000d2                _ZN7atmicro11AnalogInputD2Ev
+                0x000000d2                _ZN7atmicro11AnalogInputD1Ev
  .text._ZN7atmicro11AnalogInput7processEv
-                0x00000168       0x6a drivers/AnalogInput.o
-                0x00000168                _ZN7atmicro11AnalogInput7processEv
+                0x00000100       0x68 drivers/AnalogInput.o
+                0x00000100                _ZN7atmicro11AnalogInput7processEv
  .text._ZN7atmicro6Device9setStatusENS_3PINEb
-                0x000001d2      0x110 drivers/Device.o
-                0x000001d2                _ZN7atmicro6Device9setStatusENS_3PINEb
+                0x00000168      0x110 drivers/Device.o
+                0x00000168                _ZN7atmicro6Device9setStatusENS_3PINEb
  .text._ZN7atmicro6Device12setDirectionENS_3PINEb
-                0x000002e2      0x110 drivers/Device.o
-                0x000002e2                _ZN7atmicro6Device12setDirectionENS_3PINEb
+                0x00000278      0x110 drivers/Device.o
+                0x00000278                _ZN7atmicro6Device12setDirectionENS_3PINEb
  .text._ZN7atmicro6Device9setStatusENS_4PORTEi
-                0x000003f2       0x26 drivers/Device.o
-                0x000003f2                _ZN7atmicro6Device9setStatusENS_4PORTEi
+                0x00000388       0x26 drivers/Device.o
+                0x00000388                _ZN7atmicro6Device9setStatusENS_4PORTEi
  .text._ZN7atmicro6Device12setDirectionENS_4PORTEi
-                0x00000418       0x26 drivers/Device.o
-                0x00000418                _ZN7atmicro6Device12setDirectionENS_4PORTEi
+                0x000003ae       0x26 drivers/Device.o
+                0x000003ae                _ZN7atmicro6Device12setDirectionENS_4PORTEi
  .text._ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE
-                0x0000043e       0x34 drivers/Device.o
-                0x0000043e                _ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE
- .text._ZN7atmicro13DigitalOutput10initializeEv
-                0x00000472       0x1a drivers/DigitalOutput.o
-                0x00000472                _ZN7atmicro13DigitalOutput10initializeEv
- .text._ZN7atmicro13DigitalOutputC2ENS_3PINE
-                0x0000048c       0x12 drivers/DigitalOutput.o
-                0x0000048c                _ZN7atmicro13DigitalOutputC1ENS_3PINE
-                0x0000048c                _ZN7atmicro13DigitalOutputC2ENS_3PINE
- .text._ZN7atmicro13DigitalOutput2onEv
-                0x0000049e       0x18 drivers/DigitalOutput.o
-                0x0000049e                _ZN7atmicro13DigitalOutput2onEv
+                0x000003d4       0x34 drivers/Device.o
+                0x000003d4                _ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE
  .text._ZN7atmicro15ParallelTextLCD13action_enableEv
-                0x000004b6       0x1e drivers/ParallelTextLCD.o
-                0x000004b6                _ZN7atmicro15ParallelTextLCD13action_enableEv
+                0x00000408       0x1e drivers/ParallelTextLCD.o
+                0x00000408                _ZN7atmicro15ParallelTextLCD13action_enableEv
  .text._ZN7atmicro15ParallelTextLCD9wait_busyEv
-                0x000004d4       0x42 drivers/ParallelTextLCD.o
-                0x000004d4                _ZN7atmicro15ParallelTextLCD9wait_busyEv
+                0x00000426       0x42 drivers/ParallelTextLCD.o
+                0x00000426                _ZN7atmicro15ParallelTextLCD9wait_busyEv
  .text._ZN7atmicro15ParallelTextLCD7commandEh
-                0x00000516       0x52 drivers/ParallelTextLCD.o
-                0x00000516                _ZN7atmicro15ParallelTextLCD7commandEh
+                0x00000468       0x52 drivers/ParallelTextLCD.o
+                0x00000468                _ZN7atmicro15ParallelTextLCD7commandEh
  .text._ZN7atmicro15ParallelTextLCD10initializeEv
-                0x00000568       0x64 drivers/ParallelTextLCD.o
-                0x00000568                _ZN7atmicro15ParallelTextLCD10initializeEv
+                0x000004ba       0x64 drivers/ParallelTextLCD.o
+                0x000004ba                _ZN7atmicro15ParallelTextLCD10initializeEv
  .text._ZN7atmicro15ParallelTextLCDC2ENS_4PORTENS_3PINES2_S2_
-                0x000005cc       0x36 drivers/ParallelTextLCD.o
-                0x000005cc                _ZN7atmicro15ParallelTextLCDC1ENS_4PORTENS_3PINES2_S2_
-                0x000005cc                _ZN7atmicro15ParallelTextLCDC2ENS_4PORTENS_3PINES2_S2_
- .text._ZN7atmicro15ParallelTextLCD8positionEii
-                0x00000602       0x16 drivers/ParallelTextLCD.o
-                0x00000602                _ZN7atmicro15ParallelTextLCD8positionEii
+                0x0000051e       0x36 drivers/ParallelTextLCD.o
+                0x0000051e                _ZN7atmicro15ParallelTextLCDC1ENS_4PORTENS_3PINES2_S2_
+                0x0000051e                _ZN7atmicro15ParallelTextLCDC2ENS_4PORTENS_3PINES2_S2_
+ .text._ZN7atmicro15ParallelTextLCD6cursorEii
+                0x00000554       0x16 drivers/ParallelTextLCD.o
+                0x00000554                _ZN7atmicro15ParallelTextLCD6cursorEii
  .text._ZN7atmicro15ParallelTextLCD9characterEh
-                0x00000618       0x52 drivers/ParallelTextLCD.o
-                0x00000618                _ZN7atmicro15ParallelTextLCD9characterEh
- .text._ZN7atmicro15ParallelTextLCD6stringEPKc
-                0x0000066a       0x24 drivers/ParallelTextLCD.o
-                0x0000066a                _ZN7atmicro15ParallelTextLCD6stringEPKc
- .text._ZN7atmicro15ParallelTextLCD6stringEiiPKc
-                0x0000068e       0x20 drivers/ParallelTextLCD.o
-                0x0000068e                _ZN7atmicro15ParallelTextLCD6stringEiiPKc
- .text._ZN7atmicro15ParallelTextLCD7integerEiii
-                0x000006ae       0x62 drivers/ParallelTextLCD.o
-                0x000006ae                _ZN7atmicro15ParallelTextLCD7integerEiii
- .text._ZN7atmicro13ADCcontroller8startADCEv
-                0x00000710       0x20 main.o
-                0x00000710                _ZN7atmicro13ADCcontroller8startADCEv
- .text._ZN7atmicro13ADCcontroller11registerADCERNS_11AnalogInputE
-                0x00000730       0x36 main.o
-                0x00000730                _ZN7atmicro13ADCcontroller11registerADCERNS_11AnalogInputE
+                0x0000056a       0x52 drivers/ParallelTextLCD.o
+                0x0000056a                _ZN7atmicro15ParallelTextLCD9characterEh
+ .text._ZN7atmicro15ParallelTextLCD5printEPKc
+                0x000005bc       0x24 drivers/ParallelTextLCD.o
+                0x000005bc                _ZN7atmicro15ParallelTextLCD5printEPKc
+ .text._ZN7atmicro15ParallelTextLCD5printEiiPKc
+                0x000005e0       0x20 drivers/ParallelTextLCD.o
+                0x000005e0                _ZN7atmicro15ParallelTextLCD5printEiiPKc
  .text.__vector_16
-                0x00000766       0xb2 main.o
-                0x00000766                __vector_16
- .text._ZN16DeviceController14registerDeviceEPN7atmicro6DeviceEPc
-                0x00000818       0x30 main.o
-                0x00000818                _ZN16DeviceController14registerDeviceEPN7atmicro6DeviceEPc
- .text._ZN16DeviceController9getDeviceEPc
-                0x00000848       0x32 main.o
-                0x00000848                _ZN16DeviceController9getDeviceEPc
- .text._ZZ4mainENKUlN7atmicro11AnalogInputEE0_clES0_.constprop.2
-                0x0000087a       0x54 main.o
- .text._ZZ4mainENUlN7atmicro11AnalogInputEE0_4_FUNES0_
-                0x000008ce        0x4 main.o
- .text._ZZ4mainENKUlN7atmicro11AnalogInputEE_clES0_.constprop.3
-                0x000008d2       0x54 main.o
- .text._ZZ4mainENUlN7atmicro11AnalogInputEE_4_FUNES0_
-                0x00000926        0x4 main.o
+                0x00000600       0xb2 main.o
+                0x00000600                __vector_16
  .text.startup.main
-                0x0000092a       0x74 main.o
-                0x0000092a                main
- .text.avr-libc
-                0x0000099e       0x16 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
-                0x0000099e                __itoa_ncheck
- .text.avr-libc
-                0x000009b4       0x34 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
-                0x000009b4                __utoa_ncheck
-                0x000009b6                __utoa_common
- .text.avr-libc
-                0x000009e8       0x20 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x000009e8                strrev
-                0x00000a08                . = ALIGN (0x2)
+                0x000006b2       0x3a main.o
+                0x000006b2                main
+                0x000006ec                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000a08        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x00000a08                _exit
-                0x00000a08                exit
+ .fini9         0x000006ec        0x0 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x000006ec                _exit
+                0x000006ec                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -745,11 +718,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000a08        0x4 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x000006ec        0x4 c:/program files/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000a0c                _etext = .
+                0x000006f0                _etext = .
 
-.data           0x00800060       0x26 load address 0x00000a0c
+.data           0x00800060       0x1c load address 0x000006f0
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -759,52 +732,40 @@ END GROUP
  .rodata._ZTVN7atmicro11AnalogInputE
                 0x00800068        0x6 drivers/AnalogInput.o
                 0x00800068                _ZTVN7atmicro11AnalogInputE
- .rodata._ZTVN7atmicro13DigitalOutputE
-                0x0080006e        0x6 drivers/DigitalOutput.o
-                0x0080006e                _ZTVN7atmicro13DigitalOutputE
  .rodata._ZTVN7atmicro15ParallelTextLCDE
-                0x00800074        0x6 drivers/ParallelTextLCD.o
-                0x00800074                _ZTVN7atmicro15ParallelTextLCDE
+                0x0080006e        0x6 drivers/ParallelTextLCD.o
+                0x0080006e                _ZTVN7atmicro15ParallelTextLCDE
  .rodata.str1.1
-                0x0080007a        0xb main.o
+                0x00800074        0x7 main.o
  *(.gnu.linkonce.d*)
-                0x00800086                . = ALIGN (0x2)
- *fill*         0x00800085        0x1 
-                0x00800086                _edata = .
-                0x00800086                PROVIDE (__data_end, .)
+                0x0080007c                . = ALIGN (0x2)
+ *fill*         0x0080007b        0x1 
+                0x0080007c                _edata = .
+                0x0080007c                PROVIDE (__data_end, .)
 
-.bss            0x00800086       0x96
-                0x00800086                PROVIDE (__bss_start, .)
+.bss            0x0080007c       0x14
+                0x0080007c                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss._ZN16DeviceController18registeredDeviceIdE
-                0x00800086       0x40 main.o
-                0x00800086                _ZN16DeviceController18registeredDeviceIdE
- .bss._ZN16DeviceController15numberOfDevicesE
-                0x008000c6        0x2 main.o
-                0x008000c6                _ZN16DeviceController15numberOfDevicesE
- .bss._ZN16DeviceController17registeredDevicesE
-                0x008000c8       0x40 main.o
-                0x008000c8                _ZN16DeviceController17registeredDevicesE
  .bss._ZN7atmicro13ADCcontroller7nActiveE
-                0x00800108        0x2 main.o
-                0x00800108                _ZN7atmicro13ADCcontroller7nActiveE
+                0x0080007c        0x2 main.o
+                0x0080007c                _ZN7atmicro13ADCcontroller7nActiveE
  .bss._ZN7atmicro13ADCcontroller10nAvailableE
-                0x0080010a        0x2 main.o
-                0x0080010a                _ZN7atmicro13ADCcontroller10nAvailableE
+                0x0080007e        0x2 main.o
+                0x0080007e                _ZN7atmicro13ADCcontroller10nAvailableE
  .bss._ZN7atmicro13ADCcontroller7adcListE
-                0x0080010c       0x10 main.o
-                0x0080010c                _ZN7atmicro13ADCcontroller7adcListE
+                0x00800080       0x10 main.o
+                0x00800080                _ZN7atmicro13ADCcontroller7adcListE
  *(COMMON)
-                0x0080011c                PROVIDE (__bss_end, .)
-                0x00000a0c                __data_load_start = LOADADDR (.data)
-                0x00000a32                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800090                PROVIDE (__bss_end, .)
+                0x000006f0                __data_load_start = LOADADDR (.data)
+                0x0000070c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080011c        0x0
+.noinit         0x00800090        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080011c                _end = .
+                0x00800090                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -849,7 +810,6 @@ END GROUP
  .comment       0x00000000       0x30 drivers/AnalogInput.o
                                  0x31 (size before relaxing)
  .comment       0x00000030       0x31 drivers/Device.o
- .comment       0x00000030       0x31 drivers/DigitalOutput.o
  .comment       0x00000030       0x31 drivers/ParallelTextLCD.o
  .comment       0x00000030       0x31 main.o
 

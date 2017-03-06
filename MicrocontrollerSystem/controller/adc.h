@@ -6,6 +6,8 @@
  */ 
 
 
+#if(__OPTION_ADMUX)
+
 #ifndef ADC_H_
 #define ADC_H_
 
@@ -62,4 +64,6 @@ ISR(ADC_vect)
 	}
 }
 
-#endif /* ADC_H_ */
+#endif
+
+#endif

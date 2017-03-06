@@ -6,6 +6,8 @@
  */ 
 
 
+#if(__OPTION_VAULT)
+
 #ifndef VAULT_H_
 #define VAULT_H_
 
@@ -35,4 +37,6 @@ namespace DeviceController
 	}
 }
 
-#endif /* VAULT_H_ */
+#endif
+
+#endif

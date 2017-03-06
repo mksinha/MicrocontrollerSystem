@@ -50,41 +50,41 @@ namespace atmicro
 		_delay_us(50);
 	}
 
-	void ParallelTextLCD::integer(int x, int y, int num)
+	void ParallelTextLCD::print(int x, int y, int num)
 	{
 		char str[16];
 		itoa(num, str, 10);
-		string(x, y, str);
+		print(x, y, str);
 	}
 
-	void ParallelTextLCD::integer(int num)
+	void ParallelTextLCD::print(int num)
 	{
-		char* str;
+		char str[16];
 		itoa(num, str, 10);
-		string(str);
+		print(str);
 	}
 
-	void ParallelTextLCD::string(int x, int y, const char* str)
+	void ParallelTextLCD::print(int x, int y, const char* str)
 	{
-		position(x, y);
-		string(str);
+		cursor(x, y);
+		print(str);
 	}
 
-	void ParallelTextLCD::string(const char* str)
+	void ParallelTextLCD::print(const char* str)
 	{
 		while(*str > 0)
 			character(*str++);
-	}
-
-	void ParallelTextLCD::position(int x, int y)
-	{
-		command(0x80 + this->rowPositions[y] + x);
 	}
 
 	void ParallelTextLCD::clear()
 	{
 		command(0x01);
 		_delay_ms(2);
+	}
+
+	void ParallelTextLCD::cursor(int x, int y)
+	{
+		command(0x80 + this->rowPositions[y] + x);
 	}
 
 	void ParallelTextLCD::cursor(bool visible, bool blink)
