@@ -6,6 +6,10 @@ controller\Istream.cpp
 
 controller\Pinset.cpp
 
+data\ArrayList.cpp
+
+data\QueueArray.cpp
+
 drivers\AnalogInput.cpp
 
 drivers\Communication.cpp
@@ -31,4 +35,6 @@ drivers\USART.cpp
 main.cpp
 
 remote\State.cpp
+
+sensors\AccelerationSensor.cpp
 

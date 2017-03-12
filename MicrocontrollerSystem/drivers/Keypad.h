@@ -17,15 +17,9 @@ namespace atmicro
 	{
 	public:
 		bool data[4][4];
-		bool get(int x, int y)
-		{
-			return data[x][y];
-		}
-		void set(int x, int y, bool val)
-		{
-			data[x][y] = val;
-		}
-	}; //KeypadMatrix
+		bool get(short x, short y){ return data[x][y]; }
+		void set(short x, short y, bool val){ data[x][y] = val; }
+	};
 
 	class Keypad : public Input
 	{

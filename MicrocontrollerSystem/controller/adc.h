@@ -6,13 +6,11 @@
  */ 
 
 
-#if(__OPTION_ADMUX)
-
-#ifndef ADC_H_
-#define ADC_H_
+#ifndef ADCCONTROLLER_H_
+#define ADCCONTROLLER_H_
 
 #include <avr/interrupt.h>
-using namespace atmicro;
+#include "../drivers/AnalogInput.h"
 
 namespace atmicro
 {
@@ -51,19 +49,17 @@ namespace atmicro
 
 ISR(ADC_vect)
 {
-	if(ADCcontroller::nActive == ADCcontroller::nAvailable)
+	if(atmicro::ADCcontroller::nActive == atmicro::ADCcontroller::nAvailable)
 	{
-		ADCcontroller::adcList[ADCcontroller::nActive - 1]->process();
-		ADCcontroller::nActive = 1;
-		ADCcontroller::adcList[ADCcontroller::nActive - 1]->startConversion();
+		atmicro::ADCcontroller::adcList[atmicro::ADCcontroller::nActive - 1]->process();
+		atmicro::ADCcontroller::nActive = 1;
+		atmicro::ADCcontroller::adcList[atmicro::ADCcontroller::nActive - 1]->startConversion();
 	}
 	else
 	{
-		ADCcontroller::adcList[ADCcontroller::nActive - 1]->process();
-		ADCcontroller::adcList[ADCcontroller::nActive++]->startConversion();
+		atmicro::ADCcontroller::adcList[atmicro::ADCcontroller::nActive - 1]->process();
+		atmicro::ADCcontroller::adcList[atmicro::ADCcontroller::nActive++]->startConversion();
 	}
 }
-
-#endif
 
 #endif

@@ -64,6 +64,21 @@ namespace atmicro
 		print(str);
 	}
 
+	void ParallelTextLCD::print(int x, int y, double num, short precision)
+	{
+		print(x, y, (int)num);
+		print(".");
+		num = (int)((num - ((int)num))*pow(10, precision));
+		print((int) num);
+	}
+
+	void ParallelTextLCD::print(double num, short precision)
+	{
+		print((int)num);
+		print(".");
+		print((int) pow(10, precision)*(num-(int)num));
+	}
+
 	void ParallelTextLCD::print(int x, int y, const char* str)
 	{
 		cursor(x, y);

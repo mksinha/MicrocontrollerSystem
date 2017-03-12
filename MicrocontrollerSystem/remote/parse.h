@@ -16,17 +16,17 @@ void parse(Istream& input, ParallelTextLCD& lcd)
 {
 	if (input.length == 0)
 	{
-		lcd.string(0, 0, "Safe :D!        ");
-		lcd.string(0, 1, "                ");
+		lcd.print(0, 0, "Safe :D!        ");
+		lcd.print(0, 1, "                ");
 	}
 	// Action A - Arm Device
 	else if (input.stream[0] == 'A')
 	{
 		lcd.clear();
 		if (arm())
-			lcd.string(0, 0, "Armed Device    ");
+			lcd.print(0, 0, "Armed Device    ");
 		else
-			lcd.string(0, 0, "Error in Arming!");
+			lcd.print(0, 0, "Error in Arming!");
 		input.clear();
 		_delay_ms(2000);
 		lcd.clear();
@@ -34,15 +34,15 @@ void parse(Istream& input, ParallelTextLCD& lcd)
 	// Action B - Disarm Device
 	else if (input.stream[0] == 'B')
 	{
-		lcd.string(0, 0, "Pass code: ");
+		lcd.print(0, 0, "Pass code: ");
 		for (int i = 1; i < input.length; i++)
-			lcd.string(i + 11, 0, "*");
+			lcd.print(i + 11, 0, "*");
 		if (input.length >= 5)
 		{
 			if(disarm(input))
-				lcd.string(0, 1, "Disarmed device ");
+				lcd.print(0, 1, "Disarmed device ");
 			else
-				lcd.string(0, 1, "Failed to disarm");
+				lcd.print(0, 1, "Failed to disarm");
 			input.clear();
 			_delay_ms(2000);
 			lcd.clear();
@@ -53,24 +53,24 @@ void parse(Istream& input, ParallelTextLCD& lcd)
 	{
 		if (input.length < 5)
 		{
-			lcd.string(0, 0, "Old code: ");
+			lcd.print(0, 0, "Old code: ");
 			for (int i = 1; i < input.length; i++)
-				lcd.string(i + 9, 0, "*");
+				lcd.print(i + 9, 0, "*");
 		}
 		else if (input.length < 9)
 		{
-			lcd.string(0, 0, "Old code: ****");
-			lcd.string(0, 1, "New code: ");
+			lcd.print(0, 0, "Old code: ****");
+			lcd.print(0, 1, "New code: ");
 			for (int i = 5; i < input.length; i++)
-				lcd.string(i + 5, 1, "*");
+				lcd.print(i + 5, 1, "*");
 		}
 		else
 		{
 			lcd.clear();
 			if(changecode(input))
-				lcd.string(0, 0, "Changed PassCode");
+				lcd.print(0, 0, "Changed PassCode");
 			else
-				lcd.string(0, 0, "Failed to Change");
+				lcd.print(0, 0, "Failed to Change");
 			input.clear();
 			_delay_ms(2000);
 			lcd.clear();
@@ -79,12 +79,12 @@ void parse(Istream& input, ParallelTextLCD& lcd)
 	// Action D - Menu Settings
 	else if (input.stream[0] == 'D')
 	{
-		lcd.string(0, 0, "Menu Choice: ");
+		lcd.print(0, 0, "Menu Choice: ");
 		if (input.length >= 2)
 		{
 			menuop(input);
-			lcd.string(14, 0, &input.stream[1]);
-			lcd.string(0, 1, "Unavailable Now!");
+			lcd.print(14, 0, &input.stream[1]);
+			lcd.print(0, 1, "Unavailable Now!");
 			input.clear();
 			_delay_ms(2000);
 		}
@@ -93,7 +93,7 @@ void parse(Istream& input, ParallelTextLCD& lcd)
 	else
 	{
 		lcd.clear();
-		lcd.string(0, 0, "Invalid Input");
+		lcd.print(0, 0, "Invalid Input");
 		_delay_ms(2000);
 		input.clear();
 		lcd.clear();

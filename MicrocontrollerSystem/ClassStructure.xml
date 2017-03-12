@@ -66,10 +66,6 @@
 			<function id="registerADC" />
 			<function id="clearADClist" />
 		</file>
-		<file id="vault" option="__OPTION_VAULT">
-			<function id="registerDevice" />
-			<function id="getDevice" />
-		</file>
 		<class id="Istream">
 			<function id="update" />
 			<function id="push" />

@@ -8,10 +8,6 @@
 
 #include "PushButtonSwitch.h"
 
-#define DEBOUNCE_MINCYCLES 10
-#define DEBOUNCE_MAXCYCLES 10000
-#define DEBOUNCE_CONFIDFRAC 0.75
-
 namespace atmicro
 {
 	// default constructor

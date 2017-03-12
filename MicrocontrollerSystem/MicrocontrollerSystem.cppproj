@@ -81,6 +81,7 @@
         <avrgcccpp.compiler.optimization.PackStructureMembers>True</avrgcccpp.compiler.optimization.PackStructureMembers>
         <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
         <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=c++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
         <avrgcccpp.linker.libraries.Libraries>
           <ListValues>
             <Value>libm</Value>
@@ -175,7 +176,22 @@
     <Compile Include="controller\registry.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="controller\vault.h">
+    <Compile Include="controller\time.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="data\ArrayList.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="data\ArrayList.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="data\List.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="data\QueueArray.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="data\QueueArray.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="drivers\AnalogInput.cpp">
@@ -259,10 +275,18 @@
     <Compile Include="remote\State.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="sensors\AccelerationSensor.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sensors\AccelerationSensor.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="drivers" />
     <Folder Include="controller" />
+    <Folder Include="data" />
+    <Folder Include="sensors" />
     <Folder Include="remote" />
   </ItemGroup>
   <ItemGroup>
