@@ -17,7 +17,6 @@
 #include "drivers/PushButtonSwitch.h"
 #include "drivers/USART.h"
 #include "drivers/EEPROM.h"
-#include "drivers/Accelerometer.h"
 #include "interface/Istream.h"
 #include "controller/Microcontroller.h"
 #include <util/delay.h>

@@ -17,12 +17,10 @@ State::State()
 	}
 	else
 	{
-		passcode = 0000;
 		armstate = false;
 		safe = true;
 		alarmMode = ON;
 		travelMode = TRAIN;
-		hardwareID = 0x000000FF;
 		saveToMemory();
 	}
 } //State

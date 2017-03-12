@@ -6,7 +6,7 @@ box/State.d box/State.o: ../box/State.cpp ../box/State.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
- c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\iom32.h \
+ C:\Program\ Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include/avr/iom32.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
@@ -17,7 +17,6 @@ box/State.d box/State.o: ../box/State.cpp ../box/State.h \
  ../box/../drivers/Keypad.h ../box/../drivers/ParallelTextLCD.h \
  ../box/../drivers/PushButtonSwitch.h ../box/../drivers/USART.h \
  ../box/../drivers/Communication.h ../box/../drivers/EEPROM.h \
- ../box/../drivers/Accelerometer.h ../box/../drivers/AnalogInput.h \
  ../box/../interface/Istream.h ../box/../interface/../drivers/Keypad.h \
  ../box/../controller/Microcontroller.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
@@ -44,7 +43,7 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
-c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\iom32.h:
+C:\Program\ Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include/avr/iom32.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h:
 
@@ -73,10 +72,6 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 ../box/../drivers/Communication.h:
 
 ../box/../drivers/EEPROM.h:
-
-../box/../drivers/Accelerometer.h:
-
-../box/../drivers/AnalogInput.h:
 
 ../box/../interface/Istream.h:
 

@@ -12,7 +12,7 @@
 #include "../atmicro.h"
 #include "actions.h"
 
-void menuInterface(Istream& input, ParallelTextLCD& lcd, State& state)
+void parse(Istream& input, ParallelTextLCD& lcd, State& state)
 {
 	if (input.length == 0)
 	{

@@ -5,7 +5,7 @@ main.d main.o: .././main.cpp .././atmicro.h .././drivers/AnalogInput.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
- c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\iom32.h \
+ C:\Program\ Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include/avr/iom32.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
@@ -15,15 +15,13 @@ main.d main.o: .././main.cpp .././atmicro.h .././drivers/AnalogInput.h \
  .././drivers/Output.h .././drivers/Keypad.h \
  .././drivers/ParallelTextLCD.h .././drivers/PushButtonSwitch.h \
  .././drivers/USART.h .././drivers/Communication.h .././drivers/EEPROM.h \
- .././drivers/Accelerometer.h .././drivers/AnalogInput.h \
  .././interface/Istream.h .././interface/../drivers/Keypad.h \
  .././controller/Microcontroller.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././box/parse.h .././box/../atmicro.h .././box/actions.h \
- .././box/State.h \
- c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h
+ .././box/State.h
 
 .././atmicro.h:
 
@@ -43,7 +41,7 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
-c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\iom32.h:
+C:\Program\ Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include/avr/iom32.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h:
 
@@ -73,10 +71,6 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 .././drivers/EEPROM.h:
 
-.././drivers/Accelerometer.h:
-
-.././drivers/AnalogInput.h:
-
 .././interface/Istream.h:
 
 .././interface/../drivers/Keypad.h:
@@ -96,5 +90,3 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 .././box/actions.h:
 
 .././box/State.h:
-
-c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
