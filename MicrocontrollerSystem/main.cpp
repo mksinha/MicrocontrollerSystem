@@ -1,13 +1,13 @@
 #include "atmicro.h"
-#include "remote/parse.h"
+#include "box/parse.h"
 int main(void)
 {
-	Keypad pad(IOPORTA);
-	Istream inp;
-	ParallelTextLCD lcd(IOPORTB, IOPIND2, IOPIND7, IOPIND5);
+	DigitalOutput backlight(IOPIND5); backlight.on();
+	ParallelTextLCD lcd(IOPORTB, IOPIND4, IOPIND3, IOPIND2);
+	Keypad pad(IOPORTC); Istream inp; State state;
 	while (1)
 	{
 		inp.update(pad);
-		parse(inp, lcd);
+		parse(inp, lcd, state);
 	}
 }

@@ -12,6 +12,8 @@ drivers\Communication.cpp
 
 drivers\Device.cpp
 
+drivers\EEPROM.cpp
+
 drivers\Input.cpp
 
 drivers\DigitalOutput.cpp
@@ -34,5 +36,5 @@ interface\Istream.cpp
 
 main.cpp
 
-remote\State.cpp
+box\State.cpp
 

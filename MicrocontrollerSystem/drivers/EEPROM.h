@@ -9,14 +9,9 @@
 #ifndef __EEPROM_H__
 #define __EEPROM_H__
 
-namespace Integral {
+namespace atmicro {
 	class EEPROM
 	{
-	//variables
-	public:
-	protected:
-	private:
-
 	//functions
 	public:
 		EEPROM();

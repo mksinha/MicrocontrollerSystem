@@ -3,1839 +3,2575 @@ MicrocontrollerSystem.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000e5a  00000000  00000000  00000074  2**1
+  0 .text         00001444  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         000000d8  00800060  00000e5a  00000ece  2**0
+  1 .data         0000028e  00800060  00001444  000014b8  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  00000fa6  2**0
+  2 .comment      00000030  00000000  00000000  00001746  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000fd8  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001778  2**2
                   CONTENTS, READONLY
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
-   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
-   4:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-   8:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-   c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  10:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  14:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  18:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  1c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  20:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  24:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  28:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  2c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  30:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  34:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  38:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  3c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  40:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  44:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  48:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  4c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
-  50:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+       0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+       4:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+       8:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+       c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      10:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      14:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      18:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      1c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      20:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      24:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      28:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      2c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      30:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      34:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      38:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      3c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      40:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      44:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      48:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      4c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+      50:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
 
 00000054 <__ctors_end>:
-  54:	11 24       	eor	r1, r1
-  56:	1f be       	out	0x3f, r1	; 63
-  58:	cf e5       	ldi	r28, 0x5F	; 95
-  5a:	d8 e0       	ldi	r29, 0x08	; 8
-  5c:	de bf       	out	0x3e, r29	; 62
-  5e:	cd bf       	out	0x3d, r28	; 61
+      54:	11 24       	eor	r1, r1
+      56:	1f be       	out	0x3f, r1	; 63
+      58:	cf e5       	ldi	r28, 0x5F	; 95
+      5a:	d8 e0       	ldi	r29, 0x08	; 8
+      5c:	de bf       	out	0x3e, r29	; 62
+      5e:	cd bf       	out	0x3d, r28	; 61
 
 00000060 <__do_copy_data>:
-  60:	11 e0       	ldi	r17, 0x01	; 1
-  62:	a0 e6       	ldi	r26, 0x60	; 96
-  64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	ea e5       	ldi	r30, 0x5A	; 90
-  68:	fe e0       	ldi	r31, 0x0E	; 14
-  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
-  6c:	05 90       	lpm	r0, Z+
-  6e:	0d 92       	st	X+, r0
-  70:	a8 33       	cpi	r26, 0x38	; 56
-  72:	b1 07       	cpc	r27, r17
-  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
-  76:	0e 94 79 05 	call	0xaf2	; 0xaf2 <main>
-  7a:	0c 94 2b 07 	jmp	0xe56	; 0xe56 <_exit>
+      60:	12 e0       	ldi	r17, 0x02	; 2
+      62:	a0 e6       	ldi	r26, 0x60	; 96
+      64:	b0 e0       	ldi	r27, 0x00	; 0
+      66:	e4 e4       	ldi	r30, 0x44	; 68
+      68:	f4 e1       	ldi	r31, 0x14	; 20
+      6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+      6c:	05 90       	lpm	r0, Z+
+      6e:	0d 92       	st	X+, r0
+      70:	ae 3e       	cpi	r26, 0xEE	; 238
+      72:	b1 07       	cpc	r27, r17
+      74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+      76:	0e 94 76 07 	call	0xeec	; 0xeec <main>
+      7a:	0c 94 20 0a 	jmp	0x1440	; 0x1440 <_exit>
 
 0000007e <__bad_interrupt>:
-  7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+      7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 00000082 <_ZN7atmicro6Device9setStatusENS_3PINEb>:
-  82:	66 23       	and	r22, r22
-  84:	09 f4       	brne	.+2      	; 0x88 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x6>
-  86:	3f c0       	rjmp	.+126    	; 0x106 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x84>
-  88:	88 30       	cpi	r24, 0x08	; 8
-  8a:	60 f4       	brcc	.+24     	; 0xa4 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x22>
-  8c:	4b b3       	in	r20, 0x1b	; 27
-  8e:	21 e0       	ldi	r18, 0x01	; 1
-  90:	30 e0       	ldi	r19, 0x00	; 0
-  92:	b9 01       	movw	r22, r18
-  94:	02 c0       	rjmp	.+4      	; 0x9a <_ZN7atmicro6Device9setStatusENS_3PINEb+0x18>
-  96:	66 0f       	add	r22, r22
-  98:	77 1f       	adc	r23, r23
-  9a:	8a 95       	dec	r24
-  9c:	e2 f7       	brpl	.-8      	; 0x96 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x14>
-  9e:	cb 01       	movw	r24, r22
-  a0:	84 2b       	or	r24, r20
-  a2:	3f c0       	rjmp	.+126    	; 0x122 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xa0>
-  a4:	98 ef       	ldi	r25, 0xF8	; 248
-  a6:	98 0f       	add	r25, r24
-  a8:	98 30       	cpi	r25, 0x08	; 8
-  aa:	60 f4       	brcc	.+24     	; 0xc4 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x42>
-  ac:	48 b3       	in	r20, 0x18	; 24
-  ae:	21 e0       	ldi	r18, 0x01	; 1
-  b0:	30 e0       	ldi	r19, 0x00	; 0
-  b2:	b9 01       	movw	r22, r18
-  b4:	02 c0       	rjmp	.+4      	; 0xba <_ZN7atmicro6Device9setStatusENS_3PINEb+0x38>
-  b6:	66 0f       	add	r22, r22
-  b8:	77 1f       	adc	r23, r23
-  ba:	9a 95       	dec	r25
-  bc:	e2 f7       	brpl	.-8      	; 0xb6 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x34>
-  be:	cb 01       	movw	r24, r22
-  c0:	84 2b       	or	r24, r20
-  c2:	41 c0       	rjmp	.+130    	; 0x146 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xc4>
-  c4:	90 ef       	ldi	r25, 0xF0	; 240
-  c6:	98 0f       	add	r25, r24
-  c8:	98 30       	cpi	r25, 0x08	; 8
-  ca:	60 f4       	brcc	.+24     	; 0xe4 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x62>
-  cc:	45 b3       	in	r20, 0x15	; 21
-  ce:	21 e0       	ldi	r18, 0x01	; 1
-  d0:	30 e0       	ldi	r19, 0x00	; 0
-  d2:	b9 01       	movw	r22, r18
-  d4:	02 c0       	rjmp	.+4      	; 0xda <_ZN7atmicro6Device9setStatusENS_3PINEb+0x58>
-  d6:	66 0f       	add	r22, r22
-  d8:	77 1f       	adc	r23, r23
-  da:	9a 95       	dec	r25
-  dc:	e2 f7       	brpl	.-8      	; 0xd6 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x54>
-  de:	cb 01       	movw	r24, r22
-  e0:	84 2b       	or	r24, r20
-  e2:	43 c0       	rjmp	.+134    	; 0x16a <_ZN7atmicro6Device9setStatusENS_3PINEb+0xe8>
-  e4:	98 ee       	ldi	r25, 0xE8	; 232
-  e6:	98 0f       	add	r25, r24
-  e8:	98 30       	cpi	r25, 0x08	; 8
-  ea:	08 f0       	brcs	.+2      	; 0xee <_ZN7atmicro6Device9setStatusENS_3PINEb+0x6c>
-  ec:	51 c0       	rjmp	.+162    	; 0x190 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x10e>
-  ee:	42 b3       	in	r20, 0x12	; 18
-  f0:	21 e0       	ldi	r18, 0x01	; 1
-  f2:	30 e0       	ldi	r19, 0x00	; 0
-  f4:	b9 01       	movw	r22, r18
-  f6:	02 c0       	rjmp	.+4      	; 0xfc <_ZN7atmicro6Device9setStatusENS_3PINEb+0x7a>
-  f8:	66 0f       	add	r22, r22
-  fa:	77 1f       	adc	r23, r23
-  fc:	9a 95       	dec	r25
-  fe:	e2 f7       	brpl	.-8      	; 0xf8 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x76>
- 100:	cb 01       	movw	r24, r22
- 102:	84 2b       	or	r24, r20
- 104:	44 c0       	rjmp	.+136    	; 0x18e <_ZN7atmicro6Device9setStatusENS_3PINEb+0x10c>
- 106:	88 30       	cpi	r24, 0x08	; 8
- 108:	70 f4       	brcc	.+28     	; 0x126 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xa4>
- 10a:	4b b3       	in	r20, 0x1b	; 27
- 10c:	21 e0       	ldi	r18, 0x01	; 1
- 10e:	30 e0       	ldi	r19, 0x00	; 0
- 110:	b9 01       	movw	r22, r18
- 112:	02 c0       	rjmp	.+4      	; 0x118 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x96>
- 114:	66 0f       	add	r22, r22
- 116:	77 1f       	adc	r23, r23
- 118:	8a 95       	dec	r24
- 11a:	e2 f7       	brpl	.-8      	; 0x114 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x92>
- 11c:	cb 01       	movw	r24, r22
- 11e:	80 95       	com	r24
- 120:	84 23       	and	r24, r20
- 122:	8b bb       	out	0x1b, r24	; 27
- 124:	08 95       	ret
- 126:	98 ef       	ldi	r25, 0xF8	; 248
- 128:	98 0f       	add	r25, r24
- 12a:	98 30       	cpi	r25, 0x08	; 8
- 12c:	70 f4       	brcc	.+28     	; 0x14a <_ZN7atmicro6Device9setStatusENS_3PINEb+0xc8>
- 12e:	48 b3       	in	r20, 0x18	; 24
- 130:	21 e0       	ldi	r18, 0x01	; 1
- 132:	30 e0       	ldi	r19, 0x00	; 0
- 134:	b9 01       	movw	r22, r18
- 136:	02 c0       	rjmp	.+4      	; 0x13c <_ZN7atmicro6Device9setStatusENS_3PINEb+0xba>
- 138:	66 0f       	add	r22, r22
- 13a:	77 1f       	adc	r23, r23
- 13c:	9a 95       	dec	r25
- 13e:	e2 f7       	brpl	.-8      	; 0x138 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xb6>
- 140:	cb 01       	movw	r24, r22
- 142:	80 95       	com	r24
- 144:	84 23       	and	r24, r20
- 146:	88 bb       	out	0x18, r24	; 24
- 148:	08 95       	ret
- 14a:	90 ef       	ldi	r25, 0xF0	; 240
- 14c:	98 0f       	add	r25, r24
- 14e:	98 30       	cpi	r25, 0x08	; 8
- 150:	70 f4       	brcc	.+28     	; 0x16e <_ZN7atmicro6Device9setStatusENS_3PINEb+0xec>
- 152:	45 b3       	in	r20, 0x15	; 21
- 154:	21 e0       	ldi	r18, 0x01	; 1
- 156:	30 e0       	ldi	r19, 0x00	; 0
- 158:	b9 01       	movw	r22, r18
- 15a:	02 c0       	rjmp	.+4      	; 0x160 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xde>
- 15c:	66 0f       	add	r22, r22
- 15e:	77 1f       	adc	r23, r23
- 160:	9a 95       	dec	r25
- 162:	e2 f7       	brpl	.-8      	; 0x15c <_ZN7atmicro6Device9setStatusENS_3PINEb+0xda>
- 164:	cb 01       	movw	r24, r22
- 166:	80 95       	com	r24
- 168:	84 23       	and	r24, r20
- 16a:	85 bb       	out	0x15, r24	; 21
- 16c:	08 95       	ret
- 16e:	98 ee       	ldi	r25, 0xE8	; 232
- 170:	98 0f       	add	r25, r24
- 172:	98 30       	cpi	r25, 0x08	; 8
- 174:	68 f4       	brcc	.+26     	; 0x190 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x10e>
- 176:	42 b3       	in	r20, 0x12	; 18
- 178:	21 e0       	ldi	r18, 0x01	; 1
- 17a:	30 e0       	ldi	r19, 0x00	; 0
- 17c:	b9 01       	movw	r22, r18
- 17e:	02 c0       	rjmp	.+4      	; 0x184 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x102>
- 180:	66 0f       	add	r22, r22
- 182:	77 1f       	adc	r23, r23
- 184:	9a 95       	dec	r25
- 186:	e2 f7       	brpl	.-8      	; 0x180 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xfe>
- 188:	cb 01       	movw	r24, r22
- 18a:	80 95       	com	r24
- 18c:	84 23       	and	r24, r20
- 18e:	82 bb       	out	0x12, r24	; 18
- 190:	08 95       	ret
+      82:	66 23       	and	r22, r22
+      84:	09 f4       	brne	.+2      	; 0x88 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x6>
+      86:	3f c0       	rjmp	.+126    	; 0x106 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x84>
+      88:	88 30       	cpi	r24, 0x08	; 8
+      8a:	60 f4       	brcc	.+24     	; 0xa4 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x22>
+      8c:	4b b3       	in	r20, 0x1b	; 27
+      8e:	21 e0       	ldi	r18, 0x01	; 1
+      90:	30 e0       	ldi	r19, 0x00	; 0
+      92:	b9 01       	movw	r22, r18
+      94:	02 c0       	rjmp	.+4      	; 0x9a <_ZN7atmicro6Device9setStatusENS_3PINEb+0x18>
+      96:	66 0f       	add	r22, r22
+      98:	77 1f       	adc	r23, r23
+      9a:	8a 95       	dec	r24
+      9c:	e2 f7       	brpl	.-8      	; 0x96 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x14>
+      9e:	cb 01       	movw	r24, r22
+      a0:	84 2b       	or	r24, r20
+      a2:	3f c0       	rjmp	.+126    	; 0x122 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xa0>
+      a4:	98 ef       	ldi	r25, 0xF8	; 248
+      a6:	98 0f       	add	r25, r24
+      a8:	98 30       	cpi	r25, 0x08	; 8
+      aa:	60 f4       	brcc	.+24     	; 0xc4 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x42>
+      ac:	48 b3       	in	r20, 0x18	; 24
+      ae:	21 e0       	ldi	r18, 0x01	; 1
+      b0:	30 e0       	ldi	r19, 0x00	; 0
+      b2:	b9 01       	movw	r22, r18
+      b4:	02 c0       	rjmp	.+4      	; 0xba <_ZN7atmicro6Device9setStatusENS_3PINEb+0x38>
+      b6:	66 0f       	add	r22, r22
+      b8:	77 1f       	adc	r23, r23
+      ba:	9a 95       	dec	r25
+      bc:	e2 f7       	brpl	.-8      	; 0xb6 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x34>
+      be:	cb 01       	movw	r24, r22
+      c0:	84 2b       	or	r24, r20
+      c2:	41 c0       	rjmp	.+130    	; 0x146 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xc4>
+      c4:	90 ef       	ldi	r25, 0xF0	; 240
+      c6:	98 0f       	add	r25, r24
+      c8:	98 30       	cpi	r25, 0x08	; 8
+      ca:	60 f4       	brcc	.+24     	; 0xe4 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x62>
+      cc:	45 b3       	in	r20, 0x15	; 21
+      ce:	21 e0       	ldi	r18, 0x01	; 1
+      d0:	30 e0       	ldi	r19, 0x00	; 0
+      d2:	b9 01       	movw	r22, r18
+      d4:	02 c0       	rjmp	.+4      	; 0xda <_ZN7atmicro6Device9setStatusENS_3PINEb+0x58>
+      d6:	66 0f       	add	r22, r22
+      d8:	77 1f       	adc	r23, r23
+      da:	9a 95       	dec	r25
+      dc:	e2 f7       	brpl	.-8      	; 0xd6 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x54>
+      de:	cb 01       	movw	r24, r22
+      e0:	84 2b       	or	r24, r20
+      e2:	43 c0       	rjmp	.+134    	; 0x16a <_ZN7atmicro6Device9setStatusENS_3PINEb+0xe8>
+      e4:	98 ee       	ldi	r25, 0xE8	; 232
+      e6:	98 0f       	add	r25, r24
+      e8:	98 30       	cpi	r25, 0x08	; 8
+      ea:	08 f0       	brcs	.+2      	; 0xee <_ZN7atmicro6Device9setStatusENS_3PINEb+0x6c>
+      ec:	51 c0       	rjmp	.+162    	; 0x190 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x10e>
+      ee:	42 b3       	in	r20, 0x12	; 18
+      f0:	21 e0       	ldi	r18, 0x01	; 1
+      f2:	30 e0       	ldi	r19, 0x00	; 0
+      f4:	b9 01       	movw	r22, r18
+      f6:	02 c0       	rjmp	.+4      	; 0xfc <_ZN7atmicro6Device9setStatusENS_3PINEb+0x7a>
+      f8:	66 0f       	add	r22, r22
+      fa:	77 1f       	adc	r23, r23
+      fc:	9a 95       	dec	r25
+      fe:	e2 f7       	brpl	.-8      	; 0xf8 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x76>
+     100:	cb 01       	movw	r24, r22
+     102:	84 2b       	or	r24, r20
+     104:	44 c0       	rjmp	.+136    	; 0x18e <_ZN7atmicro6Device9setStatusENS_3PINEb+0x10c>
+     106:	88 30       	cpi	r24, 0x08	; 8
+     108:	70 f4       	brcc	.+28     	; 0x126 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xa4>
+     10a:	4b b3       	in	r20, 0x1b	; 27
+     10c:	21 e0       	ldi	r18, 0x01	; 1
+     10e:	30 e0       	ldi	r19, 0x00	; 0
+     110:	b9 01       	movw	r22, r18
+     112:	02 c0       	rjmp	.+4      	; 0x118 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x96>
+     114:	66 0f       	add	r22, r22
+     116:	77 1f       	adc	r23, r23
+     118:	8a 95       	dec	r24
+     11a:	e2 f7       	brpl	.-8      	; 0x114 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x92>
+     11c:	cb 01       	movw	r24, r22
+     11e:	80 95       	com	r24
+     120:	84 23       	and	r24, r20
+     122:	8b bb       	out	0x1b, r24	; 27
+     124:	08 95       	ret
+     126:	98 ef       	ldi	r25, 0xF8	; 248
+     128:	98 0f       	add	r25, r24
+     12a:	98 30       	cpi	r25, 0x08	; 8
+     12c:	70 f4       	brcc	.+28     	; 0x14a <_ZN7atmicro6Device9setStatusENS_3PINEb+0xc8>
+     12e:	48 b3       	in	r20, 0x18	; 24
+     130:	21 e0       	ldi	r18, 0x01	; 1
+     132:	30 e0       	ldi	r19, 0x00	; 0
+     134:	b9 01       	movw	r22, r18
+     136:	02 c0       	rjmp	.+4      	; 0x13c <_ZN7atmicro6Device9setStatusENS_3PINEb+0xba>
+     138:	66 0f       	add	r22, r22
+     13a:	77 1f       	adc	r23, r23
+     13c:	9a 95       	dec	r25
+     13e:	e2 f7       	brpl	.-8      	; 0x138 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xb6>
+     140:	cb 01       	movw	r24, r22
+     142:	80 95       	com	r24
+     144:	84 23       	and	r24, r20
+     146:	88 bb       	out	0x18, r24	; 24
+     148:	08 95       	ret
+     14a:	90 ef       	ldi	r25, 0xF0	; 240
+     14c:	98 0f       	add	r25, r24
+     14e:	98 30       	cpi	r25, 0x08	; 8
+     150:	70 f4       	brcc	.+28     	; 0x16e <_ZN7atmicro6Device9setStatusENS_3PINEb+0xec>
+     152:	45 b3       	in	r20, 0x15	; 21
+     154:	21 e0       	ldi	r18, 0x01	; 1
+     156:	30 e0       	ldi	r19, 0x00	; 0
+     158:	b9 01       	movw	r22, r18
+     15a:	02 c0       	rjmp	.+4      	; 0x160 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xde>
+     15c:	66 0f       	add	r22, r22
+     15e:	77 1f       	adc	r23, r23
+     160:	9a 95       	dec	r25
+     162:	e2 f7       	brpl	.-8      	; 0x15c <_ZN7atmicro6Device9setStatusENS_3PINEb+0xda>
+     164:	cb 01       	movw	r24, r22
+     166:	80 95       	com	r24
+     168:	84 23       	and	r24, r20
+     16a:	85 bb       	out	0x15, r24	; 21
+     16c:	08 95       	ret
+     16e:	98 ee       	ldi	r25, 0xE8	; 232
+     170:	98 0f       	add	r25, r24
+     172:	98 30       	cpi	r25, 0x08	; 8
+     174:	68 f4       	brcc	.+26     	; 0x190 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x10e>
+     176:	42 b3       	in	r20, 0x12	; 18
+     178:	21 e0       	ldi	r18, 0x01	; 1
+     17a:	30 e0       	ldi	r19, 0x00	; 0
+     17c:	b9 01       	movw	r22, r18
+     17e:	02 c0       	rjmp	.+4      	; 0x184 <_ZN7atmicro6Device9setStatusENS_3PINEb+0x102>
+     180:	66 0f       	add	r22, r22
+     182:	77 1f       	adc	r23, r23
+     184:	9a 95       	dec	r25
+     186:	e2 f7       	brpl	.-8      	; 0x180 <_ZN7atmicro6Device9setStatusENS_3PINEb+0xfe>
+     188:	cb 01       	movw	r24, r22
+     18a:	80 95       	com	r24
+     18c:	84 23       	and	r24, r20
+     18e:	82 bb       	out	0x12, r24	; 18
+     190:	08 95       	ret
 
 00000192 <_ZN7atmicro6Device12setDirectionENS_3PINEb>:
- 192:	66 23       	and	r22, r22
- 194:	09 f4       	brne	.+2      	; 0x198 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x6>
- 196:	3f c0       	rjmp	.+126    	; 0x216 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x84>
- 198:	88 30       	cpi	r24, 0x08	; 8
- 19a:	60 f4       	brcc	.+24     	; 0x1b4 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x22>
- 19c:	4a b3       	in	r20, 0x1a	; 26
- 19e:	21 e0       	ldi	r18, 0x01	; 1
- 1a0:	30 e0       	ldi	r19, 0x00	; 0
- 1a2:	b9 01       	movw	r22, r18
- 1a4:	02 c0       	rjmp	.+4      	; 0x1aa <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x18>
- 1a6:	66 0f       	add	r22, r22
- 1a8:	77 1f       	adc	r23, r23
- 1aa:	8a 95       	dec	r24
- 1ac:	e2 f7       	brpl	.-8      	; 0x1a6 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x14>
- 1ae:	cb 01       	movw	r24, r22
- 1b0:	84 2b       	or	r24, r20
- 1b2:	3f c0       	rjmp	.+126    	; 0x232 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xa0>
- 1b4:	98 ef       	ldi	r25, 0xF8	; 248
- 1b6:	98 0f       	add	r25, r24
- 1b8:	98 30       	cpi	r25, 0x08	; 8
- 1ba:	60 f4       	brcc	.+24     	; 0x1d4 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x42>
- 1bc:	47 b3       	in	r20, 0x17	; 23
- 1be:	21 e0       	ldi	r18, 0x01	; 1
- 1c0:	30 e0       	ldi	r19, 0x00	; 0
- 1c2:	b9 01       	movw	r22, r18
- 1c4:	02 c0       	rjmp	.+4      	; 0x1ca <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x38>
- 1c6:	66 0f       	add	r22, r22
- 1c8:	77 1f       	adc	r23, r23
- 1ca:	9a 95       	dec	r25
- 1cc:	e2 f7       	brpl	.-8      	; 0x1c6 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x34>
- 1ce:	cb 01       	movw	r24, r22
- 1d0:	84 2b       	or	r24, r20
- 1d2:	41 c0       	rjmp	.+130    	; 0x256 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xc4>
- 1d4:	90 ef       	ldi	r25, 0xF0	; 240
- 1d6:	98 0f       	add	r25, r24
- 1d8:	98 30       	cpi	r25, 0x08	; 8
- 1da:	60 f4       	brcc	.+24     	; 0x1f4 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x62>
- 1dc:	44 b3       	in	r20, 0x14	; 20
- 1de:	21 e0       	ldi	r18, 0x01	; 1
- 1e0:	30 e0       	ldi	r19, 0x00	; 0
- 1e2:	b9 01       	movw	r22, r18
- 1e4:	02 c0       	rjmp	.+4      	; 0x1ea <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x58>
- 1e6:	66 0f       	add	r22, r22
- 1e8:	77 1f       	adc	r23, r23
- 1ea:	9a 95       	dec	r25
- 1ec:	e2 f7       	brpl	.-8      	; 0x1e6 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x54>
- 1ee:	cb 01       	movw	r24, r22
- 1f0:	84 2b       	or	r24, r20
- 1f2:	43 c0       	rjmp	.+134    	; 0x27a <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xe8>
- 1f4:	98 ee       	ldi	r25, 0xE8	; 232
- 1f6:	98 0f       	add	r25, r24
- 1f8:	98 30       	cpi	r25, 0x08	; 8
- 1fa:	08 f0       	brcs	.+2      	; 0x1fe <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x6c>
- 1fc:	51 c0       	rjmp	.+162    	; 0x2a0 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x10e>
- 1fe:	41 b3       	in	r20, 0x11	; 17
- 200:	21 e0       	ldi	r18, 0x01	; 1
- 202:	30 e0       	ldi	r19, 0x00	; 0
- 204:	b9 01       	movw	r22, r18
- 206:	02 c0       	rjmp	.+4      	; 0x20c <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x7a>
- 208:	66 0f       	add	r22, r22
- 20a:	77 1f       	adc	r23, r23
- 20c:	9a 95       	dec	r25
- 20e:	e2 f7       	brpl	.-8      	; 0x208 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x76>
- 210:	cb 01       	movw	r24, r22
- 212:	84 2b       	or	r24, r20
- 214:	44 c0       	rjmp	.+136    	; 0x29e <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x10c>
- 216:	88 30       	cpi	r24, 0x08	; 8
- 218:	70 f4       	brcc	.+28     	; 0x236 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xa4>
- 21a:	4a b3       	in	r20, 0x1a	; 26
- 21c:	21 e0       	ldi	r18, 0x01	; 1
- 21e:	30 e0       	ldi	r19, 0x00	; 0
- 220:	b9 01       	movw	r22, r18
- 222:	02 c0       	rjmp	.+4      	; 0x228 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x96>
- 224:	66 0f       	add	r22, r22
- 226:	77 1f       	adc	r23, r23
- 228:	8a 95       	dec	r24
- 22a:	e2 f7       	brpl	.-8      	; 0x224 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x92>
- 22c:	cb 01       	movw	r24, r22
- 22e:	80 95       	com	r24
- 230:	84 23       	and	r24, r20
- 232:	8a bb       	out	0x1a, r24	; 26
- 234:	08 95       	ret
- 236:	98 ef       	ldi	r25, 0xF8	; 248
- 238:	98 0f       	add	r25, r24
- 23a:	98 30       	cpi	r25, 0x08	; 8
- 23c:	70 f4       	brcc	.+28     	; 0x25a <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xc8>
- 23e:	47 b3       	in	r20, 0x17	; 23
- 240:	21 e0       	ldi	r18, 0x01	; 1
- 242:	30 e0       	ldi	r19, 0x00	; 0
- 244:	b9 01       	movw	r22, r18
- 246:	02 c0       	rjmp	.+4      	; 0x24c <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xba>
- 248:	66 0f       	add	r22, r22
- 24a:	77 1f       	adc	r23, r23
- 24c:	9a 95       	dec	r25
- 24e:	e2 f7       	brpl	.-8      	; 0x248 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xb6>
- 250:	cb 01       	movw	r24, r22
- 252:	80 95       	com	r24
- 254:	84 23       	and	r24, r20
- 256:	87 bb       	out	0x17, r24	; 23
- 258:	08 95       	ret
- 25a:	90 ef       	ldi	r25, 0xF0	; 240
- 25c:	98 0f       	add	r25, r24
- 25e:	98 30       	cpi	r25, 0x08	; 8
- 260:	70 f4       	brcc	.+28     	; 0x27e <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xec>
- 262:	44 b3       	in	r20, 0x14	; 20
- 264:	21 e0       	ldi	r18, 0x01	; 1
- 266:	30 e0       	ldi	r19, 0x00	; 0
- 268:	b9 01       	movw	r22, r18
- 26a:	02 c0       	rjmp	.+4      	; 0x270 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xde>
- 26c:	66 0f       	add	r22, r22
- 26e:	77 1f       	adc	r23, r23
- 270:	9a 95       	dec	r25
- 272:	e2 f7       	brpl	.-8      	; 0x26c <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xda>
- 274:	cb 01       	movw	r24, r22
- 276:	80 95       	com	r24
- 278:	84 23       	and	r24, r20
- 27a:	84 bb       	out	0x14, r24	; 20
- 27c:	08 95       	ret
- 27e:	98 ee       	ldi	r25, 0xE8	; 232
- 280:	98 0f       	add	r25, r24
- 282:	98 30       	cpi	r25, 0x08	; 8
- 284:	68 f4       	brcc	.+26     	; 0x2a0 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x10e>
- 286:	41 b3       	in	r20, 0x11	; 17
- 288:	21 e0       	ldi	r18, 0x01	; 1
- 28a:	30 e0       	ldi	r19, 0x00	; 0
- 28c:	b9 01       	movw	r22, r18
- 28e:	02 c0       	rjmp	.+4      	; 0x294 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x102>
- 290:	66 0f       	add	r22, r22
- 292:	77 1f       	adc	r23, r23
- 294:	9a 95       	dec	r25
- 296:	e2 f7       	brpl	.-8      	; 0x290 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xfe>
- 298:	cb 01       	movw	r24, r22
- 29a:	80 95       	com	r24
- 29c:	84 23       	and	r24, r20
- 29e:	81 bb       	out	0x11, r24	; 17
- 2a0:	08 95       	ret
+     192:	66 23       	and	r22, r22
+     194:	09 f4       	brne	.+2      	; 0x198 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x6>
+     196:	3f c0       	rjmp	.+126    	; 0x216 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x84>
+     198:	88 30       	cpi	r24, 0x08	; 8
+     19a:	60 f4       	brcc	.+24     	; 0x1b4 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x22>
+     19c:	4a b3       	in	r20, 0x1a	; 26
+     19e:	21 e0       	ldi	r18, 0x01	; 1
+     1a0:	30 e0       	ldi	r19, 0x00	; 0
+     1a2:	b9 01       	movw	r22, r18
+     1a4:	02 c0       	rjmp	.+4      	; 0x1aa <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x18>
+     1a6:	66 0f       	add	r22, r22
+     1a8:	77 1f       	adc	r23, r23
+     1aa:	8a 95       	dec	r24
+     1ac:	e2 f7       	brpl	.-8      	; 0x1a6 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x14>
+     1ae:	cb 01       	movw	r24, r22
+     1b0:	84 2b       	or	r24, r20
+     1b2:	3f c0       	rjmp	.+126    	; 0x232 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xa0>
+     1b4:	98 ef       	ldi	r25, 0xF8	; 248
+     1b6:	98 0f       	add	r25, r24
+     1b8:	98 30       	cpi	r25, 0x08	; 8
+     1ba:	60 f4       	brcc	.+24     	; 0x1d4 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x42>
+     1bc:	47 b3       	in	r20, 0x17	; 23
+     1be:	21 e0       	ldi	r18, 0x01	; 1
+     1c0:	30 e0       	ldi	r19, 0x00	; 0
+     1c2:	b9 01       	movw	r22, r18
+     1c4:	02 c0       	rjmp	.+4      	; 0x1ca <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x38>
+     1c6:	66 0f       	add	r22, r22
+     1c8:	77 1f       	adc	r23, r23
+     1ca:	9a 95       	dec	r25
+     1cc:	e2 f7       	brpl	.-8      	; 0x1c6 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x34>
+     1ce:	cb 01       	movw	r24, r22
+     1d0:	84 2b       	or	r24, r20
+     1d2:	41 c0       	rjmp	.+130    	; 0x256 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xc4>
+     1d4:	90 ef       	ldi	r25, 0xF0	; 240
+     1d6:	98 0f       	add	r25, r24
+     1d8:	98 30       	cpi	r25, 0x08	; 8
+     1da:	60 f4       	brcc	.+24     	; 0x1f4 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x62>
+     1dc:	44 b3       	in	r20, 0x14	; 20
+     1de:	21 e0       	ldi	r18, 0x01	; 1
+     1e0:	30 e0       	ldi	r19, 0x00	; 0
+     1e2:	b9 01       	movw	r22, r18
+     1e4:	02 c0       	rjmp	.+4      	; 0x1ea <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x58>
+     1e6:	66 0f       	add	r22, r22
+     1e8:	77 1f       	adc	r23, r23
+     1ea:	9a 95       	dec	r25
+     1ec:	e2 f7       	brpl	.-8      	; 0x1e6 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x54>
+     1ee:	cb 01       	movw	r24, r22
+     1f0:	84 2b       	or	r24, r20
+     1f2:	43 c0       	rjmp	.+134    	; 0x27a <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xe8>
+     1f4:	98 ee       	ldi	r25, 0xE8	; 232
+     1f6:	98 0f       	add	r25, r24
+     1f8:	98 30       	cpi	r25, 0x08	; 8
+     1fa:	08 f0       	brcs	.+2      	; 0x1fe <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x6c>
+     1fc:	51 c0       	rjmp	.+162    	; 0x2a0 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x10e>
+     1fe:	41 b3       	in	r20, 0x11	; 17
+     200:	21 e0       	ldi	r18, 0x01	; 1
+     202:	30 e0       	ldi	r19, 0x00	; 0
+     204:	b9 01       	movw	r22, r18
+     206:	02 c0       	rjmp	.+4      	; 0x20c <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x7a>
+     208:	66 0f       	add	r22, r22
+     20a:	77 1f       	adc	r23, r23
+     20c:	9a 95       	dec	r25
+     20e:	e2 f7       	brpl	.-8      	; 0x208 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x76>
+     210:	cb 01       	movw	r24, r22
+     212:	84 2b       	or	r24, r20
+     214:	44 c0       	rjmp	.+136    	; 0x29e <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x10c>
+     216:	88 30       	cpi	r24, 0x08	; 8
+     218:	70 f4       	brcc	.+28     	; 0x236 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xa4>
+     21a:	4a b3       	in	r20, 0x1a	; 26
+     21c:	21 e0       	ldi	r18, 0x01	; 1
+     21e:	30 e0       	ldi	r19, 0x00	; 0
+     220:	b9 01       	movw	r22, r18
+     222:	02 c0       	rjmp	.+4      	; 0x228 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x96>
+     224:	66 0f       	add	r22, r22
+     226:	77 1f       	adc	r23, r23
+     228:	8a 95       	dec	r24
+     22a:	e2 f7       	brpl	.-8      	; 0x224 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x92>
+     22c:	cb 01       	movw	r24, r22
+     22e:	80 95       	com	r24
+     230:	84 23       	and	r24, r20
+     232:	8a bb       	out	0x1a, r24	; 26
+     234:	08 95       	ret
+     236:	98 ef       	ldi	r25, 0xF8	; 248
+     238:	98 0f       	add	r25, r24
+     23a:	98 30       	cpi	r25, 0x08	; 8
+     23c:	70 f4       	brcc	.+28     	; 0x25a <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xc8>
+     23e:	47 b3       	in	r20, 0x17	; 23
+     240:	21 e0       	ldi	r18, 0x01	; 1
+     242:	30 e0       	ldi	r19, 0x00	; 0
+     244:	b9 01       	movw	r22, r18
+     246:	02 c0       	rjmp	.+4      	; 0x24c <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xba>
+     248:	66 0f       	add	r22, r22
+     24a:	77 1f       	adc	r23, r23
+     24c:	9a 95       	dec	r25
+     24e:	e2 f7       	brpl	.-8      	; 0x248 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xb6>
+     250:	cb 01       	movw	r24, r22
+     252:	80 95       	com	r24
+     254:	84 23       	and	r24, r20
+     256:	87 bb       	out	0x17, r24	; 23
+     258:	08 95       	ret
+     25a:	90 ef       	ldi	r25, 0xF0	; 240
+     25c:	98 0f       	add	r25, r24
+     25e:	98 30       	cpi	r25, 0x08	; 8
+     260:	70 f4       	brcc	.+28     	; 0x27e <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xec>
+     262:	44 b3       	in	r20, 0x14	; 20
+     264:	21 e0       	ldi	r18, 0x01	; 1
+     266:	30 e0       	ldi	r19, 0x00	; 0
+     268:	b9 01       	movw	r22, r18
+     26a:	02 c0       	rjmp	.+4      	; 0x270 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xde>
+     26c:	66 0f       	add	r22, r22
+     26e:	77 1f       	adc	r23, r23
+     270:	9a 95       	dec	r25
+     272:	e2 f7       	brpl	.-8      	; 0x26c <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xda>
+     274:	cb 01       	movw	r24, r22
+     276:	80 95       	com	r24
+     278:	84 23       	and	r24, r20
+     27a:	84 bb       	out	0x14, r24	; 20
+     27c:	08 95       	ret
+     27e:	98 ee       	ldi	r25, 0xE8	; 232
+     280:	98 0f       	add	r25, r24
+     282:	98 30       	cpi	r25, 0x08	; 8
+     284:	68 f4       	brcc	.+26     	; 0x2a0 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x10e>
+     286:	41 b3       	in	r20, 0x11	; 17
+     288:	21 e0       	ldi	r18, 0x01	; 1
+     28a:	30 e0       	ldi	r19, 0x00	; 0
+     28c:	b9 01       	movw	r22, r18
+     28e:	02 c0       	rjmp	.+4      	; 0x294 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0x102>
+     290:	66 0f       	add	r22, r22
+     292:	77 1f       	adc	r23, r23
+     294:	9a 95       	dec	r25
+     296:	e2 f7       	brpl	.-8      	; 0x290 <_ZN7atmicro6Device12setDirectionENS_3PINEb+0xfe>
+     298:	cb 01       	movw	r24, r22
+     29a:	80 95       	com	r24
+     29c:	84 23       	and	r24, r20
+     29e:	81 bb       	out	0x11, r24	; 17
+     2a0:	08 95       	ret
 
 000002a2 <_ZN7atmicro6Device9getStatusENS_3PINE>:
- 2a2:	48 2f       	mov	r20, r24
- 2a4:	88 30       	cpi	r24, 0x08	; 8
- 2a6:	20 f4       	brcc	.+8      	; 0x2b0 <_ZN7atmicro6Device9getStatusENS_3PINE+0xe>
- 2a8:	99 b3       	in	r25, 0x19	; 25
- 2aa:	89 2f       	mov	r24, r25
- 2ac:	90 e0       	ldi	r25, 0x00	; 0
- 2ae:	14 c0       	rjmp	.+40     	; 0x2d8 <_ZN7atmicro6Device9getStatusENS_3PINE+0x36>
- 2b0:	88 ef       	ldi	r24, 0xF8	; 248
- 2b2:	84 0f       	add	r24, r20
- 2b4:	88 30       	cpi	r24, 0x08	; 8
- 2b6:	10 f4       	brcc	.+4      	; 0x2bc <_ZN7atmicro6Device9getStatusENS_3PINE+0x1a>
- 2b8:	26 b3       	in	r18, 0x16	; 22
- 2ba:	0b c0       	rjmp	.+22     	; 0x2d2 <_ZN7atmicro6Device9getStatusENS_3PINE+0x30>
- 2bc:	80 ef       	ldi	r24, 0xF0	; 240
- 2be:	84 0f       	add	r24, r20
- 2c0:	88 30       	cpi	r24, 0x08	; 8
- 2c2:	10 f4       	brcc	.+4      	; 0x2c8 <_ZN7atmicro6Device9getStatusENS_3PINE+0x26>
- 2c4:	23 b3       	in	r18, 0x13	; 19
- 2c6:	05 c0       	rjmp	.+10     	; 0x2d2 <_ZN7atmicro6Device9getStatusENS_3PINE+0x30>
- 2c8:	88 ee       	ldi	r24, 0xE8	; 232
- 2ca:	84 0f       	add	r24, r20
- 2cc:	88 30       	cpi	r24, 0x08	; 8
- 2ce:	58 f4       	brcc	.+22     	; 0x2e6 <_ZN7atmicro6Device9getStatusENS_3PINE+0x44>
- 2d0:	20 b3       	in	r18, 0x10	; 16
- 2d2:	30 e0       	ldi	r19, 0x00	; 0
- 2d4:	48 2f       	mov	r20, r24
- 2d6:	c9 01       	movw	r24, r18
- 2d8:	02 c0       	rjmp	.+4      	; 0x2de <_ZN7atmicro6Device9getStatusENS_3PINE+0x3c>
- 2da:	95 95       	asr	r25
- 2dc:	87 95       	ror	r24
- 2de:	4a 95       	dec	r20
- 2e0:	e2 f7       	brpl	.-8      	; 0x2da <_ZN7atmicro6Device9getStatusENS_3PINE+0x38>
- 2e2:	81 70       	andi	r24, 0x01	; 1
- 2e4:	08 95       	ret
- 2e6:	80 e0       	ldi	r24, 0x00	; 0
- 2e8:	08 95       	ret
+     2a2:	48 2f       	mov	r20, r24
+     2a4:	88 30       	cpi	r24, 0x08	; 8
+     2a6:	20 f4       	brcc	.+8      	; 0x2b0 <_ZN7atmicro6Device9getStatusENS_3PINE+0xe>
+     2a8:	99 b3       	in	r25, 0x19	; 25
+     2aa:	89 2f       	mov	r24, r25
+     2ac:	90 e0       	ldi	r25, 0x00	; 0
+     2ae:	14 c0       	rjmp	.+40     	; 0x2d8 <_ZN7atmicro6Device9getStatusENS_3PINE+0x36>
+     2b0:	88 ef       	ldi	r24, 0xF8	; 248
+     2b2:	84 0f       	add	r24, r20
+     2b4:	88 30       	cpi	r24, 0x08	; 8
+     2b6:	10 f4       	brcc	.+4      	; 0x2bc <_ZN7atmicro6Device9getStatusENS_3PINE+0x1a>
+     2b8:	26 b3       	in	r18, 0x16	; 22
+     2ba:	0b c0       	rjmp	.+22     	; 0x2d2 <_ZN7atmicro6Device9getStatusENS_3PINE+0x30>
+     2bc:	80 ef       	ldi	r24, 0xF0	; 240
+     2be:	84 0f       	add	r24, r20
+     2c0:	88 30       	cpi	r24, 0x08	; 8
+     2c2:	10 f4       	brcc	.+4      	; 0x2c8 <_ZN7atmicro6Device9getStatusENS_3PINE+0x26>
+     2c4:	23 b3       	in	r18, 0x13	; 19
+     2c6:	05 c0       	rjmp	.+10     	; 0x2d2 <_ZN7atmicro6Device9getStatusENS_3PINE+0x30>
+     2c8:	88 ee       	ldi	r24, 0xE8	; 232
+     2ca:	84 0f       	add	r24, r20
+     2cc:	88 30       	cpi	r24, 0x08	; 8
+     2ce:	58 f4       	brcc	.+22     	; 0x2e6 <_ZN7atmicro6Device9getStatusENS_3PINE+0x44>
+     2d0:	20 b3       	in	r18, 0x10	; 16
+     2d2:	30 e0       	ldi	r19, 0x00	; 0
+     2d4:	48 2f       	mov	r20, r24
+     2d6:	c9 01       	movw	r24, r18
+     2d8:	02 c0       	rjmp	.+4      	; 0x2de <_ZN7atmicro6Device9getStatusENS_3PINE+0x3c>
+     2da:	95 95       	asr	r25
+     2dc:	87 95       	ror	r24
+     2de:	4a 95       	dec	r20
+     2e0:	e2 f7       	brpl	.-8      	; 0x2da <_ZN7atmicro6Device9getStatusENS_3PINE+0x38>
+     2e2:	81 70       	andi	r24, 0x01	; 1
+     2e4:	08 95       	ret
+     2e6:	80 e0       	ldi	r24, 0x00	; 0
+     2e8:	08 95       	ret
 
 000002ea <_ZN7atmicro6Device9setStatusENS_4PORTEi>:
- 2ea:	88 30       	cpi	r24, 0x08	; 8
- 2ec:	59 f0       	breq	.+22     	; 0x304 <_ZN7atmicro6Device9setStatusENS_4PORTEi+0x1a>
- 2ee:	18 f4       	brcc	.+6      	; 0x2f6 <_ZN7atmicro6Device9setStatusENS_4PORTEi+0xc>
- 2f0:	88 23       	and	r24, r24
- 2f2:	31 f0       	breq	.+12     	; 0x300 <_ZN7atmicro6Device9setStatusENS_4PORTEi+0x16>
- 2f4:	08 95       	ret
- 2f6:	80 31       	cpi	r24, 0x10	; 16
- 2f8:	39 f0       	breq	.+14     	; 0x308 <_ZN7atmicro6Device9setStatusENS_4PORTEi+0x1e>
- 2fa:	88 31       	cpi	r24, 0x18	; 24
- 2fc:	39 f0       	breq	.+14     	; 0x30c <_ZN7atmicro6Device9setStatusENS_4PORTEi+0x22>
- 2fe:	08 95       	ret
- 300:	6b bb       	out	0x1b, r22	; 27
- 302:	08 95       	ret
- 304:	68 bb       	out	0x18, r22	; 24
- 306:	08 95       	ret
- 308:	65 bb       	out	0x15, r22	; 21
- 30a:	08 95       	ret
- 30c:	62 bb       	out	0x12, r22	; 18
- 30e:	08 95       	ret
+     2ea:	88 30       	cpi	r24, 0x08	; 8
+     2ec:	59 f0       	breq	.+22     	; 0x304 <_ZN7atmicro6Device9setStatusENS_4PORTEi+0x1a>
+     2ee:	18 f4       	brcc	.+6      	; 0x2f6 <_ZN7atmicro6Device9setStatusENS_4PORTEi+0xc>
+     2f0:	88 23       	and	r24, r24
+     2f2:	31 f0       	breq	.+12     	; 0x300 <_ZN7atmicro6Device9setStatusENS_4PORTEi+0x16>
+     2f4:	08 95       	ret
+     2f6:	80 31       	cpi	r24, 0x10	; 16
+     2f8:	39 f0       	breq	.+14     	; 0x308 <_ZN7atmicro6Device9setStatusENS_4PORTEi+0x1e>
+     2fa:	88 31       	cpi	r24, 0x18	; 24
+     2fc:	39 f0       	breq	.+14     	; 0x30c <_ZN7atmicro6Device9setStatusENS_4PORTEi+0x22>
+     2fe:	08 95       	ret
+     300:	6b bb       	out	0x1b, r22	; 27
+     302:	08 95       	ret
+     304:	68 bb       	out	0x18, r22	; 24
+     306:	08 95       	ret
+     308:	65 bb       	out	0x15, r22	; 21
+     30a:	08 95       	ret
+     30c:	62 bb       	out	0x12, r22	; 18
+     30e:	08 95       	ret
 
 00000310 <_ZN7atmicro6Device12setDirectionENS_4PORTEi>:
- 310:	88 30       	cpi	r24, 0x08	; 8
- 312:	59 f0       	breq	.+22     	; 0x32a <_ZN7atmicro6Device12setDirectionENS_4PORTEi+0x1a>
- 314:	18 f4       	brcc	.+6      	; 0x31c <_ZN7atmicro6Device12setDirectionENS_4PORTEi+0xc>
- 316:	88 23       	and	r24, r24
- 318:	31 f0       	breq	.+12     	; 0x326 <_ZN7atmicro6Device12setDirectionENS_4PORTEi+0x16>
- 31a:	08 95       	ret
- 31c:	80 31       	cpi	r24, 0x10	; 16
- 31e:	39 f0       	breq	.+14     	; 0x32e <_ZN7atmicro6Device12setDirectionENS_4PORTEi+0x1e>
- 320:	88 31       	cpi	r24, 0x18	; 24
- 322:	39 f0       	breq	.+14     	; 0x332 <_ZN7atmicro6Device12setDirectionENS_4PORTEi+0x22>
- 324:	08 95       	ret
- 326:	6a bb       	out	0x1a, r22	; 26
- 328:	08 95       	ret
- 32a:	67 bb       	out	0x17, r22	; 23
- 32c:	08 95       	ret
- 32e:	64 bb       	out	0x14, r22	; 20
- 330:	08 95       	ret
- 332:	61 bb       	out	0x11, r22	; 17
- 334:	08 95       	ret
+     310:	88 30       	cpi	r24, 0x08	; 8
+     312:	59 f0       	breq	.+22     	; 0x32a <_ZN7atmicro6Device12setDirectionENS_4PORTEi+0x1a>
+     314:	18 f4       	brcc	.+6      	; 0x31c <_ZN7atmicro6Device12setDirectionENS_4PORTEi+0xc>
+     316:	88 23       	and	r24, r24
+     318:	31 f0       	breq	.+12     	; 0x326 <_ZN7atmicro6Device12setDirectionENS_4PORTEi+0x16>
+     31a:	08 95       	ret
+     31c:	80 31       	cpi	r24, 0x10	; 16
+     31e:	39 f0       	breq	.+14     	; 0x32e <_ZN7atmicro6Device12setDirectionENS_4PORTEi+0x1e>
+     320:	88 31       	cpi	r24, 0x18	; 24
+     322:	39 f0       	breq	.+14     	; 0x332 <_ZN7atmicro6Device12setDirectionENS_4PORTEi+0x22>
+     324:	08 95       	ret
+     326:	6a bb       	out	0x1a, r22	; 26
+     328:	08 95       	ret
+     32a:	67 bb       	out	0x17, r22	; 23
+     32c:	08 95       	ret
+     32e:	64 bb       	out	0x14, r22	; 20
+     330:	08 95       	ret
+     332:	61 bb       	out	0x11, r22	; 17
+     334:	08 95       	ret
 
 00000336 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE>:
- 336:	88 30       	cpi	r24, 0x08	; 8
- 338:	59 f0       	breq	.+22     	; 0x350 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x1a>
- 33a:	20 f4       	brcc	.+8      	; 0x344 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0xe>
- 33c:	81 11       	cpse	r24, r1
- 33e:	13 c0       	rjmp	.+38     	; 0x366 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x30>
- 340:	89 b3       	in	r24, 0x19	; 25
- 342:	09 c0       	rjmp	.+18     	; 0x356 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x20>
- 344:	80 31       	cpi	r24, 0x10	; 16
- 346:	31 f0       	breq	.+12     	; 0x354 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x1e>
- 348:	88 31       	cpi	r24, 0x18	; 24
- 34a:	69 f4       	brne	.+26     	; 0x366 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x30>
- 34c:	80 b3       	in	r24, 0x10	; 16
- 34e:	03 c0       	rjmp	.+6      	; 0x356 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x20>
- 350:	86 b3       	in	r24, 0x16	; 22
- 352:	01 c0       	rjmp	.+2      	; 0x356 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x20>
- 354:	83 b3       	in	r24, 0x13	; 19
- 356:	90 e0       	ldi	r25, 0x00	; 0
- 358:	02 c0       	rjmp	.+4      	; 0x35e <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x28>
- 35a:	95 95       	asr	r25
- 35c:	87 95       	ror	r24
- 35e:	6a 95       	dec	r22
- 360:	e2 f7       	brpl	.-8      	; 0x35a <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x24>
- 362:	81 70       	andi	r24, 0x01	; 1
- 364:	08 95       	ret
- 366:	80 e0       	ldi	r24, 0x00	; 0
- 368:	08 95       	ret
+     336:	88 30       	cpi	r24, 0x08	; 8
+     338:	59 f0       	breq	.+22     	; 0x350 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x1a>
+     33a:	20 f4       	brcc	.+8      	; 0x344 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0xe>
+     33c:	81 11       	cpse	r24, r1
+     33e:	13 c0       	rjmp	.+38     	; 0x366 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x30>
+     340:	89 b3       	in	r24, 0x19	; 25
+     342:	09 c0       	rjmp	.+18     	; 0x356 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x20>
+     344:	80 31       	cpi	r24, 0x10	; 16
+     346:	31 f0       	breq	.+12     	; 0x354 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x1e>
+     348:	88 31       	cpi	r24, 0x18	; 24
+     34a:	69 f4       	brne	.+26     	; 0x366 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x30>
+     34c:	80 b3       	in	r24, 0x10	; 16
+     34e:	03 c0       	rjmp	.+6      	; 0x356 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x20>
+     350:	86 b3       	in	r24, 0x16	; 22
+     352:	01 c0       	rjmp	.+2      	; 0x356 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x20>
+     354:	83 b3       	in	r24, 0x13	; 19
+     356:	90 e0       	ldi	r25, 0x00	; 0
+     358:	02 c0       	rjmp	.+4      	; 0x35e <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x28>
+     35a:	95 95       	asr	r25
+     35c:	87 95       	ror	r24
+     35e:	6a 95       	dec	r22
+     360:	e2 f7       	brpl	.-8      	; 0x35a <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE+0x24>
+     362:	81 70       	andi	r24, 0x01	; 1
+     364:	08 95       	ret
+     366:	80 e0       	ldi	r24, 0x00	; 0
+     368:	08 95       	ret
 
-0000036a <_ZN7atmicro6Keypad10initializeEv>:
- 36a:	cf 93       	push	r28
- 36c:	df 93       	push	r29
- 36e:	ec 01       	movw	r28, r24
- 370:	6f e0       	ldi	r22, 0x0F	; 15
- 372:	70 e0       	ldi	r23, 0x00	; 0
- 374:	8a 81       	ldd	r24, Y+2	; 0x02
- 376:	0e 94 88 01 	call	0x310	; 0x310 <_ZN7atmicro6Device12setDirectionENS_4PORTEi>
- 37a:	6f ef       	ldi	r22, 0xFF	; 255
- 37c:	70 e0       	ldi	r23, 0x00	; 0
- 37e:	8a 81       	ldd	r24, Y+2	; 0x02
- 380:	df 91       	pop	r29
- 382:	cf 91       	pop	r28
- 384:	0c 94 75 01 	jmp	0x2ea	; 0x2ea <_ZN7atmicro6Device9setStatusENS_4PORTEi>
+0000036a <_ZN7atmicro6EEPROMC1Ev>:
+     36a:	08 95       	ret
 
-00000388 <_ZN7atmicro6KeypadC1ENS_4PORTE>:
- 388:	2c e7       	ldi	r18, 0x7C	; 124
- 38a:	30 e0       	ldi	r19, 0x00	; 0
- 38c:	fc 01       	movw	r30, r24
- 38e:	31 83       	std	Z+1, r19	; 0x01
- 390:	20 83       	st	Z, r18
- 392:	62 83       	std	Z+2, r22	; 0x02
- 394:	0c 94 b5 01 	jmp	0x36a	; 0x36a <_ZN7atmicro6Keypad10initializeEv>
+0000036c <_ZN7atmicro6EEPROM4readEj>:
+     36c:	e1 99       	sbic	0x1c, 1	; 28
+     36e:	fe cf       	rjmp	.-4      	; 0x36c <_ZN7atmicro6EEPROM4readEj>
+     370:	7f bb       	out	0x1f, r23	; 31
+     372:	6e bb       	out	0x1e, r22	; 30
+     374:	e0 9a       	sbi	0x1c, 0	; 28
+     376:	8d b3       	in	r24, 0x1d	; 29
+     378:	08 95       	ret
 
-00000398 <_ZN7atmicro6Keypad13switchPressedENS_3PINE>:
- 398:	4f 92       	push	r4
- 39a:	5f 92       	push	r5
- 39c:	6f 92       	push	r6
- 39e:	7f 92       	push	r7
- 3a0:	8f 92       	push	r8
- 3a2:	9f 92       	push	r9
- 3a4:	af 92       	push	r10
- 3a6:	bf 92       	push	r11
- 3a8:	cf 92       	push	r12
- 3aa:	df 92       	push	r13
- 3ac:	ef 92       	push	r14
- 3ae:	ff 92       	push	r15
- 3b0:	1f 93       	push	r17
- 3b2:	cf 93       	push	r28
- 3b4:	df 93       	push	r29
- 3b6:	18 2f       	mov	r17, r24
- 3b8:	c4 e6       	ldi	r28, 0x64	; 100
- 3ba:	d0 e0       	ldi	r29, 0x00	; 0
- 3bc:	81 2c       	mov	r8, r1
- 3be:	91 2c       	mov	r9, r1
- 3c0:	54 01       	movw	r10, r8
- 3c2:	75 01       	movw	r14, r10
- 3c4:	64 01       	movw	r12, r8
- 3c6:	81 2f       	mov	r24, r17
- 3c8:	0e 94 51 01 	call	0x2a2	; 0x2a2 <_ZN7atmicro6Device9getStatusENS_3PINE>
- 3cc:	81 11       	cpse	r24, r1
- 3ce:	0a c0       	rjmp	.+20     	; 0x3e4 <_ZN7atmicro6Keypad13switchPressedENS_3PINE+0x4c>
- 3d0:	20 e0       	ldi	r18, 0x00	; 0
- 3d2:	30 e0       	ldi	r19, 0x00	; 0
- 3d4:	40 e8       	ldi	r20, 0x80	; 128
- 3d6:	5f e3       	ldi	r21, 0x3F	; 63
- 3d8:	c5 01       	movw	r24, r10
- 3da:	b4 01       	movw	r22, r8
- 3dc:	0e 94 a6 05 	call	0xb4c	; 0xb4c <__addsf3>
- 3e0:	4b 01       	movw	r8, r22
- 3e2:	5c 01       	movw	r10, r24
- 3e4:	20 e0       	ldi	r18, 0x00	; 0
- 3e6:	30 e0       	ldi	r19, 0x00	; 0
- 3e8:	40 e4       	ldi	r20, 0x40	; 64
- 3ea:	50 e4       	ldi	r21, 0x40	; 64
- 3ec:	c7 01       	movw	r24, r14
- 3ee:	b6 01       	movw	r22, r12
- 3f0:	0e 94 fe 06 	call	0xdfc	; 0xdfc <__gesf2>
- 3f4:	18 16       	cp	r1, r24
- 3f6:	04 f5       	brge	.+64     	; 0x438 <_ZN7atmicro6Keypad13switchPressedENS_3PINE+0xa0>
- 3f8:	a7 01       	movw	r20, r14
- 3fa:	96 01       	movw	r18, r12
- 3fc:	c5 01       	movw	r24, r10
- 3fe:	b4 01       	movw	r22, r8
- 400:	0e 94 17 06 	call	0xc2e	; 0xc2e <__divsf3>
- 404:	2b 01       	movw	r4, r22
- 406:	3c 01       	movw	r6, r24
- 408:	23 e3       	ldi	r18, 0x33	; 51
- 40a:	33 e3       	ldi	r19, 0x33	; 51
- 40c:	43 e3       	ldi	r20, 0x33	; 51
- 40e:	5f e3       	ldi	r21, 0x3F	; 63
- 410:	0e 94 fe 06 	call	0xdfc	; 0xdfc <__gesf2>
- 414:	87 ff       	sbrs	r24, 7
- 416:	3a c0       	rjmp	.+116    	; 0x48c <_ZN7atmicro6Keypad13switchPressedENS_3PINE+0xf4>
- 418:	a3 01       	movw	r20, r6
- 41a:	92 01       	movw	r18, r4
- 41c:	60 e0       	ldi	r22, 0x00	; 0
- 41e:	70 e0       	ldi	r23, 0x00	; 0
- 420:	80 e8       	ldi	r24, 0x80	; 128
- 422:	9f e3       	ldi	r25, 0x3F	; 63
- 424:	0e 94 a5 05 	call	0xb4a	; 0xb4a <__subsf3>
- 428:	23 e3       	ldi	r18, 0x33	; 51
- 42a:	33 e3       	ldi	r19, 0x33	; 51
- 42c:	43 e3       	ldi	r20, 0x33	; 51
- 42e:	5f e3       	ldi	r21, 0x3F	; 63
- 430:	0e 94 fe 06 	call	0xdfc	; 0xdfc <__gesf2>
- 434:	87 ff       	sbrs	r24, 7
- 436:	2c c0       	rjmp	.+88     	; 0x490 <_ZN7atmicro6Keypad13switchPressedENS_3PINE+0xf8>
- 438:	20 e0       	ldi	r18, 0x00	; 0
- 43a:	30 e0       	ldi	r19, 0x00	; 0
- 43c:	46 ec       	ldi	r20, 0xC6	; 198
- 43e:	52 e4       	ldi	r21, 0x42	; 66
- 440:	c7 01       	movw	r24, r14
- 442:	b6 01       	movw	r22, r12
- 444:	0e 94 12 06 	call	0xc24	; 0xc24 <__cmpsf2>
- 448:	81 11       	cpse	r24, r1
- 44a:	12 c0       	rjmp	.+36     	; 0x470 <_ZN7atmicro6Keypad13switchPressedENS_3PINE+0xd8>
- 44c:	20 e0       	ldi	r18, 0x00	; 0
- 44e:	30 e0       	ldi	r19, 0x00	; 0
- 450:	46 ec       	ldi	r20, 0xC6	; 198
- 452:	52 e4       	ldi	r21, 0x42	; 66
- 454:	c5 01       	movw	r24, r10
- 456:	b4 01       	movw	r22, r8
- 458:	0e 94 17 06 	call	0xc2e	; 0xc2e <__divsf3>
- 45c:	c1 e0       	ldi	r28, 0x01	; 1
- 45e:	20 e0       	ldi	r18, 0x00	; 0
- 460:	30 e0       	ldi	r19, 0x00	; 0
- 462:	40 e0       	ldi	r20, 0x00	; 0
- 464:	5f e3       	ldi	r21, 0x3F	; 63
- 466:	0e 94 fe 06 	call	0xdfc	; 0xdfc <__gesf2>
- 46a:	18 16       	cp	r1, r24
- 46c:	94 f0       	brlt	.+36     	; 0x492 <_ZN7atmicro6Keypad13switchPressedENS_3PINE+0xfa>
- 46e:	10 c0       	rjmp	.+32     	; 0x490 <_ZN7atmicro6Keypad13switchPressedENS_3PINE+0xf8>
- 470:	20 e0       	ldi	r18, 0x00	; 0
- 472:	30 e0       	ldi	r19, 0x00	; 0
- 474:	40 e8       	ldi	r20, 0x80	; 128
- 476:	5f e3       	ldi	r21, 0x3F	; 63
- 478:	c7 01       	movw	r24, r14
- 47a:	b6 01       	movw	r22, r12
- 47c:	0e 94 a6 05 	call	0xb4c	; 0xb4c <__addsf3>
- 480:	6b 01       	movw	r12, r22
- 482:	7c 01       	movw	r14, r24
- 484:	21 97       	sbiw	r28, 0x01	; 1
- 486:	09 f0       	breq	.+2      	; 0x48a <_ZN7atmicro6Keypad13switchPressedENS_3PINE+0xf2>
- 488:	9e cf       	rjmp	.-196    	; 0x3c6 <_ZN7atmicro6Keypad13switchPressedENS_3PINE+0x2e>
- 48a:	02 c0       	rjmp	.+4      	; 0x490 <_ZN7atmicro6Keypad13switchPressedENS_3PINE+0xf8>
- 48c:	c1 e0       	ldi	r28, 0x01	; 1
- 48e:	01 c0       	rjmp	.+2      	; 0x492 <_ZN7atmicro6Keypad13switchPressedENS_3PINE+0xfa>
- 490:	c0 e0       	ldi	r28, 0x00	; 0
- 492:	8c 2f       	mov	r24, r28
- 494:	df 91       	pop	r29
- 496:	cf 91       	pop	r28
- 498:	1f 91       	pop	r17
- 49a:	ff 90       	pop	r15
- 49c:	ef 90       	pop	r14
- 49e:	df 90       	pop	r13
- 4a0:	cf 90       	pop	r12
- 4a2:	bf 90       	pop	r11
- 4a4:	af 90       	pop	r10
- 4a6:	9f 90       	pop	r9
- 4a8:	8f 90       	pop	r8
- 4aa:	7f 90       	pop	r7
- 4ac:	6f 90       	pop	r6
- 4ae:	5f 90       	pop	r5
- 4b0:	4f 90       	pop	r4
- 4b2:	08 95       	ret
+0000037a <_ZN7atmicro6EEPROM5writeEjh>:
+     37a:	e1 99       	sbic	0x1c, 1	; 28
+     37c:	fe cf       	rjmp	.-4      	; 0x37a <_ZN7atmicro6EEPROM5writeEjh>
+     37e:	7f bb       	out	0x1f, r23	; 31
+     380:	6e bb       	out	0x1e, r22	; 30
+     382:	4d bb       	out	0x1d, r20	; 29
+     384:	e2 9a       	sbi	0x1c, 2	; 28
+     386:	e1 9a       	sbi	0x1c, 1	; 28
+     388:	08 95       	ret
 
-000004b4 <_ZN7atmicro6Keypad9isPressedEv>:
- 4b4:	bf 92       	push	r11
- 4b6:	cf 92       	push	r12
- 4b8:	df 92       	push	r13
- 4ba:	ef 92       	push	r14
- 4bc:	ff 92       	push	r15
- 4be:	0f 93       	push	r16
- 4c0:	1f 93       	push	r17
- 4c2:	cf 93       	push	r28
- 4c4:	df 93       	push	r29
- 4c6:	b8 2e       	mov	r11, r24
- 4c8:	d9 2f       	mov	r29, r25
- 4ca:	6b 01       	movw	r12, r22
- 4cc:	08 2f       	mov	r16, r24
- 4ce:	19 2f       	mov	r17, r25
- 4d0:	c0 e0       	ldi	r28, 0x00	; 0
- 4d2:	f6 01       	movw	r30, r12
- 4d4:	82 81       	ldd	r24, Z+2	; 0x02
- 4d6:	60 e0       	ldi	r22, 0x00	; 0
- 4d8:	8c 0f       	add	r24, r28
- 4da:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
- 4de:	e1 2c       	mov	r14, r1
- 4e0:	f1 2c       	mov	r15, r1
- 4e2:	f6 01       	movw	r30, r12
- 4e4:	22 81       	ldd	r18, Z+2	; 0x02
- 4e6:	84 e0       	ldi	r24, 0x04	; 4
- 4e8:	82 0f       	add	r24, r18
- 4ea:	8e 0d       	add	r24, r14
- 4ec:	0e 94 cc 01 	call	0x398	; 0x398 <_ZN7atmicro6Keypad13switchPressedENS_3PINE>
- 4f0:	f8 01       	movw	r30, r16
- 4f2:	ee 0d       	add	r30, r14
- 4f4:	ff 1d       	adc	r31, r15
- 4f6:	80 83       	st	Z, r24
- 4f8:	ff ef       	ldi	r31, 0xFF	; 255
- 4fa:	ef 1a       	sub	r14, r31
- 4fc:	ff 0a       	sbc	r15, r31
- 4fe:	84 e0       	ldi	r24, 0x04	; 4
- 500:	e8 16       	cp	r14, r24
- 502:	f1 04       	cpc	r15, r1
- 504:	71 f7       	brne	.-36     	; 0x4e2 <_ZN7atmicro6Keypad9isPressedEv+0x2e>
- 506:	f6 01       	movw	r30, r12
- 508:	82 81       	ldd	r24, Z+2	; 0x02
- 50a:	61 e0       	ldi	r22, 0x01	; 1
- 50c:	8c 0f       	add	r24, r28
- 50e:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
- 512:	cf 5f       	subi	r28, 0xFF	; 255
- 514:	0c 5f       	subi	r16, 0xFC	; 252
- 516:	1f 4f       	sbci	r17, 0xFF	; 255
- 518:	c4 30       	cpi	r28, 0x04	; 4
- 51a:	d9 f6       	brne	.-74     	; 0x4d2 <_ZN7atmicro6Keypad9isPressedEv+0x1e>
- 51c:	8b 2d       	mov	r24, r11
- 51e:	9d 2f       	mov	r25, r29
- 520:	df 91       	pop	r29
- 522:	cf 91       	pop	r28
- 524:	1f 91       	pop	r17
- 526:	0f 91       	pop	r16
- 528:	ff 90       	pop	r15
- 52a:	ef 90       	pop	r14
- 52c:	df 90       	pop	r13
- 52e:	cf 90       	pop	r12
- 530:	bf 90       	pop	r11
- 532:	08 95       	ret
+0000038a <_ZN7atmicro13DigitalOutput10initializeEv>:
+     38a:	cf 93       	push	r28
+     38c:	df 93       	push	r29
+     38e:	ec 01       	movw	r28, r24
+     390:	61 e0       	ldi	r22, 0x01	; 1
+     392:	8b 81       	ldd	r24, Y+3	; 0x03
+     394:	0e 94 c9 00 	call	0x192	; 0x192 <_ZN7atmicro6Device12setDirectionENS_3PINEb>
+     398:	60 e0       	ldi	r22, 0x00	; 0
+     39a:	8b 81       	ldd	r24, Y+3	; 0x03
+     39c:	df 91       	pop	r29
+     39e:	cf 91       	pop	r28
+     3a0:	0c 94 41 00 	jmp	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
 
-00000534 <_ZN7atmicro15ParallelTextLCD13action_enableEv>:
- 534:	cf 93       	push	r28
- 536:	df 93       	push	r29
- 538:	ec 01       	movw	r28, r24
- 53a:	61 e0       	ldi	r22, 0x01	; 1
- 53c:	8b 81       	ldd	r24, Y+3	; 0x03
- 53e:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
- 542:	00 00       	nop
- 544:	00 00       	nop
- 546:	60 e0       	ldi	r22, 0x00	; 0
- 548:	8b 81       	ldd	r24, Y+3	; 0x03
- 54a:	df 91       	pop	r29
- 54c:	cf 91       	pop	r28
- 54e:	0c 94 41 00 	jmp	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
+000003a4 <_ZN7atmicro13DigitalOutputC1ENS_3PINE>:
+     3a4:	2c e7       	ldi	r18, 0x7C	; 124
+     3a6:	30 e0       	ldi	r19, 0x00	; 0
+     3a8:	fc 01       	movw	r30, r24
+     3aa:	31 83       	std	Z+1, r19	; 0x01
+     3ac:	20 83       	st	Z, r18
+     3ae:	63 83       	std	Z+3, r22	; 0x03
+     3b0:	12 82       	std	Z+2, r1	; 0x02
+     3b2:	0c 94 c5 01 	jmp	0x38a	; 0x38a <_ZN7atmicro13DigitalOutput10initializeEv>
 
-00000552 <_ZN7atmicro15ParallelTextLCD9wait_busyEv>:
- 552:	cf 93       	push	r28
- 554:	df 93       	push	r29
- 556:	ec 01       	movw	r28, r24
- 558:	60 e0       	ldi	r22, 0x00	; 0
- 55a:	70 e0       	ldi	r23, 0x00	; 0
- 55c:	8a 81       	ldd	r24, Y+2	; 0x02
- 55e:	0e 94 88 01 	call	0x310	; 0x310 <_ZN7atmicro6Device12setDirectionENS_4PORTEi>
- 562:	61 e0       	ldi	r22, 0x01	; 1
- 564:	8c 81       	ldd	r24, Y+4	; 0x04
- 566:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
- 56a:	60 e0       	ldi	r22, 0x00	; 0
- 56c:	8d 81       	ldd	r24, Y+5	; 0x05
- 56e:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
- 572:	67 e0       	ldi	r22, 0x07	; 7
- 574:	8a 81       	ldd	r24, Y+2	; 0x02
- 576:	0e 94 9b 01 	call	0x336	; 0x336 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE>
- 57a:	81 11       	cpse	r24, r1
- 57c:	04 c0       	rjmp	.+8      	; 0x586 <_ZN7atmicro15ParallelTextLCD9wait_busyEv+0x34>
- 57e:	ce 01       	movw	r24, r28
- 580:	0e 94 9a 02 	call	0x534	; 0x534 <_ZN7atmicro15ParallelTextLCD13action_enableEv>
- 584:	f6 cf       	rjmp	.-20     	; 0x572 <_ZN7atmicro15ParallelTextLCD9wait_busyEv+0x20>
- 586:	6f ef       	ldi	r22, 0xFF	; 255
- 588:	70 e0       	ldi	r23, 0x00	; 0
- 58a:	8a 81       	ldd	r24, Y+2	; 0x02
- 58c:	df 91       	pop	r29
- 58e:	cf 91       	pop	r28
- 590:	0c 94 88 01 	jmp	0x310	; 0x310 <_ZN7atmicro6Device12setDirectionENS_4PORTEi>
+000003b6 <_ZN7atmicro13DigitalOutput2onEv>:
+     3b6:	cf 93       	push	r28
+     3b8:	df 93       	push	r29
+     3ba:	ec 01       	movw	r28, r24
+     3bc:	61 e0       	ldi	r22, 0x01	; 1
+     3be:	8b 81       	ldd	r24, Y+3	; 0x03
+     3c0:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
+     3c4:	81 e0       	ldi	r24, 0x01	; 1
+     3c6:	8a 83       	std	Y+2, r24	; 0x02
+     3c8:	df 91       	pop	r29
+     3ca:	cf 91       	pop	r28
+     3cc:	08 95       	ret
 
-00000594 <_ZN7atmicro15ParallelTextLCD7commandEh>:
- 594:	0f 93       	push	r16
- 596:	1f 93       	push	r17
- 598:	cf 93       	push	r28
- 59a:	df 93       	push	r29
- 59c:	1f 92       	push	r1
- 59e:	cd b7       	in	r28, 0x3d	; 61
- 5a0:	de b7       	in	r29, 0x3e	; 62
- 5a2:	8c 01       	movw	r16, r24
- 5a4:	69 83       	std	Y+1, r22	; 0x01
- 5a6:	0e 94 a9 02 	call	0x552	; 0x552 <_ZN7atmicro15ParallelTextLCD9wait_busyEv>
- 5aa:	69 81       	ldd	r22, Y+1	; 0x01
- 5ac:	70 e0       	ldi	r23, 0x00	; 0
- 5ae:	f8 01       	movw	r30, r16
- 5b0:	82 81       	ldd	r24, Z+2	; 0x02
- 5b2:	0e 94 75 01 	call	0x2ea	; 0x2ea <_ZN7atmicro6Device9setStatusENS_4PORTEi>
- 5b6:	60 e0       	ldi	r22, 0x00	; 0
- 5b8:	f8 01       	movw	r30, r16
- 5ba:	84 81       	ldd	r24, Z+4	; 0x04
- 5bc:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
- 5c0:	60 e0       	ldi	r22, 0x00	; 0
- 5c2:	f8 01       	movw	r30, r16
- 5c4:	85 81       	ldd	r24, Z+5	; 0x05
- 5c6:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
- 5ca:	c8 01       	movw	r24, r16
- 5cc:	0e 94 9a 02 	call	0x534	; 0x534 <_ZN7atmicro15ParallelTextLCD13action_enableEv>
- 5d0:	60 e0       	ldi	r22, 0x00	; 0
- 5d2:	70 e0       	ldi	r23, 0x00	; 0
- 5d4:	f8 01       	movw	r30, r16
- 5d6:	82 81       	ldd	r24, Z+2	; 0x02
- 5d8:	0f 90       	pop	r0
- 5da:	df 91       	pop	r29
- 5dc:	cf 91       	pop	r28
- 5de:	1f 91       	pop	r17
- 5e0:	0f 91       	pop	r16
- 5e2:	0c 94 75 01 	jmp	0x2ea	; 0x2ea <_ZN7atmicro6Device9setStatusENS_4PORTEi>
+000003ce <_ZN7atmicro6Keypad10initializeEv>:
+     3ce:	cf 93       	push	r28
+     3d0:	df 93       	push	r29
+     3d2:	ec 01       	movw	r28, r24
+     3d4:	6f e0       	ldi	r22, 0x0F	; 15
+     3d6:	70 e0       	ldi	r23, 0x00	; 0
+     3d8:	8a 81       	ldd	r24, Y+2	; 0x02
+     3da:	0e 94 88 01 	call	0x310	; 0x310 <_ZN7atmicro6Device12setDirectionENS_4PORTEi>
+     3de:	6f ef       	ldi	r22, 0xFF	; 255
+     3e0:	70 e0       	ldi	r23, 0x00	; 0
+     3e2:	8a 81       	ldd	r24, Y+2	; 0x02
+     3e4:	df 91       	pop	r29
+     3e6:	cf 91       	pop	r28
+     3e8:	0c 94 75 01 	jmp	0x2ea	; 0x2ea <_ZN7atmicro6Device9setStatusENS_4PORTEi>
 
-000005e6 <_ZN7atmicro15ParallelTextLCD10initializeEv>:
- 5e6:	cf 93       	push	r28
- 5e8:	df 93       	push	r29
- 5ea:	ec 01       	movw	r28, r24
- 5ec:	61 e0       	ldi	r22, 0x01	; 1
- 5ee:	8d 81       	ldd	r24, Y+5	; 0x05
- 5f0:	0e 94 c9 00 	call	0x192	; 0x192 <_ZN7atmicro6Device12setDirectionENS_3PINEb>
- 5f4:	61 e0       	ldi	r22, 0x01	; 1
- 5f6:	8c 81       	ldd	r24, Y+4	; 0x04
- 5f8:	0e 94 c9 00 	call	0x192	; 0x192 <_ZN7atmicro6Device12setDirectionENS_3PINEb>
- 5fc:	61 e0       	ldi	r22, 0x01	; 1
- 5fe:	8b 81       	ldd	r24, Y+3	; 0x03
- 600:	0e 94 c9 00 	call	0x192	; 0x192 <_ZN7atmicro6Device12setDirectionENS_3PINEb>
- 604:	85 ea       	ldi	r24, 0xA5	; 165
- 606:	9e e0       	ldi	r25, 0x0E	; 14
- 608:	01 97       	sbiw	r24, 0x01	; 1
- 60a:	f1 f7       	brne	.-4      	; 0x608 <_ZN7atmicro15ParallelTextLCD10initializeEv+0x22>
- 60c:	00 c0       	rjmp	.+0      	; 0x60e <_ZN7atmicro15ParallelTextLCD10initializeEv+0x28>
- 60e:	00 00       	nop
- 610:	61 e0       	ldi	r22, 0x01	; 1
- 612:	ce 01       	movw	r24, r28
- 614:	0e 94 ca 02 	call	0x594	; 0x594 <_ZN7atmicro15ParallelTextLCD7commandEh>
- 618:	83 ef       	ldi	r24, 0xF3	; 243
- 61a:	91 e0       	ldi	r25, 0x01	; 1
- 61c:	01 97       	sbiw	r24, 0x01	; 1
- 61e:	f1 f7       	brne	.-4      	; 0x61c <_ZN7atmicro15ParallelTextLCD10initializeEv+0x36>
- 620:	00 c0       	rjmp	.+0      	; 0x622 <_ZN7atmicro15ParallelTextLCD10initializeEv+0x3c>
- 622:	00 00       	nop
- 624:	68 e3       	ldi	r22, 0x38	; 56
- 626:	ce 01       	movw	r24, r28
- 628:	0e 94 ca 02 	call	0x594	; 0x594 <_ZN7atmicro15ParallelTextLCD7commandEh>
- 62c:	90 e1       	ldi	r25, 0x10	; 16
- 62e:	9a 95       	dec	r25
- 630:	f1 f7       	brne	.-4      	; 0x62e <_ZN7atmicro15ParallelTextLCD10initializeEv+0x48>
- 632:	00 c0       	rjmp	.+0      	; 0x634 <_ZN7atmicro15ParallelTextLCD10initializeEv+0x4e>
- 634:	6c e0       	ldi	r22, 0x0C	; 12
- 636:	ce 01       	movw	r24, r28
- 638:	0e 94 ca 02 	call	0x594	; 0x594 <_ZN7atmicro15ParallelTextLCD7commandEh>
- 63c:	80 e1       	ldi	r24, 0x10	; 16
- 63e:	8a 95       	dec	r24
- 640:	f1 f7       	brne	.-4      	; 0x63e <_ZN7atmicro15ParallelTextLCD10initializeEv+0x58>
- 642:	00 c0       	rjmp	.+0      	; 0x644 <_ZN7atmicro15ParallelTextLCD10initializeEv+0x5e>
- 644:	df 91       	pop	r29
- 646:	cf 91       	pop	r28
- 648:	08 95       	ret
+000003ec <_ZN7atmicro6KeypadC1ENS_4PORTE>:
+     3ec:	22 e8       	ldi	r18, 0x82	; 130
+     3ee:	30 e0       	ldi	r19, 0x00	; 0
+     3f0:	fc 01       	movw	r30, r24
+     3f2:	31 83       	std	Z+1, r19	; 0x01
+     3f4:	20 83       	st	Z, r18
+     3f6:	62 83       	std	Z+2, r22	; 0x02
+     3f8:	0c 94 e7 01 	jmp	0x3ce	; 0x3ce <_ZN7atmicro6Keypad10initializeEv>
 
-0000064a <_ZN7atmicro15ParallelTextLCDC1ENS_4PORTENS_3PINES2_S2_>:
- 64a:	0f 93       	push	r16
- 64c:	cf 93       	push	r28
- 64e:	df 93       	push	r29
- 650:	ec 01       	movw	r28, r24
- 652:	82 e8       	ldi	r24, 0x82	; 130
- 654:	90 e0       	ldi	r25, 0x00	; 0
- 656:	99 83       	std	Y+1, r25	; 0x01
- 658:	88 83       	st	Y, r24
- 65a:	88 e0       	ldi	r24, 0x08	; 8
- 65c:	e0 e6       	ldi	r30, 0x60	; 96
- 65e:	f0 e0       	ldi	r31, 0x00	; 0
- 660:	de 01       	movw	r26, r28
- 662:	16 96       	adiw	r26, 0x06	; 6
- 664:	01 90       	ld	r0, Z+
- 666:	0d 92       	st	X+, r0
- 668:	8a 95       	dec	r24
- 66a:	e1 f7       	brne	.-8      	; 0x664 <_ZN7atmicro15ParallelTextLCDC1ENS_4PORTENS_3PINES2_S2_+0x1a>
- 66c:	6a 83       	std	Y+2, r22	; 0x02
- 66e:	4d 83       	std	Y+5, r20	; 0x05
- 670:	2c 83       	std	Y+4, r18	; 0x04
- 672:	0b 83       	std	Y+3, r16	; 0x03
- 674:	ce 01       	movw	r24, r28
- 676:	df 91       	pop	r29
- 678:	cf 91       	pop	r28
- 67a:	0f 91       	pop	r16
- 67c:	0c 94 f3 02 	jmp	0x5e6	; 0x5e6 <_ZN7atmicro15ParallelTextLCD10initializeEv>
+000003fc <_ZN7atmicro6Keypad13switchPressedENS_3PINE>:
+     3fc:	4f 92       	push	r4
+     3fe:	5f 92       	push	r5
+     400:	6f 92       	push	r6
+     402:	7f 92       	push	r7
+     404:	8f 92       	push	r8
+     406:	9f 92       	push	r9
+     408:	af 92       	push	r10
+     40a:	bf 92       	push	r11
+     40c:	cf 92       	push	r12
+     40e:	df 92       	push	r13
+     410:	ef 92       	push	r14
+     412:	ff 92       	push	r15
+     414:	1f 93       	push	r17
+     416:	cf 93       	push	r28
+     418:	df 93       	push	r29
+     41a:	18 2f       	mov	r17, r24
+     41c:	c4 e6       	ldi	r28, 0x64	; 100
+     41e:	d0 e0       	ldi	r29, 0x00	; 0
+     420:	81 2c       	mov	r8, r1
+     422:	91 2c       	mov	r9, r1
+     424:	54 01       	movw	r10, r8
+     426:	75 01       	movw	r14, r10
+     428:	64 01       	movw	r12, r8
+     42a:	81 2f       	mov	r24, r17
+     42c:	0e 94 51 01 	call	0x2a2	; 0x2a2 <_ZN7atmicro6Device9getStatusENS_3PINE>
+     430:	81 11       	cpse	r24, r1
+     432:	0a c0       	rjmp	.+20     	; 0x448 <__FUSE_REGION_LENGTH__+0x48>
+     434:	20 e0       	ldi	r18, 0x00	; 0
+     436:	30 e0       	ldi	r19, 0x00	; 0
+     438:	40 e8       	ldi	r20, 0x80	; 128
+     43a:	5f e3       	ldi	r21, 0x3F	; 63
+     43c:	c5 01       	movw	r24, r10
+     43e:	b4 01       	movw	r22, r8
+     440:	0e 94 9b 08 	call	0x1136	; 0x1136 <__addsf3>
+     444:	4b 01       	movw	r8, r22
+     446:	5c 01       	movw	r10, r24
+     448:	20 e0       	ldi	r18, 0x00	; 0
+     44a:	30 e0       	ldi	r19, 0x00	; 0
+     44c:	40 e4       	ldi	r20, 0x40	; 64
+     44e:	50 e4       	ldi	r21, 0x40	; 64
+     450:	c7 01       	movw	r24, r14
+     452:	b6 01       	movw	r22, r12
+     454:	0e 94 f3 09 	call	0x13e6	; 0x13e6 <__gesf2>
+     458:	18 16       	cp	r1, r24
+     45a:	04 f5       	brge	.+64     	; 0x49c <__FUSE_REGION_LENGTH__+0x9c>
+     45c:	a7 01       	movw	r20, r14
+     45e:	96 01       	movw	r18, r12
+     460:	c5 01       	movw	r24, r10
+     462:	b4 01       	movw	r22, r8
+     464:	0e 94 0c 09 	call	0x1218	; 0x1218 <__divsf3>
+     468:	2b 01       	movw	r4, r22
+     46a:	3c 01       	movw	r6, r24
+     46c:	23 e3       	ldi	r18, 0x33	; 51
+     46e:	33 e3       	ldi	r19, 0x33	; 51
+     470:	43 e3       	ldi	r20, 0x33	; 51
+     472:	5f e3       	ldi	r21, 0x3F	; 63
+     474:	0e 94 f3 09 	call	0x13e6	; 0x13e6 <__gesf2>
+     478:	87 ff       	sbrs	r24, 7
+     47a:	3a c0       	rjmp	.+116    	; 0x4f0 <__FUSE_REGION_LENGTH__+0xf0>
+     47c:	a3 01       	movw	r20, r6
+     47e:	92 01       	movw	r18, r4
+     480:	60 e0       	ldi	r22, 0x00	; 0
+     482:	70 e0       	ldi	r23, 0x00	; 0
+     484:	80 e8       	ldi	r24, 0x80	; 128
+     486:	9f e3       	ldi	r25, 0x3F	; 63
+     488:	0e 94 9a 08 	call	0x1134	; 0x1134 <__subsf3>
+     48c:	23 e3       	ldi	r18, 0x33	; 51
+     48e:	33 e3       	ldi	r19, 0x33	; 51
+     490:	43 e3       	ldi	r20, 0x33	; 51
+     492:	5f e3       	ldi	r21, 0x3F	; 63
+     494:	0e 94 f3 09 	call	0x13e6	; 0x13e6 <__gesf2>
+     498:	87 ff       	sbrs	r24, 7
+     49a:	2c c0       	rjmp	.+88     	; 0x4f4 <__FUSE_REGION_LENGTH__+0xf4>
+     49c:	20 e0       	ldi	r18, 0x00	; 0
+     49e:	30 e0       	ldi	r19, 0x00	; 0
+     4a0:	46 ec       	ldi	r20, 0xC6	; 198
+     4a2:	52 e4       	ldi	r21, 0x42	; 66
+     4a4:	c7 01       	movw	r24, r14
+     4a6:	b6 01       	movw	r22, r12
+     4a8:	0e 94 07 09 	call	0x120e	; 0x120e <__cmpsf2>
+     4ac:	81 11       	cpse	r24, r1
+     4ae:	12 c0       	rjmp	.+36     	; 0x4d4 <__FUSE_REGION_LENGTH__+0xd4>
+     4b0:	20 e0       	ldi	r18, 0x00	; 0
+     4b2:	30 e0       	ldi	r19, 0x00	; 0
+     4b4:	46 ec       	ldi	r20, 0xC6	; 198
+     4b6:	52 e4       	ldi	r21, 0x42	; 66
+     4b8:	c5 01       	movw	r24, r10
+     4ba:	b4 01       	movw	r22, r8
+     4bc:	0e 94 0c 09 	call	0x1218	; 0x1218 <__divsf3>
+     4c0:	c1 e0       	ldi	r28, 0x01	; 1
+     4c2:	20 e0       	ldi	r18, 0x00	; 0
+     4c4:	30 e0       	ldi	r19, 0x00	; 0
+     4c6:	40 e0       	ldi	r20, 0x00	; 0
+     4c8:	5f e3       	ldi	r21, 0x3F	; 63
+     4ca:	0e 94 f3 09 	call	0x13e6	; 0x13e6 <__gesf2>
+     4ce:	18 16       	cp	r1, r24
+     4d0:	94 f0       	brlt	.+36     	; 0x4f6 <__FUSE_REGION_LENGTH__+0xf6>
+     4d2:	10 c0       	rjmp	.+32     	; 0x4f4 <__FUSE_REGION_LENGTH__+0xf4>
+     4d4:	20 e0       	ldi	r18, 0x00	; 0
+     4d6:	30 e0       	ldi	r19, 0x00	; 0
+     4d8:	40 e8       	ldi	r20, 0x80	; 128
+     4da:	5f e3       	ldi	r21, 0x3F	; 63
+     4dc:	c7 01       	movw	r24, r14
+     4de:	b6 01       	movw	r22, r12
+     4e0:	0e 94 9b 08 	call	0x1136	; 0x1136 <__addsf3>
+     4e4:	6b 01       	movw	r12, r22
+     4e6:	7c 01       	movw	r14, r24
+     4e8:	21 97       	sbiw	r28, 0x01	; 1
+     4ea:	09 f0       	breq	.+2      	; 0x4ee <__FUSE_REGION_LENGTH__+0xee>
+     4ec:	9e cf       	rjmp	.-196    	; 0x42a <__FUSE_REGION_LENGTH__+0x2a>
+     4ee:	02 c0       	rjmp	.+4      	; 0x4f4 <__FUSE_REGION_LENGTH__+0xf4>
+     4f0:	c1 e0       	ldi	r28, 0x01	; 1
+     4f2:	01 c0       	rjmp	.+2      	; 0x4f6 <__FUSE_REGION_LENGTH__+0xf6>
+     4f4:	c0 e0       	ldi	r28, 0x00	; 0
+     4f6:	8c 2f       	mov	r24, r28
+     4f8:	df 91       	pop	r29
+     4fa:	cf 91       	pop	r28
+     4fc:	1f 91       	pop	r17
+     4fe:	ff 90       	pop	r15
+     500:	ef 90       	pop	r14
+     502:	df 90       	pop	r13
+     504:	cf 90       	pop	r12
+     506:	bf 90       	pop	r11
+     508:	af 90       	pop	r10
+     50a:	9f 90       	pop	r9
+     50c:	8f 90       	pop	r8
+     50e:	7f 90       	pop	r7
+     510:	6f 90       	pop	r6
+     512:	5f 90       	pop	r5
+     514:	4f 90       	pop	r4
+     516:	08 95       	ret
 
-00000680 <_ZN7atmicro15ParallelTextLCD8positionEii>:
- 680:	60 58       	subi	r22, 0x80	; 128
- 682:	fa 01       	movw	r30, r20
- 684:	33 96       	adiw	r30, 0x03	; 3
- 686:	ee 0f       	add	r30, r30
- 688:	ff 1f       	adc	r31, r31
- 68a:	e8 0f       	add	r30, r24
- 68c:	f9 1f       	adc	r31, r25
- 68e:	20 81       	ld	r18, Z
- 690:	62 0f       	add	r22, r18
- 692:	0c 94 ca 02 	jmp	0x594	; 0x594 <_ZN7atmicro15ParallelTextLCD7commandEh>
+00000518 <_ZN7atmicro6Keypad9isPressedEv>:
+     518:	bf 92       	push	r11
+     51a:	cf 92       	push	r12
+     51c:	df 92       	push	r13
+     51e:	ef 92       	push	r14
+     520:	ff 92       	push	r15
+     522:	0f 93       	push	r16
+     524:	1f 93       	push	r17
+     526:	cf 93       	push	r28
+     528:	df 93       	push	r29
+     52a:	b8 2e       	mov	r11, r24
+     52c:	d9 2f       	mov	r29, r25
+     52e:	6b 01       	movw	r12, r22
+     530:	08 2f       	mov	r16, r24
+     532:	19 2f       	mov	r17, r25
+     534:	c0 e0       	ldi	r28, 0x00	; 0
+     536:	f6 01       	movw	r30, r12
+     538:	82 81       	ldd	r24, Z+2	; 0x02
+     53a:	60 e0       	ldi	r22, 0x00	; 0
+     53c:	8c 0f       	add	r24, r28
+     53e:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
+     542:	e1 2c       	mov	r14, r1
+     544:	f1 2c       	mov	r15, r1
+     546:	f6 01       	movw	r30, r12
+     548:	22 81       	ldd	r18, Z+2	; 0x02
+     54a:	84 e0       	ldi	r24, 0x04	; 4
+     54c:	82 0f       	add	r24, r18
+     54e:	8e 0d       	add	r24, r14
+     550:	0e 94 fe 01 	call	0x3fc	; 0x3fc <_ZN7atmicro6Keypad13switchPressedENS_3PINE>
+     554:	f8 01       	movw	r30, r16
+     556:	ee 0d       	add	r30, r14
+     558:	ff 1d       	adc	r31, r15
+     55a:	80 83       	st	Z, r24
+     55c:	ff ef       	ldi	r31, 0xFF	; 255
+     55e:	ef 1a       	sub	r14, r31
+     560:	ff 0a       	sbc	r15, r31
+     562:	84 e0       	ldi	r24, 0x04	; 4
+     564:	e8 16       	cp	r14, r24
+     566:	f1 04       	cpc	r15, r1
+     568:	71 f7       	brne	.-36     	; 0x546 <_ZN7atmicro6Keypad9isPressedEv+0x2e>
+     56a:	f6 01       	movw	r30, r12
+     56c:	82 81       	ldd	r24, Z+2	; 0x02
+     56e:	61 e0       	ldi	r22, 0x01	; 1
+     570:	8c 0f       	add	r24, r28
+     572:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
+     576:	cf 5f       	subi	r28, 0xFF	; 255
+     578:	0c 5f       	subi	r16, 0xFC	; 252
+     57a:	1f 4f       	sbci	r17, 0xFF	; 255
+     57c:	c4 30       	cpi	r28, 0x04	; 4
+     57e:	d9 f6       	brne	.-74     	; 0x536 <_ZN7atmicro6Keypad9isPressedEv+0x1e>
+     580:	8b 2d       	mov	r24, r11
+     582:	9d 2f       	mov	r25, r29
+     584:	df 91       	pop	r29
+     586:	cf 91       	pop	r28
+     588:	1f 91       	pop	r17
+     58a:	0f 91       	pop	r16
+     58c:	ff 90       	pop	r15
+     58e:	ef 90       	pop	r14
+     590:	df 90       	pop	r13
+     592:	cf 90       	pop	r12
+     594:	bf 90       	pop	r11
+     596:	08 95       	ret
 
-00000696 <_ZN7atmicro15ParallelTextLCD5clearEv>:
- 696:	61 e0       	ldi	r22, 0x01	; 1
- 698:	0e 94 ca 02 	call	0x594	; 0x594 <_ZN7atmicro15ParallelTextLCD7commandEh>
- 69c:	83 ef       	ldi	r24, 0xF3	; 243
- 69e:	91 e0       	ldi	r25, 0x01	; 1
- 6a0:	01 97       	sbiw	r24, 0x01	; 1
- 6a2:	f1 f7       	brne	.-4      	; 0x6a0 <_ZN7atmicro15ParallelTextLCD5clearEv+0xa>
- 6a4:	00 c0       	rjmp	.+0      	; 0x6a6 <_ZN7atmicro15ParallelTextLCD5clearEv+0x10>
- 6a6:	00 00       	nop
- 6a8:	08 95       	ret
+00000598 <_ZN7atmicro15ParallelTextLCD13action_enableEv>:
+     598:	cf 93       	push	r28
+     59a:	df 93       	push	r29
+     59c:	ec 01       	movw	r28, r24
+     59e:	61 e0       	ldi	r22, 0x01	; 1
+     5a0:	8b 81       	ldd	r24, Y+3	; 0x03
+     5a2:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
+     5a6:	00 00       	nop
+     5a8:	00 00       	nop
+     5aa:	60 e0       	ldi	r22, 0x00	; 0
+     5ac:	8b 81       	ldd	r24, Y+3	; 0x03
+     5ae:	df 91       	pop	r29
+     5b0:	cf 91       	pop	r28
+     5b2:	0c 94 41 00 	jmp	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
 
-000006aa <_ZN7atmicro15ParallelTextLCD9characterEh>:
- 6aa:	0f 93       	push	r16
- 6ac:	1f 93       	push	r17
- 6ae:	cf 93       	push	r28
- 6b0:	df 93       	push	r29
- 6b2:	1f 92       	push	r1
- 6b4:	cd b7       	in	r28, 0x3d	; 61
- 6b6:	de b7       	in	r29, 0x3e	; 62
- 6b8:	8c 01       	movw	r16, r24
- 6ba:	69 83       	std	Y+1, r22	; 0x01
- 6bc:	0e 94 a9 02 	call	0x552	; 0x552 <_ZN7atmicro15ParallelTextLCD9wait_busyEv>
- 6c0:	69 81       	ldd	r22, Y+1	; 0x01
- 6c2:	70 e0       	ldi	r23, 0x00	; 0
- 6c4:	f8 01       	movw	r30, r16
- 6c6:	82 81       	ldd	r24, Z+2	; 0x02
- 6c8:	0e 94 75 01 	call	0x2ea	; 0x2ea <_ZN7atmicro6Device9setStatusENS_4PORTEi>
- 6cc:	60 e0       	ldi	r22, 0x00	; 0
- 6ce:	f8 01       	movw	r30, r16
- 6d0:	84 81       	ldd	r24, Z+4	; 0x04
- 6d2:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
- 6d6:	61 e0       	ldi	r22, 0x01	; 1
- 6d8:	f8 01       	movw	r30, r16
- 6da:	85 81       	ldd	r24, Z+5	; 0x05
- 6dc:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
- 6e0:	c8 01       	movw	r24, r16
- 6e2:	0e 94 9a 02 	call	0x534	; 0x534 <_ZN7atmicro15ParallelTextLCD13action_enableEv>
- 6e6:	60 e0       	ldi	r22, 0x00	; 0
- 6e8:	70 e0       	ldi	r23, 0x00	; 0
- 6ea:	f8 01       	movw	r30, r16
- 6ec:	82 81       	ldd	r24, Z+2	; 0x02
- 6ee:	0f 90       	pop	r0
- 6f0:	df 91       	pop	r29
- 6f2:	cf 91       	pop	r28
- 6f4:	1f 91       	pop	r17
- 6f6:	0f 91       	pop	r16
- 6f8:	0c 94 75 01 	jmp	0x2ea	; 0x2ea <_ZN7atmicro6Device9setStatusENS_4PORTEi>
+000005b6 <_ZN7atmicro15ParallelTextLCD9wait_busyEv>:
+     5b6:	cf 93       	push	r28
+     5b8:	df 93       	push	r29
+     5ba:	ec 01       	movw	r28, r24
+     5bc:	60 e0       	ldi	r22, 0x00	; 0
+     5be:	70 e0       	ldi	r23, 0x00	; 0
+     5c0:	8a 81       	ldd	r24, Y+2	; 0x02
+     5c2:	0e 94 88 01 	call	0x310	; 0x310 <_ZN7atmicro6Device12setDirectionENS_4PORTEi>
+     5c6:	61 e0       	ldi	r22, 0x01	; 1
+     5c8:	8c 81       	ldd	r24, Y+4	; 0x04
+     5ca:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
+     5ce:	60 e0       	ldi	r22, 0x00	; 0
+     5d0:	8d 81       	ldd	r24, Y+5	; 0x05
+     5d2:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
+     5d6:	67 e0       	ldi	r22, 0x07	; 7
+     5d8:	8a 81       	ldd	r24, Y+2	; 0x02
+     5da:	0e 94 9b 01 	call	0x336	; 0x336 <_ZN7atmicro6Device9getStatusENS_4PORTENS_8POSITIONE>
+     5de:	81 11       	cpse	r24, r1
+     5e0:	04 c0       	rjmp	.+8      	; 0x5ea <_ZN7atmicro15ParallelTextLCD9wait_busyEv+0x34>
+     5e2:	ce 01       	movw	r24, r28
+     5e4:	0e 94 cc 02 	call	0x598	; 0x598 <_ZN7atmicro15ParallelTextLCD13action_enableEv>
+     5e8:	f6 cf       	rjmp	.-20     	; 0x5d6 <_ZN7atmicro15ParallelTextLCD9wait_busyEv+0x20>
+     5ea:	6f ef       	ldi	r22, 0xFF	; 255
+     5ec:	70 e0       	ldi	r23, 0x00	; 0
+     5ee:	8a 81       	ldd	r24, Y+2	; 0x02
+     5f0:	df 91       	pop	r29
+     5f2:	cf 91       	pop	r28
+     5f4:	0c 94 88 01 	jmp	0x310	; 0x310 <_ZN7atmicro6Device12setDirectionENS_4PORTEi>
 
-000006fc <_ZN7atmicro15ParallelTextLCD6stringEPKc>:
- 6fc:	0f 93       	push	r16
- 6fe:	1f 93       	push	r17
- 700:	cf 93       	push	r28
- 702:	df 93       	push	r29
- 704:	8c 01       	movw	r16, r24
- 706:	eb 01       	movw	r28, r22
- 708:	69 91       	ld	r22, Y+
- 70a:	66 23       	and	r22, r22
- 70c:	21 f0       	breq	.+8      	; 0x716 <_ZN7atmicro15ParallelTextLCD6stringEPKc+0x1a>
- 70e:	c8 01       	movw	r24, r16
- 710:	0e 94 55 03 	call	0x6aa	; 0x6aa <_ZN7atmicro15ParallelTextLCD9characterEh>
- 714:	f9 cf       	rjmp	.-14     	; 0x708 <_ZN7atmicro15ParallelTextLCD6stringEPKc+0xc>
- 716:	df 91       	pop	r29
- 718:	cf 91       	pop	r28
- 71a:	1f 91       	pop	r17
- 71c:	0f 91       	pop	r16
- 71e:	08 95       	ret
+000005f8 <_ZN7atmicro15ParallelTextLCD7commandEh>:
+     5f8:	0f 93       	push	r16
+     5fa:	1f 93       	push	r17
+     5fc:	cf 93       	push	r28
+     5fe:	df 93       	push	r29
+     600:	1f 92       	push	r1
+     602:	cd b7       	in	r28, 0x3d	; 61
+     604:	de b7       	in	r29, 0x3e	; 62
+     606:	8c 01       	movw	r16, r24
+     608:	69 83       	std	Y+1, r22	; 0x01
+     60a:	0e 94 db 02 	call	0x5b6	; 0x5b6 <_ZN7atmicro15ParallelTextLCD9wait_busyEv>
+     60e:	69 81       	ldd	r22, Y+1	; 0x01
+     610:	70 e0       	ldi	r23, 0x00	; 0
+     612:	f8 01       	movw	r30, r16
+     614:	82 81       	ldd	r24, Z+2	; 0x02
+     616:	0e 94 75 01 	call	0x2ea	; 0x2ea <_ZN7atmicro6Device9setStatusENS_4PORTEi>
+     61a:	60 e0       	ldi	r22, 0x00	; 0
+     61c:	f8 01       	movw	r30, r16
+     61e:	84 81       	ldd	r24, Z+4	; 0x04
+     620:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
+     624:	60 e0       	ldi	r22, 0x00	; 0
+     626:	f8 01       	movw	r30, r16
+     628:	85 81       	ldd	r24, Z+5	; 0x05
+     62a:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
+     62e:	c8 01       	movw	r24, r16
+     630:	0e 94 cc 02 	call	0x598	; 0x598 <_ZN7atmicro15ParallelTextLCD13action_enableEv>
+     634:	60 e0       	ldi	r22, 0x00	; 0
+     636:	70 e0       	ldi	r23, 0x00	; 0
+     638:	f8 01       	movw	r30, r16
+     63a:	82 81       	ldd	r24, Z+2	; 0x02
+     63c:	0f 90       	pop	r0
+     63e:	df 91       	pop	r29
+     640:	cf 91       	pop	r28
+     642:	1f 91       	pop	r17
+     644:	0f 91       	pop	r16
+     646:	0c 94 75 01 	jmp	0x2ea	; 0x2ea <_ZN7atmicro6Device9setStatusENS_4PORTEi>
 
-00000720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>:
- 720:	0f 93       	push	r16
- 722:	1f 93       	push	r17
- 724:	cf 93       	push	r28
- 726:	df 93       	push	r29
- 728:	ec 01       	movw	r28, r24
- 72a:	89 01       	movw	r16, r18
- 72c:	0e 94 40 03 	call	0x680	; 0x680 <_ZN7atmicro15ParallelTextLCD8positionEii>
- 730:	b8 01       	movw	r22, r16
- 732:	ce 01       	movw	r24, r28
- 734:	df 91       	pop	r29
- 736:	cf 91       	pop	r28
- 738:	1f 91       	pop	r17
- 73a:	0f 91       	pop	r16
- 73c:	0c 94 7e 03 	jmp	0x6fc	; 0x6fc <_ZN7atmicro15ParallelTextLCD6stringEPKc>
+0000064a <_ZN7atmicro15ParallelTextLCD10initializeEv>:
+     64a:	cf 93       	push	r28
+     64c:	df 93       	push	r29
+     64e:	ec 01       	movw	r28, r24
+     650:	61 e0       	ldi	r22, 0x01	; 1
+     652:	8d 81       	ldd	r24, Y+5	; 0x05
+     654:	0e 94 c9 00 	call	0x192	; 0x192 <_ZN7atmicro6Device12setDirectionENS_3PINEb>
+     658:	61 e0       	ldi	r22, 0x01	; 1
+     65a:	8c 81       	ldd	r24, Y+4	; 0x04
+     65c:	0e 94 c9 00 	call	0x192	; 0x192 <_ZN7atmicro6Device12setDirectionENS_3PINEb>
+     660:	61 e0       	ldi	r22, 0x01	; 1
+     662:	8b 81       	ldd	r24, Y+3	; 0x03
+     664:	0e 94 c9 00 	call	0x192	; 0x192 <_ZN7atmicro6Device12setDirectionENS_3PINEb>
+     668:	85 ea       	ldi	r24, 0xA5	; 165
+     66a:	9e e0       	ldi	r25, 0x0E	; 14
+     66c:	01 97       	sbiw	r24, 0x01	; 1
+     66e:	f1 f7       	brne	.-4      	; 0x66c <_ZN7atmicro15ParallelTextLCD10initializeEv+0x22>
+     670:	00 c0       	rjmp	.+0      	; 0x672 <_ZN7atmicro15ParallelTextLCD10initializeEv+0x28>
+     672:	00 00       	nop
+     674:	61 e0       	ldi	r22, 0x01	; 1
+     676:	ce 01       	movw	r24, r28
+     678:	0e 94 fc 02 	call	0x5f8	; 0x5f8 <_ZN7atmicro15ParallelTextLCD7commandEh>
+     67c:	83 ef       	ldi	r24, 0xF3	; 243
+     67e:	91 e0       	ldi	r25, 0x01	; 1
+     680:	01 97       	sbiw	r24, 0x01	; 1
+     682:	f1 f7       	brne	.-4      	; 0x680 <_ZN7atmicro15ParallelTextLCD10initializeEv+0x36>
+     684:	00 c0       	rjmp	.+0      	; 0x686 <_ZN7atmicro15ParallelTextLCD10initializeEv+0x3c>
+     686:	00 00       	nop
+     688:	68 e3       	ldi	r22, 0x38	; 56
+     68a:	ce 01       	movw	r24, r28
+     68c:	0e 94 fc 02 	call	0x5f8	; 0x5f8 <_ZN7atmicro15ParallelTextLCD7commandEh>
+     690:	90 e1       	ldi	r25, 0x10	; 16
+     692:	9a 95       	dec	r25
+     694:	f1 f7       	brne	.-4      	; 0x692 <_ZN7atmicro15ParallelTextLCD10initializeEv+0x48>
+     696:	00 c0       	rjmp	.+0      	; 0x698 <_ZN7atmicro15ParallelTextLCD10initializeEv+0x4e>
+     698:	6c e0       	ldi	r22, 0x0C	; 12
+     69a:	ce 01       	movw	r24, r28
+     69c:	0e 94 fc 02 	call	0x5f8	; 0x5f8 <_ZN7atmicro15ParallelTextLCD7commandEh>
+     6a0:	80 e1       	ldi	r24, 0x10	; 16
+     6a2:	8a 95       	dec	r24
+     6a4:	f1 f7       	brne	.-4      	; 0x6a2 <_ZN7atmicro15ParallelTextLCD10initializeEv+0x58>
+     6a6:	00 c0       	rjmp	.+0      	; 0x6a8 <_ZN7atmicro15ParallelTextLCD10initializeEv+0x5e>
+     6a8:	df 91       	pop	r29
+     6aa:	cf 91       	pop	r28
+     6ac:	08 95       	ret
 
-00000740 <_ZN7atmicro7Istream5clearEv>:
- 740:	fc 01       	movw	r30, r24
- 742:	9c 01       	movw	r18, r24
- 744:	27 5e       	subi	r18, 0xE7	; 231
- 746:	3f 4f       	sbci	r19, 0xFF	; 255
- 748:	40 e2       	ldi	r20, 0x20	; 32
- 74a:	41 93       	st	Z+, r20
- 74c:	e2 17       	cp	r30, r18
- 74e:	f3 07       	cpc	r31, r19
- 750:	e1 f7       	brne	.-8      	; 0x74a <_ZN7atmicro7Istream5clearEv+0xa>
- 752:	fc 01       	movw	r30, r24
- 754:	10 82       	st	Z, r1
- 756:	12 8e       	std	Z+26, r1	; 0x1a
- 758:	11 8e       	std	Z+25, r1	; 0x19
- 75a:	08 95       	ret
+000006ae <_ZN7atmicro15ParallelTextLCDC1ENS_4PORTENS_3PINES2_S2_>:
+     6ae:	0f 93       	push	r16
+     6b0:	cf 93       	push	r28
+     6b2:	df 93       	push	r29
+     6b4:	ec 01       	movw	r28, r24
+     6b6:	88 e8       	ldi	r24, 0x88	; 136
+     6b8:	90 e0       	ldi	r25, 0x00	; 0
+     6ba:	99 83       	std	Y+1, r25	; 0x01
+     6bc:	88 83       	st	Y, r24
+     6be:	88 e0       	ldi	r24, 0x08	; 8
+     6c0:	e0 e6       	ldi	r30, 0x60	; 96
+     6c2:	f0 e0       	ldi	r31, 0x00	; 0
+     6c4:	de 01       	movw	r26, r28
+     6c6:	16 96       	adiw	r26, 0x06	; 6
+     6c8:	01 90       	ld	r0, Z+
+     6ca:	0d 92       	st	X+, r0
+     6cc:	8a 95       	dec	r24
+     6ce:	e1 f7       	brne	.-8      	; 0x6c8 <_ZN7atmicro15ParallelTextLCDC1ENS_4PORTENS_3PINES2_S2_+0x1a>
+     6d0:	6a 83       	std	Y+2, r22	; 0x02
+     6d2:	4d 83       	std	Y+5, r20	; 0x05
+     6d4:	2c 83       	std	Y+4, r18	; 0x04
+     6d6:	0b 83       	std	Y+3, r16	; 0x03
+     6d8:	ce 01       	movw	r24, r28
+     6da:	df 91       	pop	r29
+     6dc:	cf 91       	pop	r28
+     6de:	0f 91       	pop	r16
+     6e0:	0c 94 25 03 	jmp	0x64a	; 0x64a <_ZN7atmicro15ParallelTextLCD10initializeEv>
 
-0000075c <_ZN7atmicro7IstreamC1Ev>:
- 75c:	cf 93       	push	r28
- 75e:	df 93       	push	r29
- 760:	ec 01       	movw	r28, r24
- 762:	1a 8e       	std	Y+26, r1	; 0x1a
- 764:	19 8e       	std	Y+25, r1	; 0x19
- 766:	80 e1       	ldi	r24, 0x10	; 16
- 768:	e8 e6       	ldi	r30, 0x68	; 104
- 76a:	f0 e0       	ldi	r31, 0x00	; 0
- 76c:	de 01       	movw	r26, r28
- 76e:	5b 96       	adiw	r26, 0x1b	; 27
- 770:	01 90       	ld	r0, Z+
- 772:	0d 92       	st	X+, r0
- 774:	8a 95       	dec	r24
- 776:	e1 f7       	brne	.-8      	; 0x770 <_ZN7atmicro7IstreamC1Ev+0x14>
- 778:	ce 01       	movw	r24, r28
- 77a:	0e 94 a0 03 	call	0x740	; 0x740 <_ZN7atmicro7Istream5clearEv>
- 77e:	84 e6       	ldi	r24, 0x64	; 100
- 780:	90 e0       	ldi	r25, 0x00	; 0
- 782:	9c a7       	std	Y+44, r25	; 0x2c
- 784:	8b a7       	std	Y+43, r24	; 0x2b
- 786:	df 91       	pop	r29
- 788:	cf 91       	pop	r28
- 78a:	08 95       	ret
+000006e4 <_ZN7atmicro15ParallelTextLCD8positionEii>:
+     6e4:	60 58       	subi	r22, 0x80	; 128
+     6e6:	fa 01       	movw	r30, r20
+     6e8:	33 96       	adiw	r30, 0x03	; 3
+     6ea:	ee 0f       	add	r30, r30
+     6ec:	ff 1f       	adc	r31, r31
+     6ee:	e8 0f       	add	r30, r24
+     6f0:	f9 1f       	adc	r31, r25
+     6f2:	20 81       	ld	r18, Z
+     6f4:	62 0f       	add	r22, r18
+     6f6:	0c 94 fc 02 	jmp	0x5f8	; 0x5f8 <_ZN7atmicro15ParallelTextLCD7commandEh>
 
-0000078c <_ZN7atmicro7Istream4pushEc>:
- 78c:	fc 01       	movw	r30, r24
- 78e:	21 8d       	ldd	r18, Z+25	; 0x19
- 790:	32 8d       	ldd	r19, Z+26	; 0x1a
- 792:	29 31       	cpi	r18, 0x19	; 25
- 794:	31 05       	cpc	r19, r1
- 796:	11 f4       	brne	.+4      	; 0x79c <_ZN7atmicro7Istream4pushEc+0x10>
- 798:	0c 94 a0 03 	jmp	0x740	; 0x740 <_ZN7atmicro7Istream5clearEv>
- 79c:	fc 01       	movw	r30, r24
- 79e:	e2 0f       	add	r30, r18
- 7a0:	f3 1f       	adc	r31, r19
- 7a2:	60 83       	st	Z, r22
- 7a4:	2f 5f       	subi	r18, 0xFF	; 255
- 7a6:	3f 4f       	sbci	r19, 0xFF	; 255
- 7a8:	fc 01       	movw	r30, r24
- 7aa:	32 8f       	std	Z+26, r19	; 0x1a
- 7ac:	21 8f       	std	Z+25, r18	; 0x19
- 7ae:	e2 0f       	add	r30, r18
- 7b0:	f3 1f       	adc	r31, r19
- 7b2:	10 82       	st	Z, r1
- 7b4:	08 95       	ret
+000006fa <_ZN7atmicro15ParallelTextLCD5clearEv>:
+     6fa:	61 e0       	ldi	r22, 0x01	; 1
+     6fc:	0e 94 fc 02 	call	0x5f8	; 0x5f8 <_ZN7atmicro15ParallelTextLCD7commandEh>
+     700:	83 ef       	ldi	r24, 0xF3	; 243
+     702:	91 e0       	ldi	r25, 0x01	; 1
+     704:	01 97       	sbiw	r24, 0x01	; 1
+     706:	f1 f7       	brne	.-4      	; 0x704 <_ZN7atmicro15ParallelTextLCD5clearEv+0xa>
+     708:	00 c0       	rjmp	.+0      	; 0x70a <_ZN7atmicro15ParallelTextLCD5clearEv+0x10>
+     70a:	00 00       	nop
+     70c:	08 95       	ret
 
-000007b6 <_ZN7atmicro7Istream6updateERNS_6KeypadE>:
- 7b6:	af 92       	push	r10
- 7b8:	bf 92       	push	r11
- 7ba:	cf 92       	push	r12
- 7bc:	df 92       	push	r13
- 7be:	ef 92       	push	r14
- 7c0:	ff 92       	push	r15
- 7c2:	0f 93       	push	r16
- 7c4:	1f 93       	push	r17
- 7c6:	cf 93       	push	r28
- 7c8:	df 93       	push	r29
- 7ca:	cd b7       	in	r28, 0x3d	; 61
- 7cc:	de b7       	in	r29, 0x3e	; 62
- 7ce:	60 97       	sbiw	r28, 0x10	; 16
- 7d0:	0f b6       	in	r0, 0x3f	; 63
- 7d2:	f8 94       	cli
- 7d4:	de bf       	out	0x3e, r29	; 62
- 7d6:	0f be       	out	0x3f, r0	; 63
- 7d8:	cd bf       	out	0x3d, r28	; 61
- 7da:	8c 01       	movw	r16, r24
- 7dc:	ce 01       	movw	r24, r28
- 7de:	01 96       	adiw	r24, 0x01	; 1
- 7e0:	0e 94 5a 02 	call	0x4b4	; 0x4b4 <_ZN7atmicro6Keypad9isPressedEv>
- 7e4:	d8 01       	movw	r26, r16
- 7e6:	9b 96       	adiw	r26, 0x2b	; 43
- 7e8:	ec 91       	ld	r30, X
- 7ea:	9b 97       	sbiw	r26, 0x2b	; 43
- 7ec:	9c 96       	adiw	r26, 0x2c	; 44
- 7ee:	4c 91       	ld	r20, X
- 7f0:	8e 2f       	mov	r24, r30
- 7f2:	94 2f       	mov	r25, r20
- 7f4:	64 e0       	ldi	r22, 0x04	; 4
- 7f6:	70 e0       	ldi	r23, 0x00	; 0
- 7f8:	0e 94 03 07 	call	0xe06	; 0xe06 <__divmodhi4>
- 7fc:	2e 2f       	mov	r18, r30
- 7fe:	34 2f       	mov	r19, r20
- 800:	37 ff       	sbrs	r19, 7
- 802:	02 c0       	rjmp	.+4      	; 0x808 <_ZN7atmicro7Istream6updateERNS_6KeypadE+0x52>
- 804:	2d 5f       	subi	r18, 0xFD	; 253
- 806:	3f 4f       	sbci	r19, 0xFF	; 255
- 808:	2c 7f       	andi	r18, 0xFC	; 252
- 80a:	28 0f       	add	r18, r24
- 80c:	39 1f       	adc	r19, r25
- 80e:	e1 e0       	ldi	r30, 0x01	; 1
- 810:	f0 e0       	ldi	r31, 0x00	; 0
- 812:	ec 0f       	add	r30, r28
- 814:	fd 1f       	adc	r31, r29
- 816:	e2 0f       	add	r30, r18
- 818:	f3 1f       	adc	r31, r19
- 81a:	80 81       	ld	r24, Z
- 81c:	81 11       	cpse	r24, r1
- 81e:	05 c0       	rjmp	.+10     	; 0x82a <_ZN7atmicro7Istream6updateERNS_6KeypadE+0x74>
- 820:	84 e6       	ldi	r24, 0x64	; 100
- 822:	90 e0       	ldi	r25, 0x00	; 0
- 824:	f8 01       	movw	r30, r16
- 826:	94 a7       	std	Z+44, r25	; 0x2c
- 828:	83 a7       	std	Z+43, r24	; 0x2b
- 82a:	c1 2c       	mov	r12, r1
- 82c:	d1 2c       	mov	r13, r1
- 82e:	a1 2c       	mov	r10, r1
- 830:	b1 2c       	mov	r11, r1
- 832:	75 01       	movw	r14, r10
- 834:	ec 0c       	add	r14, r12
- 836:	fd 1c       	adc	r15, r13
- 838:	e1 e0       	ldi	r30, 0x01	; 1
- 83a:	f0 e0       	ldi	r31, 0x00	; 0
- 83c:	ec 0f       	add	r30, r28
- 83e:	fd 1f       	adc	r31, r29
- 840:	ee 0d       	add	r30, r14
- 842:	ff 1d       	adc	r31, r15
- 844:	80 81       	ld	r24, Z
- 846:	88 23       	and	r24, r24
- 848:	41 f0       	breq	.+16     	; 0x85a <_ZN7atmicro7Istream6updateERNS_6KeypadE+0xa4>
- 84a:	d8 01       	movw	r26, r16
- 84c:	9b 96       	adiw	r26, 0x2b	; 43
- 84e:	8d 91       	ld	r24, X+
- 850:	9c 91       	ld	r25, X
- 852:	9c 97       	sbiw	r26, 0x2c	; 44
- 854:	8e 15       	cp	r24, r14
- 856:	9f 05       	cpc	r25, r15
- 858:	f9 f4       	brne	.+62     	; 0x898 <__stack+0x39>
- 85a:	bf ef       	ldi	r27, 0xFF	; 255
- 85c:	ab 1a       	sub	r10, r27
- 85e:	bb 0a       	sbc	r11, r27
- 860:	e4 e0       	ldi	r30, 0x04	; 4
- 862:	ae 16       	cp	r10, r30
- 864:	b1 04       	cpc	r11, r1
- 866:	29 f7       	brne	.-54     	; 0x832 <_ZN7atmicro7Istream6updateERNS_6KeypadE+0x7c>
- 868:	f4 e0       	ldi	r31, 0x04	; 4
- 86a:	cf 0e       	add	r12, r31
- 86c:	d1 1c       	adc	r13, r1
- 86e:	80 e1       	ldi	r24, 0x10	; 16
- 870:	c8 16       	cp	r12, r24
- 872:	d1 04       	cpc	r13, r1
- 874:	e1 f6       	brne	.-72     	; 0x82e <_ZN7atmicro7Istream6updateERNS_6KeypadE+0x78>
- 876:	60 96       	adiw	r28, 0x10	; 16
- 878:	0f b6       	in	r0, 0x3f	; 63
- 87a:	f8 94       	cli
- 87c:	de bf       	out	0x3e, r29	; 62
- 87e:	0f be       	out	0x3f, r0	; 63
- 880:	cd bf       	out	0x3d, r28	; 61
- 882:	df 91       	pop	r29
- 884:	cf 91       	pop	r28
- 886:	1f 91       	pop	r17
- 888:	0f 91       	pop	r16
- 88a:	ff 90       	pop	r15
- 88c:	ef 90       	pop	r14
- 88e:	df 90       	pop	r13
- 890:	cf 90       	pop	r12
- 892:	bf 90       	pop	r11
- 894:	af 90       	pop	r10
- 896:	08 95       	ret
- 898:	f8 01       	movw	r30, r16
- 89a:	ee 0d       	add	r30, r14
- 89c:	ff 1d       	adc	r31, r15
- 89e:	63 8d       	ldd	r22, Z+27	; 0x1b
- 8a0:	c8 01       	movw	r24, r16
- 8a2:	0e 94 c6 03 	call	0x78c	; 0x78c <_ZN7atmicro7Istream4pushEc>
- 8a6:	d8 01       	movw	r26, r16
- 8a8:	9c 96       	adiw	r26, 0x2c	; 44
- 8aa:	fc 92       	st	X, r15
- 8ac:	ee 92       	st	-X, r14
- 8ae:	9b 97       	sbiw	r26, 0x2b	; 43
- 8b0:	d4 cf       	rjmp	.-88     	; 0x85a <_ZN7atmicro7Istream6updateERNS_6KeypadE+0xa4>
+0000070e <_ZN7atmicro15ParallelTextLCD9characterEh>:
+     70e:	0f 93       	push	r16
+     710:	1f 93       	push	r17
+     712:	cf 93       	push	r28
+     714:	df 93       	push	r29
+     716:	1f 92       	push	r1
+     718:	cd b7       	in	r28, 0x3d	; 61
+     71a:	de b7       	in	r29, 0x3e	; 62
+     71c:	8c 01       	movw	r16, r24
+     71e:	69 83       	std	Y+1, r22	; 0x01
+     720:	0e 94 db 02 	call	0x5b6	; 0x5b6 <_ZN7atmicro15ParallelTextLCD9wait_busyEv>
+     724:	69 81       	ldd	r22, Y+1	; 0x01
+     726:	70 e0       	ldi	r23, 0x00	; 0
+     728:	f8 01       	movw	r30, r16
+     72a:	82 81       	ldd	r24, Z+2	; 0x02
+     72c:	0e 94 75 01 	call	0x2ea	; 0x2ea <_ZN7atmicro6Device9setStatusENS_4PORTEi>
+     730:	60 e0       	ldi	r22, 0x00	; 0
+     732:	f8 01       	movw	r30, r16
+     734:	84 81       	ldd	r24, Z+4	; 0x04
+     736:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
+     73a:	61 e0       	ldi	r22, 0x01	; 1
+     73c:	f8 01       	movw	r30, r16
+     73e:	85 81       	ldd	r24, Z+5	; 0x05
+     740:	0e 94 41 00 	call	0x82	; 0x82 <_ZN7atmicro6Device9setStatusENS_3PINEb>
+     744:	c8 01       	movw	r24, r16
+     746:	0e 94 cc 02 	call	0x598	; 0x598 <_ZN7atmicro15ParallelTextLCD13action_enableEv>
+     74a:	60 e0       	ldi	r22, 0x00	; 0
+     74c:	70 e0       	ldi	r23, 0x00	; 0
+     74e:	f8 01       	movw	r30, r16
+     750:	82 81       	ldd	r24, Z+2	; 0x02
+     752:	0f 90       	pop	r0
+     754:	df 91       	pop	r29
+     756:	cf 91       	pop	r28
+     758:	1f 91       	pop	r17
+     75a:	0f 91       	pop	r16
+     75c:	0c 94 75 01 	jmp	0x2ea	; 0x2ea <_ZN7atmicro6Device9setStatusENS_4PORTEi>
 
-000008b2 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE>:
- 8b2:	ef 92       	push	r14
- 8b4:	ff 92       	push	r15
- 8b6:	0f 93       	push	r16
- 8b8:	1f 93       	push	r17
- 8ba:	cf 93       	push	r28
- 8bc:	df 93       	push	r29
- 8be:	8c 01       	movw	r16, r24
- 8c0:	eb 01       	movw	r28, r22
- 8c2:	fc 01       	movw	r30, r24
- 8c4:	21 8d       	ldd	r18, Z+25	; 0x19
- 8c6:	32 8d       	ldd	r19, Z+26	; 0x1a
- 8c8:	21 15       	cp	r18, r1
- 8ca:	31 05       	cpc	r19, r1
- 8cc:	c1 f4       	brne	.+48     	; 0x8fe <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x4c>
- 8ce:	24 e8       	ldi	r18, 0x84	; 132
- 8d0:	30 e0       	ldi	r19, 0x00	; 0
- 8d2:	40 e0       	ldi	r20, 0x00	; 0
- 8d4:	50 e0       	ldi	r21, 0x00	; 0
- 8d6:	60 e0       	ldi	r22, 0x00	; 0
- 8d8:	70 e0       	ldi	r23, 0x00	; 0
- 8da:	ce 01       	movw	r24, r28
- 8dc:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- 8e0:	25 e9       	ldi	r18, 0x95	; 149
- 8e2:	30 e0       	ldi	r19, 0x00	; 0
- 8e4:	41 e0       	ldi	r20, 0x01	; 1
- 8e6:	50 e0       	ldi	r21, 0x00	; 0
- 8e8:	60 e0       	ldi	r22, 0x00	; 0
- 8ea:	70 e0       	ldi	r23, 0x00	; 0
- 8ec:	ce 01       	movw	r24, r28
- 8ee:	df 91       	pop	r29
- 8f0:	cf 91       	pop	r28
- 8f2:	1f 91       	pop	r17
- 8f4:	0f 91       	pop	r16
- 8f6:	ff 90       	pop	r15
- 8f8:	ef 90       	pop	r14
- 8fa:	0c 94 90 03 	jmp	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- 8fe:	fc 01       	movw	r30, r24
- 900:	80 81       	ld	r24, Z
- 902:	81 34       	cpi	r24, 0x41	; 65
- 904:	31 f4       	brne	.+12     	; 0x912 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x60>
- 906:	cb 01       	movw	r24, r22
- 908:	0e 94 4b 03 	call	0x696	; 0x696 <_ZN7atmicro15ParallelTextLCD5clearEv>
- 90c:	26 ea       	ldi	r18, 0xA6	; 166
- 90e:	30 e0       	ldi	r19, 0x00	; 0
- 910:	94 c0       	rjmp	.+296    	; 0xa3a <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x188>
- 912:	82 34       	cpi	r24, 0x42	; 66
- 914:	c9 f5       	brne	.+114    	; 0x988 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0xd6>
- 916:	27 eb       	ldi	r18, 0xB7	; 183
- 918:	30 e0       	ldi	r19, 0x00	; 0
- 91a:	40 e0       	ldi	r20, 0x00	; 0
- 91c:	50 e0       	ldi	r21, 0x00	; 0
- 91e:	60 e0       	ldi	r22, 0x00	; 0
- 920:	70 e0       	ldi	r23, 0x00	; 0
- 922:	ce 01       	movw	r24, r28
- 924:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- 928:	ee 24       	eor	r14, r14
- 92a:	e3 94       	inc	r14
- 92c:	f1 2c       	mov	r15, r1
- 92e:	f8 01       	movw	r30, r16
- 930:	81 8d       	ldd	r24, Z+25	; 0x19
- 932:	92 8d       	ldd	r25, Z+26	; 0x1a
- 934:	e8 16       	cp	r14, r24
- 936:	f9 06       	cpc	r15, r25
- 938:	74 f4       	brge	.+28     	; 0x956 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0xa4>
- 93a:	b7 01       	movw	r22, r14
- 93c:	65 5f       	subi	r22, 0xF5	; 245
- 93e:	7f 4f       	sbci	r23, 0xFF	; 255
- 940:	2c ee       	ldi	r18, 0xEC	; 236
- 942:	30 e0       	ldi	r19, 0x00	; 0
- 944:	40 e0       	ldi	r20, 0x00	; 0
- 946:	50 e0       	ldi	r21, 0x00	; 0
- 948:	ce 01       	movw	r24, r28
- 94a:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- 94e:	9f ef       	ldi	r25, 0xFF	; 255
- 950:	e9 1a       	sub	r14, r25
- 952:	f9 0a       	sbc	r15, r25
- 954:	ec cf       	rjmp	.-40     	; 0x92e <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x7c>
- 956:	05 97       	sbiw	r24, 0x05	; 5
- 958:	0c f4       	brge	.+2      	; 0x95c <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0xaa>
- 95a:	c4 c0       	rjmp	.+392    	; 0xae4 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x232>
- 95c:	23 ec       	ldi	r18, 0xC3	; 195
- 95e:	30 e0       	ldi	r19, 0x00	; 0
- 960:	41 e0       	ldi	r20, 0x01	; 1
- 962:	50 e0       	ldi	r21, 0x00	; 0
- 964:	60 e0       	ldi	r22, 0x00	; 0
- 966:	70 e0       	ldi	r23, 0x00	; 0
- 968:	ce 01       	movw	r24, r28
- 96a:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- 96e:	c8 01       	movw	r24, r16
- 970:	0e 94 a0 03 	call	0x740	; 0x740 <_ZN7atmicro7Istream5clearEv>
- 974:	ff e7       	ldi	r31, 0x7F	; 127
- 976:	2a e1       	ldi	r18, 0x1A	; 26
- 978:	86 e0       	ldi	r24, 0x06	; 6
- 97a:	f1 50       	subi	r31, 0x01	; 1
- 97c:	20 40       	sbci	r18, 0x00	; 0
- 97e:	80 40       	sbci	r24, 0x00	; 0
- 980:	e1 f7       	brne	.-8      	; 0x97a <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0xc8>
- 982:	00 c0       	rjmp	.+0      	; 0x984 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0xd2>
- 984:	00 00       	nop
- 986:	a5 c0       	rjmp	.+330    	; 0xad2 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x220>
- 988:	83 34       	cpi	r24, 0x43	; 67
- 98a:	09 f0       	breq	.+2      	; 0x98e <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0xdc>
- 98c:	59 c0       	rjmp	.+178    	; 0xa40 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x18e>
- 98e:	25 30       	cpi	r18, 0x05	; 5
- 990:	31 05       	cpc	r19, r1
- 992:	0c f5       	brge	.+66     	; 0x9d6 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x124>
- 994:	24 ed       	ldi	r18, 0xD4	; 212
- 996:	30 e0       	ldi	r19, 0x00	; 0
- 998:	40 e0       	ldi	r20, 0x00	; 0
- 99a:	50 e0       	ldi	r21, 0x00	; 0
- 99c:	60 e0       	ldi	r22, 0x00	; 0
- 99e:	70 e0       	ldi	r23, 0x00	; 0
- 9a0:	ce 01       	movw	r24, r28
- 9a2:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- 9a6:	ee 24       	eor	r14, r14
- 9a8:	e3 94       	inc	r14
- 9aa:	f1 2c       	mov	r15, r1
- 9ac:	f8 01       	movw	r30, r16
- 9ae:	81 8d       	ldd	r24, Z+25	; 0x19
- 9b0:	92 8d       	ldd	r25, Z+26	; 0x1a
- 9b2:	e8 16       	cp	r14, r24
- 9b4:	f9 06       	cpc	r15, r25
- 9b6:	0c f0       	brlt	.+2      	; 0x9ba <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x108>
- 9b8:	95 c0       	rjmp	.+298    	; 0xae4 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x232>
- 9ba:	b7 01       	movw	r22, r14
- 9bc:	67 5f       	subi	r22, 0xF7	; 247
- 9be:	7f 4f       	sbci	r23, 0xFF	; 255
- 9c0:	2c ee       	ldi	r18, 0xEC	; 236
- 9c2:	30 e0       	ldi	r19, 0x00	; 0
- 9c4:	40 e0       	ldi	r20, 0x00	; 0
- 9c6:	50 e0       	ldi	r21, 0x00	; 0
- 9c8:	ce 01       	movw	r24, r28
- 9ca:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- 9ce:	9f ef       	ldi	r25, 0xFF	; 255
- 9d0:	e9 1a       	sub	r14, r25
- 9d2:	f9 0a       	sbc	r15, r25
- 9d4:	eb cf       	rjmp	.-42     	; 0x9ac <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0xfa>
- 9d6:	29 30       	cpi	r18, 0x09	; 9
- 9d8:	31 05       	cpc	r19, r1
- 9da:	54 f5       	brge	.+84     	; 0xa30 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x17e>
- 9dc:	2f ed       	ldi	r18, 0xDF	; 223
- 9de:	30 e0       	ldi	r19, 0x00	; 0
- 9e0:	40 e0       	ldi	r20, 0x00	; 0
- 9e2:	50 e0       	ldi	r21, 0x00	; 0
- 9e4:	60 e0       	ldi	r22, 0x00	; 0
- 9e6:	70 e0       	ldi	r23, 0x00	; 0
- 9e8:	ce 01       	movw	r24, r28
- 9ea:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- 9ee:	2e ee       	ldi	r18, 0xEE	; 238
- 9f0:	30 e0       	ldi	r19, 0x00	; 0
- 9f2:	41 e0       	ldi	r20, 0x01	; 1
- 9f4:	50 e0       	ldi	r21, 0x00	; 0
- 9f6:	60 e0       	ldi	r22, 0x00	; 0
- 9f8:	70 e0       	ldi	r23, 0x00	; 0
- 9fa:	ce 01       	movw	r24, r28
- 9fc:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- a00:	85 e0       	ldi	r24, 0x05	; 5
- a02:	e8 2e       	mov	r14, r24
- a04:	f1 2c       	mov	r15, r1
- a06:	f8 01       	movw	r30, r16
- a08:	81 8d       	ldd	r24, Z+25	; 0x19
- a0a:	92 8d       	ldd	r25, Z+26	; 0x1a
- a0c:	e8 16       	cp	r14, r24
- a0e:	f9 06       	cpc	r15, r25
- a10:	0c f0       	brlt	.+2      	; 0xa14 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x162>
- a12:	68 c0       	rjmp	.+208    	; 0xae4 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x232>
- a14:	b7 01       	movw	r22, r14
- a16:	6b 5f       	subi	r22, 0xFB	; 251
- a18:	7f 4f       	sbci	r23, 0xFF	; 255
- a1a:	2c ee       	ldi	r18, 0xEC	; 236
- a1c:	30 e0       	ldi	r19, 0x00	; 0
- a1e:	41 e0       	ldi	r20, 0x01	; 1
- a20:	50 e0       	ldi	r21, 0x00	; 0
- a22:	ce 01       	movw	r24, r28
- a24:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- a28:	ff ef       	ldi	r31, 0xFF	; 255
- a2a:	ef 1a       	sub	r14, r31
- a2c:	ff 0a       	sbc	r15, r31
- a2e:	eb cf       	rjmp	.-42     	; 0xa06 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x154>
- a30:	cb 01       	movw	r24, r22
- a32:	0e 94 4b 03 	call	0x696	; 0x696 <_ZN7atmicro15ParallelTextLCD5clearEv>
- a36:	29 ef       	ldi	r18, 0xF9	; 249
- a38:	30 e0       	ldi	r19, 0x00	; 0
- a3a:	40 e0       	ldi	r20, 0x00	; 0
- a3c:	50 e0       	ldi	r21, 0x00	; 0
- a3e:	92 cf       	rjmp	.-220    	; 0x964 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0xb2>
- a40:	84 34       	cpi	r24, 0x44	; 68
- a42:	79 f5       	brne	.+94     	; 0xaa2 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x1f0>
- a44:	2a e0       	ldi	r18, 0x0A	; 10
- a46:	31 e0       	ldi	r19, 0x01	; 1
- a48:	40 e0       	ldi	r20, 0x00	; 0
- a4a:	50 e0       	ldi	r21, 0x00	; 0
- a4c:	60 e0       	ldi	r22, 0x00	; 0
- a4e:	70 e0       	ldi	r23, 0x00	; 0
- a50:	ce 01       	movw	r24, r28
- a52:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- a56:	f8 01       	movw	r30, r16
- a58:	81 8d       	ldd	r24, Z+25	; 0x19
- a5a:	92 8d       	ldd	r25, Z+26	; 0x1a
- a5c:	02 97       	sbiw	r24, 0x02	; 2
- a5e:	0c f4       	brge	.+2      	; 0xa62 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x1b0>
- a60:	41 c0       	rjmp	.+130    	; 0xae4 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x232>
- a62:	98 01       	movw	r18, r16
- a64:	2f 5f       	subi	r18, 0xFF	; 255
- a66:	3f 4f       	sbci	r19, 0xFF	; 255
- a68:	40 e0       	ldi	r20, 0x00	; 0
- a6a:	50 e0       	ldi	r21, 0x00	; 0
- a6c:	6e e0       	ldi	r22, 0x0E	; 14
- a6e:	70 e0       	ldi	r23, 0x00	; 0
- a70:	ce 01       	movw	r24, r28
- a72:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- a76:	28 e1       	ldi	r18, 0x18	; 24
- a78:	31 e0       	ldi	r19, 0x01	; 1
- a7a:	41 e0       	ldi	r20, 0x01	; 1
- a7c:	50 e0       	ldi	r21, 0x00	; 0
- a7e:	60 e0       	ldi	r22, 0x00	; 0
- a80:	70 e0       	ldi	r23, 0x00	; 0
- a82:	ce 01       	movw	r24, r28
- a84:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- a88:	c8 01       	movw	r24, r16
- a8a:	0e 94 a0 03 	call	0x740	; 0x740 <_ZN7atmicro7Istream5clearEv>
- a8e:	ff e7       	ldi	r31, 0x7F	; 127
- a90:	2a e1       	ldi	r18, 0x1A	; 26
- a92:	86 e0       	ldi	r24, 0x06	; 6
- a94:	f1 50       	subi	r31, 0x01	; 1
- a96:	20 40       	sbci	r18, 0x00	; 0
- a98:	80 40       	sbci	r24, 0x00	; 0
- a9a:	e1 f7       	brne	.-8      	; 0xa94 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x1e2>
- a9c:	00 c0       	rjmp	.+0      	; 0xa9e <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x1ec>
- a9e:	00 00       	nop
- aa0:	21 c0       	rjmp	.+66     	; 0xae4 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x232>
- aa2:	cb 01       	movw	r24, r22
- aa4:	0e 94 4b 03 	call	0x696	; 0x696 <_ZN7atmicro15ParallelTextLCD5clearEv>
- aa8:	29 e2       	ldi	r18, 0x29	; 41
- aaa:	31 e0       	ldi	r19, 0x01	; 1
- aac:	40 e0       	ldi	r20, 0x00	; 0
- aae:	50 e0       	ldi	r21, 0x00	; 0
- ab0:	60 e0       	ldi	r22, 0x00	; 0
- ab2:	70 e0       	ldi	r23, 0x00	; 0
- ab4:	ce 01       	movw	r24, r28
- ab6:	0e 94 90 03 	call	0x720	; 0x720 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
- aba:	9f e7       	ldi	r25, 0x7F	; 127
- abc:	ea e1       	ldi	r30, 0x1A	; 26
- abe:	f6 e0       	ldi	r31, 0x06	; 6
- ac0:	91 50       	subi	r25, 0x01	; 1
- ac2:	e0 40       	sbci	r30, 0x00	; 0
- ac4:	f0 40       	sbci	r31, 0x00	; 0
- ac6:	e1 f7       	brne	.-8      	; 0xac0 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x20e>
- ac8:	00 c0       	rjmp	.+0      	; 0xaca <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE+0x218>
- aca:	00 00       	nop
- acc:	c8 01       	movw	r24, r16
- ace:	0e 94 a0 03 	call	0x740	; 0x740 <_ZN7atmicro7Istream5clearEv>
- ad2:	ce 01       	movw	r24, r28
- ad4:	df 91       	pop	r29
- ad6:	cf 91       	pop	r28
- ad8:	1f 91       	pop	r17
- ada:	0f 91       	pop	r16
- adc:	ff 90       	pop	r15
- ade:	ef 90       	pop	r14
- ae0:	0c 94 4b 03 	jmp	0x696	; 0x696 <_ZN7atmicro15ParallelTextLCD5clearEv>
- ae4:	df 91       	pop	r29
- ae6:	cf 91       	pop	r28
- ae8:	1f 91       	pop	r17
- aea:	0f 91       	pop	r16
- aec:	ff 90       	pop	r15
- aee:	ef 90       	pop	r14
- af0:	08 95       	ret
+00000760 <_ZN7atmicro15ParallelTextLCD6stringEPKc>:
+     760:	0f 93       	push	r16
+     762:	1f 93       	push	r17
+     764:	cf 93       	push	r28
+     766:	df 93       	push	r29
+     768:	8c 01       	movw	r16, r24
+     76a:	eb 01       	movw	r28, r22
+     76c:	69 91       	ld	r22, Y+
+     76e:	66 23       	and	r22, r22
+     770:	21 f0       	breq	.+8      	; 0x77a <_ZN7atmicro15ParallelTextLCD6stringEPKc+0x1a>
+     772:	c8 01       	movw	r24, r16
+     774:	0e 94 87 03 	call	0x70e	; 0x70e <_ZN7atmicro15ParallelTextLCD9characterEh>
+     778:	f9 cf       	rjmp	.-14     	; 0x76c <_ZN7atmicro15ParallelTextLCD6stringEPKc+0xc>
+     77a:	df 91       	pop	r29
+     77c:	cf 91       	pop	r28
+     77e:	1f 91       	pop	r17
+     780:	0f 91       	pop	r16
+     782:	08 95       	ret
 
-00000af2 <main>:
- af2:	cf 93       	push	r28
- af4:	df 93       	push	r29
- af6:	cd b7       	in	r28, 0x3d	; 61
- af8:	de b7       	in	r29, 0x3e	; 62
- afa:	ce 54       	subi	r28, 0x4E	; 78
- afc:	d1 09       	sbc	r29, r1
- afe:	0f b6       	in	r0, 0x3f	; 63
- b00:	f8 94       	cli
- b02:	de bf       	out	0x3e, r29	; 62
- b04:	0f be       	out	0x3f, r0	; 63
- b06:	cd bf       	out	0x3d, r28	; 61
- b08:	60 e0       	ldi	r22, 0x00	; 0
- b0a:	ce 01       	movw	r24, r28
- b0c:	8e 96       	adiw	r24, 0x2e	; 46
- b0e:	0e 94 c4 01 	call	0x388	; 0x388 <_ZN7atmicro6KeypadC1ENS_4PORTE>
- b12:	ce 01       	movw	r24, r28
- b14:	01 96       	adiw	r24, 0x01	; 1
- b16:	0e 94 ae 03 	call	0x75c	; 0x75c <_ZN7atmicro7IstreamC1Ev>
- b1a:	0d e1       	ldi	r16, 0x1D	; 29
- b1c:	2f e1       	ldi	r18, 0x1F	; 31
- b1e:	4a e1       	ldi	r20, 0x1A	; 26
- b20:	68 e0       	ldi	r22, 0x08	; 8
- b22:	ce 01       	movw	r24, r28
- b24:	8f 5b       	subi	r24, 0xBF	; 191
- b26:	9f 4f       	sbci	r25, 0xFF	; 255
- b28:	0e 94 25 03 	call	0x64a	; 0x64a <_ZN7atmicro15ParallelTextLCDC1ENS_4PORTENS_3PINES2_S2_>
- b2c:	be 01       	movw	r22, r28
- b2e:	62 5d       	subi	r22, 0xD2	; 210
- b30:	7f 4f       	sbci	r23, 0xFF	; 255
- b32:	ce 01       	movw	r24, r28
- b34:	01 96       	adiw	r24, 0x01	; 1
- b36:	0e 94 db 03 	call	0x7b6	; 0x7b6 <_ZN7atmicro7Istream6updateERNS_6KeypadE>
- b3a:	be 01       	movw	r22, r28
- b3c:	6f 5b       	subi	r22, 0xBF	; 191
- b3e:	7f 4f       	sbci	r23, 0xFF	; 255
- b40:	ce 01       	movw	r24, r28
- b42:	01 96       	adiw	r24, 0x01	; 1
- b44:	0e 94 59 04 	call	0x8b2	; 0x8b2 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDE>
- b48:	f1 cf       	rjmp	.-30     	; 0xb2c <main+0x3a>
+00000784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>:
+     784:	0f 93       	push	r16
+     786:	1f 93       	push	r17
+     788:	cf 93       	push	r28
+     78a:	df 93       	push	r29
+     78c:	ec 01       	movw	r28, r24
+     78e:	89 01       	movw	r16, r18
+     790:	0e 94 72 03 	call	0x6e4	; 0x6e4 <_ZN7atmicro15ParallelTextLCD8positionEii>
+     794:	b8 01       	movw	r22, r16
+     796:	ce 01       	movw	r24, r28
+     798:	df 91       	pop	r29
+     79a:	cf 91       	pop	r28
+     79c:	1f 91       	pop	r17
+     79e:	0f 91       	pop	r16
+     7a0:	0c 94 b0 03 	jmp	0x760	; 0x760 <_ZN7atmicro15ParallelTextLCD6stringEPKc>
 
-00000b4a <__subsf3>:
- b4a:	50 58       	subi	r21, 0x80	; 128
+000007a4 <_ZN7atmicro15ParallelTextLCD9characterEiih>:
+     7a4:	0f 93       	push	r16
+     7a6:	1f 93       	push	r17
+     7a8:	cf 93       	push	r28
+     7aa:	df 93       	push	r29
+     7ac:	1f 92       	push	r1
+     7ae:	cd b7       	in	r28, 0x3d	; 61
+     7b0:	de b7       	in	r29, 0x3e	; 62
+     7b2:	8c 01       	movw	r16, r24
+     7b4:	29 83       	std	Y+1, r18	; 0x01
+     7b6:	0e 94 72 03 	call	0x6e4	; 0x6e4 <_ZN7atmicro15ParallelTextLCD8positionEii>
+     7ba:	29 81       	ldd	r18, Y+1	; 0x01
+     7bc:	62 2f       	mov	r22, r18
+     7be:	c8 01       	movw	r24, r16
+     7c0:	0f 90       	pop	r0
+     7c2:	df 91       	pop	r29
+     7c4:	cf 91       	pop	r28
+     7c6:	1f 91       	pop	r17
+     7c8:	0f 91       	pop	r16
+     7ca:	0c 94 87 03 	jmp	0x70e	; 0x70e <_ZN7atmicro15ParallelTextLCD9characterEh>
 
-00000b4c <__addsf3>:
- b4c:	bb 27       	eor	r27, r27
- b4e:	aa 27       	eor	r26, r26
- b50:	0e 94 bd 05 	call	0xb7a	; 0xb7a <__addsf3x>
- b54:	0c 94 c4 06 	jmp	0xd88	; 0xd88 <__fp_round>
- b58:	0e 94 b6 06 	call	0xd6c	; 0xd6c <__fp_pscA>
- b5c:	38 f0       	brcs	.+14     	; 0xb6c <__addsf3+0x20>
- b5e:	0e 94 bd 06 	call	0xd7a	; 0xd7a <__fp_pscB>
- b62:	20 f0       	brcs	.+8      	; 0xb6c <__addsf3+0x20>
- b64:	39 f4       	brne	.+14     	; 0xb74 <__addsf3+0x28>
- b66:	9f 3f       	cpi	r25, 0xFF	; 255
- b68:	19 f4       	brne	.+6      	; 0xb70 <__addsf3+0x24>
- b6a:	26 f4       	brtc	.+8      	; 0xb74 <__addsf3+0x28>
- b6c:	0c 94 b3 06 	jmp	0xd66	; 0xd66 <__fp_nan>
- b70:	0e f4       	brtc	.+2      	; 0xb74 <__addsf3+0x28>
- b72:	e0 95       	com	r30
- b74:	e7 fb       	bst	r30, 7
- b76:	0c 94 ad 06 	jmp	0xd5a	; 0xd5a <__fp_inf>
+000007ce <_ZN7atmicro7Istream5clearEv>:
+     7ce:	fc 01       	movw	r30, r24
+     7d0:	9c 01       	movw	r18, r24
+     7d2:	27 5e       	subi	r18, 0xE7	; 231
+     7d4:	3f 4f       	sbci	r19, 0xFF	; 255
+     7d6:	40 e2       	ldi	r20, 0x20	; 32
+     7d8:	41 93       	st	Z+, r20
+     7da:	e2 17       	cp	r30, r18
+     7dc:	f3 07       	cpc	r31, r19
+     7de:	e1 f7       	brne	.-8      	; 0x7d8 <_ZN7atmicro7Istream5clearEv+0xa>
+     7e0:	fc 01       	movw	r30, r24
+     7e2:	10 82       	st	Z, r1
+     7e4:	12 8e       	std	Z+26, r1	; 0x1a
+     7e6:	11 8e       	std	Z+25, r1	; 0x19
+     7e8:	08 95       	ret
 
-00000b7a <__addsf3x>:
- b7a:	e9 2f       	mov	r30, r25
- b7c:	0e 94 d5 06 	call	0xdaa	; 0xdaa <__fp_split3>
- b80:	58 f3       	brcs	.-42     	; 0xb58 <__addsf3+0xc>
- b82:	ba 17       	cp	r27, r26
- b84:	62 07       	cpc	r22, r18
- b86:	73 07       	cpc	r23, r19
- b88:	84 07       	cpc	r24, r20
- b8a:	95 07       	cpc	r25, r21
- b8c:	20 f0       	brcs	.+8      	; 0xb96 <__addsf3x+0x1c>
- b8e:	79 f4       	brne	.+30     	; 0xbae <__addsf3x+0x34>
- b90:	a6 f5       	brtc	.+104    	; 0xbfa <__addsf3x+0x80>
- b92:	0c 94 f7 06 	jmp	0xdee	; 0xdee <__fp_zero>
- b96:	0e f4       	brtc	.+2      	; 0xb9a <__addsf3x+0x20>
- b98:	e0 95       	com	r30
- b9a:	0b 2e       	mov	r0, r27
- b9c:	ba 2f       	mov	r27, r26
- b9e:	a0 2d       	mov	r26, r0
- ba0:	0b 01       	movw	r0, r22
- ba2:	b9 01       	movw	r22, r18
- ba4:	90 01       	movw	r18, r0
- ba6:	0c 01       	movw	r0, r24
- ba8:	ca 01       	movw	r24, r20
- baa:	a0 01       	movw	r20, r0
- bac:	11 24       	eor	r1, r1
- bae:	ff 27       	eor	r31, r31
- bb0:	59 1b       	sub	r21, r25
- bb2:	99 f0       	breq	.+38     	; 0xbda <__addsf3x+0x60>
- bb4:	59 3f       	cpi	r21, 0xF9	; 249
- bb6:	50 f4       	brcc	.+20     	; 0xbcc <__addsf3x+0x52>
- bb8:	50 3e       	cpi	r21, 0xE0	; 224
- bba:	68 f1       	brcs	.+90     	; 0xc16 <__addsf3x+0x9c>
- bbc:	1a 16       	cp	r1, r26
- bbe:	f0 40       	sbci	r31, 0x00	; 0
- bc0:	a2 2f       	mov	r26, r18
- bc2:	23 2f       	mov	r18, r19
- bc4:	34 2f       	mov	r19, r20
- bc6:	44 27       	eor	r20, r20
- bc8:	58 5f       	subi	r21, 0xF8	; 248
- bca:	f3 cf       	rjmp	.-26     	; 0xbb2 <__addsf3x+0x38>
- bcc:	46 95       	lsr	r20
- bce:	37 95       	ror	r19
- bd0:	27 95       	ror	r18
- bd2:	a7 95       	ror	r26
- bd4:	f0 40       	sbci	r31, 0x00	; 0
- bd6:	53 95       	inc	r21
- bd8:	c9 f7       	brne	.-14     	; 0xbcc <__addsf3x+0x52>
- bda:	7e f4       	brtc	.+30     	; 0xbfa <__addsf3x+0x80>
- bdc:	1f 16       	cp	r1, r31
- bde:	ba 0b       	sbc	r27, r26
- be0:	62 0b       	sbc	r22, r18
- be2:	73 0b       	sbc	r23, r19
- be4:	84 0b       	sbc	r24, r20
- be6:	ba f0       	brmi	.+46     	; 0xc16 <__addsf3x+0x9c>
- be8:	91 50       	subi	r25, 0x01	; 1
- bea:	a1 f0       	breq	.+40     	; 0xc14 <__addsf3x+0x9a>
- bec:	ff 0f       	add	r31, r31
- bee:	bb 1f       	adc	r27, r27
- bf0:	66 1f       	adc	r22, r22
- bf2:	77 1f       	adc	r23, r23
- bf4:	88 1f       	adc	r24, r24
- bf6:	c2 f7       	brpl	.-16     	; 0xbe8 <__addsf3x+0x6e>
- bf8:	0e c0       	rjmp	.+28     	; 0xc16 <__addsf3x+0x9c>
- bfa:	ba 0f       	add	r27, r26
- bfc:	62 1f       	adc	r22, r18
- bfe:	73 1f       	adc	r23, r19
- c00:	84 1f       	adc	r24, r20
- c02:	48 f4       	brcc	.+18     	; 0xc16 <__addsf3x+0x9c>
- c04:	87 95       	ror	r24
- c06:	77 95       	ror	r23
- c08:	67 95       	ror	r22
- c0a:	b7 95       	ror	r27
- c0c:	f7 95       	ror	r31
- c0e:	9e 3f       	cpi	r25, 0xFE	; 254
- c10:	08 f0       	brcs	.+2      	; 0xc14 <__addsf3x+0x9a>
- c12:	b0 cf       	rjmp	.-160    	; 0xb74 <__addsf3+0x28>
- c14:	93 95       	inc	r25
- c16:	88 0f       	add	r24, r24
- c18:	08 f0       	brcs	.+2      	; 0xc1c <__addsf3x+0xa2>
- c1a:	99 27       	eor	r25, r25
- c1c:	ee 0f       	add	r30, r30
- c1e:	97 95       	ror	r25
- c20:	87 95       	ror	r24
- c22:	08 95       	ret
+000007ea <_ZN7atmicro7IstreamC1Ev>:
+     7ea:	cf 93       	push	r28
+     7ec:	df 93       	push	r29
+     7ee:	ec 01       	movw	r28, r24
+     7f0:	1a 8e       	std	Y+26, r1	; 0x1a
+     7f2:	19 8e       	std	Y+25, r1	; 0x19
+     7f4:	80 e1       	ldi	r24, 0x10	; 16
+     7f6:	e8 e6       	ldi	r30, 0x68	; 104
+     7f8:	f0 e0       	ldi	r31, 0x00	; 0
+     7fa:	de 01       	movw	r26, r28
+     7fc:	5b 96       	adiw	r26, 0x1b	; 27
+     7fe:	01 90       	ld	r0, Z+
+     800:	0d 92       	st	X+, r0
+     802:	8a 95       	dec	r24
+     804:	e1 f7       	brne	.-8      	; 0x7fe <_ZN7atmicro7IstreamC1Ev+0x14>
+     806:	ce 01       	movw	r24, r28
+     808:	0e 94 e7 03 	call	0x7ce	; 0x7ce <_ZN7atmicro7Istream5clearEv>
+     80c:	84 e6       	ldi	r24, 0x64	; 100
+     80e:	90 e0       	ldi	r25, 0x00	; 0
+     810:	9c a7       	std	Y+44, r25	; 0x2c
+     812:	8b a7       	std	Y+43, r24	; 0x2b
+     814:	df 91       	pop	r29
+     816:	cf 91       	pop	r28
+     818:	08 95       	ret
 
-00000c24 <__cmpsf2>:
- c24:	0e 94 89 06 	call	0xd12	; 0xd12 <__fp_cmp>
- c28:	08 f4       	brcc	.+2      	; 0xc2c <__cmpsf2+0x8>
- c2a:	81 e0       	ldi	r24, 0x01	; 1
- c2c:	08 95       	ret
+0000081a <_ZN7atmicro7Istream4pushEc>:
+     81a:	fc 01       	movw	r30, r24
+     81c:	21 8d       	ldd	r18, Z+25	; 0x19
+     81e:	32 8d       	ldd	r19, Z+26	; 0x1a
+     820:	29 31       	cpi	r18, 0x19	; 25
+     822:	31 05       	cpc	r19, r1
+     824:	11 f4       	brne	.+4      	; 0x82a <_ZN7atmicro7Istream4pushEc+0x10>
+     826:	0c 94 e7 03 	jmp	0x7ce	; 0x7ce <_ZN7atmicro7Istream5clearEv>
+     82a:	fc 01       	movw	r30, r24
+     82c:	e2 0f       	add	r30, r18
+     82e:	f3 1f       	adc	r31, r19
+     830:	60 83       	st	Z, r22
+     832:	2f 5f       	subi	r18, 0xFF	; 255
+     834:	3f 4f       	sbci	r19, 0xFF	; 255
+     836:	fc 01       	movw	r30, r24
+     838:	32 8f       	std	Z+26, r19	; 0x1a
+     83a:	21 8f       	std	Z+25, r18	; 0x19
+     83c:	e2 0f       	add	r30, r18
+     83e:	f3 1f       	adc	r31, r19
+     840:	10 82       	st	Z, r1
+     842:	08 95       	ret
 
-00000c2e <__divsf3>:
- c2e:	0e 94 2b 06 	call	0xc56	; 0xc56 <__divsf3x>
- c32:	0c 94 c4 06 	jmp	0xd88	; 0xd88 <__fp_round>
- c36:	0e 94 bd 06 	call	0xd7a	; 0xd7a <__fp_pscB>
- c3a:	58 f0       	brcs	.+22     	; 0xc52 <__divsf3+0x24>
- c3c:	0e 94 b6 06 	call	0xd6c	; 0xd6c <__fp_pscA>
- c40:	40 f0       	brcs	.+16     	; 0xc52 <__divsf3+0x24>
- c42:	29 f4       	brne	.+10     	; 0xc4e <__divsf3+0x20>
- c44:	5f 3f       	cpi	r21, 0xFF	; 255
- c46:	29 f0       	breq	.+10     	; 0xc52 <__divsf3+0x24>
- c48:	0c 94 ad 06 	jmp	0xd5a	; 0xd5a <__fp_inf>
- c4c:	51 11       	cpse	r21, r1
- c4e:	0c 94 f8 06 	jmp	0xdf0	; 0xdf0 <__fp_szero>
- c52:	0c 94 b3 06 	jmp	0xd66	; 0xd66 <__fp_nan>
+00000844 <_ZN7atmicro7Istream6updateERNS_6KeypadE>:
+     844:	af 92       	push	r10
+     846:	bf 92       	push	r11
+     848:	cf 92       	push	r12
+     84a:	df 92       	push	r13
+     84c:	ef 92       	push	r14
+     84e:	ff 92       	push	r15
+     850:	0f 93       	push	r16
+     852:	1f 93       	push	r17
+     854:	cf 93       	push	r28
+     856:	df 93       	push	r29
+     858:	cd b7       	in	r28, 0x3d	; 61
+     85a:	de b7       	in	r29, 0x3e	; 62
+     85c:	60 97       	sbiw	r28, 0x10	; 16
+     85e:	0f b6       	in	r0, 0x3f	; 63
+     860:	f8 94       	cli
+     862:	de bf       	out	0x3e, r29	; 62
+     864:	0f be       	out	0x3f, r0	; 63
+     866:	cd bf       	out	0x3d, r28	; 61
+     868:	8c 01       	movw	r16, r24
+     86a:	ce 01       	movw	r24, r28
+     86c:	01 96       	adiw	r24, 0x01	; 1
+     86e:	0e 94 8c 02 	call	0x518	; 0x518 <_ZN7atmicro6Keypad9isPressedEv>
+     872:	d8 01       	movw	r26, r16
+     874:	9b 96       	adiw	r26, 0x2b	; 43
+     876:	ec 91       	ld	r30, X
+     878:	9b 97       	sbiw	r26, 0x2b	; 43
+     87a:	9c 96       	adiw	r26, 0x2c	; 44
+     87c:	4c 91       	ld	r20, X
+     87e:	8e 2f       	mov	r24, r30
+     880:	94 2f       	mov	r25, r20
+     882:	64 e0       	ldi	r22, 0x04	; 4
+     884:	70 e0       	ldi	r23, 0x00	; 0
+     886:	0e 94 f8 09 	call	0x13f0	; 0x13f0 <__divmodhi4>
+     88a:	2e 2f       	mov	r18, r30
+     88c:	34 2f       	mov	r19, r20
+     88e:	37 ff       	sbrs	r19, 7
+     890:	02 c0       	rjmp	.+4      	; 0x896 <__stack+0x37>
+     892:	2d 5f       	subi	r18, 0xFD	; 253
+     894:	3f 4f       	sbci	r19, 0xFF	; 255
+     896:	2c 7f       	andi	r18, 0xFC	; 252
+     898:	28 0f       	add	r18, r24
+     89a:	39 1f       	adc	r19, r25
+     89c:	e1 e0       	ldi	r30, 0x01	; 1
+     89e:	f0 e0       	ldi	r31, 0x00	; 0
+     8a0:	ec 0f       	add	r30, r28
+     8a2:	fd 1f       	adc	r31, r29
+     8a4:	e2 0f       	add	r30, r18
+     8a6:	f3 1f       	adc	r31, r19
+     8a8:	80 81       	ld	r24, Z
+     8aa:	81 11       	cpse	r24, r1
+     8ac:	05 c0       	rjmp	.+10     	; 0x8b8 <__stack+0x59>
+     8ae:	84 e6       	ldi	r24, 0x64	; 100
+     8b0:	90 e0       	ldi	r25, 0x00	; 0
+     8b2:	f8 01       	movw	r30, r16
+     8b4:	94 a7       	std	Z+44, r25	; 0x2c
+     8b6:	83 a7       	std	Z+43, r24	; 0x2b
+     8b8:	c1 2c       	mov	r12, r1
+     8ba:	d1 2c       	mov	r13, r1
+     8bc:	a1 2c       	mov	r10, r1
+     8be:	b1 2c       	mov	r11, r1
+     8c0:	75 01       	movw	r14, r10
+     8c2:	ec 0c       	add	r14, r12
+     8c4:	fd 1c       	adc	r15, r13
+     8c6:	e1 e0       	ldi	r30, 0x01	; 1
+     8c8:	f0 e0       	ldi	r31, 0x00	; 0
+     8ca:	ec 0f       	add	r30, r28
+     8cc:	fd 1f       	adc	r31, r29
+     8ce:	ee 0d       	add	r30, r14
+     8d0:	ff 1d       	adc	r31, r15
+     8d2:	80 81       	ld	r24, Z
+     8d4:	88 23       	and	r24, r24
+     8d6:	41 f0       	breq	.+16     	; 0x8e8 <__stack+0x89>
+     8d8:	d8 01       	movw	r26, r16
+     8da:	9b 96       	adiw	r26, 0x2b	; 43
+     8dc:	8d 91       	ld	r24, X+
+     8de:	9c 91       	ld	r25, X
+     8e0:	9c 97       	sbiw	r26, 0x2c	; 44
+     8e2:	8e 15       	cp	r24, r14
+     8e4:	9f 05       	cpc	r25, r15
+     8e6:	f9 f4       	brne	.+62     	; 0x926 <__stack+0xc7>
+     8e8:	bf ef       	ldi	r27, 0xFF	; 255
+     8ea:	ab 1a       	sub	r10, r27
+     8ec:	bb 0a       	sbc	r11, r27
+     8ee:	e4 e0       	ldi	r30, 0x04	; 4
+     8f0:	ae 16       	cp	r10, r30
+     8f2:	b1 04       	cpc	r11, r1
+     8f4:	29 f7       	brne	.-54     	; 0x8c0 <__stack+0x61>
+     8f6:	f4 e0       	ldi	r31, 0x04	; 4
+     8f8:	cf 0e       	add	r12, r31
+     8fa:	d1 1c       	adc	r13, r1
+     8fc:	80 e1       	ldi	r24, 0x10	; 16
+     8fe:	c8 16       	cp	r12, r24
+     900:	d1 04       	cpc	r13, r1
+     902:	e1 f6       	brne	.-72     	; 0x8bc <__stack+0x5d>
+     904:	60 96       	adiw	r28, 0x10	; 16
+     906:	0f b6       	in	r0, 0x3f	; 63
+     908:	f8 94       	cli
+     90a:	de bf       	out	0x3e, r29	; 62
+     90c:	0f be       	out	0x3f, r0	; 63
+     90e:	cd bf       	out	0x3d, r28	; 61
+     910:	df 91       	pop	r29
+     912:	cf 91       	pop	r28
+     914:	1f 91       	pop	r17
+     916:	0f 91       	pop	r16
+     918:	ff 90       	pop	r15
+     91a:	ef 90       	pop	r14
+     91c:	df 90       	pop	r13
+     91e:	cf 90       	pop	r12
+     920:	bf 90       	pop	r11
+     922:	af 90       	pop	r10
+     924:	08 95       	ret
+     926:	f8 01       	movw	r30, r16
+     928:	ee 0d       	add	r30, r14
+     92a:	ff 1d       	adc	r31, r15
+     92c:	63 8d       	ldd	r22, Z+27	; 0x1b
+     92e:	c8 01       	movw	r24, r16
+     930:	0e 94 0d 04 	call	0x81a	; 0x81a <_ZN7atmicro7Istream4pushEc>
+     934:	d8 01       	movw	r26, r16
+     936:	9c 96       	adiw	r26, 0x2c	; 44
+     938:	fc 92       	st	X, r15
+     93a:	ee 92       	st	-X, r14
+     93c:	9b 97       	sbiw	r26, 0x2b	; 43
+     93e:	d4 cf       	rjmp	.-88     	; 0x8e8 <__stack+0x89>
 
-00000c56 <__divsf3x>:
- c56:	0e 94 d5 06 	call	0xdaa	; 0xdaa <__fp_split3>
- c5a:	68 f3       	brcs	.-38     	; 0xc36 <__divsf3+0x8>
+00000940 <_Z3armR5State>:
+     940:	fc 01       	movw	r30, r24
+     942:	21 81       	ldd	r18, Z+1	; 0x01
+     944:	21 11       	cpse	r18, r1
+     946:	06 c0       	rjmp	.+12     	; 0x954 <_Z3armR5State+0x14>
+     948:	21 e0       	ldi	r18, 0x01	; 1
+     94a:	21 83       	std	Z+1, r18	; 0x01
+     94c:	0e 94 bf 07 	call	0xf7e	; 0xf7e <_ZN5State12saveToMemoryEv>
+     950:	81 e0       	ldi	r24, 0x01	; 1
+     952:	08 95       	ret
+     954:	80 e0       	ldi	r24, 0x00	; 0
+     956:	08 95       	ret
 
-00000c5c <__divsf3_pse>:
- c5c:	99 23       	and	r25, r25
- c5e:	b1 f3       	breq	.-20     	; 0xc4c <__divsf3+0x1e>
- c60:	55 23       	and	r21, r21
- c62:	91 f3       	breq	.-28     	; 0xc48 <__divsf3+0x1a>
- c64:	95 1b       	sub	r25, r21
- c66:	55 0b       	sbc	r21, r21
- c68:	bb 27       	eor	r27, r27
- c6a:	aa 27       	eor	r26, r26
- c6c:	62 17       	cp	r22, r18
- c6e:	73 07       	cpc	r23, r19
- c70:	84 07       	cpc	r24, r20
- c72:	38 f0       	brcs	.+14     	; 0xc82 <__divsf3_pse+0x26>
- c74:	9f 5f       	subi	r25, 0xFF	; 255
- c76:	5f 4f       	sbci	r21, 0xFF	; 255
- c78:	22 0f       	add	r18, r18
- c7a:	33 1f       	adc	r19, r19
- c7c:	44 1f       	adc	r20, r20
- c7e:	aa 1f       	adc	r26, r26
- c80:	a9 f3       	breq	.-22     	; 0xc6c <__divsf3_pse+0x10>
- c82:	35 d0       	rcall	.+106    	; 0xcee <__divsf3_pse+0x92>
- c84:	0e 2e       	mov	r0, r30
- c86:	3a f0       	brmi	.+14     	; 0xc96 <__divsf3_pse+0x3a>
- c88:	e0 e8       	ldi	r30, 0x80	; 128
- c8a:	32 d0       	rcall	.+100    	; 0xcf0 <__divsf3_pse+0x94>
- c8c:	91 50       	subi	r25, 0x01	; 1
- c8e:	50 40       	sbci	r21, 0x00	; 0
- c90:	e6 95       	lsr	r30
- c92:	00 1c       	adc	r0, r0
- c94:	ca f7       	brpl	.-14     	; 0xc88 <__divsf3_pse+0x2c>
- c96:	2b d0       	rcall	.+86     	; 0xcee <__divsf3_pse+0x92>
- c98:	fe 2f       	mov	r31, r30
- c9a:	29 d0       	rcall	.+82     	; 0xcee <__divsf3_pse+0x92>
- c9c:	66 0f       	add	r22, r22
- c9e:	77 1f       	adc	r23, r23
- ca0:	88 1f       	adc	r24, r24
- ca2:	bb 1f       	adc	r27, r27
- ca4:	26 17       	cp	r18, r22
- ca6:	37 07       	cpc	r19, r23
- ca8:	48 07       	cpc	r20, r24
- caa:	ab 07       	cpc	r26, r27
- cac:	b0 e8       	ldi	r27, 0x80	; 128
- cae:	09 f0       	breq	.+2      	; 0xcb2 <__divsf3_pse+0x56>
- cb0:	bb 0b       	sbc	r27, r27
- cb2:	80 2d       	mov	r24, r0
- cb4:	bf 01       	movw	r22, r30
- cb6:	ff 27       	eor	r31, r31
- cb8:	93 58       	subi	r25, 0x83	; 131
- cba:	5f 4f       	sbci	r21, 0xFF	; 255
- cbc:	3a f0       	brmi	.+14     	; 0xccc <__divsf3_pse+0x70>
- cbe:	9e 3f       	cpi	r25, 0xFE	; 254
- cc0:	51 05       	cpc	r21, r1
- cc2:	78 f0       	brcs	.+30     	; 0xce2 <__divsf3_pse+0x86>
- cc4:	0c 94 ad 06 	jmp	0xd5a	; 0xd5a <__fp_inf>
- cc8:	0c 94 f8 06 	jmp	0xdf0	; 0xdf0 <__fp_szero>
- ccc:	5f 3f       	cpi	r21, 0xFF	; 255
- cce:	e4 f3       	brlt	.-8      	; 0xcc8 <__divsf3_pse+0x6c>
- cd0:	98 3e       	cpi	r25, 0xE8	; 232
- cd2:	d4 f3       	brlt	.-12     	; 0xcc8 <__divsf3_pse+0x6c>
- cd4:	86 95       	lsr	r24
- cd6:	77 95       	ror	r23
- cd8:	67 95       	ror	r22
- cda:	b7 95       	ror	r27
- cdc:	f7 95       	ror	r31
- cde:	9f 5f       	subi	r25, 0xFF	; 255
- ce0:	c9 f7       	brne	.-14     	; 0xcd4 <__divsf3_pse+0x78>
- ce2:	88 0f       	add	r24, r24
- ce4:	91 1d       	adc	r25, r1
- ce6:	96 95       	lsr	r25
- ce8:	87 95       	ror	r24
- cea:	97 f9       	bld	r25, 7
- cec:	08 95       	ret
- cee:	e1 e0       	ldi	r30, 0x01	; 1
- cf0:	66 0f       	add	r22, r22
- cf2:	77 1f       	adc	r23, r23
- cf4:	88 1f       	adc	r24, r24
- cf6:	bb 1f       	adc	r27, r27
- cf8:	62 17       	cp	r22, r18
- cfa:	73 07       	cpc	r23, r19
- cfc:	84 07       	cpc	r24, r20
- cfe:	ba 07       	cpc	r27, r26
- d00:	20 f0       	brcs	.+8      	; 0xd0a <__divsf3_pse+0xae>
- d02:	62 1b       	sub	r22, r18
- d04:	73 0b       	sbc	r23, r19
- d06:	84 0b       	sbc	r24, r20
- d08:	ba 0b       	sbc	r27, r26
- d0a:	ee 1f       	adc	r30, r30
- d0c:	88 f7       	brcc	.-30     	; 0xcf0 <__divsf3_pse+0x94>
- d0e:	e0 95       	com	r30
- d10:	08 95       	ret
+00000958 <_Z6disarmRN7atmicro7IstreamER5State>:
+     958:	0f 93       	push	r16
+     95a:	1f 93       	push	r17
+     95c:	cf 93       	push	r28
+     95e:	8b 01       	movw	r16, r22
+     960:	fc 01       	movw	r30, r24
+     962:	31 96       	adiw	r30, 0x01	; 1
+     964:	05 96       	adiw	r24, 0x05	; 5
+     966:	60 e0       	ldi	r22, 0x00	; 0
+     968:	70 e0       	ldi	r23, 0x00	; 0
+     96a:	5a e0       	ldi	r21, 0x0A	; 10
+     96c:	41 91       	ld	r20, Z+
+     96e:	56 9f       	mul	r21, r22
+     970:	90 01       	movw	r18, r0
+     972:	57 9f       	mul	r21, r23
+     974:	30 0d       	add	r19, r0
+     976:	11 24       	eor	r1, r1
+     978:	b9 01       	movw	r22, r18
+     97a:	64 0f       	add	r22, r20
+     97c:	71 1d       	adc	r23, r1
+     97e:	60 53       	subi	r22, 0x30	; 48
+     980:	71 09       	sbc	r23, r1
+     982:	e8 17       	cp	r30, r24
+     984:	f9 07       	cpc	r31, r25
+     986:	91 f7       	brne	.-28     	; 0x96c <_Z6disarmRN7atmicro7IstreamER5State+0x14>
+     988:	c8 01       	movw	r24, r16
+     98a:	0e 94 b5 07 	call	0xf6a	; 0xf6a <_ZN5State13checkPasscodeEi>
+     98e:	c8 2f       	mov	r28, r24
+     990:	88 23       	and	r24, r24
+     992:	41 f0       	breq	.+16     	; 0x9a4 <_Z6disarmRN7atmicro7IstreamER5State+0x4c>
+     994:	f8 01       	movw	r30, r16
+     996:	c1 81       	ldd	r28, Z+1	; 0x01
+     998:	cc 23       	and	r28, r28
+     99a:	21 f0       	breq	.+8      	; 0x9a4 <_Z6disarmRN7atmicro7IstreamER5State+0x4c>
+     99c:	11 82       	std	Z+1, r1	; 0x01
+     99e:	c8 01       	movw	r24, r16
+     9a0:	0e 94 bf 07 	call	0xf7e	; 0xf7e <_ZN5State12saveToMemoryEv>
+     9a4:	8c 2f       	mov	r24, r28
+     9a6:	cf 91       	pop	r28
+     9a8:	1f 91       	pop	r17
+     9aa:	0f 91       	pop	r16
+     9ac:	08 95       	ret
 
-00000d12 <__fp_cmp>:
- d12:	99 0f       	add	r25, r25
- d14:	00 08       	sbc	r0, r0
- d16:	55 0f       	add	r21, r21
- d18:	aa 0b       	sbc	r26, r26
- d1a:	e0 e8       	ldi	r30, 0x80	; 128
- d1c:	fe ef       	ldi	r31, 0xFE	; 254
- d1e:	16 16       	cp	r1, r22
- d20:	17 06       	cpc	r1, r23
- d22:	e8 07       	cpc	r30, r24
- d24:	f9 07       	cpc	r31, r25
- d26:	c0 f0       	brcs	.+48     	; 0xd58 <__fp_cmp+0x46>
- d28:	12 16       	cp	r1, r18
- d2a:	13 06       	cpc	r1, r19
- d2c:	e4 07       	cpc	r30, r20
- d2e:	f5 07       	cpc	r31, r21
- d30:	98 f0       	brcs	.+38     	; 0xd58 <__fp_cmp+0x46>
- d32:	62 1b       	sub	r22, r18
- d34:	73 0b       	sbc	r23, r19
- d36:	84 0b       	sbc	r24, r20
- d38:	95 0b       	sbc	r25, r21
- d3a:	39 f4       	brne	.+14     	; 0xd4a <__fp_cmp+0x38>
- d3c:	0a 26       	eor	r0, r26
- d3e:	61 f0       	breq	.+24     	; 0xd58 <__fp_cmp+0x46>
- d40:	23 2b       	or	r18, r19
- d42:	24 2b       	or	r18, r20
- d44:	25 2b       	or	r18, r21
- d46:	21 f4       	brne	.+8      	; 0xd50 <__fp_cmp+0x3e>
- d48:	08 95       	ret
- d4a:	0a 26       	eor	r0, r26
- d4c:	09 f4       	brne	.+2      	; 0xd50 <__fp_cmp+0x3e>
- d4e:	a1 40       	sbci	r26, 0x01	; 1
- d50:	a6 95       	lsr	r26
- d52:	8f ef       	ldi	r24, 0xFF	; 255
- d54:	81 1d       	adc	r24, r1
- d56:	81 1d       	adc	r24, r1
- d58:	08 95       	ret
+000009ae <_Z10changecodeRN7atmicro7IstreamER5State>:
+     9ae:	0f 93       	push	r16
+     9b0:	1f 93       	push	r17
+     9b2:	cf 93       	push	r28
+     9b4:	df 93       	push	r29
+     9b6:	8b 01       	movw	r16, r22
+     9b8:	ec 01       	movw	r28, r24
+     9ba:	21 96       	adiw	r28, 0x01	; 1
+     9bc:	fc 01       	movw	r30, r24
+     9be:	35 96       	adiw	r30, 0x05	; 5
+     9c0:	a0 e0       	ldi	r26, 0x00	; 0
+     9c2:	b0 e0       	ldi	r27, 0x00	; 0
+     9c4:	3a e0       	ldi	r19, 0x0A	; 10
+     9c6:	29 91       	ld	r18, Y+
+     9c8:	3a 9f       	mul	r19, r26
+     9ca:	b0 01       	movw	r22, r0
+     9cc:	3b 9f       	mul	r19, r27
+     9ce:	70 0d       	add	r23, r0
+     9d0:	11 24       	eor	r1, r1
+     9d2:	db 01       	movw	r26, r22
+     9d4:	a2 0f       	add	r26, r18
+     9d6:	b1 1d       	adc	r27, r1
+     9d8:	d0 97       	sbiw	r26, 0x30	; 48
+     9da:	ce 17       	cp	r28, r30
+     9dc:	df 07       	cpc	r29, r31
+     9de:	99 f7       	brne	.-26     	; 0x9c6 <_Z10changecodeRN7atmicro7IstreamER5State+0x18>
+     9e0:	9c 01       	movw	r18, r24
+     9e2:	27 5f       	subi	r18, 0xF7	; 247
+     9e4:	3f 4f       	sbci	r19, 0xFF	; 255
+     9e6:	40 e0       	ldi	r20, 0x00	; 0
+     9e8:	50 e0       	ldi	r21, 0x00	; 0
+     9ea:	9a e0       	ldi	r25, 0x0A	; 10
+     9ec:	81 91       	ld	r24, Z+
+     9ee:	94 9f       	mul	r25, r20
+     9f0:	e0 01       	movw	r28, r0
+     9f2:	95 9f       	mul	r25, r21
+     9f4:	d0 0d       	add	r29, r0
+     9f6:	11 24       	eor	r1, r1
+     9f8:	ae 01       	movw	r20, r28
+     9fa:	48 0f       	add	r20, r24
+     9fc:	51 1d       	adc	r21, r1
+     9fe:	40 53       	subi	r20, 0x30	; 48
+     a00:	51 09       	sbc	r21, r1
+     a02:	e2 17       	cp	r30, r18
+     a04:	f3 07       	cpc	r31, r19
+     a06:	91 f7       	brne	.-28     	; 0x9ec <_Z10changecodeRN7atmicro7IstreamER5State+0x3e>
+     a08:	bd 01       	movw	r22, r26
+     a0a:	c8 01       	movw	r24, r16
+     a0c:	df 91       	pop	r29
+     a0e:	cf 91       	pop	r28
+     a10:	1f 91       	pop	r17
+     a12:	0f 91       	pop	r16
+     a14:	0c 94 15 08 	jmp	0x102a	; 0x102a <_ZN5State11setPasscodeEii>
 
-00000d5a <__fp_inf>:
- d5a:	97 f9       	bld	r25, 7
- d5c:	9f 67       	ori	r25, 0x7F	; 127
- d5e:	80 e8       	ldi	r24, 0x80	; 128
- d60:	70 e0       	ldi	r23, 0x00	; 0
- d62:	60 e0       	ldi	r22, 0x00	; 0
- d64:	08 95       	ret
+00000a18 <_Z6menuopRN7atmicro7IstreamER5State>:
+     a18:	fc 01       	movw	r30, r24
+     a1a:	22 81       	ldd	r18, Z+2	; 0x02
+     a1c:	30 e0       	ldi	r19, 0x00	; 0
+     a1e:	20 53       	subi	r18, 0x30	; 48
+     a20:	31 09       	sbc	r19, r1
+     a22:	81 81       	ldd	r24, Z+1	; 0x01
+     a24:	81 33       	cpi	r24, 0x31	; 49
+     a26:	31 f4       	brne	.+12     	; 0xa34 <_Z6menuopRN7atmicro7IstreamER5State+0x1c>
+     a28:	23 30       	cpi	r18, 0x03	; 3
+     a2a:	31 05       	cpc	r19, r1
+     a2c:	78 f4       	brcc	.+30     	; 0xa4c <_Z6menuopRN7atmicro7IstreamER5State+0x34>
+     a2e:	fb 01       	movw	r30, r22
+     a30:	22 83       	std	Z+2, r18	; 0x02
+     a32:	07 c0       	rjmp	.+14     	; 0xa42 <_Z6menuopRN7atmicro7IstreamER5State+0x2a>
+     a34:	82 33       	cpi	r24, 0x32	; 50
+     a36:	51 f4       	brne	.+20     	; 0xa4c <_Z6menuopRN7atmicro7IstreamER5State+0x34>
+     a38:	26 30       	cpi	r18, 0x06	; 6
+     a3a:	31 05       	cpc	r19, r1
+     a3c:	38 f4       	brcc	.+14     	; 0xa4c <_Z6menuopRN7atmicro7IstreamER5State+0x34>
+     a3e:	fb 01       	movw	r30, r22
+     a40:	23 83       	std	Z+3, r18	; 0x03
+     a42:	cb 01       	movw	r24, r22
+     a44:	0e 94 bf 07 	call	0xf7e	; 0xf7e <_ZN5State12saveToMemoryEv>
+     a48:	81 e0       	ldi	r24, 0x01	; 1
+     a4a:	08 95       	ret
+     a4c:	80 e0       	ldi	r24, 0x00	; 0
+     a4e:	08 95       	ret
 
-00000d66 <__fp_nan>:
- d66:	9f ef       	ldi	r25, 0xFF	; 255
- d68:	80 ec       	ldi	r24, 0xC0	; 192
- d6a:	08 95       	ret
+00000a50 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State>:
+     a50:	cf 92       	push	r12
+     a52:	df 92       	push	r13
+     a54:	ef 92       	push	r14
+     a56:	ff 92       	push	r15
+     a58:	0f 93       	push	r16
+     a5a:	1f 93       	push	r17
+     a5c:	cf 93       	push	r28
+     a5e:	df 93       	push	r29
+     a60:	8c 01       	movw	r16, r24
+     a62:	eb 01       	movw	r28, r22
+     a64:	7a 01       	movw	r14, r20
+     a66:	fc 01       	movw	r30, r24
+     a68:	21 8d       	ldd	r18, Z+25	; 0x19
+     a6a:	32 8d       	ldd	r19, Z+26	; 0x1a
+     a6c:	21 15       	cp	r18, r1
+     a6e:	31 05       	cpc	r19, r1
+     a70:	09 f5       	brne	.+66     	; 0xab4 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x64>
+     a72:	fa 01       	movw	r30, r20
+     a74:	81 81       	ldd	r24, Z+1	; 0x01
+     a76:	88 23       	and	r24, r24
+     a78:	19 f0       	breq	.+6      	; 0xa80 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x30>
+     a7a:	2a e8       	ldi	r18, 0x8A	; 138
+     a7c:	30 e0       	ldi	r19, 0x00	; 0
+     a7e:	02 c0       	rjmp	.+4      	; 0xa84 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x34>
+     a80:	2c ea       	ldi	r18, 0xAC	; 172
+     a82:	30 e0       	ldi	r19, 0x00	; 0
+     a84:	40 e0       	ldi	r20, 0x00	; 0
+     a86:	50 e0       	ldi	r21, 0x00	; 0
+     a88:	60 e0       	ldi	r22, 0x00	; 0
+     a8a:	70 e0       	ldi	r23, 0x00	; 0
+     a8c:	ce 01       	movw	r24, r28
+     a8e:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     a92:	2b e9       	ldi	r18, 0x9B	; 155
+     a94:	30 e0       	ldi	r19, 0x00	; 0
+     a96:	41 e0       	ldi	r20, 0x01	; 1
+     a98:	50 e0       	ldi	r21, 0x00	; 0
+     a9a:	60 e0       	ldi	r22, 0x00	; 0
+     a9c:	70 e0       	ldi	r23, 0x00	; 0
+     a9e:	ce 01       	movw	r24, r28
+     aa0:	df 91       	pop	r29
+     aa2:	cf 91       	pop	r28
+     aa4:	1f 91       	pop	r17
+     aa6:	0f 91       	pop	r16
+     aa8:	ff 90       	pop	r15
+     aaa:	ef 90       	pop	r14
+     aac:	df 90       	pop	r13
+     aae:	cf 90       	pop	r12
+     ab0:	0c 94 c2 03 	jmp	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     ab4:	fc 01       	movw	r30, r24
+     ab6:	80 81       	ld	r24, Z
+     ab8:	81 34       	cpi	r24, 0x41	; 65
+     aba:	09 f0       	breq	.+2      	; 0xabe <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x6e>
+     abc:	69 c0       	rjmp	.+210    	; 0xb90 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x140>
+     abe:	cb 01       	movw	r24, r22
+     ac0:	0e 94 7d 03 	call	0x6fa	; 0x6fa <_ZN7atmicro15ParallelTextLCD5clearEv>
+     ac4:	c7 01       	movw	r24, r14
+     ac6:	0e 94 a0 04 	call	0x940	; 0x940 <_Z3armR5State>
+     aca:	88 23       	and	r24, r24
+     acc:	19 f0       	breq	.+6      	; 0xad4 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x84>
+     ace:	2d eb       	ldi	r18, 0xBD	; 189
+     ad0:	30 e0       	ldi	r19, 0x00	; 0
+     ad2:	09 c0       	rjmp	.+18     	; 0xae6 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x96>
+     ad4:	f7 01       	movw	r30, r14
+     ad6:	81 81       	ldd	r24, Z+1	; 0x01
+     ad8:	88 23       	and	r24, r24
+     ada:	19 f0       	breq	.+6      	; 0xae2 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x92>
+     adc:	2e ec       	ldi	r18, 0xCE	; 206
+     ade:	30 e0       	ldi	r19, 0x00	; 0
+     ae0:	02 c0       	rjmp	.+4      	; 0xae6 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x96>
+     ae2:	2f ed       	ldi	r18, 0xDF	; 223
+     ae4:	30 e0       	ldi	r19, 0x00	; 0
+     ae6:	40 e0       	ldi	r20, 0x00	; 0
+     ae8:	50 e0       	ldi	r21, 0x00	; 0
+     aea:	60 e0       	ldi	r22, 0x00	; 0
+     aec:	70 e0       	ldi	r23, 0x00	; 0
+     aee:	ce 01       	movw	r24, r28
+     af0:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     af4:	f7 01       	movw	r30, r14
+     af6:	83 81       	ldd	r24, Z+3	; 0x03
+     af8:	81 11       	cpse	r24, r1
+     afa:	03 c0       	rjmp	.+6      	; 0xb02 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xb2>
+     afc:	20 ef       	ldi	r18, 0xF0	; 240
+     afe:	30 e0       	ldi	r19, 0x00	; 0
+     b00:	18 c0       	rjmp	.+48     	; 0xb32 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xe2>
+     b02:	81 30       	cpi	r24, 0x01	; 1
+     b04:	19 f4       	brne	.+6      	; 0xb0c <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xbc>
+     b06:	21 e0       	ldi	r18, 0x01	; 1
+     b08:	31 e0       	ldi	r19, 0x01	; 1
+     b0a:	13 c0       	rjmp	.+38     	; 0xb32 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xe2>
+     b0c:	82 30       	cpi	r24, 0x02	; 2
+     b0e:	19 f4       	brne	.+6      	; 0xb16 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xc6>
+     b10:	22 e1       	ldi	r18, 0x12	; 18
+     b12:	31 e0       	ldi	r19, 0x01	; 1
+     b14:	0e c0       	rjmp	.+28     	; 0xb32 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xe2>
+     b16:	83 30       	cpi	r24, 0x03	; 3
+     b18:	19 f4       	brne	.+6      	; 0xb20 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xd0>
+     b1a:	23 e2       	ldi	r18, 0x23	; 35
+     b1c:	31 e0       	ldi	r19, 0x01	; 1
+     b1e:	09 c0       	rjmp	.+18     	; 0xb32 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xe2>
+     b20:	84 30       	cpi	r24, 0x04	; 4
+     b22:	19 f4       	brne	.+6      	; 0xb2a <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xda>
+     b24:	24 e3       	ldi	r18, 0x34	; 52
+     b26:	31 e0       	ldi	r19, 0x01	; 1
+     b28:	04 c0       	rjmp	.+8      	; 0xb32 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xe2>
+     b2a:	85 30       	cpi	r24, 0x05	; 5
+     b2c:	49 f4       	brne	.+18     	; 0xb40 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xf0>
+     b2e:	25 e4       	ldi	r18, 0x45	; 69
+     b30:	31 e0       	ldi	r19, 0x01	; 1
+     b32:	41 e0       	ldi	r20, 0x01	; 1
+     b34:	50 e0       	ldi	r21, 0x00	; 0
+     b36:	62 e0       	ldi	r22, 0x02	; 2
+     b38:	70 e0       	ldi	r23, 0x00	; 0
+     b3a:	ce 01       	movw	r24, r28
+     b3c:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     b40:	ff e9       	ldi	r31, 0x9F	; 159
+     b42:	26 e8       	ldi	r18, 0x86	; 134
+     b44:	81 e0       	ldi	r24, 0x01	; 1
+     b46:	f1 50       	subi	r31, 0x01	; 1
+     b48:	20 40       	sbci	r18, 0x00	; 0
+     b4a:	80 40       	sbci	r24, 0x00	; 0
+     b4c:	e1 f7       	brne	.-8      	; 0xb46 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0xf6>
+     b4e:	00 c0       	rjmp	.+0      	; 0xb50 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x100>
+     b50:	00 00       	nop
+     b52:	f7 01       	movw	r30, r14
+     b54:	82 81       	ldd	r24, Z+2	; 0x02
+     b56:	81 30       	cpi	r24, 0x01	; 1
+     b58:	19 f4       	brne	.+6      	; 0xb60 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x110>
+     b5a:	26 e5       	ldi	r18, 0x56	; 86
+     b5c:	31 e0       	ldi	r19, 0x01	; 1
+     b5e:	04 c0       	rjmp	.+8      	; 0xb68 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x118>
+     b60:	82 30       	cpi	r24, 0x02	; 2
+     b62:	39 f4       	brne	.+14     	; 0xb72 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x122>
+     b64:	27 e6       	ldi	r18, 0x67	; 103
+     b66:	31 e0       	ldi	r19, 0x01	; 1
+     b68:	41 e0       	ldi	r20, 0x01	; 1
+     b6a:	50 e0       	ldi	r21, 0x00	; 0
+     b6c:	62 e0       	ldi	r22, 0x02	; 2
+     b6e:	70 e0       	ldi	r23, 0x00	; 0
+     b70:	af c0       	rjmp	.+350    	; 0xcd0 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x280>
+     b72:	88 23       	and	r24, r24
+     b74:	91 f3       	breq	.-28     	; 0xb5a <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x10a>
+     b76:	c8 01       	movw	r24, r16
+     b78:	0e 94 e7 03 	call	0x7ce	; 0x7ce <_ZN7atmicro7Istream5clearEv>
+     b7c:	ff e7       	ldi	r31, 0x7F	; 127
+     b7e:	2a e1       	ldi	r18, 0x1A	; 26
+     b80:	86 e0       	ldi	r24, 0x06	; 6
+     b82:	f1 50       	subi	r31, 0x01	; 1
+     b84:	20 40       	sbci	r18, 0x00	; 0
+     b86:	80 40       	sbci	r24, 0x00	; 0
+     b88:	e1 f7       	brne	.-8      	; 0xb82 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x132>
+     b8a:	00 c0       	rjmp	.+0      	; 0xb8c <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x13c>
+     b8c:	00 00       	nop
+     b8e:	9a c1       	rjmp	.+820    	; 0xec4 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x474>
+     b90:	82 34       	cpi	r24, 0x42	; 66
+     b92:	c1 f5       	brne	.+112    	; 0xc04 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x1b4>
+     b94:	28 e7       	ldi	r18, 0x78	; 120
+     b96:	31 e0       	ldi	r19, 0x01	; 1
+     b98:	40 e0       	ldi	r20, 0x00	; 0
+     b9a:	50 e0       	ldi	r21, 0x00	; 0
+     b9c:	60 e0       	ldi	r22, 0x00	; 0
+     b9e:	70 e0       	ldi	r23, 0x00	; 0
+     ba0:	ce 01       	movw	r24, r28
+     ba2:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     ba6:	cc 24       	eor	r12, r12
+     ba8:	c3 94       	inc	r12
+     baa:	d1 2c       	mov	r13, r1
+     bac:	f8 01       	movw	r30, r16
+     bae:	81 8d       	ldd	r24, Z+25	; 0x19
+     bb0:	92 8d       	ldd	r25, Z+26	; 0x1a
+     bb2:	c8 16       	cp	r12, r24
+     bb4:	d9 06       	cpc	r13, r25
+     bb6:	74 f4       	brge	.+28     	; 0xbd4 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x184>
+     bb8:	b6 01       	movw	r22, r12
+     bba:	66 5f       	subi	r22, 0xF6	; 246
+     bbc:	7f 4f       	sbci	r23, 0xFF	; 255
+     bbe:	2f ec       	ldi	r18, 0xCF	; 207
+     bc0:	31 e0       	ldi	r19, 0x01	; 1
+     bc2:	40 e0       	ldi	r20, 0x00	; 0
+     bc4:	50 e0       	ldi	r21, 0x00	; 0
+     bc6:	ce 01       	movw	r24, r28
+     bc8:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     bcc:	9f ef       	ldi	r25, 0xFF	; 255
+     bce:	c9 1a       	sub	r12, r25
+     bd0:	d9 0a       	sbc	r13, r25
+     bd2:	ec cf       	rjmp	.-40     	; 0xbac <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x15c>
+     bd4:	05 97       	sbiw	r24, 0x05	; 5
+     bd6:	0c f4       	brge	.+2      	; 0xbda <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x18a>
+     bd8:	80 c1       	rjmp	.+768    	; 0xeda <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x48a>
+     bda:	b7 01       	movw	r22, r14
+     bdc:	c8 01       	movw	r24, r16
+     bde:	0e 94 ac 04 	call	0x958	; 0x958 <_Z6disarmRN7atmicro7IstreamER5State>
+     be2:	88 23       	and	r24, r24
+     be4:	19 f0       	breq	.+6      	; 0xbec <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x19c>
+     be6:	24 e8       	ldi	r18, 0x84	; 132
+     be8:	31 e0       	ldi	r19, 0x01	; 1
+     bea:	06 c0       	rjmp	.+12     	; 0xbf8 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x1a8>
+     bec:	f7 01       	movw	r30, r14
+     bee:	81 81       	ldd	r24, Z+1	; 0x01
+     bf0:	81 11       	cpse	r24, r1
+     bf2:	05 c0       	rjmp	.+10     	; 0xbfe <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x1ae>
+     bf4:	25 e9       	ldi	r18, 0x95	; 149
+     bf6:	31 e0       	ldi	r19, 0x01	; 1
+     bf8:	41 e0       	ldi	r20, 0x01	; 1
+     bfa:	50 e0       	ldi	r21, 0x00	; 0
+     bfc:	67 c0       	rjmp	.+206    	; 0xccc <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x27c>
+     bfe:	26 ea       	ldi	r18, 0xA6	; 166
+     c00:	31 e0       	ldi	r19, 0x01	; 1
+     c02:	fa cf       	rjmp	.-12     	; 0xbf8 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x1a8>
+     c04:	83 34       	cpi	r24, 0x43	; 67
+     c06:	09 f0       	breq	.+2      	; 0xc0a <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x1ba>
+     c08:	67 c0       	rjmp	.+206    	; 0xcd8 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x288>
+     c0a:	25 30       	cpi	r18, 0x05	; 5
+     c0c:	31 05       	cpc	r19, r1
+     c0e:	0c f5       	brge	.+66     	; 0xc52 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x202>
+     c10:	27 eb       	ldi	r18, 0xB7	; 183
+     c12:	31 e0       	ldi	r19, 0x01	; 1
+     c14:	40 e0       	ldi	r20, 0x00	; 0
+     c16:	50 e0       	ldi	r21, 0x00	; 0
+     c18:	60 e0       	ldi	r22, 0x00	; 0
+     c1a:	70 e0       	ldi	r23, 0x00	; 0
+     c1c:	ce 01       	movw	r24, r28
+     c1e:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     c22:	ee 24       	eor	r14, r14
+     c24:	e3 94       	inc	r14
+     c26:	f1 2c       	mov	r15, r1
+     c28:	f8 01       	movw	r30, r16
+     c2a:	81 8d       	ldd	r24, Z+25	; 0x19
+     c2c:	92 8d       	ldd	r25, Z+26	; 0x1a
+     c2e:	e8 16       	cp	r14, r24
+     c30:	f9 06       	cpc	r15, r25
+     c32:	0c f0       	brlt	.+2      	; 0xc36 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x1e6>
+     c34:	52 c1       	rjmp	.+676    	; 0xeda <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x48a>
+     c36:	b7 01       	movw	r22, r14
+     c38:	67 5f       	subi	r22, 0xF7	; 247
+     c3a:	7f 4f       	sbci	r23, 0xFF	; 255
+     c3c:	2f ec       	ldi	r18, 0xCF	; 207
+     c3e:	31 e0       	ldi	r19, 0x01	; 1
+     c40:	40 e0       	ldi	r20, 0x00	; 0
+     c42:	50 e0       	ldi	r21, 0x00	; 0
+     c44:	ce 01       	movw	r24, r28
+     c46:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     c4a:	ff ef       	ldi	r31, 0xFF	; 255
+     c4c:	ef 1a       	sub	r14, r31
+     c4e:	ff 0a       	sbc	r15, r31
+     c50:	eb cf       	rjmp	.-42     	; 0xc28 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x1d8>
+     c52:	29 30       	cpi	r18, 0x09	; 9
+     c54:	31 05       	cpc	r19, r1
+     c56:	54 f5       	brge	.+84     	; 0xcac <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x25c>
+     c58:	22 ec       	ldi	r18, 0xC2	; 194
+     c5a:	31 e0       	ldi	r19, 0x01	; 1
+     c5c:	40 e0       	ldi	r20, 0x00	; 0
+     c5e:	50 e0       	ldi	r21, 0x00	; 0
+     c60:	60 e0       	ldi	r22, 0x00	; 0
+     c62:	70 e0       	ldi	r23, 0x00	; 0
+     c64:	ce 01       	movw	r24, r28
+     c66:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     c6a:	21 ed       	ldi	r18, 0xD1	; 209
+     c6c:	31 e0       	ldi	r19, 0x01	; 1
+     c6e:	41 e0       	ldi	r20, 0x01	; 1
+     c70:	50 e0       	ldi	r21, 0x00	; 0
+     c72:	60 e0       	ldi	r22, 0x00	; 0
+     c74:	70 e0       	ldi	r23, 0x00	; 0
+     c76:	ce 01       	movw	r24, r28
+     c78:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     c7c:	85 e0       	ldi	r24, 0x05	; 5
+     c7e:	e8 2e       	mov	r14, r24
+     c80:	f1 2c       	mov	r15, r1
+     c82:	f8 01       	movw	r30, r16
+     c84:	81 8d       	ldd	r24, Z+25	; 0x19
+     c86:	92 8d       	ldd	r25, Z+26	; 0x1a
+     c88:	e8 16       	cp	r14, r24
+     c8a:	f9 06       	cpc	r15, r25
+     c8c:	0c f0       	brlt	.+2      	; 0xc90 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x240>
+     c8e:	25 c1       	rjmp	.+586    	; 0xeda <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x48a>
+     c90:	b7 01       	movw	r22, r14
+     c92:	6b 5f       	subi	r22, 0xFB	; 251
+     c94:	7f 4f       	sbci	r23, 0xFF	; 255
+     c96:	2f ec       	ldi	r18, 0xCF	; 207
+     c98:	31 e0       	ldi	r19, 0x01	; 1
+     c9a:	41 e0       	ldi	r20, 0x01	; 1
+     c9c:	50 e0       	ldi	r21, 0x00	; 0
+     c9e:	ce 01       	movw	r24, r28
+     ca0:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     ca4:	ff ef       	ldi	r31, 0xFF	; 255
+     ca6:	ef 1a       	sub	r14, r31
+     ca8:	ff 0a       	sbc	r15, r31
+     caa:	eb cf       	rjmp	.-42     	; 0xc82 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x232>
+     cac:	cb 01       	movw	r24, r22
+     cae:	0e 94 7d 03 	call	0x6fa	; 0x6fa <_ZN7atmicro15ParallelTextLCD5clearEv>
+     cb2:	b7 01       	movw	r22, r14
+     cb4:	c8 01       	movw	r24, r16
+     cb6:	0e 94 d7 04 	call	0x9ae	; 0x9ae <_Z10changecodeRN7atmicro7IstreamER5State>
+     cba:	88 23       	and	r24, r24
+     cbc:	19 f0       	breq	.+6      	; 0xcc4 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x274>
+     cbe:	2c ed       	ldi	r18, 0xDC	; 220
+     cc0:	31 e0       	ldi	r19, 0x01	; 1
+     cc2:	02 c0       	rjmp	.+4      	; 0xcc8 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x278>
+     cc4:	2d ee       	ldi	r18, 0xED	; 237
+     cc6:	31 e0       	ldi	r19, 0x01	; 1
+     cc8:	40 e0       	ldi	r20, 0x00	; 0
+     cca:	50 e0       	ldi	r21, 0x00	; 0
+     ccc:	60 e0       	ldi	r22, 0x00	; 0
+     cce:	70 e0       	ldi	r23, 0x00	; 0
+     cd0:	ce 01       	movw	r24, r28
+     cd2:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     cd6:	4f cf       	rjmp	.-354    	; 0xb76 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x126>
+     cd8:	84 34       	cpi	r24, 0x44	; 68
+     cda:	09 f0       	breq	.+2      	; 0xcde <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x28e>
+     cdc:	db c0       	rjmp	.+438    	; 0xe94 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x444>
+     cde:	2e ef       	ldi	r18, 0xFE	; 254
+     ce0:	31 e0       	ldi	r19, 0x01	; 1
+     ce2:	40 e0       	ldi	r20, 0x00	; 0
+     ce4:	50 e0       	ldi	r21, 0x00	; 0
+     ce6:	60 e0       	ldi	r22, 0x00	; 0
+     ce8:	70 e0       	ldi	r23, 0x00	; 0
+     cea:	ce 01       	movw	r24, r28
+     cec:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     cf0:	f8 01       	movw	r30, r16
+     cf2:	81 8d       	ldd	r24, Z+25	; 0x19
+     cf4:	92 8d       	ldd	r25, Z+26	; 0x1a
+     cf6:	02 97       	sbiw	r24, 0x02	; 2
+     cf8:	51 f5       	brne	.+84     	; 0xd4e <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x2fe>
+     cfa:	21 81       	ldd	r18, Z+1	; 0x01
+     cfc:	40 e0       	ldi	r20, 0x00	; 0
+     cfe:	50 e0       	ldi	r21, 0x00	; 0
+     d00:	6e e0       	ldi	r22, 0x0E	; 14
+     d02:	70 e0       	ldi	r23, 0x00	; 0
+     d04:	ce 01       	movw	r24, r28
+     d06:	0e 94 d2 03 	call	0x7a4	; 0x7a4 <_ZN7atmicro15ParallelTextLCD9characterEiih>
+     d0a:	f8 01       	movw	r30, r16
+     d0c:	81 81       	ldd	r24, Z+1	; 0x01
+     d0e:	81 33       	cpi	r24, 0x31	; 49
+     d10:	19 f4       	brne	.+6      	; 0xd18 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x2c8>
+     d12:	2c e0       	ldi	r18, 0x0C	; 12
+     d14:	32 e0       	ldi	r19, 0x02	; 2
+     d16:	04 c0       	rjmp	.+8      	; 0xd20 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x2d0>
+     d18:	82 33       	cpi	r24, 0x32	; 50
+     d1a:	51 f4       	brne	.+20     	; 0xd30 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x2e0>
+     d1c:	29 e1       	ldi	r18, 0x19	; 25
+     d1e:	32 e0       	ldi	r19, 0x02	; 2
+     d20:	41 e0       	ldi	r20, 0x01	; 1
+     d22:	50 e0       	ldi	r21, 0x00	; 0
+     d24:	62 e0       	ldi	r22, 0x02	; 2
+     d26:	70 e0       	ldi	r23, 0x00	; 0
+     d28:	ce 01       	movw	r24, r28
+     d2a:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     d2e:	0f c0       	rjmp	.+30     	; 0xd4e <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x2fe>
+     d30:	ce 01       	movw	r24, r28
+     d32:	0e 94 7d 03 	call	0x6fa	; 0x6fa <_ZN7atmicro15ParallelTextLCD5clearEv>
+     d36:	27 e2       	ldi	r18, 0x27	; 39
+     d38:	32 e0       	ldi	r19, 0x02	; 2
+     d3a:	41 e0       	ldi	r20, 0x01	; 1
+     d3c:	50 e0       	ldi	r21, 0x00	; 0
+     d3e:	60 e0       	ldi	r22, 0x00	; 0
+     d40:	70 e0       	ldi	r23, 0x00	; 0
+     d42:	ce 01       	movw	r24, r28
+     d44:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     d48:	c8 01       	movw	r24, r16
+     d4a:	0e 94 e7 03 	call	0x7ce	; 0x7ce <_ZN7atmicro7Istream5clearEv>
+     d4e:	f8 01       	movw	r30, r16
+     d50:	81 8d       	ldd	r24, Z+25	; 0x19
+     d52:	92 8d       	ldd	r25, Z+26	; 0x1a
+     d54:	03 97       	sbiw	r24, 0x03	; 3
+     d56:	0c f4       	brge	.+2      	; 0xd5a <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x30a>
+     d58:	c0 c0       	rjmp	.+384    	; 0xeda <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x48a>
+     d5a:	22 81       	ldd	r18, Z+2	; 0x02
+     d5c:	40 e0       	ldi	r20, 0x00	; 0
+     d5e:	50 e0       	ldi	r21, 0x00	; 0
+     d60:	6f e0       	ldi	r22, 0x0F	; 15
+     d62:	70 e0       	ldi	r23, 0x00	; 0
+     d64:	ce 01       	movw	r24, r28
+     d66:	0e 94 d2 03 	call	0x7a4	; 0x7a4 <_ZN7atmicro15ParallelTextLCD9characterEiih>
+     d6a:	b7 01       	movw	r22, r14
+     d6c:	c8 01       	movw	r24, r16
+     d6e:	0e 94 0c 05 	call	0xa18	; 0xa18 <_Z6menuopRN7atmicro7IstreamER5State>
+     d72:	88 23       	and	r24, r24
+     d74:	09 f4       	brne	.+2      	; 0xd78 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x328>
+     d76:	78 c0       	rjmp	.+240    	; 0xe68 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x418>
+     d78:	f8 01       	movw	r30, r16
+     d7a:	81 81       	ldd	r24, Z+1	; 0x01
+     d7c:	81 33       	cpi	r24, 0x31	; 49
+     d7e:	39 f5       	brne	.+78     	; 0xdce <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x37e>
+     d80:	f7 01       	movw	r30, r14
+     d82:	82 81       	ldd	r24, Z+2	; 0x02
+     d84:	81 30       	cpi	r24, 0x01	; 1
+     d86:	49 f4       	brne	.+18     	; 0xd9a <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x34a>
+     d88:	27 e3       	ldi	r18, 0x37	; 55
+     d8a:	32 e0       	ldi	r19, 0x02	; 2
+     d8c:	41 e0       	ldi	r20, 0x01	; 1
+     d8e:	50 e0       	ldi	r21, 0x00	; 0
+     d90:	60 e0       	ldi	r22, 0x00	; 0
+     d92:	70 e0       	ldi	r23, 0x00	; 0
+     d94:	ce 01       	movw	r24, r28
+     d96:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     d9a:	f7 01       	movw	r30, r14
+     d9c:	82 81       	ldd	r24, Z+2	; 0x02
+     d9e:	82 30       	cpi	r24, 0x02	; 2
+     da0:	49 f4       	brne	.+18     	; 0xdb4 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x364>
+     da2:	28 e4       	ldi	r18, 0x48	; 72
+     da4:	32 e0       	ldi	r19, 0x02	; 2
+     da6:	41 e0       	ldi	r20, 0x01	; 1
+     da8:	50 e0       	ldi	r21, 0x00	; 0
+     daa:	60 e0       	ldi	r22, 0x00	; 0
+     dac:	70 e0       	ldi	r23, 0x00	; 0
+     dae:	ce 01       	movw	r24, r28
+     db0:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     db4:	f7 01       	movw	r30, r14
+     db6:	82 81       	ldd	r24, Z+2	; 0x02
+     db8:	81 11       	cpse	r24, r1
+     dba:	09 c0       	rjmp	.+18     	; 0xdce <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x37e>
+     dbc:	29 e5       	ldi	r18, 0x59	; 89
+     dbe:	32 e0       	ldi	r19, 0x02	; 2
+     dc0:	41 e0       	ldi	r20, 0x01	; 1
+     dc2:	50 e0       	ldi	r21, 0x00	; 0
+     dc4:	60 e0       	ldi	r22, 0x00	; 0
+     dc6:	70 e0       	ldi	r23, 0x00	; 0
+     dc8:	ce 01       	movw	r24, r28
+     dca:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     dce:	f8 01       	movw	r30, r16
+     dd0:	81 81       	ldd	r24, Z+1	; 0x01
+     dd2:	82 33       	cpi	r24, 0x32	; 50
+     dd4:	09 f0       	breq	.+2      	; 0xdd8 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x388>
+     dd6:	51 c0       	rjmp	.+162    	; 0xe7a <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x42a>
+     dd8:	f7 01       	movw	r30, r14
+     dda:	83 81       	ldd	r24, Z+3	; 0x03
+     ddc:	81 11       	cpse	r24, r1
+     dde:	09 c0       	rjmp	.+18     	; 0xdf2 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x3a2>
+     de0:	2a e6       	ldi	r18, 0x6A	; 106
+     de2:	32 e0       	ldi	r19, 0x02	; 2
+     de4:	41 e0       	ldi	r20, 0x01	; 1
+     de6:	50 e0       	ldi	r21, 0x00	; 0
+     de8:	60 e0       	ldi	r22, 0x00	; 0
+     dea:	70 e0       	ldi	r23, 0x00	; 0
+     dec:	ce 01       	movw	r24, r28
+     dee:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     df2:	f7 01       	movw	r30, r14
+     df4:	83 81       	ldd	r24, Z+3	; 0x03
+     df6:	81 30       	cpi	r24, 0x01	; 1
+     df8:	49 f4       	brne	.+18     	; 0xe0c <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x3bc>
+     dfa:	2b e7       	ldi	r18, 0x7B	; 123
+     dfc:	32 e0       	ldi	r19, 0x02	; 2
+     dfe:	41 e0       	ldi	r20, 0x01	; 1
+     e00:	50 e0       	ldi	r21, 0x00	; 0
+     e02:	60 e0       	ldi	r22, 0x00	; 0
+     e04:	70 e0       	ldi	r23, 0x00	; 0
+     e06:	ce 01       	movw	r24, r28
+     e08:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     e0c:	f7 01       	movw	r30, r14
+     e0e:	83 81       	ldd	r24, Z+3	; 0x03
+     e10:	82 30       	cpi	r24, 0x02	; 2
+     e12:	49 f4       	brne	.+18     	; 0xe26 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x3d6>
+     e14:	2c e8       	ldi	r18, 0x8C	; 140
+     e16:	32 e0       	ldi	r19, 0x02	; 2
+     e18:	41 e0       	ldi	r20, 0x01	; 1
+     e1a:	50 e0       	ldi	r21, 0x00	; 0
+     e1c:	60 e0       	ldi	r22, 0x00	; 0
+     e1e:	70 e0       	ldi	r23, 0x00	; 0
+     e20:	ce 01       	movw	r24, r28
+     e22:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     e26:	f7 01       	movw	r30, r14
+     e28:	83 81       	ldd	r24, Z+3	; 0x03
+     e2a:	83 30       	cpi	r24, 0x03	; 3
+     e2c:	49 f4       	brne	.+18     	; 0xe40 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x3f0>
+     e2e:	2c e9       	ldi	r18, 0x9C	; 156
+     e30:	32 e0       	ldi	r19, 0x02	; 2
+     e32:	41 e0       	ldi	r20, 0x01	; 1
+     e34:	50 e0       	ldi	r21, 0x00	; 0
+     e36:	60 e0       	ldi	r22, 0x00	; 0
+     e38:	70 e0       	ldi	r23, 0x00	; 0
+     e3a:	ce 01       	movw	r24, r28
+     e3c:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     e40:	f7 01       	movw	r30, r14
+     e42:	83 81       	ldd	r24, Z+3	; 0x03
+     e44:	84 30       	cpi	r24, 0x04	; 4
+     e46:	49 f4       	brne	.+18     	; 0xe5a <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x40a>
+     e48:	2c ea       	ldi	r18, 0xAC	; 172
+     e4a:	32 e0       	ldi	r19, 0x02	; 2
+     e4c:	41 e0       	ldi	r20, 0x01	; 1
+     e4e:	50 e0       	ldi	r21, 0x00	; 0
+     e50:	60 e0       	ldi	r22, 0x00	; 0
+     e52:	70 e0       	ldi	r23, 0x00	; 0
+     e54:	ce 01       	movw	r24, r28
+     e56:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     e5a:	f7 01       	movw	r30, r14
+     e5c:	83 81       	ldd	r24, Z+3	; 0x03
+     e5e:	85 30       	cpi	r24, 0x05	; 5
+     e60:	61 f4       	brne	.+24     	; 0xe7a <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x42a>
+     e62:	2d eb       	ldi	r18, 0xBD	; 189
+     e64:	32 e0       	ldi	r19, 0x02	; 2
+     e66:	02 c0       	rjmp	.+4      	; 0xe6c <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x41c>
+     e68:	2e ec       	ldi	r18, 0xCE	; 206
+     e6a:	32 e0       	ldi	r19, 0x02	; 2
+     e6c:	41 e0       	ldi	r20, 0x01	; 1
+     e6e:	50 e0       	ldi	r21, 0x00	; 0
+     e70:	60 e0       	ldi	r22, 0x00	; 0
+     e72:	70 e0       	ldi	r23, 0x00	; 0
+     e74:	ce 01       	movw	r24, r28
+     e76:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     e7a:	c8 01       	movw	r24, r16
+     e7c:	0e 94 e7 03 	call	0x7ce	; 0x7ce <_ZN7atmicro7Istream5clearEv>
+     e80:	ff e7       	ldi	r31, 0x7F	; 127
+     e82:	2a e1       	ldi	r18, 0x1A	; 26
+     e84:	86 e0       	ldi	r24, 0x06	; 6
+     e86:	f1 50       	subi	r31, 0x01	; 1
+     e88:	20 40       	sbci	r18, 0x00	; 0
+     e8a:	80 40       	sbci	r24, 0x00	; 0
+     e8c:	e1 f7       	brne	.-8      	; 0xe86 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x436>
+     e8e:	00 c0       	rjmp	.+0      	; 0xe90 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x440>
+     e90:	00 00       	nop
+     e92:	23 c0       	rjmp	.+70     	; 0xeda <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x48a>
+     e94:	cb 01       	movw	r24, r22
+     e96:	0e 94 7d 03 	call	0x6fa	; 0x6fa <_ZN7atmicro15ParallelTextLCD5clearEv>
+     e9a:	2f ed       	ldi	r18, 0xDF	; 223
+     e9c:	32 e0       	ldi	r19, 0x02	; 2
+     e9e:	40 e0       	ldi	r20, 0x00	; 0
+     ea0:	50 e0       	ldi	r21, 0x00	; 0
+     ea2:	60 e0       	ldi	r22, 0x00	; 0
+     ea4:	70 e0       	ldi	r23, 0x00	; 0
+     ea6:	ce 01       	movw	r24, r28
+     ea8:	0e 94 c2 03 	call	0x784	; 0x784 <_ZN7atmicro15ParallelTextLCD6stringEiiPKc>
+     eac:	9f e7       	ldi	r25, 0x7F	; 127
+     eae:	ea e1       	ldi	r30, 0x1A	; 26
+     eb0:	f6 e0       	ldi	r31, 0x06	; 6
+     eb2:	91 50       	subi	r25, 0x01	; 1
+     eb4:	e0 40       	sbci	r30, 0x00	; 0
+     eb6:	f0 40       	sbci	r31, 0x00	; 0
+     eb8:	e1 f7       	brne	.-8      	; 0xeb2 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x462>
+     eba:	00 c0       	rjmp	.+0      	; 0xebc <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State+0x46c>
+     ebc:	00 00       	nop
+     ebe:	c8 01       	movw	r24, r16
+     ec0:	0e 94 e7 03 	call	0x7ce	; 0x7ce <_ZN7atmicro7Istream5clearEv>
+     ec4:	ce 01       	movw	r24, r28
+     ec6:	df 91       	pop	r29
+     ec8:	cf 91       	pop	r28
+     eca:	1f 91       	pop	r17
+     ecc:	0f 91       	pop	r16
+     ece:	ff 90       	pop	r15
+     ed0:	ef 90       	pop	r14
+     ed2:	df 90       	pop	r13
+     ed4:	cf 90       	pop	r12
+     ed6:	0c 94 7d 03 	jmp	0x6fa	; 0x6fa <_ZN7atmicro15ParallelTextLCD5clearEv>
+     eda:	df 91       	pop	r29
+     edc:	cf 91       	pop	r28
+     ede:	1f 91       	pop	r17
+     ee0:	0f 91       	pop	r16
+     ee2:	ff 90       	pop	r15
+     ee4:	ef 90       	pop	r14
+     ee6:	df 90       	pop	r13
+     ee8:	cf 90       	pop	r12
+     eea:	08 95       	ret
 
-00000d6c <__fp_pscA>:
- d6c:	00 24       	eor	r0, r0
- d6e:	0a 94       	dec	r0
- d70:	16 16       	cp	r1, r22
- d72:	17 06       	cpc	r1, r23
- d74:	18 06       	cpc	r1, r24
- d76:	09 06       	cpc	r0, r25
- d78:	08 95       	ret
+00000eec <main>:
+     eec:	cf 93       	push	r28
+     eee:	df 93       	push	r29
+     ef0:	cd b7       	in	r28, 0x3d	; 61
+     ef2:	de b7       	in	r29, 0x3e	; 62
+     ef4:	cb 55       	subi	r28, 0x5B	; 91
+     ef6:	d1 09       	sbc	r29, r1
+     ef8:	0f b6       	in	r0, 0x3f	; 63
+     efa:	f8 94       	cli
+     efc:	de bf       	out	0x3e, r29	; 62
+     efe:	0f be       	out	0x3f, r0	; 63
+     f00:	cd bf       	out	0x3d, r28	; 61
+     f02:	6d e1       	ldi	r22, 0x1D	; 29
+     f04:	ce 01       	movw	r24, r28
+     f06:	88 5a       	subi	r24, 0xA8	; 168
+     f08:	9f 4f       	sbci	r25, 0xFF	; 255
+     f0a:	0e 94 d2 01 	call	0x3a4	; 0x3a4 <_ZN7atmicro13DigitalOutputC1ENS_3PINE>
+     f0e:	ce 01       	movw	r24, r28
+     f10:	88 5a       	subi	r24, 0xA8	; 168
+     f12:	9f 4f       	sbci	r25, 0xFF	; 255
+     f14:	0e 94 db 01 	call	0x3b6	; 0x3b6 <_ZN7atmicro13DigitalOutput2onEv>
+     f18:	0a e1       	ldi	r16, 0x1A	; 26
+     f1a:	2b e1       	ldi	r18, 0x1B	; 27
+     f1c:	4c e1       	ldi	r20, 0x1C	; 28
+     f1e:	68 e0       	ldi	r22, 0x08	; 8
+     f20:	ce 01       	movw	r24, r28
+     f22:	8f 5b       	subi	r24, 0xBF	; 191
+     f24:	9f 4f       	sbci	r25, 0xFF	; 255
+     f26:	0e 94 57 03 	call	0x6ae	; 0x6ae <_ZN7atmicro15ParallelTextLCDC1ENS_4PORTENS_3PINES2_S2_>
+     f2a:	60 e1       	ldi	r22, 0x10	; 16
+     f2c:	ce 01       	movw	r24, r28
+     f2e:	8e 96       	adiw	r24, 0x2e	; 46
+     f30:	0e 94 f6 01 	call	0x3ec	; 0x3ec <_ZN7atmicro6KeypadC1ENS_4PORTE>
+     f34:	ce 01       	movw	r24, r28
+     f36:	01 96       	adiw	r24, 0x01	; 1
+     f38:	0e 94 f5 03 	call	0x7ea	; 0x7ea <_ZN7atmicro7IstreamC1Ev>
+     f3c:	ce 01       	movw	r24, r28
+     f3e:	81 5b       	subi	r24, 0xB1	; 177
+     f40:	9f 4f       	sbci	r25, 0xFF	; 255
+     f42:	0e 94 69 08 	call	0x10d2	; 0x10d2 <_ZN5StateC1Ev>
+     f46:	be 01       	movw	r22, r28
+     f48:	62 5d       	subi	r22, 0xD2	; 210
+     f4a:	7f 4f       	sbci	r23, 0xFF	; 255
+     f4c:	ce 01       	movw	r24, r28
+     f4e:	01 96       	adiw	r24, 0x01	; 1
+     f50:	0e 94 22 04 	call	0x844	; 0x844 <_ZN7atmicro7Istream6updateERNS_6KeypadE>
+     f54:	ae 01       	movw	r20, r28
+     f56:	41 5b       	subi	r20, 0xB1	; 177
+     f58:	5f 4f       	sbci	r21, 0xFF	; 255
+     f5a:	be 01       	movw	r22, r28
+     f5c:	6f 5b       	subi	r22, 0xBF	; 191
+     f5e:	7f 4f       	sbci	r23, 0xFF	; 255
+     f60:	ce 01       	movw	r24, r28
+     f62:	01 96       	adiw	r24, 0x01	; 1
+     f64:	0e 94 28 05 	call	0xa50	; 0xa50 <_Z5parseRN7atmicro7IstreamERNS_15ParallelTextLCDER5State>
+     f68:	ee cf       	rjmp	.-36     	; 0xf46 <main+0x5a>
 
-00000d7a <__fp_pscB>:
- d7a:	00 24       	eor	r0, r0
- d7c:	0a 94       	dec	r0
- d7e:	12 16       	cp	r1, r18
- d80:	13 06       	cpc	r1, r19
- d82:	14 06       	cpc	r1, r20
- d84:	05 06       	cpc	r0, r21
- d86:	08 95       	ret
+00000f6a <_ZN5State13checkPasscodeEi>:
+     f6a:	21 e0       	ldi	r18, 0x01	; 1
+     f6c:	fc 01       	movw	r30, r24
+     f6e:	84 81       	ldd	r24, Z+4	; 0x04
+     f70:	95 81       	ldd	r25, Z+5	; 0x05
+     f72:	68 17       	cp	r22, r24
+     f74:	79 07       	cpc	r23, r25
+     f76:	09 f0       	breq	.+2      	; 0xf7a <_ZN5State13checkPasscodeEi+0x10>
+     f78:	20 e0       	ldi	r18, 0x00	; 0
+     f7a:	82 2f       	mov	r24, r18
+     f7c:	08 95       	ret
 
-00000d88 <__fp_round>:
- d88:	09 2e       	mov	r0, r25
- d8a:	03 94       	inc	r0
- d8c:	00 0c       	add	r0, r0
- d8e:	11 f4       	brne	.+4      	; 0xd94 <__fp_round+0xc>
- d90:	88 23       	and	r24, r24
- d92:	52 f0       	brmi	.+20     	; 0xda8 <__fp_round+0x20>
- d94:	bb 0f       	add	r27, r27
- d96:	40 f4       	brcc	.+16     	; 0xda8 <__fp_round+0x20>
- d98:	bf 2b       	or	r27, r31
- d9a:	11 f4       	brne	.+4      	; 0xda0 <__fp_round+0x18>
- d9c:	60 ff       	sbrs	r22, 0
- d9e:	04 c0       	rjmp	.+8      	; 0xda8 <__fp_round+0x20>
- da0:	6f 5f       	subi	r22, 0xFF	; 255
- da2:	7f 4f       	sbci	r23, 0xFF	; 255
- da4:	8f 4f       	sbci	r24, 0xFF	; 255
- da6:	9f 4f       	sbci	r25, 0xFF	; 255
- da8:	08 95       	ret
+00000f7e <_ZN5State12saveToMemoryEv>:
+     f7e:	ef 92       	push	r14
+     f80:	ff 92       	push	r15
+     f82:	0f 93       	push	r16
+     f84:	1f 93       	push	r17
+     f86:	cf 93       	push	r28
+     f88:	df 93       	push	r29
+     f8a:	8c 01       	movw	r16, r24
+     f8c:	ec 01       	movw	r28, r24
+     f8e:	28 96       	adiw	r28, 0x08	; 8
+     f90:	4e ea       	ldi	r20, 0xAE	; 174
+     f92:	60 e0       	ldi	r22, 0x00	; 0
+     f94:	70 e0       	ldi	r23, 0x00	; 0
+     f96:	ce 01       	movw	r24, r28
+     f98:	0e 94 bd 01 	call	0x37a	; 0x37a <_ZN7atmicro6EEPROM5writeEjh>
+     f9c:	f8 01       	movw	r30, r16
+     f9e:	81 81       	ldd	r24, Z+1	; 0x01
+     fa0:	88 23       	and	r24, r24
+     fa2:	11 f0       	breq	.+4      	; 0xfa8 <_ZN5State12saveToMemoryEv+0x2a>
+     fa4:	4f ef       	ldi	r20, 0xFF	; 255
+     fa6:	01 c0       	rjmp	.+2      	; 0xfaa <_ZN5State12saveToMemoryEv+0x2c>
+     fa8:	40 e0       	ldi	r20, 0x00	; 0
+     faa:	61 e0       	ldi	r22, 0x01	; 1
+     fac:	70 e0       	ldi	r23, 0x00	; 0
+     fae:	ce 01       	movw	r24, r28
+     fb0:	0e 94 bd 01 	call	0x37a	; 0x37a <_ZN7atmicro6EEPROM5writeEjh>
+     fb4:	f8 01       	movw	r30, r16
+     fb6:	80 81       	ld	r24, Z
+     fb8:	88 23       	and	r24, r24
+     fba:	11 f0       	breq	.+4      	; 0xfc0 <_ZN5State12saveToMemoryEv+0x42>
+     fbc:	4f ef       	ldi	r20, 0xFF	; 255
+     fbe:	01 c0       	rjmp	.+2      	; 0xfc2 <_ZN5State12saveToMemoryEv+0x44>
+     fc0:	40 e0       	ldi	r20, 0x00	; 0
+     fc2:	62 e0       	ldi	r22, 0x02	; 2
+     fc4:	70 e0       	ldi	r23, 0x00	; 0
+     fc6:	ce 01       	movw	r24, r28
+     fc8:	0e 94 bd 01 	call	0x37a	; 0x37a <_ZN7atmicro6EEPROM5writeEjh>
+     fcc:	f8 01       	movw	r30, r16
+     fce:	84 81       	ldd	r24, Z+4	; 0x04
+     fd0:	95 81       	ldd	r25, Z+5	; 0x05
+     fd2:	24 e6       	ldi	r18, 0x64	; 100
+     fd4:	e2 2e       	mov	r14, r18
+     fd6:	f1 2c       	mov	r15, r1
+     fd8:	b7 01       	movw	r22, r14
+     fda:	0e 94 f8 09 	call	0x13f0	; 0x13f0 <__divmodhi4>
+     fde:	46 2f       	mov	r20, r22
+     fe0:	63 e0       	ldi	r22, 0x03	; 3
+     fe2:	70 e0       	ldi	r23, 0x00	; 0
+     fe4:	ce 01       	movw	r24, r28
+     fe6:	0e 94 bd 01 	call	0x37a	; 0x37a <_ZN7atmicro6EEPROM5writeEjh>
+     fea:	f8 01       	movw	r30, r16
+     fec:	84 81       	ldd	r24, Z+4	; 0x04
+     fee:	95 81       	ldd	r25, Z+5	; 0x05
+     ff0:	b7 01       	movw	r22, r14
+     ff2:	0e 94 f8 09 	call	0x13f0	; 0x13f0 <__divmodhi4>
+     ff6:	48 2f       	mov	r20, r24
+     ff8:	64 e0       	ldi	r22, 0x04	; 4
+     ffa:	70 e0       	ldi	r23, 0x00	; 0
+     ffc:	ce 01       	movw	r24, r28
+     ffe:	0e 94 bd 01 	call	0x37a	; 0x37a <_ZN7atmicro6EEPROM5writeEjh>
+    1002:	f8 01       	movw	r30, r16
+    1004:	43 81       	ldd	r20, Z+3	; 0x03
+    1006:	65 e0       	ldi	r22, 0x05	; 5
+    1008:	70 e0       	ldi	r23, 0x00	; 0
+    100a:	ce 01       	movw	r24, r28
+    100c:	0e 94 bd 01 	call	0x37a	; 0x37a <_ZN7atmicro6EEPROM5writeEjh>
+    1010:	f8 01       	movw	r30, r16
+    1012:	42 81       	ldd	r20, Z+2	; 0x02
+    1014:	66 e0       	ldi	r22, 0x06	; 6
+    1016:	70 e0       	ldi	r23, 0x00	; 0
+    1018:	ce 01       	movw	r24, r28
+    101a:	df 91       	pop	r29
+    101c:	cf 91       	pop	r28
+    101e:	1f 91       	pop	r17
+    1020:	0f 91       	pop	r16
+    1022:	ff 90       	pop	r15
+    1024:	ef 90       	pop	r14
+    1026:	0c 94 bd 01 	jmp	0x37a	; 0x37a <_ZN7atmicro6EEPROM5writeEjh>
 
-00000daa <__fp_split3>:
- daa:	57 fd       	sbrc	r21, 7
- dac:	90 58       	subi	r25, 0x80	; 128
- dae:	44 0f       	add	r20, r20
- db0:	55 1f       	adc	r21, r21
- db2:	59 f0       	breq	.+22     	; 0xdca <__fp_splitA+0x10>
- db4:	5f 3f       	cpi	r21, 0xFF	; 255
- db6:	71 f0       	breq	.+28     	; 0xdd4 <__fp_splitA+0x1a>
- db8:	47 95       	ror	r20
+0000102a <_ZN5State11setPasscodeEii>:
+    102a:	fc 01       	movw	r30, r24
+    102c:	24 81       	ldd	r18, Z+4	; 0x04
+    102e:	35 81       	ldd	r19, Z+5	; 0x05
+    1030:	26 17       	cp	r18, r22
+    1032:	37 07       	cpc	r19, r23
+    1034:	31 f4       	brne	.+12     	; 0x1042 <_ZN5State11setPasscodeEii+0x18>
+    1036:	55 83       	std	Z+5, r21	; 0x05
+    1038:	44 83       	std	Z+4, r20	; 0x04
+    103a:	0e 94 bf 07 	call	0xf7e	; 0xf7e <_ZN5State12saveToMemoryEv>
+    103e:	81 e0       	ldi	r24, 0x01	; 1
+    1040:	08 95       	ret
+    1042:	80 e0       	ldi	r24, 0x00	; 0
+    1044:	08 95       	ret
 
-00000dba <__fp_splitA>:
- dba:	88 0f       	add	r24, r24
- dbc:	97 fb       	bst	r25, 7
- dbe:	99 1f       	adc	r25, r25
- dc0:	61 f0       	breq	.+24     	; 0xdda <__fp_splitA+0x20>
- dc2:	9f 3f       	cpi	r25, 0xFF	; 255
- dc4:	79 f0       	breq	.+30     	; 0xde4 <__fp_splitA+0x2a>
- dc6:	87 95       	ror	r24
- dc8:	08 95       	ret
- dca:	12 16       	cp	r1, r18
- dcc:	13 06       	cpc	r1, r19
- dce:	14 06       	cpc	r1, r20
- dd0:	55 1f       	adc	r21, r21
- dd2:	f2 cf       	rjmp	.-28     	; 0xdb8 <__fp_split3+0xe>
- dd4:	46 95       	lsr	r20
- dd6:	f1 df       	rcall	.-30     	; 0xdba <__fp_splitA>
- dd8:	08 c0       	rjmp	.+16     	; 0xdea <__fp_splitA+0x30>
- dda:	16 16       	cp	r1, r22
- ddc:	17 06       	cpc	r1, r23
- dde:	18 06       	cpc	r1, r24
- de0:	99 1f       	adc	r25, r25
- de2:	f1 cf       	rjmp	.-30     	; 0xdc6 <__fp_splitA+0xc>
- de4:	86 95       	lsr	r24
- de6:	71 05       	cpc	r23, r1
- de8:	61 05       	cpc	r22, r1
- dea:	08 94       	sec
- dec:	08 95       	ret
+00001046 <_ZN5State18retrieveFromMemoryEv>:
+    1046:	ff 92       	push	r15
+    1048:	0f 93       	push	r16
+    104a:	1f 93       	push	r17
+    104c:	cf 93       	push	r28
+    104e:	df 93       	push	r29
+    1050:	ec 01       	movw	r28, r24
+    1052:	8c 01       	movw	r16, r24
+    1054:	08 5f       	subi	r16, 0xF8	; 248
+    1056:	1f 4f       	sbci	r17, 0xFF	; 255
+    1058:	61 e0       	ldi	r22, 0x01	; 1
+    105a:	70 e0       	ldi	r23, 0x00	; 0
+    105c:	c8 01       	movw	r24, r16
+    105e:	0e 94 b6 01 	call	0x36c	; 0x36c <_ZN7atmicro6EEPROM4readEj>
+    1062:	8f 3f       	cpi	r24, 0xFF	; 255
+    1064:	19 f4       	brne	.+6      	; 0x106c <_ZN5State18retrieveFromMemoryEv+0x26>
+    1066:	81 e0       	ldi	r24, 0x01	; 1
+    1068:	89 83       	std	Y+1, r24	; 0x01
+    106a:	01 c0       	rjmp	.+2      	; 0x106e <_ZN5State18retrieveFromMemoryEv+0x28>
+    106c:	19 82       	std	Y+1, r1	; 0x01
+    106e:	62 e0       	ldi	r22, 0x02	; 2
+    1070:	70 e0       	ldi	r23, 0x00	; 0
+    1072:	c8 01       	movw	r24, r16
+    1074:	0e 94 b6 01 	call	0x36c	; 0x36c <_ZN7atmicro6EEPROM4readEj>
+    1078:	8f 3f       	cpi	r24, 0xFF	; 255
+    107a:	19 f4       	brne	.+6      	; 0x1082 <_ZN5State18retrieveFromMemoryEv+0x3c>
+    107c:	81 e0       	ldi	r24, 0x01	; 1
+    107e:	88 83       	st	Y, r24
+    1080:	01 c0       	rjmp	.+2      	; 0x1084 <_ZN5State18retrieveFromMemoryEv+0x3e>
+    1082:	18 82       	st	Y, r1
+    1084:	63 e0       	ldi	r22, 0x03	; 3
+    1086:	70 e0       	ldi	r23, 0x00	; 0
+    1088:	c8 01       	movw	r24, r16
+    108a:	0e 94 b6 01 	call	0x36c	; 0x36c <_ZN7atmicro6EEPROM4readEj>
+    108e:	f8 2e       	mov	r15, r24
+    1090:	64 e0       	ldi	r22, 0x04	; 4
+    1092:	70 e0       	ldi	r23, 0x00	; 0
+    1094:	c8 01       	movw	r24, r16
+    1096:	0e 94 b6 01 	call	0x36c	; 0x36c <_ZN7atmicro6EEPROM4readEj>
+    109a:	28 2f       	mov	r18, r24
+    109c:	30 e0       	ldi	r19, 0x00	; 0
+    109e:	c9 01       	movw	r24, r18
+    10a0:	44 e6       	ldi	r20, 0x64	; 100
+    10a2:	f4 9e       	mul	r15, r20
+    10a4:	80 0d       	add	r24, r0
+    10a6:	91 1d       	adc	r25, r1
+    10a8:	11 24       	eor	r1, r1
+    10aa:	9d 83       	std	Y+5, r25	; 0x05
+    10ac:	8c 83       	std	Y+4, r24	; 0x04
+    10ae:	65 e0       	ldi	r22, 0x05	; 5
+    10b0:	70 e0       	ldi	r23, 0x00	; 0
+    10b2:	c8 01       	movw	r24, r16
+    10b4:	0e 94 b6 01 	call	0x36c	; 0x36c <_ZN7atmicro6EEPROM4readEj>
+    10b8:	8b 83       	std	Y+3, r24	; 0x03
+    10ba:	66 e0       	ldi	r22, 0x06	; 6
+    10bc:	70 e0       	ldi	r23, 0x00	; 0
+    10be:	c8 01       	movw	r24, r16
+    10c0:	0e 94 b6 01 	call	0x36c	; 0x36c <_ZN7atmicro6EEPROM4readEj>
+    10c4:	8a 83       	std	Y+2, r24	; 0x02
+    10c6:	df 91       	pop	r29
+    10c8:	cf 91       	pop	r28
+    10ca:	1f 91       	pop	r17
+    10cc:	0f 91       	pop	r16
+    10ce:	ff 90       	pop	r15
+    10d0:	08 95       	ret
 
-00000dee <__fp_zero>:
- dee:	e8 94       	clt
+000010d2 <_ZN5StateC1Ev>:
+    10d2:	ef 92       	push	r14
+    10d4:	ff 92       	push	r15
+    10d6:	1f 93       	push	r17
+    10d8:	cf 93       	push	r28
+    10da:	df 93       	push	r29
+    10dc:	ec 01       	movw	r28, r24
+    10de:	11 e0       	ldi	r17, 0x01	; 1
+    10e0:	18 83       	st	Y, r17
+    10e2:	19 82       	std	Y+1, r1	; 0x01
+    10e4:	1d 82       	std	Y+5, r1	; 0x05
+    10e6:	1c 82       	std	Y+4, r1	; 0x04
+    10e8:	8f ef       	ldi	r24, 0xFF	; 255
+    10ea:	90 e0       	ldi	r25, 0x00	; 0
+    10ec:	9f 83       	std	Y+7, r25	; 0x07
+    10ee:	8e 83       	std	Y+6, r24	; 0x06
+    10f0:	7e 01       	movw	r14, r28
+    10f2:	88 e0       	ldi	r24, 0x08	; 8
+    10f4:	e8 0e       	add	r14, r24
+    10f6:	f1 1c       	adc	r15, r1
+    10f8:	c7 01       	movw	r24, r14
+    10fa:	0e 94 b5 01 	call	0x36a	; 0x36a <_ZN7atmicro6EEPROMC1Ev>
+    10fe:	60 e0       	ldi	r22, 0x00	; 0
+    1100:	70 e0       	ldi	r23, 0x00	; 0
+    1102:	c7 01       	movw	r24, r14
+    1104:	0e 94 b6 01 	call	0x36c	; 0x36c <_ZN7atmicro6EEPROM4readEj>
+    1108:	8e 3a       	cpi	r24, 0xAE	; 174
+    110a:	41 f4       	brne	.+16     	; 0x111c <_ZN5StateC1Ev+0x4a>
+    110c:	ce 01       	movw	r24, r28
+    110e:	df 91       	pop	r29
+    1110:	cf 91       	pop	r28
+    1112:	1f 91       	pop	r17
+    1114:	ff 90       	pop	r15
+    1116:	ef 90       	pop	r14
+    1118:	0c 94 23 08 	jmp	0x1046	; 0x1046 <_ZN5State18retrieveFromMemoryEv>
+    111c:	19 82       	std	Y+1, r1	; 0x01
+    111e:	18 83       	st	Y, r17
+    1120:	1a 83       	std	Y+2, r17	; 0x02
+    1122:	1b 82       	std	Y+3, r1	; 0x03
+    1124:	ce 01       	movw	r24, r28
+    1126:	df 91       	pop	r29
+    1128:	cf 91       	pop	r28
+    112a:	1f 91       	pop	r17
+    112c:	ff 90       	pop	r15
+    112e:	ef 90       	pop	r14
+    1130:	0c 94 bf 07 	jmp	0xf7e	; 0xf7e <_ZN5State12saveToMemoryEv>
 
-00000df0 <__fp_szero>:
- df0:	bb 27       	eor	r27, r27
- df2:	66 27       	eor	r22, r22
- df4:	77 27       	eor	r23, r23
- df6:	cb 01       	movw	r24, r22
- df8:	97 f9       	bld	r25, 7
- dfa:	08 95       	ret
+00001134 <__subsf3>:
+    1134:	50 58       	subi	r21, 0x80	; 128
 
-00000dfc <__gesf2>:
- dfc:	0e 94 89 06 	call	0xd12	; 0xd12 <__fp_cmp>
- e00:	08 f4       	brcc	.+2      	; 0xe04 <__gesf2+0x8>
- e02:	8f ef       	ldi	r24, 0xFF	; 255
- e04:	08 95       	ret
+00001136 <__addsf3>:
+    1136:	bb 27       	eor	r27, r27
+    1138:	aa 27       	eor	r26, r26
+    113a:	0e 94 b2 08 	call	0x1164	; 0x1164 <__addsf3x>
+    113e:	0c 94 b9 09 	jmp	0x1372	; 0x1372 <__fp_round>
+    1142:	0e 94 ab 09 	call	0x1356	; 0x1356 <__fp_pscA>
+    1146:	38 f0       	brcs	.+14     	; 0x1156 <__addsf3+0x20>
+    1148:	0e 94 b2 09 	call	0x1364	; 0x1364 <__fp_pscB>
+    114c:	20 f0       	brcs	.+8      	; 0x1156 <__addsf3+0x20>
+    114e:	39 f4       	brne	.+14     	; 0x115e <__addsf3+0x28>
+    1150:	9f 3f       	cpi	r25, 0xFF	; 255
+    1152:	19 f4       	brne	.+6      	; 0x115a <__addsf3+0x24>
+    1154:	26 f4       	brtc	.+8      	; 0x115e <__addsf3+0x28>
+    1156:	0c 94 a8 09 	jmp	0x1350	; 0x1350 <__fp_nan>
+    115a:	0e f4       	brtc	.+2      	; 0x115e <__addsf3+0x28>
+    115c:	e0 95       	com	r30
+    115e:	e7 fb       	bst	r30, 7
+    1160:	0c 94 a2 09 	jmp	0x1344	; 0x1344 <__fp_inf>
 
-00000e06 <__divmodhi4>:
- e06:	97 fb       	bst	r25, 7
- e08:	07 2e       	mov	r0, r23
- e0a:	16 f4       	brtc	.+4      	; 0xe10 <__divmodhi4+0xa>
- e0c:	00 94       	com	r0
- e0e:	07 d0       	rcall	.+14     	; 0xe1e <__divmodhi4_neg1>
- e10:	77 fd       	sbrc	r23, 7
- e12:	09 d0       	rcall	.+18     	; 0xe26 <__divmodhi4_neg2>
- e14:	0e 94 17 07 	call	0xe2e	; 0xe2e <__udivmodhi4>
- e18:	07 fc       	sbrc	r0, 7
- e1a:	05 d0       	rcall	.+10     	; 0xe26 <__divmodhi4_neg2>
- e1c:	3e f4       	brtc	.+14     	; 0xe2c <__divmodhi4_exit>
+00001164 <__addsf3x>:
+    1164:	e9 2f       	mov	r30, r25
+    1166:	0e 94 ca 09 	call	0x1394	; 0x1394 <__fp_split3>
+    116a:	58 f3       	brcs	.-42     	; 0x1142 <__addsf3+0xc>
+    116c:	ba 17       	cp	r27, r26
+    116e:	62 07       	cpc	r22, r18
+    1170:	73 07       	cpc	r23, r19
+    1172:	84 07       	cpc	r24, r20
+    1174:	95 07       	cpc	r25, r21
+    1176:	20 f0       	brcs	.+8      	; 0x1180 <__addsf3x+0x1c>
+    1178:	79 f4       	brne	.+30     	; 0x1198 <__addsf3x+0x34>
+    117a:	a6 f5       	brtc	.+104    	; 0x11e4 <__addsf3x+0x80>
+    117c:	0c 94 ec 09 	jmp	0x13d8	; 0x13d8 <__fp_zero>
+    1180:	0e f4       	brtc	.+2      	; 0x1184 <__addsf3x+0x20>
+    1182:	e0 95       	com	r30
+    1184:	0b 2e       	mov	r0, r27
+    1186:	ba 2f       	mov	r27, r26
+    1188:	a0 2d       	mov	r26, r0
+    118a:	0b 01       	movw	r0, r22
+    118c:	b9 01       	movw	r22, r18
+    118e:	90 01       	movw	r18, r0
+    1190:	0c 01       	movw	r0, r24
+    1192:	ca 01       	movw	r24, r20
+    1194:	a0 01       	movw	r20, r0
+    1196:	11 24       	eor	r1, r1
+    1198:	ff 27       	eor	r31, r31
+    119a:	59 1b       	sub	r21, r25
+    119c:	99 f0       	breq	.+38     	; 0x11c4 <__addsf3x+0x60>
+    119e:	59 3f       	cpi	r21, 0xF9	; 249
+    11a0:	50 f4       	brcc	.+20     	; 0x11b6 <__addsf3x+0x52>
+    11a2:	50 3e       	cpi	r21, 0xE0	; 224
+    11a4:	68 f1       	brcs	.+90     	; 0x1200 <__addsf3x+0x9c>
+    11a6:	1a 16       	cp	r1, r26
+    11a8:	f0 40       	sbci	r31, 0x00	; 0
+    11aa:	a2 2f       	mov	r26, r18
+    11ac:	23 2f       	mov	r18, r19
+    11ae:	34 2f       	mov	r19, r20
+    11b0:	44 27       	eor	r20, r20
+    11b2:	58 5f       	subi	r21, 0xF8	; 248
+    11b4:	f3 cf       	rjmp	.-26     	; 0x119c <__addsf3x+0x38>
+    11b6:	46 95       	lsr	r20
+    11b8:	37 95       	ror	r19
+    11ba:	27 95       	ror	r18
+    11bc:	a7 95       	ror	r26
+    11be:	f0 40       	sbci	r31, 0x00	; 0
+    11c0:	53 95       	inc	r21
+    11c2:	c9 f7       	brne	.-14     	; 0x11b6 <__addsf3x+0x52>
+    11c4:	7e f4       	brtc	.+30     	; 0x11e4 <__addsf3x+0x80>
+    11c6:	1f 16       	cp	r1, r31
+    11c8:	ba 0b       	sbc	r27, r26
+    11ca:	62 0b       	sbc	r22, r18
+    11cc:	73 0b       	sbc	r23, r19
+    11ce:	84 0b       	sbc	r24, r20
+    11d0:	ba f0       	brmi	.+46     	; 0x1200 <__addsf3x+0x9c>
+    11d2:	91 50       	subi	r25, 0x01	; 1
+    11d4:	a1 f0       	breq	.+40     	; 0x11fe <__addsf3x+0x9a>
+    11d6:	ff 0f       	add	r31, r31
+    11d8:	bb 1f       	adc	r27, r27
+    11da:	66 1f       	adc	r22, r22
+    11dc:	77 1f       	adc	r23, r23
+    11de:	88 1f       	adc	r24, r24
+    11e0:	c2 f7       	brpl	.-16     	; 0x11d2 <__addsf3x+0x6e>
+    11e2:	0e c0       	rjmp	.+28     	; 0x1200 <__addsf3x+0x9c>
+    11e4:	ba 0f       	add	r27, r26
+    11e6:	62 1f       	adc	r22, r18
+    11e8:	73 1f       	adc	r23, r19
+    11ea:	84 1f       	adc	r24, r20
+    11ec:	48 f4       	brcc	.+18     	; 0x1200 <__addsf3x+0x9c>
+    11ee:	87 95       	ror	r24
+    11f0:	77 95       	ror	r23
+    11f2:	67 95       	ror	r22
+    11f4:	b7 95       	ror	r27
+    11f6:	f7 95       	ror	r31
+    11f8:	9e 3f       	cpi	r25, 0xFE	; 254
+    11fa:	08 f0       	brcs	.+2      	; 0x11fe <__addsf3x+0x9a>
+    11fc:	b0 cf       	rjmp	.-160    	; 0x115e <__addsf3+0x28>
+    11fe:	93 95       	inc	r25
+    1200:	88 0f       	add	r24, r24
+    1202:	08 f0       	brcs	.+2      	; 0x1206 <__addsf3x+0xa2>
+    1204:	99 27       	eor	r25, r25
+    1206:	ee 0f       	add	r30, r30
+    1208:	97 95       	ror	r25
+    120a:	87 95       	ror	r24
+    120c:	08 95       	ret
 
-00000e1e <__divmodhi4_neg1>:
- e1e:	90 95       	com	r25
- e20:	81 95       	neg	r24
- e22:	9f 4f       	sbci	r25, 0xFF	; 255
- e24:	08 95       	ret
+0000120e <__cmpsf2>:
+    120e:	0e 94 7e 09 	call	0x12fc	; 0x12fc <__fp_cmp>
+    1212:	08 f4       	brcc	.+2      	; 0x1216 <__cmpsf2+0x8>
+    1214:	81 e0       	ldi	r24, 0x01	; 1
+    1216:	08 95       	ret
 
-00000e26 <__divmodhi4_neg2>:
- e26:	70 95       	com	r23
- e28:	61 95       	neg	r22
- e2a:	7f 4f       	sbci	r23, 0xFF	; 255
+00001218 <__divsf3>:
+    1218:	0e 94 20 09 	call	0x1240	; 0x1240 <__divsf3x>
+    121c:	0c 94 b9 09 	jmp	0x1372	; 0x1372 <__fp_round>
+    1220:	0e 94 b2 09 	call	0x1364	; 0x1364 <__fp_pscB>
+    1224:	58 f0       	brcs	.+22     	; 0x123c <__divsf3+0x24>
+    1226:	0e 94 ab 09 	call	0x1356	; 0x1356 <__fp_pscA>
+    122a:	40 f0       	brcs	.+16     	; 0x123c <__divsf3+0x24>
+    122c:	29 f4       	brne	.+10     	; 0x1238 <__divsf3+0x20>
+    122e:	5f 3f       	cpi	r21, 0xFF	; 255
+    1230:	29 f0       	breq	.+10     	; 0x123c <__divsf3+0x24>
+    1232:	0c 94 a2 09 	jmp	0x1344	; 0x1344 <__fp_inf>
+    1236:	51 11       	cpse	r21, r1
+    1238:	0c 94 ed 09 	jmp	0x13da	; 0x13da <__fp_szero>
+    123c:	0c 94 a8 09 	jmp	0x1350	; 0x1350 <__fp_nan>
 
-00000e2c <__divmodhi4_exit>:
- e2c:	08 95       	ret
+00001240 <__divsf3x>:
+    1240:	0e 94 ca 09 	call	0x1394	; 0x1394 <__fp_split3>
+    1244:	68 f3       	brcs	.-38     	; 0x1220 <__divsf3+0x8>
 
-00000e2e <__udivmodhi4>:
- e2e:	aa 1b       	sub	r26, r26
- e30:	bb 1b       	sub	r27, r27
- e32:	51 e1       	ldi	r21, 0x11	; 17
- e34:	07 c0       	rjmp	.+14     	; 0xe44 <__udivmodhi4_ep>
+00001246 <__divsf3_pse>:
+    1246:	99 23       	and	r25, r25
+    1248:	b1 f3       	breq	.-20     	; 0x1236 <__divsf3+0x1e>
+    124a:	55 23       	and	r21, r21
+    124c:	91 f3       	breq	.-28     	; 0x1232 <__divsf3+0x1a>
+    124e:	95 1b       	sub	r25, r21
+    1250:	55 0b       	sbc	r21, r21
+    1252:	bb 27       	eor	r27, r27
+    1254:	aa 27       	eor	r26, r26
+    1256:	62 17       	cp	r22, r18
+    1258:	73 07       	cpc	r23, r19
+    125a:	84 07       	cpc	r24, r20
+    125c:	38 f0       	brcs	.+14     	; 0x126c <__divsf3_pse+0x26>
+    125e:	9f 5f       	subi	r25, 0xFF	; 255
+    1260:	5f 4f       	sbci	r21, 0xFF	; 255
+    1262:	22 0f       	add	r18, r18
+    1264:	33 1f       	adc	r19, r19
+    1266:	44 1f       	adc	r20, r20
+    1268:	aa 1f       	adc	r26, r26
+    126a:	a9 f3       	breq	.-22     	; 0x1256 <__divsf3_pse+0x10>
+    126c:	35 d0       	rcall	.+106    	; 0x12d8 <__divsf3_pse+0x92>
+    126e:	0e 2e       	mov	r0, r30
+    1270:	3a f0       	brmi	.+14     	; 0x1280 <__divsf3_pse+0x3a>
+    1272:	e0 e8       	ldi	r30, 0x80	; 128
+    1274:	32 d0       	rcall	.+100    	; 0x12da <__divsf3_pse+0x94>
+    1276:	91 50       	subi	r25, 0x01	; 1
+    1278:	50 40       	sbci	r21, 0x00	; 0
+    127a:	e6 95       	lsr	r30
+    127c:	00 1c       	adc	r0, r0
+    127e:	ca f7       	brpl	.-14     	; 0x1272 <__divsf3_pse+0x2c>
+    1280:	2b d0       	rcall	.+86     	; 0x12d8 <__divsf3_pse+0x92>
+    1282:	fe 2f       	mov	r31, r30
+    1284:	29 d0       	rcall	.+82     	; 0x12d8 <__divsf3_pse+0x92>
+    1286:	66 0f       	add	r22, r22
+    1288:	77 1f       	adc	r23, r23
+    128a:	88 1f       	adc	r24, r24
+    128c:	bb 1f       	adc	r27, r27
+    128e:	26 17       	cp	r18, r22
+    1290:	37 07       	cpc	r19, r23
+    1292:	48 07       	cpc	r20, r24
+    1294:	ab 07       	cpc	r26, r27
+    1296:	b0 e8       	ldi	r27, 0x80	; 128
+    1298:	09 f0       	breq	.+2      	; 0x129c <__divsf3_pse+0x56>
+    129a:	bb 0b       	sbc	r27, r27
+    129c:	80 2d       	mov	r24, r0
+    129e:	bf 01       	movw	r22, r30
+    12a0:	ff 27       	eor	r31, r31
+    12a2:	93 58       	subi	r25, 0x83	; 131
+    12a4:	5f 4f       	sbci	r21, 0xFF	; 255
+    12a6:	3a f0       	brmi	.+14     	; 0x12b6 <__divsf3_pse+0x70>
+    12a8:	9e 3f       	cpi	r25, 0xFE	; 254
+    12aa:	51 05       	cpc	r21, r1
+    12ac:	78 f0       	brcs	.+30     	; 0x12cc <__divsf3_pse+0x86>
+    12ae:	0c 94 a2 09 	jmp	0x1344	; 0x1344 <__fp_inf>
+    12b2:	0c 94 ed 09 	jmp	0x13da	; 0x13da <__fp_szero>
+    12b6:	5f 3f       	cpi	r21, 0xFF	; 255
+    12b8:	e4 f3       	brlt	.-8      	; 0x12b2 <__divsf3_pse+0x6c>
+    12ba:	98 3e       	cpi	r25, 0xE8	; 232
+    12bc:	d4 f3       	brlt	.-12     	; 0x12b2 <__divsf3_pse+0x6c>
+    12be:	86 95       	lsr	r24
+    12c0:	77 95       	ror	r23
+    12c2:	67 95       	ror	r22
+    12c4:	b7 95       	ror	r27
+    12c6:	f7 95       	ror	r31
+    12c8:	9f 5f       	subi	r25, 0xFF	; 255
+    12ca:	c9 f7       	brne	.-14     	; 0x12be <__divsf3_pse+0x78>
+    12cc:	88 0f       	add	r24, r24
+    12ce:	91 1d       	adc	r25, r1
+    12d0:	96 95       	lsr	r25
+    12d2:	87 95       	ror	r24
+    12d4:	97 f9       	bld	r25, 7
+    12d6:	08 95       	ret
+    12d8:	e1 e0       	ldi	r30, 0x01	; 1
+    12da:	66 0f       	add	r22, r22
+    12dc:	77 1f       	adc	r23, r23
+    12de:	88 1f       	adc	r24, r24
+    12e0:	bb 1f       	adc	r27, r27
+    12e2:	62 17       	cp	r22, r18
+    12e4:	73 07       	cpc	r23, r19
+    12e6:	84 07       	cpc	r24, r20
+    12e8:	ba 07       	cpc	r27, r26
+    12ea:	20 f0       	brcs	.+8      	; 0x12f4 <__divsf3_pse+0xae>
+    12ec:	62 1b       	sub	r22, r18
+    12ee:	73 0b       	sbc	r23, r19
+    12f0:	84 0b       	sbc	r24, r20
+    12f2:	ba 0b       	sbc	r27, r26
+    12f4:	ee 1f       	adc	r30, r30
+    12f6:	88 f7       	brcc	.-30     	; 0x12da <__divsf3_pse+0x94>
+    12f8:	e0 95       	com	r30
+    12fa:	08 95       	ret
 
-00000e36 <__udivmodhi4_loop>:
- e36:	aa 1f       	adc	r26, r26
- e38:	bb 1f       	adc	r27, r27
- e3a:	a6 17       	cp	r26, r22
- e3c:	b7 07       	cpc	r27, r23
- e3e:	10 f0       	brcs	.+4      	; 0xe44 <__udivmodhi4_ep>
- e40:	a6 1b       	sub	r26, r22
- e42:	b7 0b       	sbc	r27, r23
+000012fc <__fp_cmp>:
+    12fc:	99 0f       	add	r25, r25
+    12fe:	00 08       	sbc	r0, r0
+    1300:	55 0f       	add	r21, r21
+    1302:	aa 0b       	sbc	r26, r26
+    1304:	e0 e8       	ldi	r30, 0x80	; 128
+    1306:	fe ef       	ldi	r31, 0xFE	; 254
+    1308:	16 16       	cp	r1, r22
+    130a:	17 06       	cpc	r1, r23
+    130c:	e8 07       	cpc	r30, r24
+    130e:	f9 07       	cpc	r31, r25
+    1310:	c0 f0       	brcs	.+48     	; 0x1342 <__fp_cmp+0x46>
+    1312:	12 16       	cp	r1, r18
+    1314:	13 06       	cpc	r1, r19
+    1316:	e4 07       	cpc	r30, r20
+    1318:	f5 07       	cpc	r31, r21
+    131a:	98 f0       	brcs	.+38     	; 0x1342 <__fp_cmp+0x46>
+    131c:	62 1b       	sub	r22, r18
+    131e:	73 0b       	sbc	r23, r19
+    1320:	84 0b       	sbc	r24, r20
+    1322:	95 0b       	sbc	r25, r21
+    1324:	39 f4       	brne	.+14     	; 0x1334 <__fp_cmp+0x38>
+    1326:	0a 26       	eor	r0, r26
+    1328:	61 f0       	breq	.+24     	; 0x1342 <__fp_cmp+0x46>
+    132a:	23 2b       	or	r18, r19
+    132c:	24 2b       	or	r18, r20
+    132e:	25 2b       	or	r18, r21
+    1330:	21 f4       	brne	.+8      	; 0x133a <__fp_cmp+0x3e>
+    1332:	08 95       	ret
+    1334:	0a 26       	eor	r0, r26
+    1336:	09 f4       	brne	.+2      	; 0x133a <__fp_cmp+0x3e>
+    1338:	a1 40       	sbci	r26, 0x01	; 1
+    133a:	a6 95       	lsr	r26
+    133c:	8f ef       	ldi	r24, 0xFF	; 255
+    133e:	81 1d       	adc	r24, r1
+    1340:	81 1d       	adc	r24, r1
+    1342:	08 95       	ret
 
-00000e44 <__udivmodhi4_ep>:
- e44:	88 1f       	adc	r24, r24
- e46:	99 1f       	adc	r25, r25
- e48:	5a 95       	dec	r21
- e4a:	a9 f7       	brne	.-22     	; 0xe36 <__udivmodhi4_loop>
- e4c:	80 95       	com	r24
- e4e:	90 95       	com	r25
- e50:	bc 01       	movw	r22, r24
- e52:	cd 01       	movw	r24, r26
- e54:	08 95       	ret
+00001344 <__fp_inf>:
+    1344:	97 f9       	bld	r25, 7
+    1346:	9f 67       	ori	r25, 0x7F	; 127
+    1348:	80 e8       	ldi	r24, 0x80	; 128
+    134a:	70 e0       	ldi	r23, 0x00	; 0
+    134c:	60 e0       	ldi	r22, 0x00	; 0
+    134e:	08 95       	ret
 
-00000e56 <_exit>:
- e56:	f8 94       	cli
+00001350 <__fp_nan>:
+    1350:	9f ef       	ldi	r25, 0xFF	; 255
+    1352:	80 ec       	ldi	r24, 0xC0	; 192
+    1354:	08 95       	ret
 
-00000e58 <__stop_program>:
- e58:	ff cf       	rjmp	.-2      	; 0xe58 <__stop_program>
+00001356 <__fp_pscA>:
+    1356:	00 24       	eor	r0, r0
+    1358:	0a 94       	dec	r0
+    135a:	16 16       	cp	r1, r22
+    135c:	17 06       	cpc	r1, r23
+    135e:	18 06       	cpc	r1, r24
+    1360:	09 06       	cpc	r0, r25
+    1362:	08 95       	ret
+
+00001364 <__fp_pscB>:
+    1364:	00 24       	eor	r0, r0
+    1366:	0a 94       	dec	r0
+    1368:	12 16       	cp	r1, r18
+    136a:	13 06       	cpc	r1, r19
+    136c:	14 06       	cpc	r1, r20
+    136e:	05 06       	cpc	r0, r21
+    1370:	08 95       	ret
+
+00001372 <__fp_round>:
+    1372:	09 2e       	mov	r0, r25
+    1374:	03 94       	inc	r0
+    1376:	00 0c       	add	r0, r0
+    1378:	11 f4       	brne	.+4      	; 0x137e <__fp_round+0xc>
+    137a:	88 23       	and	r24, r24
+    137c:	52 f0       	brmi	.+20     	; 0x1392 <__fp_round+0x20>
+    137e:	bb 0f       	add	r27, r27
+    1380:	40 f4       	brcc	.+16     	; 0x1392 <__fp_round+0x20>
+    1382:	bf 2b       	or	r27, r31
+    1384:	11 f4       	brne	.+4      	; 0x138a <__fp_round+0x18>
+    1386:	60 ff       	sbrs	r22, 0
+    1388:	04 c0       	rjmp	.+8      	; 0x1392 <__fp_round+0x20>
+    138a:	6f 5f       	subi	r22, 0xFF	; 255
+    138c:	7f 4f       	sbci	r23, 0xFF	; 255
+    138e:	8f 4f       	sbci	r24, 0xFF	; 255
+    1390:	9f 4f       	sbci	r25, 0xFF	; 255
+    1392:	08 95       	ret
+
+00001394 <__fp_split3>:
+    1394:	57 fd       	sbrc	r21, 7
+    1396:	90 58       	subi	r25, 0x80	; 128
+    1398:	44 0f       	add	r20, r20
+    139a:	55 1f       	adc	r21, r21
+    139c:	59 f0       	breq	.+22     	; 0x13b4 <__fp_splitA+0x10>
+    139e:	5f 3f       	cpi	r21, 0xFF	; 255
+    13a0:	71 f0       	breq	.+28     	; 0x13be <__fp_splitA+0x1a>
+    13a2:	47 95       	ror	r20
+
+000013a4 <__fp_splitA>:
+    13a4:	88 0f       	add	r24, r24
+    13a6:	97 fb       	bst	r25, 7
+    13a8:	99 1f       	adc	r25, r25
+    13aa:	61 f0       	breq	.+24     	; 0x13c4 <__fp_splitA+0x20>
+    13ac:	9f 3f       	cpi	r25, 0xFF	; 255
+    13ae:	79 f0       	breq	.+30     	; 0x13ce <__fp_splitA+0x2a>
+    13b0:	87 95       	ror	r24
+    13b2:	08 95       	ret
+    13b4:	12 16       	cp	r1, r18
+    13b6:	13 06       	cpc	r1, r19
+    13b8:	14 06       	cpc	r1, r20
+    13ba:	55 1f       	adc	r21, r21
+    13bc:	f2 cf       	rjmp	.-28     	; 0x13a2 <__fp_split3+0xe>
+    13be:	46 95       	lsr	r20
+    13c0:	f1 df       	rcall	.-30     	; 0x13a4 <__fp_splitA>
+    13c2:	08 c0       	rjmp	.+16     	; 0x13d4 <__fp_splitA+0x30>
+    13c4:	16 16       	cp	r1, r22
+    13c6:	17 06       	cpc	r1, r23
+    13c8:	18 06       	cpc	r1, r24
+    13ca:	99 1f       	adc	r25, r25
+    13cc:	f1 cf       	rjmp	.-30     	; 0x13b0 <__fp_splitA+0xc>
+    13ce:	86 95       	lsr	r24
+    13d0:	71 05       	cpc	r23, r1
+    13d2:	61 05       	cpc	r22, r1
+    13d4:	08 94       	sec
+    13d6:	08 95       	ret
+
+000013d8 <__fp_zero>:
+    13d8:	e8 94       	clt
+
+000013da <__fp_szero>:
+    13da:	bb 27       	eor	r27, r27
+    13dc:	66 27       	eor	r22, r22
+    13de:	77 27       	eor	r23, r23
+    13e0:	cb 01       	movw	r24, r22
+    13e2:	97 f9       	bld	r25, 7
+    13e4:	08 95       	ret
+
+000013e6 <__gesf2>:
+    13e6:	0e 94 7e 09 	call	0x12fc	; 0x12fc <__fp_cmp>
+    13ea:	08 f4       	brcc	.+2      	; 0x13ee <__gesf2+0x8>
+    13ec:	8f ef       	ldi	r24, 0xFF	; 255
+    13ee:	08 95       	ret
+
+000013f0 <__divmodhi4>:
+    13f0:	97 fb       	bst	r25, 7
+    13f2:	07 2e       	mov	r0, r23
+    13f4:	16 f4       	brtc	.+4      	; 0x13fa <__divmodhi4+0xa>
+    13f6:	00 94       	com	r0
+    13f8:	07 d0       	rcall	.+14     	; 0x1408 <__divmodhi4_neg1>
+    13fa:	77 fd       	sbrc	r23, 7
+    13fc:	09 d0       	rcall	.+18     	; 0x1410 <__divmodhi4_neg2>
+    13fe:	0e 94 0c 0a 	call	0x1418	; 0x1418 <__udivmodhi4>
+    1402:	07 fc       	sbrc	r0, 7
+    1404:	05 d0       	rcall	.+10     	; 0x1410 <__divmodhi4_neg2>
+    1406:	3e f4       	brtc	.+14     	; 0x1416 <__divmodhi4_exit>
+
+00001408 <__divmodhi4_neg1>:
+    1408:	90 95       	com	r25
+    140a:	81 95       	neg	r24
+    140c:	9f 4f       	sbci	r25, 0xFF	; 255
+    140e:	08 95       	ret
+
+00001410 <__divmodhi4_neg2>:
+    1410:	70 95       	com	r23
+    1412:	61 95       	neg	r22
+    1414:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00001416 <__divmodhi4_exit>:
+    1416:	08 95       	ret
+
+00001418 <__udivmodhi4>:
+    1418:	aa 1b       	sub	r26, r26
+    141a:	bb 1b       	sub	r27, r27
+    141c:	51 e1       	ldi	r21, 0x11	; 17
+    141e:	07 c0       	rjmp	.+14     	; 0x142e <__udivmodhi4_ep>
+
+00001420 <__udivmodhi4_loop>:
+    1420:	aa 1f       	adc	r26, r26
+    1422:	bb 1f       	adc	r27, r27
+    1424:	a6 17       	cp	r26, r22
+    1426:	b7 07       	cpc	r27, r23
+    1428:	10 f0       	brcs	.+4      	; 0x142e <__udivmodhi4_ep>
+    142a:	a6 1b       	sub	r26, r22
+    142c:	b7 0b       	sbc	r27, r23
+
+0000142e <__udivmodhi4_ep>:
+    142e:	88 1f       	adc	r24, r24
+    1430:	99 1f       	adc	r25, r25
+    1432:	5a 95       	dec	r21
+    1434:	a9 f7       	brne	.-22     	; 0x1420 <__udivmodhi4_loop>
+    1436:	80 95       	com	r24
+    1438:	90 95       	com	r25
+    143a:	bc 01       	movw	r22, r24
+    143c:	cd 01       	movw	r24, r26
+    143e:	08 95       	ret
+
+00001440 <_exit>:
+    1440:	f8 94       	cli
+
+00001442 <__stop_program>:
+    1442:	ff cf       	rjmp	.-2      	; 0x1442 <__stop_program>
