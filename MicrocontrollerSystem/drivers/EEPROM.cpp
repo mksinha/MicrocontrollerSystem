@@ -9,7 +9,7 @@
 #include "EEPROM.h"
 #include <avr/io.h>
 
-namespace Integral {
+namespace atmicro {
 	// default constructor
 	EEPROM::EEPROM()
 	{

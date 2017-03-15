@@ -33,15 +33,16 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
+../box/ \
 ../drivers \
 ../controller \
 ../data \
-../sensors \
-../remote
+../sensors
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../box/State.cpp \
 ../controller/Istream.cpp \
 ../controller/Pinset.cpp \
 ../data/ArrayList.cpp \
@@ -49,6 +50,7 @@ C_SRCS +=  \
 ../drivers/AnalogInput.cpp \
 ../drivers/Communication.cpp \
 ../drivers/Device.cpp \
+../drivers/EEPROM.cpp \
 ../drivers/Input.cpp \
 ../drivers/DigitalOutput.cpp \
 ../drivers/Keypad.cpp \
@@ -58,7 +60,6 @@ C_SRCS +=  \
 ../drivers/Storage.cpp \
 ../drivers/USART.cpp \
 ../main.cpp \
-../remote/State.cpp \
 ../sensors/AccelerationSensor.cpp
 
 
@@ -69,6 +70,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+box/State.o \
 controller/Istream.o \
 controller/Pinset.o \
 data/ArrayList.o \
@@ -76,6 +78,7 @@ data/QueueArray.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
+drivers/EEPROM.o \
 drivers/Input.o \
 drivers/DigitalOutput.o \
 drivers/Keypad.o \
@@ -85,10 +88,10 @@ drivers/PushButtonSwitch.o \
 drivers/Storage.o \
 drivers/USART.o \
 main.o \
-remote/State.o \
 sensors/AccelerationSensor.o
 
 OBJS_AS_ARGS +=  \
+box/State.o \
 controller/Istream.o \
 controller/Pinset.o \
 data/ArrayList.o \
@@ -96,6 +99,7 @@ data/QueueArray.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
+drivers/EEPROM.o \
 drivers/Input.o \
 drivers/DigitalOutput.o \
 drivers/Keypad.o \
@@ -105,10 +109,10 @@ drivers/PushButtonSwitch.o \
 drivers/Storage.o \
 drivers/USART.o \
 main.o \
-remote/State.o \
 sensors/AccelerationSensor.o
 
 C_DEPS +=  \
+box/State.d \
 controller/Istream.d \
 controller/Pinset.d \
 data/ArrayList.d \
@@ -116,6 +120,7 @@ data/QueueArray.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
+drivers/EEPROM.d \
 drivers/Input.d \
 drivers/DigitalOutput.d \
 drivers/Keypad.d \
@@ -125,10 +130,10 @@ drivers/PushButtonSwitch.d \
 drivers/Storage.d \
 drivers/USART.d \
 main.d \
-remote/State.d \
 sensors/AccelerationSensor.d
 
 C_DEPS_AS_ARGS +=  \
+box/State.d \
 controller/Istream.d \
 controller/Pinset.d \
 data/ArrayList.d \
@@ -136,6 +141,7 @@ data/QueueArray.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
+drivers/EEPROM.d \
 drivers/Input.d \
 drivers/DigitalOutput.d \
 drivers/Keypad.d \
@@ -145,7 +151,6 @@ drivers/PushButtonSwitch.d \
 drivers/Storage.d \
 drivers/USART.d \
 main.d \
-remote/State.d \
 sensors/AccelerationSensor.d
 
 OUTPUT_FILE_PATH +=MicrocontrollerSystem.elf
@@ -199,6 +204,15 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+box/%.o: ../box/%.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 controller/%.o: ../controller/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
@@ -221,13 +235,6 @@ drivers/%.o: ../drivers/%.cpp
 	
 
 ./%.o: .././%.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
-	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-remote/%.o: ../remote/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
 	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

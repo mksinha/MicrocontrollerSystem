@@ -36,6 +36,8 @@ namespace atmicro
 		void print(double num, short precision=2);
 		void print(int x, int y, const char* str);
 		void print(const char* str);
+		void print(int x, int y, unsigned char chr);
+		void print(unsigned char chr);
 		void cursor(int x, int y);
 		void cursor(bool visible, bool blink);
 		void clear();

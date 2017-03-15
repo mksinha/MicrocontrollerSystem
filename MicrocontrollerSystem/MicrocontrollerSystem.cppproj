@@ -158,6 +158,18 @@
     <Compile Include="atmicro.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="box\actions.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="box\parse.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="box\State.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="box\State.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="controller\adc.h">
       <SubType>compile</SubType>
     </Compile>
@@ -212,6 +224,12 @@
     <Compile Include="drivers\Device.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="drivers\EEPROM.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\EEPROM.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\Input.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -263,18 +281,6 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="remote\actions.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="remote\parse.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="remote\State.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="remote\State.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="sensors\AccelerationSensor.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -283,11 +289,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="box\" />
     <Folder Include="drivers" />
     <Folder Include="controller" />
     <Folder Include="data" />
     <Folder Include="sensors" />
-    <Folder Include="remote" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassStructure.xml">

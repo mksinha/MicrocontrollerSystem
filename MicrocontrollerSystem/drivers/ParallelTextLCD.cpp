@@ -91,6 +91,17 @@ namespace atmicro
 			character(*str++);
 	}
 
+	void ParallelTextLCD::print(int x, int y, unsigned char chr)
+	{
+		cursor(x, y);
+		character(chr);
+	}
+
+	void ParallelTextLCD::print(unsigned char chr)
+	{
+		character(chr);
+	}
+
 	void ParallelTextLCD::clear()
 	{
 		command(0x01);

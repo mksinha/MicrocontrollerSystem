@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+box\State.cpp
+
 controller\Istream.cpp
 
 controller\Pinset.cpp
@@ -15,6 +17,8 @@ drivers\AnalogInput.cpp
 drivers\Communication.cpp
 
 drivers\Device.cpp
+
+drivers\EEPROM.cpp
 
 drivers\Input.cpp
 
@@ -33,8 +37,6 @@ drivers\Storage.cpp
 drivers\USART.cpp
 
 main.cpp
-
-remote\State.cpp
 
 sensors\AccelerationSensor.cpp
 

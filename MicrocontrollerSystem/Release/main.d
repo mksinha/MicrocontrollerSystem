@@ -20,16 +20,13 @@ main.d main.o: .././main.cpp .././atmicro.h .././controller/registry.h \
  .././controller/Istream.h .././controller/../drivers/Keypad.h \
  .././controller/../drivers/Input.h .././controller/../drivers/Device.h \
  .././controller/../drivers/../controller/registry.h \
- .././controller/adc.h \
- c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- .././controller/../drivers/AnalogInput.h \
+ .././drivers/AnalogInput.h .././drivers/Input.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
  .././drivers/DigitalOutput.h .././drivers/Output.h .././drivers/Device.h \
- .././drivers/PushButtonSwitch.h .././drivers/Input.h \
- .././drivers/Keypad.h .././drivers/AnalogInput.h \
+ .././drivers/PushButtonSwitch.h .././drivers/Keypad.h \
  .././drivers/ParallelTextLCD.h .././drivers/USART.h \
- .././drivers/Communication.h .././remote/parse.h \
- .././remote/../atmicro.h .././remote/actions.h
+ .././drivers/Communication.h .././drivers/EEPROM.h .././box/parse.h \
+ .././box/../atmicro.h .././box/actions.h .././box/State.h
 
 .././atmicro.h:
 
@@ -87,11 +84,9 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 .././controller/../drivers/../controller/registry.h:
 
-.././controller/adc.h:
+.././drivers/AnalogInput.h:
 
-c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
-
-.././controller/../drivers/AnalogInput.h:
+.././drivers/Input.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
 
@@ -103,11 +98,7 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 .././drivers/PushButtonSwitch.h:
 
-.././drivers/Input.h:
-
 .././drivers/Keypad.h:
-
-.././drivers/AnalogInput.h:
 
 .././drivers/ParallelTextLCD.h:
 
@@ -115,8 +106,12 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 .././drivers/Communication.h:
 
-.././remote/parse.h:
+.././drivers/EEPROM.h:
 
-.././remote/../atmicro.h:
+.././box/parse.h:
 
-.././remote/actions.h:
+.././box/../atmicro.h:
+
+.././box/actions.h:
+
+.././box/State.h:
