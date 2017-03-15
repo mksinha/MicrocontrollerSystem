@@ -1,4 +1,4 @@
-main.d main.o: .././main.cpp .././atmicro.h .././controller/registry.h \
+main.d main.o: .././main.cpp .././atmicro.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -10,27 +10,26 @@ main.d main.o: .././main.cpp .././atmicro.h .././controller/registry.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
+ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././data/ArrayList.h .././data/List.h .././data/QueueArray.h \
- .././data/ArrayList.h .././controller/Pinset.h \
- .././controller/registry.h \
+ .././data/ArrayList.h .././controller/registry.h \
+ .././controller/Pinset.h .././controller/registry.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdarg.h \
  .././controller/Istream.h .././controller/../drivers/Keypad.h \
  .././controller/../drivers/Input.h .././controller/../drivers/Device.h \
  .././controller/../drivers/../controller/registry.h \
- .././drivers/AnalogInput.h .././drivers/Input.h \
+ .././controller/ADCcontroller.h .././controller/../drivers/AnalogInput.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
- .././drivers/DigitalOutput.h .././drivers/Output.h .././drivers/Device.h \
- .././drivers/PushButtonSwitch.h .././drivers/Keypad.h \
- .././drivers/ParallelTextLCD.h .././drivers/USART.h \
- .././drivers/Communication.h .././drivers/EEPROM.h .././box/parse.h \
- .././box/../atmicro.h .././box/actions.h .././box/State.h
+ .././drivers/AnalogInput.h .././drivers/DigitalOutput.h \
+ .././drivers/Output.h .././drivers/Device.h \
+ .././drivers/PushButtonSwitch.h .././drivers/Input.h \
+ .././drivers/Keypad.h .././drivers/ParallelTextLCD.h \
+ .././drivers/USART.h .././drivers/Communication.h .././drivers/EEPROM.h
 
 .././atmicro.h:
-
-.././controller/registry.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -54,6 +53,8 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
+c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
+
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
@@ -67,6 +68,8 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 .././data/QueueArray.h:
 
 .././data/ArrayList.h:
+
+.././controller/registry.h:
 
 .././controller/Pinset.h:
 
@@ -84,11 +87,13 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 .././controller/../drivers/../controller/registry.h:
 
-.././drivers/AnalogInput.h:
+.././controller/ADCcontroller.h:
 
-.././drivers/Input.h:
+.././controller/../drivers/AnalogInput.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
+
+.././drivers/AnalogInput.h:
 
 .././drivers/DigitalOutput.h:
 
@@ -97,6 +102,8 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 .././drivers/Device.h:
 
 .././drivers/PushButtonSwitch.h:
+
+.././drivers/Input.h:
 
 .././drivers/Keypad.h:
 
@@ -107,11 +114,3 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 .././drivers/Communication.h:
 
 .././drivers/EEPROM.h:
-
-.././box/parse.h:
-
-.././box/../atmicro.h:
-
-.././box/actions.h:
-
-.././box/State.h:

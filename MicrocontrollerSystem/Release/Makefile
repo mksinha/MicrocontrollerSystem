@@ -43,6 +43,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../box/State.cpp \
+../controller/ADCcontroller.cpp \
 ../controller/Istream.cpp \
 ../controller/Pinset.cpp \
 ../data/ArrayList.cpp \
@@ -71,6 +72,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 box/State.o \
+controller/ADCcontroller.o \
 controller/Istream.o \
 controller/Pinset.o \
 data/ArrayList.o \
@@ -92,6 +94,7 @@ sensors/AccelerationSensor.o
 
 OBJS_AS_ARGS +=  \
 box/State.o \
+controller/ADCcontroller.o \
 controller/Istream.o \
 controller/Pinset.o \
 data/ArrayList.o \
@@ -113,6 +116,7 @@ sensors/AccelerationSensor.o
 
 C_DEPS +=  \
 box/State.d \
+controller/ADCcontroller.d \
 controller/Istream.d \
 controller/Pinset.d \
 data/ArrayList.d \
@@ -134,6 +138,7 @@ sensors/AccelerationSensor.d
 
 C_DEPS_AS_ARGS +=  \
 box/State.d \
+controller/ADCcontroller.d \
 controller/Istream.d \
 controller/Pinset.d \
 data/ArrayList.d \
@@ -167,6 +172,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

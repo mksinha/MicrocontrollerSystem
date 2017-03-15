@@ -4,6 +4,8 @@
 
 box\State.cpp
 
+controller\ADCcontroller.cpp
+
 controller\Istream.cpp
 
 controller\Pinset.cpp
