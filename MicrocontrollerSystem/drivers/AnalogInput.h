@@ -11,6 +11,7 @@
 
 #include "Input.h"
 #include <stddef.h>
+#include "../controller/ADCcontroller.h"
 
 namespace atmicro
 {
@@ -37,6 +38,7 @@ namespace atmicro
 	public:
 		AnalogInput(ADCchannel pin);
 		AnalogInput(ADCchannel pin, void (*func)(AnalogInput));
+		AnalogInput(ADCchannel pin, void (*func)(AnalogInput), ADCcontroller& c);
 		~AnalogInput();
 		void initialize();
 		bool isLive();

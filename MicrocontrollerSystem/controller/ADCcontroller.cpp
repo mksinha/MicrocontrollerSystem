@@ -6,9 +6,9 @@
 */
 
 
-#define InterruptADC ISR(ADC_vect)
-
 #include "ADCcontroller.h"
+#include <stddef.h>
+#include "../drivers/AnalogInput.h"
 
 namespace atmicro
 {
@@ -57,6 +57,10 @@ namespace atmicro
 				listADC[i]->process();
 				for (int j = 0; j < 8; j++)
 				{
+					if ((i+j+1)%8 == 0 && cycleListener != NULL)
+					{
+						cycleListener();
+					}
 					if (listADC[(i+j+1)%8] != NULL)
 					{
 						listADC[(i+j+1)%8]->startConversion();
@@ -85,5 +89,10 @@ namespace atmicro
 	{
 		adcProcessRunning = false;
 		ADCSRA &= ~(1 << ADSC);
+	}
+
+	void ADCcontroller::setCycleListener(void (*cycleEndListener)())
+	{
+		cycleListener = cycleEndListener;
 	}
 }

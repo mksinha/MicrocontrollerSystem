@@ -9,6 +9,7 @@
 #include "AnalogInput.h"
 #include <avr/interrupt.h>
 #include <avr/io.h>
+#include "../drivers/AnalogInput.h"
 
 namespace atmicro
 {
@@ -28,6 +29,14 @@ namespace atmicro
 		setEventListener(func);
 	}
 
+	AnalogInput::AnalogInput(ADCchannel pin, void (*func)(AnalogInput), ADCcontroller& c)
+	{
+		this->pin = pin;
+		value = 0;
+		gInit();
+		setEventListener(func);
+		c.registerADC(*this);
+	}
 	// default destructor
 	AnalogInput::~AnalogInput()
 	{

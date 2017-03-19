@@ -36,8 +36,7 @@ SUBDIRS :=  \
 ../box/ \
 ../drivers \
 ../controller \
-../data \
-../sensors
+../data
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -48,6 +47,7 @@ C_SRCS +=  \
 ../controller/Pinset.cpp \
 ../data/ArrayList.cpp \
 ../data/QueueArray.cpp \
+../drivers/Accelerometer.cpp \
 ../drivers/AnalogInput.cpp \
 ../drivers/Communication.cpp \
 ../drivers/Device.cpp \
@@ -60,8 +60,7 @@ C_SRCS +=  \
 ../drivers/PushButtonSwitch.cpp \
 ../drivers/Storage.cpp \
 ../drivers/USART.cpp \
-../main.cpp \
-../sensors/AccelerationSensor.cpp
+../main.cpp
 
 
 PREPROCESSING_SRCS += 
@@ -77,6 +76,7 @@ controller/Istream.o \
 controller/Pinset.o \
 data/ArrayList.o \
 data/QueueArray.o \
+drivers/Accelerometer.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
@@ -89,8 +89,7 @@ drivers/ParallelTextLCD.o \
 drivers/PushButtonSwitch.o \
 drivers/Storage.o \
 drivers/USART.o \
-main.o \
-sensors/AccelerationSensor.o
+main.o
 
 OBJS_AS_ARGS +=  \
 box/State.o \
@@ -99,6 +98,7 @@ controller/Istream.o \
 controller/Pinset.o \
 data/ArrayList.o \
 data/QueueArray.o \
+drivers/Accelerometer.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
@@ -111,8 +111,7 @@ drivers/ParallelTextLCD.o \
 drivers/PushButtonSwitch.o \
 drivers/Storage.o \
 drivers/USART.o \
-main.o \
-sensors/AccelerationSensor.o
+main.o
 
 C_DEPS +=  \
 box/State.d \
@@ -121,6 +120,7 @@ controller/Istream.d \
 controller/Pinset.d \
 data/ArrayList.d \
 data/QueueArray.d \
+drivers/Accelerometer.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
@@ -133,8 +133,7 @@ drivers/ParallelTextLCD.d \
 drivers/PushButtonSwitch.d \
 drivers/Storage.d \
 drivers/USART.d \
-main.d \
-sensors/AccelerationSensor.d
+main.d
 
 C_DEPS_AS_ARGS +=  \
 box/State.d \
@@ -143,6 +142,7 @@ controller/Istream.d \
 controller/Pinset.d \
 data/ArrayList.d \
 data/QueueArray.d \
+drivers/Accelerometer.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
@@ -155,8 +155,7 @@ drivers/ParallelTextLCD.d \
 drivers/PushButtonSwitch.d \
 drivers/Storage.d \
 drivers/USART.d \
-main.d \
-sensors/AccelerationSensor.d
+main.d
 
 OUTPUT_FILE_PATH +=MicrocontrollerSystem.elf
 
@@ -242,13 +241,6 @@ drivers/%.o: ../drivers/%.cpp
 	
 
 ./%.o: .././%.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
-	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-sensors/%.o: ../sensors/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
 	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

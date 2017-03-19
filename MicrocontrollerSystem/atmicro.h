@@ -18,6 +18,7 @@
 #include "data/ArrayList.h"
 #include "data/QueueArray.h"
 #include "controller/registry.h"
+#include "controller/time.h"
 #include "controller/Pinset.h"
 #include "controller/Istream.h"
 #include "controller/ADCcontroller.h"
@@ -30,5 +31,7 @@
 #include "drivers/EEPROM.h"
 
 using namespace atmicro;
+
+#define ADCvector _VECTOR(16)
 
 #endif /* ATMICRO_H_ */

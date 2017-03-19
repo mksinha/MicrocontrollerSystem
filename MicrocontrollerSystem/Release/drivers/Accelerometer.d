@@ -1,7 +1,7 @@
-sensors/AccelerationSensor.d sensors/AccelerationSensor.o: \
- ../sensors/AccelerationSensor.cpp ../sensors/AccelerationSensor.h \
- ../sensors/../controller/registry.h ../sensors/../drivers/AnalogInput.h \
- ../sensors/../drivers/Input.h ../sensors/../drivers/Device.h \
+drivers/Accelerometer.d drivers/Accelerometer.o: \
+ ../drivers/Accelerometer.cpp ../drivers/Accelerometer.h \
+ ../drivers/../drivers/AnalogInput.h ../drivers/../drivers/Input.h \
+ ../drivers/../drivers/Device.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -13,21 +13,19 @@ sensors/AccelerationSensor.d sensors/AccelerationSensor.o: \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../sensors/../drivers/../controller/registry.h \
+ ../drivers/../drivers/../controller/registry.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
- ../sensors/../data/QueueArray.h ../sensors/../data/ArrayList.h \
- ../sensors/../data/List.h \
- c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h
+ ../drivers/../drivers/../controller/ADCcontroller.h \
+ ../drivers/../data/QueueArray.h ../drivers/../data/ArrayList.h \
+ ../drivers/../data/List.h
 
-../sensors/AccelerationSensor.h:
+../drivers/Accelerometer.h:
 
-../sensors/../controller/registry.h:
+../drivers/../drivers/AnalogInput.h:
 
-../sensors/../drivers/AnalogInput.h:
+../drivers/../drivers/Input.h:
 
-../sensors/../drivers/Input.h:
-
-../sensors/../drivers/Device.h:
+../drivers/../drivers/Device.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -51,14 +49,14 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-../sensors/../drivers/../controller/registry.h:
+../drivers/../drivers/../controller/registry.h:
 
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
 
-../sensors/../data/QueueArray.h:
+../drivers/../drivers/../controller/ADCcontroller.h:
 
-../sensors/../data/ArrayList.h:
+../drivers/../data/QueueArray.h:
 
-../sensors/../data/List.h:
+../drivers/../data/ArrayList.h:
 
-c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
+../drivers/../data/List.h:

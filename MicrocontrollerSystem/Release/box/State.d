@@ -17,19 +17,19 @@ box/State.d box/State.o: ../box/State.cpp ../box/State.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  ../box/../data/ArrayList.h ../box/../data/List.h \
  ../box/../data/QueueArray.h ../box/../data/ArrayList.h \
- ../box/../controller/registry.h ../box/../controller/Pinset.h \
- ../box/../controller/registry.h \
+ ../box/../controller/registry.h ../box/../controller/time.h \
+ ../box/../controller/Pinset.h ../box/../controller/registry.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdarg.h \
  ../box/../controller/Istream.h ../box/../controller/../drivers/Keypad.h \
  ../box/../controller/../drivers/Input.h \
  ../box/../controller/../drivers/Device.h \
  ../box/../controller/../drivers/../controller/registry.h \
  ../box/../controller/ADCcontroller.h \
- ../box/../controller/../drivers/AnalogInput.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
- ../box/../drivers/AnalogInput.h ../box/../drivers/DigitalOutput.h \
- ../box/../drivers/Output.h ../box/../drivers/Device.h \
- ../box/../drivers/PushButtonSwitch.h ../box/../drivers/Input.h \
+ ../box/../drivers/AnalogInput.h ../box/../drivers/Input.h \
+ ../box/../drivers/../controller/ADCcontroller.h \
+ ../box/../drivers/DigitalOutput.h ../box/../drivers/Output.h \
+ ../box/../drivers/Device.h ../box/../drivers/PushButtonSwitch.h \
  ../box/../drivers/Keypad.h ../box/../drivers/ParallelTextLCD.h \
  ../box/../drivers/USART.h ../box/../drivers/Communication.h \
  ../box/../drivers/EEPROM.h
@@ -78,6 +78,8 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 ../box/../controller/registry.h:
 
+../box/../controller/time.h:
+
 ../box/../controller/Pinset.h:
 
 ../box/../controller/registry.h:
@@ -96,11 +98,13 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 ../box/../controller/ADCcontroller.h:
 
-../box/../controller/../drivers/AnalogInput.h:
-
 c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
 
 ../box/../drivers/AnalogInput.h:
+
+../box/../drivers/Input.h:
+
+../box/../drivers/../controller/ADCcontroller.h:
 
 ../box/../drivers/DigitalOutput.h:
 
@@ -109,8 +113,6 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 ../box/../drivers/Device.h:
 
 ../box/../drivers/PushButtonSwitch.h:
-
-../box/../drivers/Input.h:
 
 ../box/../drivers/Keypad.h:
 

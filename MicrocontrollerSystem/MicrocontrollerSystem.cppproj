@@ -209,6 +209,12 @@
     <Compile Include="data\QueueArray.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="drivers\Accelerometer.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\Accelerometer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\AnalogInput.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -284,19 +290,12 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="sensors\AccelerationSensor.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="sensors\AccelerationSensor.h">
-      <SubType>compile</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="box\" />
     <Folder Include="drivers" />
     <Folder Include="controller" />
     <Folder Include="data" />
-    <Folder Include="sensors" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassStructure.xml">

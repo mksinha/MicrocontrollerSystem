@@ -1,5 +1,6 @@
 controller/ADCcontroller.d controller/ADCcontroller.o: \
  ../controller/ADCcontroller.cpp ../controller/ADCcontroller.h \
+ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
  ../controller/../drivers/AnalogInput.h ../controller/../drivers/Input.h \
  ../controller/../drivers/Device.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
@@ -14,9 +15,11 @@ controller/ADCcontroller.d controller/ADCcontroller.o: \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  ../controller/../drivers/../controller/registry.h \
- c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h
+ ../controller/../drivers/../controller/ADCcontroller.h
 
 ../controller/ADCcontroller.h:
+
+c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
 
 ../controller/../drivers/AnalogInput.h:
 
@@ -48,4 +51,4 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include
 
 ../controller/../drivers/../controller/registry.h:
 
-c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
+../controller/../drivers/../controller/ADCcontroller.h:

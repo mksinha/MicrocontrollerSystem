@@ -26,7 +26,7 @@ public:
 	Type dequeue();
 	void enqueue(Type el);
 	short getSize();
-	Type peek();
+	Type peek(int depth=0);
 }; //QueueArray
 
 #endif //__QUEUEARRAY_H__

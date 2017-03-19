@@ -7,12 +7,12 @@
 
 
 #include "QueueArray.h"
-
+#include <stddef.h>
 
 template <typename Type>
 Type QueueArray<Type>::dequeue()
 {
-	if (start == end) return 0;
+	if (getSize() == 0) return 0;
 	return ArrayList<Type>::get(start++);
 }
 
@@ -32,9 +32,9 @@ short QueueArray<Type>::getSize()
 }
 
 template <typename Type>
-Type QueueArray<Type>::peek()
+Type QueueArray<Type>::peek(int depth)
 {
-	return ArrayList<Type>::get(start);
+	return ArrayList<Type>::get(ArrayList<Type>::navIndex(start, depth));
 }
 
 template class QueueArray<int>;

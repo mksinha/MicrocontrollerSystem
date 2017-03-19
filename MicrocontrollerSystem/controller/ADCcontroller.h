@@ -9,16 +9,19 @@
 #ifndef __ADCCONTROLLER_H__
 #define __ADCCONTROLLER_H__
 
-#include "../drivers/AnalogInput.h"
+#include <stddef.h>
 
 namespace atmicro
 {
+	class AnalogInput;
+
 	class ADCcontroller
 	{
 	//variables
-	public:
+	private:
 		AnalogInput* listADC[8];
 		bool adcProcessRunning = false;
+		void (*cycleListener)() = NULL;
 
 	//functions
 	public:
@@ -29,11 +32,7 @@ namespace atmicro
 		void processADC();
 		void startADC();
 		void stopADC();
-	protected:
-	private:
-		ADCcontroller( const ADCcontroller &c );
-		ADCcontroller& operator=( const ADCcontroller &c );
-
+		void setCycleListener(void (*cycleEndListener)());
 	}; //ADCcontroller
 }
 

@@ -14,6 +14,8 @@ data\ArrayList.cpp
 
 data\QueueArray.cpp
 
+drivers\Accelerometer.cpp
+
 drivers\AnalogInput.cpp
 
 drivers\Communication.cpp
@@ -39,6 +41,4 @@ drivers\Storage.cpp
 drivers\USART.cpp
 
 main.cpp
-
-sensors\AccelerationSensor.cpp
 
