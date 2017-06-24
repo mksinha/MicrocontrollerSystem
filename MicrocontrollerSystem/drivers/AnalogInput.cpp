@@ -9,6 +9,7 @@
 #include "AnalogInput.h"
 #include <avr/interrupt.h>
 #include <avr/io.h>
+#include "../drivers/AnalogInput.h"
 
 namespace atmicro
 {
@@ -16,10 +17,29 @@ namespace atmicro
 	AnalogInput::AnalogInput(ADCchannel pin)
 	{
 		this->pin = pin;
-		this->value = 0;
-		this->globablInit();
+		value = 0;
+		if (this->pin == ADCvoid) return;
+		gInit();
 	} //AnalogInput
 
+	AnalogInput::AnalogInput(ADCchannel pin, void (*func)(AnalogInput))
+	{
+		this->pin = pin;
+		value = 0;
+		if (this->pin == ADCvoid) return;
+		gInit();
+		setEventListener(func);
+	}
+
+	AnalogInput::AnalogInput(ADCchannel pin, void (*func)(AnalogInput), ADCcontroller& c)
+	{
+		this->pin = pin;
+		value = 0;
+		if (this->pin == ADCvoid) return;
+		gInit();
+		setEventListener(func);
+		c.registerADC(*this);
+	}
 	// default destructor
 	AnalogInput::~AnalogInput()
 	{
@@ -30,17 +50,13 @@ namespace atmicro
 		}
 	} //~AnalogInput
 
-	ADCchannel AnalogInput::getChannel()
-	{
-		return pin;
-	}
-
 	bool AnalogInput::isLive()
 	{
+		if (this->pin == ADCvoid) return false;
 		return (ADMUX & 0b00011111) == pin;
 	}
 
-	void AnalogInput::globablInit(ADCconfig::VREF vref, ADCconfig::ADPS adps)
+	void AnalogInput::gInit(ADCconf::VREF vref, ADCconf::ADPS adps)
 	{
 		ADMUX &= ~((1<<REFS0) | (1<<REFS1));
 		ADCSRA &= ~((1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0));
@@ -53,19 +69,15 @@ namespace atmicro
 
 	void AnalogInput::initialize()
 	{
+		if (this->pin == ADCvoid) return;
 		ADMUX &= (0b11100000);
 		ADMUX |= pin;
 	}
 
-	void AnalogInput::readValue()
-	{
-		uint16_t value8bit = ADCL;
-		this->value = (ADCH << 8) | value8bit;
-	}
-
 	void AnalogInput::startConversion()
 	{
-		this->initialize();
+		if (this->pin == ADCvoid) return;
+		initialize();
 		ADCSRA |= 1 << ADSC;
 	}
 
@@ -74,14 +86,16 @@ namespace atmicro
 		ADCSRA &= ~(1 << ADSC);
 	}
 
-	void AnalogInput::setCallback(void (*func)(int, ADCchannel))
+	void AnalogInput::setEventListener(void (*func)(AnalogInput))
 	{
 		callback = func;
 	}
 
 	void AnalogInput::process()
 	{
-		readValue();
-		callback(value, pin);
+		if (this->pin == ADCvoid) return;
+		uint16_t value8bit = ADCL;
+		this->value = (ADCH << 8) | value8bit;
+		if(callback != NULL) callback(*this);
 	}
 }

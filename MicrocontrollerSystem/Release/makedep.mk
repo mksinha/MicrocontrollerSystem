@@ -2,9 +2,19 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-controller\Microcontroller.cpp
+box\State.cpp
+
+controller\ADCcontroller.cpp
+
+controller\Istream.cpp
 
 controller\Pinset.cpp
+
+data\ArrayList.cpp
+
+data\QueueArray.cpp
+
+drivers\Accelerometer.cpp
 
 drivers\AnalogInput.cpp
 
@@ -28,13 +38,7 @@ drivers\PushButtonSwitch.cpp
 
 drivers\Storage.cpp
 
-drivers\Timer.cpp
-
 drivers\USART.cpp
 
-interface\Istream.cpp
-
 main.cpp
-
-box\State.cpp
 

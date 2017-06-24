@@ -33,16 +33,21 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
+../box/ \
 ../drivers \
 ../controller \
-../interface \
-../box
+../data
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../controller/Microcontroller.cpp \
+../box/State.cpp \
+../controller/ADCcontroller.cpp \
+../controller/Istream.cpp \
 ../controller/Pinset.cpp \
+../data/ArrayList.cpp \
+../data/QueueArray.cpp \
+../drivers/Accelerometer.cpp \
 ../drivers/AnalogInput.cpp \
 ../drivers/Communication.cpp \
 ../drivers/Device.cpp \
@@ -54,11 +59,8 @@ C_SRCS +=  \
 ../drivers/ParallelTextLCD.cpp \
 ../drivers/PushButtonSwitch.cpp \
 ../drivers/Storage.cpp \
-../drivers/Timer.cpp \
 ../drivers/USART.cpp \
-../interface/Istream.cpp \
-../main.cpp \
-../box/State.cpp
+../main.cpp
 
 
 PREPROCESSING_SRCS += 
@@ -68,8 +70,13 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-controller/Microcontroller.o \
+box/State.o \
+controller/ADCcontroller.o \
+controller/Istream.o \
 controller/Pinset.o \
+data/ArrayList.o \
+data/QueueArray.o \
+drivers/Accelerometer.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
@@ -81,15 +88,17 @@ drivers/Output.o \
 drivers/ParallelTextLCD.o \
 drivers/PushButtonSwitch.o \
 drivers/Storage.o \
-drivers/Timer.o \
 drivers/USART.o \
-interface/Istream.o \
-main.o \
-box/State.o
+main.o
 
 OBJS_AS_ARGS +=  \
-controller/Microcontroller.o \
+box/State.o \
+controller/ADCcontroller.o \
+controller/Istream.o \
 controller/Pinset.o \
+data/ArrayList.o \
+data/QueueArray.o \
+drivers/Accelerometer.o \
 drivers/AnalogInput.o \
 drivers/Communication.o \
 drivers/Device.o \
@@ -101,15 +110,17 @@ drivers/Output.o \
 drivers/ParallelTextLCD.o \
 drivers/PushButtonSwitch.o \
 drivers/Storage.o \
-drivers/Timer.o \
 drivers/USART.o \
-interface/Istream.o \
-main.o \
-box/State.o
+main.o
 
 C_DEPS +=  \
-controller/Microcontroller.d \
+box/State.d \
+controller/ADCcontroller.d \
+controller/Istream.d \
 controller/Pinset.d \
+data/ArrayList.d \
+data/QueueArray.d \
+drivers/Accelerometer.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
@@ -121,15 +132,17 @@ drivers/Output.d \
 drivers/ParallelTextLCD.d \
 drivers/PushButtonSwitch.d \
 drivers/Storage.d \
-drivers/Timer.d \
 drivers/USART.d \
-interface/Istream.d \
-main.d \
-box/State.d
+main.d
 
 C_DEPS_AS_ARGS +=  \
-controller/Microcontroller.d \
+box/State.d \
+controller/ADCcontroller.d \
+controller/Istream.d \
 controller/Pinset.d \
+data/ArrayList.d \
+data/QueueArray.d \
+drivers/Accelerometer.d \
 drivers/AnalogInput.d \
 drivers/Communication.d \
 drivers/Device.d \
@@ -141,11 +154,8 @@ drivers/Output.d \
 drivers/ParallelTextLCD.d \
 drivers/PushButtonSwitch.d \
 drivers/Storage.d \
-drivers/Timer.d \
 drivers/USART.d \
-interface/Istream.d \
-main.d \
-box/State.d
+main.d
 
 OUTPUT_FILE_PATH +=MicrocontrollerSystem.elf
 
@@ -198,38 +208,42 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+
+
+box/%.o: ../box/%.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 controller/%.o: ../controller/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
-	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.98\include" -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+data/%.o: ../data/%.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 drivers/%.o: ../drivers/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
-	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.98\include" -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-interface/%.o: ../interface/%.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
-	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.98\include" -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 ./%.o: .././%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
-	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.98\include" -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-box/%.o: ../box/%.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 4.9.2
-	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.98\include" -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.0.106\gcc\dev\atmega32" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 

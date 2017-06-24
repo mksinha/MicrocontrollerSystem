@@ -50,41 +50,67 @@ namespace atmicro
 		_delay_us(50);
 	}
 
-	void ParallelTextLCD::integer(int x, int y, int num)
+	void ParallelTextLCD::print(int x, int y, int num)
 	{
-		char str[20];
+		char str[16];
 		itoa(num, str, 10);
-		string(x, y, str);
+		print(x, y, str);
 	}
 
-	void ParallelTextLCD::integer(int num)
+	void ParallelTextLCD::print(int num)
 	{
-		char str[20];
+		char str[16];
 		itoa(num, str, 10);
-		string(str);
+		print(str);
 	}
 
-	void ParallelTextLCD::string(int x, int y, const char* str)
+	void ParallelTextLCD::print(int x, int y, double num, short precision)
 	{
-		position(x, y);
-		string(str);
+		print(x, y, (int)num);
+		print(".");
+		num = (int)((num - ((int)num))*pow(10, precision));
+		print((int) num);
 	}
 
-	void ParallelTextLCD::string(const char* str)
+	void ParallelTextLCD::print(double num, short precision)
+	{
+		print((int)num);
+		print(".");
+		print((int) pow(10, precision)*(num-(int)num));
+	}
+
+	void ParallelTextLCD::print(int x, int y, const char* str)
+	{
+		cursor(x, y);
+		print(str);
+	}
+
+	void ParallelTextLCD::print(const char* str)
 	{
 		while(*str > 0)
 			character(*str++);
 	}
 
-	void ParallelTextLCD::position(int x, int y)
+	void ParallelTextLCD::print(int x, int y, unsigned char chr)
 	{
-		command(0x80 + this->rowPositions[y] + x);
+		cursor(x, y);
+		character(chr);
+	}
+
+	void ParallelTextLCD::print(unsigned char chr)
+	{
+		character(chr);
 	}
 
 	void ParallelTextLCD::clear()
 	{
 		command(0x01);
 		_delay_ms(2);
+	}
+
+	void ParallelTextLCD::cursor(int x, int y)
+	{
+		command(0x80 + this->rowPositions[y] + x);
 	}
 
 	void ParallelTextLCD::cursor(bool visible, bool blink)
@@ -116,12 +142,6 @@ namespace atmicro
 		setStatus(pinRS, HIGH);
 		action_enable();
 		setStatus(dataPort, 0x00);
-	}
-	
-	void ParallelTextLCD::character(int x, int y, unsigned char chr)
-	{
-		position(x, y);
-		character(chr);
 	}
 
 	void ParallelTextLCD::wait_busy(void)

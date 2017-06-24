@@ -10,10 +10,12 @@
 #define __ANALOGINPUT_H__
 
 #include "Input.h"
+#include <stddef.h>
+#include "../controller/ADCcontroller.h"
 
 namespace atmicro
 {
-	namespace ADCconfig {
+	namespace ADCconf {
 		enum ADPS {
 			PS2 = 1, PS4 = 2, PS8 = 3, PS16 = 4,
 			PS32 = 5, PS64 = 6, PS128 = 7
@@ -28,26 +30,23 @@ namespace atmicro
 	//variables
 	public:
 		uint16_t value;
-	protected:
 		ADCchannel pin;
-		void (*callback)(int value, ADCchannel channel);
+	protected:
+		void (*callback)(AnalogInput e) = NULL;
 
 	//functions
 	public:
 		AnalogInput(ADCchannel pin);
+		AnalogInput(ADCchannel pin, void (*func)(AnalogInput));
+		AnalogInput(ADCchannel pin, void (*func)(AnalogInput), ADCcontroller& c);
 		~AnalogInput();
-		static void globablInit(ADCconfig::VREF vref = ADCconfig::IREF, ADCconfig::ADPS adps = ADCconfig::PS16);
 		void initialize();
-		ADCchannel getChannel();
 		bool isLive();
-		void readValue();
 		void startConversion();
 		void stopConversion();
-		void setCallback(void (*func)(int, ADCchannel));
+		void setEventListener(void (*func)(AnalogInput));
 		void process();
-	private:
-		AnalogInput( const AnalogInput &c );
-		AnalogInput& operator=( const AnalogInput &c );
+		static void gInit(ADCconf::VREF vref = ADCconf::IREF, ADCconf::ADPS adps = ADCconf::PS16);
 	}; //AnalogInput
 }
 

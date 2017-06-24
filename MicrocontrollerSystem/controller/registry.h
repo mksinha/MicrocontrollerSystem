@@ -17,7 +17,7 @@ namespace atmicro
 	#define LOW false
 	
 	#define DDR_OUTPUT true
-	#define DDR_INPUT false 
+	#define DDR_INPUT false
 
 	enum PORT {
 		IOPORTA = 0, IOPORTB = 8, IOPORTC = 16, IOPORTD = 24
@@ -39,7 +39,8 @@ namespace atmicro
 
 	enum ADCchannel {
 		ADC0 = 0, ADC1 = 1, ADC2 = 2, ADC3 = 3,
-		ADC4 = 4, ADC5 = 5, ADC6 = 6, ADC7 = 7
+		ADC4 = 4, ADC5 = 5, ADC6 = 6, ADC7 = 7,
+		ADCvoid = 999
 	};
 }
 

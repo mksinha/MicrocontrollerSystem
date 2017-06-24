@@ -14,35 +14,38 @@
 
 namespace atmicro
 {
+	struct pos {
+		int x, y;
+		pos(int x, int y) {this->x = x; this->y = y;}
+	};
+	struct endl{};
 	class ParallelTextLCD : public Output
 	{
-	//variables
 	protected:
 		PORT dataPort;
 		PIN pinEN, pinRW, pinRS;
 		int rowPositions[4] = {0, 64, 20, 84};
 
-	//functions
 	public:
 		ParallelTextLCD(PORT portData, PIN pinRS, PIN pinRW, PIN pinEN);
 		~ParallelTextLCD();
 		void initialize();
-		void integer(int x, int y, int num);
-		void integer(int num);
-		void string(int x, int y, const char* str);
-		void string(const char* str);
-		void position(int x, int y);
-		void clear();
+		void print(int x, int y, int num);
+		void print(int num);
+		void print(int x, int y, double num, short precision=2);
+		void print(double num, short precision=2);
+		void print(int x, int y, const char* str);
+		void print(const char* str);
+		void print(int x, int y, unsigned char chr);
+		void print(unsigned char chr);
+		void cursor(int x, int y);
 		void cursor(bool visible, bool blink);
-		void character(unsigned char chr);
-		void character(int x, int y, unsigned char chr);
-		void command(unsigned char cmd);
+		void clear();
 	protected:
+		void character(unsigned char chr);
+		void command(unsigned char cmd);
 		void wait_busy(void);
 		void action_enable(void);
-	private:
-		ParallelTextLCD( const ParallelTextLCD &c );
-		ParallelTextLCD& operator=( const ParallelTextLCD &c );
 	}; //TextLCD
 }
 
