@@ -11,22 +11,25 @@
 
 #include "ArrayList.h"
 
-template <typename Type>
-class QueueArray : public ArrayList<Type>
+namespace atmicro
 {
-//variables
-public:
-	int start=0, end=0;
-protected:
-private:
+	template <typename Type>
+	class QueueArray : public ArrayList<Type>
+	{
+		//variables
+	public:
+		int start=0, end=0;
+		protected:
+		private:
 
-//functions
-public:
-	using ArrayList<Type>::ArrayList;
-	Type dequeue();
-	void enqueue(Type el);
-	short getSize();
-	Type peek(int depth=0);
-}; //QueueArray
+		//functions
+	public:
+		using ArrayList<Type>::ArrayList;
+		Type dequeue();
+		void enqueue(Type el);
+		short getSize();
+		Type peek(int depth=0);
+	}; //QueueArray
+}
 
 #endif //__QUEUEARRAY_H__

@@ -28,11 +28,12 @@ box/State.d box/State.o: ../box/State.cpp ../box/State.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
  ../box/../drivers/AnalogInput.h ../box/../drivers/Input.h \
  ../box/../drivers/../controller/ADCcontroller.h \
- ../box/../drivers/DigitalOutput.h ../box/../drivers/Output.h \
- ../box/../drivers/Device.h ../box/../drivers/PushButtonSwitch.h \
- ../box/../drivers/Keypad.h ../box/../drivers/ParallelTextLCD.h \
- ../box/../drivers/USART.h ../box/../drivers/Communication.h \
- ../box/../drivers/EEPROM.h
+ ../box/../drivers/Accelerometer.h ../box/../drivers/AnalogInput.h \
+ ../box/../drivers/../data/QueueArray.h ../box/../drivers/DigitalOutput.h \
+ ../box/../drivers/Output.h ../box/../drivers/Device.h \
+ ../box/../drivers/PushButtonSwitch.h ../box/../drivers/Keypad.h \
+ ../box/../drivers/ParallelTextLCD.h ../box/../drivers/USART.h \
+ ../box/../drivers/Communication.h ../box/../drivers/EEPROM.h
 
 ../box/State.h:
 
@@ -105,6 +106,12 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 ../box/../drivers/Input.h:
 
 ../box/../drivers/../controller/ADCcontroller.h:
+
+../box/../drivers/Accelerometer.h:
+
+../box/../drivers/AnalogInput.h:
+
+../box/../drivers/../data/QueueArray.h:
 
 ../box/../drivers/DigitalOutput.h:
 

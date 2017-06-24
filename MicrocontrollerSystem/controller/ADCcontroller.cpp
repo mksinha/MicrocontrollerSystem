@@ -28,6 +28,7 @@ namespace atmicro
 
 	void ADCcontroller::registerADC(AnalogInput& adc)
 	{
+		if (adc.pin == ADCvoid) return;
 		for (int i = 0; i < 8; i++)
 		{
 			if (adc.pin == (ADCchannel)i)

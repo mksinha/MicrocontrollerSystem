@@ -18,6 +18,7 @@ namespace atmicro
 	{
 		this->pin = pin;
 		value = 0;
+		if (this->pin == ADCvoid) return;
 		gInit();
 	} //AnalogInput
 
@@ -25,6 +26,7 @@ namespace atmicro
 	{
 		this->pin = pin;
 		value = 0;
+		if (this->pin == ADCvoid) return;
 		gInit();
 		setEventListener(func);
 	}
@@ -33,6 +35,7 @@ namespace atmicro
 	{
 		this->pin = pin;
 		value = 0;
+		if (this->pin == ADCvoid) return;
 		gInit();
 		setEventListener(func);
 		c.registerADC(*this);
@@ -49,6 +52,7 @@ namespace atmicro
 
 	bool AnalogInput::isLive()
 	{
+		if (this->pin == ADCvoid) return false;
 		return (ADMUX & 0b00011111) == pin;
 	}
 
@@ -65,12 +69,14 @@ namespace atmicro
 
 	void AnalogInput::initialize()
 	{
+		if (this->pin == ADCvoid) return;
 		ADMUX &= (0b11100000);
 		ADMUX |= pin;
 	}
 
 	void AnalogInput::startConversion()
 	{
+		if (this->pin == ADCvoid) return;
 		initialize();
 		ADCSRA |= 1 << ADSC;
 	}
@@ -87,6 +93,7 @@ namespace atmicro
 
 	void AnalogInput::process()
 	{
+		if (this->pin == ADCvoid) return;
 		uint16_t value8bit = ADCL;
 		this->value = (ADCH << 8) | value8bit;
 		if(callback != NULL) callback(*this);

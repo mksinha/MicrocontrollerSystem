@@ -23,6 +23,7 @@
 #include "controller/Istream.h"
 #include "controller/ADCcontroller.h"
 #include "drivers/AnalogInput.h"
+#include "drivers/Accelerometer.h"
 #include "drivers/DigitalOutput.h"
 #include "drivers/PushButtonSwitch.h"
 #include "drivers/Keypad.h"

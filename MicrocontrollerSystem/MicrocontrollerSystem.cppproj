@@ -161,13 +161,16 @@
     <Compile Include="box\actions.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="box\parse.h">
+    <Compile Include="box\interface.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="box\State.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="box\State.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="controller\ADCcontroller.cpp">

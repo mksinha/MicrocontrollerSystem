@@ -11,14 +11,20 @@
 
 #include "../atmicro.h"
 #include "actions.h"
+#include "../config.h"
 
-void parse(Istream& input, ParallelTextLCD& lcd, State& state)
+void interface(Istream& input, ParallelTextLCD& lcd, State& state, Accelerometer& ac)
 {
 	if (input.length == 0)
 	{
-		if(state.armstate == true)
+		if(state.armstate == true && state.safe > SAFETY_LIMIT)
 		{
 			lcd.print(0, 0, "Safe :)         ");
+			lcd.print(0, 1, "                ");
+		}
+		else if (state.armstate == true && state.safe < SAFETY_LIMIT)
+		{
+			lcd.print(0, 0, "Theft Alert :(  ");
 			lcd.print(0, 1, "                ");
 		}
 		else
@@ -32,7 +38,12 @@ void parse(Istream& input, ParallelTextLCD& lcd, State& state)
 	{
 		lcd.clear();
 		if (arm(state))
+		{
+			state.setLockAccelerations(ac);
 			lcd.print(0, 0, "Armed Device.   ");
+			state.safe = 100;
+			_delay_ms(1000);
+		}
 		else if (state.armstate == true)
 			lcd.print(0, 0, "Already Armed.  ");
 		else
@@ -59,7 +70,7 @@ void parse(Istream& input, ParallelTextLCD& lcd, State& state)
 			lcd.print(2, 1, "Alarm on.       ");
 
 		input.clear();
-		_delay_ms(2000);
+		_delay_ms(500);
 		lcd.clear();
 	}
 	// Action B - Disarm Device
@@ -68,16 +79,25 @@ void parse(Istream& input, ParallelTextLCD& lcd, State& state)
 		lcd.print(0, 0, "Pass code: ");
 		for (int i = 1; i < input.length; i++)
 			lcd.print(i + 10, 0, "*");
+		lcd.print("    ");
 		if (input.length >= 5)
 		{
 			if (disarm(input, state))
+			{
+				state.safe = 100;
 				lcd.print(0, 1, "Disarmed device.");
+			}
 			else if (state.armstate == false)
+			{
 				lcd.print(0, 1, "Already Disarmed");
+				state.safe = 100;
+			}
 			else
+			{
 				lcd.print(0, 1, "PassCode Invalid");
+			}
 			input.clear();
-			_delay_ms(2000);
+			_delay_ms(1000);
 			lcd.clear();
 		}
 	}

@@ -9,7 +9,7 @@
 #ifndef __ACCELEROMETER_H__
 #define __ACCELEROMETER_H__
 
-#include "../drivers/AnalogInput.h"
+#include "AnalogInput.h"
 #include "../data/QueueArray.h"
 
 namespace atmicro
@@ -17,20 +17,19 @@ namespace atmicro
 	class Accelerometer
 	{
 	public:
-		int x=0, y=0, z=0;
+		short x=0, y=0, z=0;
 	private:
-		AnalogInput* listADC[3];
-		QueueArray<int> listX, listY, listZ;
+		AnalogInput lineX = AnalogInput(ADC0);
+		AnalogInput lineY = AnalogInput(ADC0);
+		AnalogInput lineZ = AnalogInput(ADC0);
 
 	//functions
 	public:
-		Accelerometer();
+		Accelerometer(ADCchannel x, ADCchannel y, ADCchannel z);
 		~Accelerometer();
-		void registerADC(AnalogInput& adc);
-		void clearADC();
-		void processADC();
-		void startADC();
-		void stopADC();
+		void process();
+		void start();
+		void stop();
 	}; //Accelerometer
 }
 

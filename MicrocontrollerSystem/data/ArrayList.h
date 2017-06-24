@@ -11,23 +11,27 @@
 
 #include "List.h"
 
-template <typename Type>
-class ArrayList : public List<Type>
+namespace atmicro
 {
-//variables
-public:
-	short size;
-protected:
-	Type* mList;
+	template <typename Type>
+	class ArrayList : public List<Type>
+	{
+		//variables
+		public:
+		short size;
+		protected:
+		Type* mList;
 
-//functions
-public:
-	ArrayList(short size=10);
-	~ArrayList();
-	Type get(short index);
-	void set(Type value, short index);
-protected:
-	short navIndex(short curIndex, short change = 0);
-};
+		//functions
+		public:
+		ArrayList(short size=10);
+		~ArrayList();
+		Type get(short index);
+		void set(Type value, short index);
+		void resize(int size);
+		protected:
+		short navIndex(short curIndex, short change = 0);
+	};
+}
 
 #endif

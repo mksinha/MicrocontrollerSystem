@@ -10,41 +10,51 @@
 #include "../drivers/Device.h"
 #include <stdlib.h>
 
-template <typename Type>
-ArrayList<Type>::ArrayList(short size)
+namespace atmicro
 {
-	this->mList = (Type*)calloc(size, sizeof(Type));
-	this->size = size;
-}
+	template <typename Type>
+	ArrayList<Type>::ArrayList(short size)
+	{
+		this->mList = (Type*)calloc(size, sizeof(Type));
+		this->size = size;
+	}
 
-template <typename Type>
-ArrayList<Type>::~ArrayList()
-{
-	free(this);
-}
+	template <typename Type>
+	ArrayList<Type>::~ArrayList()
+	{
+		free(this->mList);
+	}
 
-template <typename Type>
-Type ArrayList<Type>::get(short index)
-{
-	return *(this->mList + index);
-}
+	template <typename Type>
+	Type ArrayList<Type>::get(short index)
+	{
+		return *(this->mList + index);
+	}
 
-template <typename Type>
-void ArrayList<Type>::set(Type value, short index)
-{
-	*(this->mList + index) = value;
-}
+	template <typename Type>
+	void ArrayList<Type>::set(Type value, short index)
+	{
+		*(this->mList + index) = value;
+	}
 
-template <typename Type>
-short ArrayList<Type>::navIndex(short curIndex, short change)
-{
-	curIndex += change;
-	if (curIndex < 0)
+	template <typename Type>
+	short ArrayList<Type>::navIndex(short curIndex, short change)
+	{
+		curIndex += change;
+		if (curIndex < 0)
 		curIndex = size - curIndex;
-	curIndex %= size;
-	return curIndex;
-}
+		curIndex %= size;
+		return curIndex;
+	}
 
-template class ArrayList<int>;
-template class ArrayList<char*>;
-template class ArrayList<double>;
+	template <typename Type>
+	void ArrayList<Type>::resize(int size)
+	{
+		this->mList = (Type*)realloc(this->mList, size*sizeof(Type));
+		this->size = size;
+	}
+
+	template class ArrayList<int>;
+	template class ArrayList<char*>;
+	template class ArrayList<double>;
+}

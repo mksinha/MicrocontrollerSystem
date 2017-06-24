@@ -24,13 +24,14 @@ main.d main.o: .././main.cpp .././atmicro.h \
  .././controller/ADCcontroller.h \
  c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
  .././drivers/AnalogInput.h .././drivers/Input.h \
- .././drivers/../controller/ADCcontroller.h .././drivers/DigitalOutput.h \
- .././drivers/Output.h .././drivers/Device.h \
+ .././drivers/../controller/ADCcontroller.h .././drivers/Accelerometer.h \
+ .././drivers/AnalogInput.h .././drivers/../data/QueueArray.h \
+ .././drivers/DigitalOutput.h .././drivers/Output.h .././drivers/Device.h \
  .././drivers/PushButtonSwitch.h .././drivers/Keypad.h \
  .././drivers/ParallelTextLCD.h .././drivers/USART.h \
- .././drivers/Communication.h .././drivers/EEPROM.h \
- .././drivers/Accelerometer.h .././drivers/../drivers/AnalogInput.h \
- .././drivers/../data/QueueArray.h
+ .././drivers/Communication.h .././drivers/EEPROM.h .././config.h \
+ .././box/interface.h .././box/../atmicro.h .././box/actions.h \
+ .././box/State.h .././box/../config.h
 
 .././atmicro.h:
 
@@ -102,6 +103,12 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 .././drivers/../controller/ADCcontroller.h:
 
+.././drivers/Accelerometer.h:
+
+.././drivers/AnalogInput.h:
+
+.././drivers/../data/QueueArray.h:
+
 .././drivers/DigitalOutput.h:
 
 .././drivers/Output.h:
@@ -120,8 +127,14 @@ c:\program\ files\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr
 
 .././drivers/EEPROM.h:
 
-.././drivers/Accelerometer.h:
+.././config.h:
 
-.././drivers/../drivers/AnalogInput.h:
+.././box/interface.h:
 
-.././drivers/../data/QueueArray.h:
+.././box/../atmicro.h:
+
+.././box/actions.h:
+
+.././box/State.h:
+
+.././box/../config.h:

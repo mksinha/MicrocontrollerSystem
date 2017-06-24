@@ -29,10 +29,11 @@ public:
 
 //variables
 public:
-	bool safe = true;
+	int safe = 100;
 	bool armstate = false;
 	AlarmMode alarmMode;
 	TravelMode travelMode;
+	int lockAccX, lockAccY, lockAccZ;
 protected:
 private:
 	int passcode = 0000;
@@ -43,6 +44,7 @@ private:
 public:
 	State();
 	~State();
+	void setLockAccelerations(Accelerometer& ac);
 	bool setPasscode(int oldcode, int newcode);
 	bool checkPasscode(int pass);
 	void saveToMemory();

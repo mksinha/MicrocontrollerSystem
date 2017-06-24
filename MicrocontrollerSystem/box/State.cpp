@@ -22,6 +22,9 @@ State::State()
 		alarmMode = ON;
 		travelMode = TRAIN;
 		saveToMemory();
+		lockAccX = 0;
+		lockAccY = 0;
+		lockAccZ = 0;
 	}
 } //State
 
@@ -38,6 +41,13 @@ bool State::setPasscode(int oldcode, int newcode)
 	passcode = newcode;
 	saveToMemory();
 	return true;
+}
+
+void State::setLockAccelerations(Accelerometer& ac)
+{
+	lockAccX = ac.x;
+	lockAccY = ac.y;
+	lockAccZ = ac.z;
 }
 
 bool State::checkPasscode(int pass)
