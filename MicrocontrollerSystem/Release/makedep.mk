@@ -32,6 +32,8 @@ drivers\Keypad.cpp
 
 drivers\Output.cpp
 
+drivers\ParallelGraphicLCD.cpp
+
 drivers\ParallelTextLCD.cpp
 
 drivers\PushButtonSwitch.cpp

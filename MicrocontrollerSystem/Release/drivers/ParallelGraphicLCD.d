@@ -1,4 +1,5 @@
-drivers/Output.d drivers/Output.o: ../drivers/Output.cpp \
+drivers/ParallelGraphicLCD.d drivers/ParallelGraphicLCD.o: \
+ ../drivers/ParallelGraphicLCD.cpp ../drivers/ParallelGraphicLCD.h \
  ../drivers/Output.h ../drivers/Device.h \
  c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -11,7 +12,12 @@ drivers/Output.d drivers/Output.o: ../drivers/Output.cpp \
  c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../drivers/../controller/registry.h
+ ../drivers/../controller/registry.h \
+ c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
+ c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
+ c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
+
+../drivers/ParallelGraphicLCD.h:
 
 ../drivers/Output.h:
 
@@ -40,3 +46,9 @@ c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr
 c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
 ../drivers/../controller/registry.h:
+
+c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
+
+c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
+
+c:\program\ files\ (x86)\atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:

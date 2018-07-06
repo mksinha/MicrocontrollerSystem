@@ -46,7 +46,7 @@ namespace atmicro
 		_delay_ms(2);
 		command(0x38); // Set up LCD 8-bit mode
 		_delay_us(50);
-		command(0b00001100); // Bit 3: Use function |2: Show Display |1: Show Cursor |0: Blinking Cursor
+		command(0b00001100); // Bit 3: Use function | 2: Show Display | 1: Show Cursor | 0: Blinking Cursor
 		_delay_us(50);
 	}
 
