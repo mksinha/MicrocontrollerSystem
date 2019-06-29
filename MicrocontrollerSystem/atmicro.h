@@ -30,6 +30,7 @@
 #include "drivers/ParallelTextLCD.h"
 #include "drivers/USART.h"
 #include "drivers/EEPROM.h"
+#include "drivers/NibbleTextLCD.h"
 
 using namespace atmicro;
 

@@ -27,11 +27,8 @@ namespace atmicro
 		void initialize();
 		void transmit(unsigned char data);
 		unsigned char receive(void);
-	protected:
-	private:
 		USART( const USART &c );
 		USART& operator=( const USART &c );
-
 	}; //USART
 }
 

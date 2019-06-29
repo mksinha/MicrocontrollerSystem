@@ -20,6 +20,7 @@ namespace atmicro
 	public:
 		virtual void initialize()=0; // make Device not instantiable
 		static bool getStatus(PIN pin);
+		static int getStatus(PORT port);
 		static void setStatus(PIN pin, bool state);
 		static void setStatus(PORT port, int state);
 		static void setDirection(PIN pin, bool state);

@@ -1,29 +1,29 @@
-/* 
-* ParallelTextLCD.h
+/*
+* NibbleTextLCD.h
 *
 * Created: 4/12/2016 1:05:34 AM
 * Author: Animesh Sinha
 */
 
 
-#ifndef __TEXTLCD_H__
-#define __TEXTLCD_H__
+#ifndef __NIBBLETEXTLCD_H__
+#define __NIBBLETEXTLCD_H__
 
 #include "Output.h"
 
 
 namespace atmicro
 {
-	class ParallelTextLCD : public Output
+	class NibbleTextLCD : public Output
 	{
+	private:
+		const POSITION pinEN = IOPIN1, pinRS = IOPIN0;
 	protected:
-		PORT dataPort;
-		PIN pinEN, pinRW, pinRS;
-		int rowPositions[4] = {0, 64, 20, 84};
+		PORT port;
 
 	public:
-		ParallelTextLCD(PORT portData, PIN pinRS, PIN pinRW, PIN pinEN);
-		~ParallelTextLCD();
+		NibbleTextLCD(PORT port);
+		~NibbleTextLCD();
 		void initialize();
 		void print(int x, int y, int num);
 		void print(int num);
@@ -34,14 +34,12 @@ namespace atmicro
 		void print(int x, int y, unsigned char chr);
 		void print(unsigned char chr);
 		void cursor(int x, int y);
-		void cursor(bool visible, bool blink);
 		void clear();
 	protected:
 		void character(unsigned char chr);
 		void command(unsigned char cmd);
-		void wait_busy(void);
 		void action_enable(void);
-	}; //TextLCD
+	}; //NibbleTextLCD
 }
 
-#endif //__TEXTLCD_H__
+#endif //__NIBBLETEXTLCD_H__

@@ -78,6 +78,15 @@ namespace atmicro
 			return false;
 	}
 
+	int Device::getStatus(PORT port)
+	{
+		if (port == IOPORTA) return PORTA;
+		else if (port == IOPORTB) return PORTB;
+		else if (port == IOPORTC) return PORTC;
+		else if (port == IOPORTD) return PORTD;
+		else return 0;
+	}
+
 	void Device::setStatus(PORT port, POSITION pin, bool state)
 	{
 		if (state == true)
