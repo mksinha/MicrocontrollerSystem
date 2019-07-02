@@ -9,7 +9,7 @@
 #ifndef ATMICRO_H_
 #define ATMICRO_H_
 
-#define F_CPU 1000000L
+#define F_CPU 2000000L
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -31,6 +31,7 @@
 #include "drivers/USART.h"
 #include "drivers/EEPROM.h"
 #include "drivers/NibbleTextLCD.h"
+#include "drivers/SerialTextLCD.h"
 
 using namespace atmicro;
 
