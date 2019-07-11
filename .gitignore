@@ -77,3 +77,10 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.d
+MicrocontrollerSystem/Release/MicrocontrollerSystem.eep
+MicrocontrollerSystem/Release/MicrocontrollerSystem.elf
+MicrocontrollerSystem/Release/MicrocontrollerSystem.lss
+MicrocontrollerSystem/Release/MicrocontrollerSystem.map
+MicrocontrollerSystem/Release/MicrocontrollerSystem.srec
+MicrocontrollerSystem/Release/MicrocontrollerSystem.hex
