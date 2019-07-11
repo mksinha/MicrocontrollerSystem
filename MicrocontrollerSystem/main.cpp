@@ -1,55 +1,26 @@
 #include "atmicro.h"
-#include "config.h"
-#include "box/interface.h"
-
-ParallelTextLCD lcd = ParallelTextLCD(IOPORTB, IOPIND4, IOPIND3, IOPIND2);
-DigitalOutput backlight = DigitalOutput(IOPIND5);
-DigitalOutput buzzer = DigitalOutput(IOPIND6);
-DigitalOutput led = DigitalOutput(IOPIND7);
-Accelerometer acclm = Accelerometer(ADC0, ADC1, ADC2);
-Keypad pad = Keypad(IOPORTC);
-State state;
-Istream istream;
+Accelerometer acc = Accelerometer(ADC2, ADC1, ADC0);
+USART com = USART(12);
 
 int main(void)
 {
-	acclm.start();
+	DigitalOutput led(IOPINB0);
+	acc.start();
 	delay(1000);
-	backlight.on();
-	lcd.clear();
-	state.setLockAccelerations(acclm);
-	delay(1000);
- 	while(1)
- 	{
-		istream.update(pad);
-		interface(istream, lcd, state, acclm);
-		#if DEBUG_MODE == true
-			lcd.print(0, 1, acclm.x - state.lockAccX);
-			lcd.print(4, 1, acclm.y - state.lockAccY);
-			lcd.print(8, 1, acclm.z - state.lockAccZ);
-			lcd.print(13, 1, state.safe);
-		#endif
-		if(	   (acclm.x-state.lockAccX>10 || acclm.x-state.lockAccX<-10 ||  
-				acclm.y-state.lockAccY>10 || acclm.y-state.lockAccY<-10 ||
-				acclm.z-state.lockAccZ>10 || acclm.z-state.lockAccZ<-10)
-				&& state.armstate==true && state.armstate > 0) 
-		{
-			state.safe--;
-		}
-		if (state.safe < SAFETY_LIMIT && state.armstate == true)
-		{
-			led.on();
-			buzzer.on();
-		}
-		else
-		{
-			led.off();
-			buzzer.off();
-		}
- 	}
+	for (long long i = 0; i < 300000; i++)
+	{
+		com.transmit(0b00001111);
+		int aX = acc.x, aY = acc.y, aZ = acc.z;
+		com.transmit(0b01000000 | (aX & 0b00011111));
+		com.transmit(0b01100000 | (aX >> 5));		 
+		com.transmit(0b10000000 | (aY & 0b00011111));
+		com.transmit(0b10100000 | (aY >> 5));		 
+		com.transmit(0b11000000 | (aZ & 0b00011111));
+		com.transmit(0b11100000 | (aZ >> 5));		 
+	}
+	for (int i = 0; i < 10; i++) com.transmit(0b00111111); delay(5);
+	acc.stop(); led.on();
+	while(1);
 }
 
-ISR(ADCvector)
-{
-	acclm.process();
-}
+ISR(ADCvector) { acc.process(); }
