@@ -55,7 +55,6 @@ C_SRCS +=  \
 ../drivers/Input.cpp \
 ../drivers/DigitalOutput.cpp \
 ../drivers/Keypad.cpp \
-../drivers/NibbleTextLCD.cpp \
 ../drivers/Output.cpp \
 ../drivers/ParallelTextLCD.cpp \
 ../drivers/PushButtonSwitch.cpp \
@@ -87,7 +86,6 @@ drivers/EEPROM.o \
 drivers/Input.o \
 drivers/DigitalOutput.o \
 drivers/Keypad.o \
-drivers/NibbleTextLCD.o \
 drivers/Output.o \
 drivers/ParallelTextLCD.o \
 drivers/PushButtonSwitch.o \
@@ -112,7 +110,6 @@ drivers/EEPROM.o \
 drivers/Input.o \
 drivers/DigitalOutput.o \
 drivers/Keypad.o \
-drivers/NibbleTextLCD.o \
 drivers/Output.o \
 drivers/ParallelTextLCD.o \
 drivers/PushButtonSwitch.o \
@@ -137,7 +134,6 @@ drivers/EEPROM.d \
 drivers/Input.d \
 drivers/DigitalOutput.d \
 drivers/Keypad.d \
-drivers/NibbleTextLCD.d \
 drivers/Output.d \
 drivers/ParallelTextLCD.d \
 drivers/PushButtonSwitch.d \
@@ -162,7 +158,6 @@ drivers/EEPROM.d \
 drivers/Input.d \
 drivers/DigitalOutput.d \
 drivers/Keypad.d \
-drivers/NibbleTextLCD.d \
 drivers/Output.d \
 drivers/ParallelTextLCD.d \
 drivers/PushButtonSwitch.d \
@@ -278,13 +273,6 @@ drivers/DigitalOutput.o: ../drivers/DigitalOutput.cpp
 	
 
 drivers/Keypad.o: ../drivers/Keypad.cpp
-	@echo Building file: $<
-	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega16 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega16" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-drivers/NibbleTextLCD.o: ../drivers/NibbleTextLCD.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega16 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega16" -c -std=c++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

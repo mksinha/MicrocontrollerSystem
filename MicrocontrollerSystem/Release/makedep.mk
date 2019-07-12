@@ -30,8 +30,6 @@ drivers\DigitalOutput.cpp
 
 drivers\Keypad.cpp
 
-drivers\NibbleTextLCD.cpp
-
 drivers\Output.cpp
 
 drivers\ParallelTextLCD.cpp

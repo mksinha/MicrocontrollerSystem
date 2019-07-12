@@ -7,7 +7,7 @@ int main(void)
 	DigitalOutput led(IOPINB0);
 	acc.start();
 	delay(1000);
-	for (long long i = 0; i < 300000; i++)
+	for (long long i = 0; i < 100; i++)
 	{
 		com.transmit(0b00001111);
 		int aX = acc.x, aY = acc.y, aZ = acc.z;
